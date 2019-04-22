@@ -1,0 +1,58 @@
+\begin{thebibliography}{}
+
+\bibitem[El~Khiyari and Wechsler, 2016]{2016face}
+El~Khiyari, H. and Wechsler, H. (2016).
+\newblock Face recognition across time lapse using convolutional neural
+  networks.
+\newblock {\em Journal of Information Security}, 7(03):141.
+
+\bibitem[Girshick et~al., ]{girshick_rich_2013}
+Girshick, R., Donahue, J., Darrell, T., and Malik, J.
+\newblock Rich feature hierarchies for accurate object detection and semantic
+  segmentation.
+
+\bibitem[He et~al., ]{he_mask_2017}
+He, K., Gkioxari, G., Dollár, P., and Girshick, R.
+\newblock Mask r-{CNN}.
+
+\bibitem[Koeberl, 1994]{koeberl1994african}
+Koeberl, C. (1994).
+\newblock African meteorite impact craters: Characteristics and geological
+  importance.
+\newblock {\em Journal of African Earth Sciences}, 18(4):263--295.
+
+\bibitem[Krizhevsky et~al., 2012]{krizhevsky_imagenet_2012}
+Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
+\newblock {ImageNet} classification with deep convolutional neural networks.
+\newblock 60(6):84--90.
+
+\bibitem[Martins et~al., 2009]{martins2009crater}
+Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
+\newblock Crater detection by a boosting approach.
+\newblock {\em IEEE Geoscience and Remote Sensing Letters}, 6(1):127--131.
+
+\bibitem[Neukum et~al., 1975]{neukum1975cratering}
+Neukum, G., K{\"o}nig, B., Fechtig, H., and Storzer, D. (1975).
+\newblock Cratering in the earth-moon system-consequences for age determination
+  by crater counting.
+\newblock In {\em Lunar and Planetary Science Conference Proceedings},
+  volume~6, pages 2597--2620.
+
+\bibitem[Redmon et~al., ]{redmon_you_2016}
+Redmon, J., Divvala, S., Girshick, R., and Farhadi, A.
+\newblock You only look once: Unified, real-time object detection.
+\newblock pages 779--788. {IEEE}.
+
+\bibitem[Robinson et~al., 2010]{robinson2010lunar}
+Robinson, M., Brylow, S., Tschimmel, M., Humm, D., Lawrence, S., Thomas, P.,
+  Denevi, B., Bowman-Cisneros, E., Zerr, J., Ravine, M., et~al. (2010).
+\newblock Lunar reconnaissance orbiter camera (lroc) instrument overview.
+\newblock {\em Space science reviews}, 150(1-4):81--124.
+
+\bibitem[Sawabe et~al., 2006]{sawabe_2006}
+Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
+\newblock Automated detection and classification of lunar craters using
+  multiple approaches.
+\newblock 37(1):21--27.
+
+\end{thebibliography}

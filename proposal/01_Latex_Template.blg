@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: 01_Latex_Template.aux
+The style file: apalike.bst
+Database file #1: mybib.bib
+Repeated entry---line 127 of file mybib.bib
+ : @article{martins2009crater
+ :                           ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "sawabe_automated_2006"
+Warning--empty year in girshick_rich_2013
+Warning--empty journal in girshick_rich_2013
+Warning--empty year in he_mask_2017
+Warning--empty journal in he_mask_2017
+Warning--empty journal in krizhevsky_imagenet_2012
+Warning--empty year in redmon_you_2016
+Warning--empty booktitle in redmon_you_2016
+Warning--empty journal in sawabe_2006
+You've used 10 entries,
+            1935 wiz_defined-function locations,
+            535 strings with 5509 characters,
+and the built_in function-call counts, 4603 in all, are:
+= -- 443
+> -- 229
+< -- 5
++ -- 80
+- -- 80
+* -- 406
+:= -- 787
+add.period$ -- 29
+call.type$ -- 10
+change.case$ -- 89
+chr.to.int$ -- 10
+cite$ -- 18
+duplicate$ -- 165
+empty$ -- 297
+format.name$ -- 92
+if$ -- 894
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 10
+newline$ -- 51
+num.names$ -- 30
+pop$ -- 96
+preamble$ -- 1
+purify$ -- 89
+quote$ -- 0
+skip$ -- 124
+stack$ -- 0
+substring$ -- 311
+swap$ -- 26
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 8
+while$ -- 37
+width$ -- 0
+write$ -- 122
+(There was 1 error message)
