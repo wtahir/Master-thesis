@@ -15,12 +15,6 @@ Girshick, R., Donahue, J., Darrell, T., and Malik, J.
 He, K., Gkioxari, G., Dollár, P., and Girshick, R.
 \newblock Mask r-{CNN}.
 
-\bibitem[Koeberl, 1994]{koeberl1994african}
-Koeberl, C. (1994).
-\newblock African meteorite impact craters: Characteristics and geological
-  importance.
-\newblock {\em Journal of African Earth Sciences}, 18(4):263--295.
-
 \bibitem[Krizhevsky et~al., 2012]{krizhevsky_imagenet_2012}
 Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
 \newblock {ImageNet} classification with deep convolutional neural networks.
@@ -42,12 +36,6 @@ Neukum, G., K{\"o}nig, B., Fechtig, H., and Storzer, D. (1975).
 Redmon, J., Divvala, S., Girshick, R., and Farhadi, A.
 \newblock You only look once: Unified, real-time object detection.
 \newblock pages 779--788. {IEEE}.
-
-\bibitem[Robinson et~al., 2010]{robinson2010lunar}
-Robinson, M., Brylow, S., Tschimmel, M., Humm, D., Lawrence, S., Thomas, P.,
-  Denevi, B., Bowman-Cisneros, E., Zerr, J., Ravine, M., et~al. (2010).
-\newblock Lunar reconnaissance orbiter camera (lroc) instrument overview.
-\newblock {\em Space science reviews}, 150(1-4):81--124.
 
 \bibitem[Sawabe et~al., 2006]{sawabe_2006}
 Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
