@@ -15,6 +15,12 @@ Girshick, R., Donahue, J., Darrell, T., and Malik, J.
 He, K., Gkioxari, G., Dollár, P., and Girshick, R.
 \newblock Mask r-{CNN}.
 
+\bibitem[Ivanov, 2002]{ivanov2002comparison}
+Ivanov, B. (2002).
+\newblock The comparison of size-frequency distributions of impact craters and
+  asteroids and the planetary cratering rate.
+\newblock {\em Asteroids III}, 1:89--101.
+
 \bibitem[Krizhevsky et~al., 2012]{krizhevsky_imagenet_2012}
 Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
 \newblock {ImageNet} classification with deep convolutional neural networks.
@@ -42,5 +48,12 @@ Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
 \newblock Automated detection and classification of lunar craters using
   multiple approaches.
 \newblock 37(1):21--27.
+
+\bibitem[Williams et~al., 2018]{williams2018dating}
+Williams, J.-P., van~der Bogert, C.~H., Pathare, A.~V., Michael, G.~G.,
+  Kirchoff, M.~R., and Hiesinger, H. (2018).
+\newblock Dating very young planetary surfaces from crater statistics: A review
+  of issues and challenges.
+\newblock {\em Meteoritics \& Planetary Science}, 53(4):554--582.
 
 \end{thebibliography}
