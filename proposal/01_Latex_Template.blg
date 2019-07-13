@@ -3,7 +3,7 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 165 of file mybib.bib
+Repeated entry---line 172 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
@@ -15,45 +15,45 @@ Warning--empty journal in krizhevsky_imagenet_2012
 Warning--empty year in redmon_you_2016
 Warning--empty booktitle in redmon_you_2016
 Warning--empty journal in sawabe_2006
-You've used 14 entries,
+You've used 15 entries,
             1935 wiz_defined-function locations,
-            560 strings with 6255 characters,
-and the built_in function-call counts, 6206 in all, are:
-= -- 608
-> -- 283
-< -- 9
-+ -- 100
-- -- 98
-* -- 531
-:= -- 1058
-add.period$ -- 40
-call.type$ -- 14
-change.case$ -- 118
-chr.to.int$ -- 14
-cite$ -- 22
-duplicate$ -- 228
-empty$ -- 408
-format.name$ -- 114
-if$ -- 1212
+            565 strings with 6412 characters,
+and the built_in function-call counts, 6473 in all, are:
+= -- 635
+> -- 290
+< -- 10
++ -- 104
+- -- 100
+* -- 549
+:= -- 1111
+add.period$ -- 43
+call.type$ -- 15
+change.case$ -- 123
+chr.to.int$ -- 15
+cite$ -- 23
+duplicate$ -- 240
+empty$ -- 425
+format.name$ -- 117
+if$ -- 1260
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 13
-newline$ -- 70
-num.names$ -- 42
-pop$ -- 117
+newline$ -- 75
+num.names$ -- 45
+pop$ -- 121
 preamble$ -- 1
-purify$ -- 118
+purify$ -- 124
 quote$ -- 0
-skip$ -- 180
+skip$ -- 190
 stack$ -- 0
-substring$ -- 448
-swap$ -- 40
+substring$ -- 462
+swap$ -- 41
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
+type$ -- 90
 warning$ -- 8
-while$ -- 52
+while$ -- 54
 width$ -- 0
-write$ -- 171
+write$ -- 184
 (There was 1 error message)
