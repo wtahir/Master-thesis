@@ -10,6 +10,9 @@
 \contentsline {subsubsection}{\numberline {2.6.1}Convolutional layer}{9}
 \contentsline {subsubsection}{\numberline {2.6.2}Pooling layer}{10}
 \contentsline {subsubsection}{\numberline {2.6.3}Fully Connected layer}{10}
-\contentsline {section}{\numberline {3}Related Work}{11}
-\contentsline {section}{\numberline {4}Methodology}{12}
-\contentsline {section}{References}{13}
+\contentsline {subsection}{\numberline {2.7}Lunar Production Function}{11}
+\contentsline {subsection}{\numberline {2.8}Hartmann Production Function (HPF)}{11}
+\contentsline {subsection}{\numberline {2.9}Neukum Production Function (NPF)}{12}
+\contentsline {section}{\numberline {3}Related Work}{14}
+\contentsline {section}{\numberline {4}Methodology}{14}
+\contentsline {section}{References}{16}

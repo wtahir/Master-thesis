@@ -22,6 +22,12 @@ Hartmann, W.~K. (1981).
 He, K., Gkioxari, G., Dollár, P., and Girshick, R.
 \newblock Mask r-{CNN}.
 
+\bibitem[Hiesinger et~al., 2000]{hiesinger2000ages}
+Hiesinger, H., Jaumann, R., Neukum, G., and Head~III, J.~W. (2000).
+\newblock Ages of mare basalts on the lunar nearside.
+\newblock {\em Journal of Geophysical Research: Planets},
+  105(E12):29239--29275.
+
 \bibitem[Ivanov, 2002]{ivanov2002comparison}
 Ivanov, B. (2002).
 \newblock The comparison of size-frequency distributions of impact craters and
@@ -43,6 +49,18 @@ Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
 \newblock Crater detection by a boosting approach.
 \newblock {\em IEEE Geoscience and Remote Sensing Letters}, 6(1):127--131.
+
+\bibitem[Neukum, 1983]{neukum1983meteoritenbombardement}
+Neukum, G. (1983).
+\newblock Meteoritenbombardement und datierung planetarer oberfl{\"a}chen,
+  habilitation dissertation for faculty membership.
+\newblock {\em Ludwig-Maximilians-University, Munich}, page 186.
+
+\bibitem[Neukum and Ivanov, 1994]{neukum1994crater}
+Neukum, G. and Ivanov, B. (1994).
+\newblock Crater size distributions and impact probabilities on earth from
+  lunar, terrestrial-planet, and asteroid cratering data.
+\newblock {\em Hazards due to Comets and Asteroids}, 1:359--416.
 
 \bibitem[Neukum et~al., 1975]{neukum1975cratering}
 Neukum, G., K{\"o}nig, B., Fechtig, H., and Storzer, D. (1975).
@@ -78,11 +96,11 @@ Soderblom, L.~A. (1970).
   maria}.
 \newblock PhD thesis, California Institute of Technology.
 
-\bibitem[Soderblom and Lebofsky, 1972]{soderblom1972technique}
-Soderblom, L.~A. and Lebofsky, L.~A. (1972).
-\newblock Technique for rapid determination of relative ages of lunar areas
-  from orbital photography.
-\newblock {\em Journal of Geophysical Research}, 77(2):279--296.
+\bibitem[St{\"o}ffler and Ryder, 2001]{stoffler2001stratigraphy}
+St{\"o}ffler, D. and Ryder, G. (2001).
+\newblock Stratigraphy and isotope ages of lunar geologic units: Chronological
+  standard for the inner solar system.
+\newblock In {\em Chronology and evolution of Mars}, pages 9--54. Springer.
 
 \bibitem[Williams et~al., 2018]{williams2018dating}
 Williams, J.-P., van~der Bogert, C.~H., Pathare, A.~V., Michael, G.~G.,

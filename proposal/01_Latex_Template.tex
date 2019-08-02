@@ -284,6 +284,7 @@ Here $x_i$ is the image which is flattened out to a single column vector of shap
 
 \subsection{Normalization}
 
+
 \subsection{Neural Network Overview}
 In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
 
@@ -344,6 +345,56 @@ After multiple convolution and pooling operations, finally an output can be gene
 %	\item How to evaluate the performance of algorithm?
 %\end{enumerate}
 
+\subsection{Lunar Production Function}
+Moon provides an ideal test site for studying crater records, particularly since almost all of the lunar endogenic activities ended more than around 3 Giga years (G.y.) with some exceptions \cite{hiesinger2000ages}. Therefore, in last 3 G.y. crater impacts have dominated to change lunar landscape. Space missions have also studied the Moon extensively and collected samples from Moon have provided a unique opportunity to assign age to craters and areas where accumulated crater are counted \cite{stoffler2001stratigraphy}. Therefore, on the Moon it an be estimated that cratering rate is the number of craters of a given diameter that are accumulated at given surface during a given time interval.
+
+Crater population is changed by obliteration processes. If it is assumed that a planetary surface is obliterated by some process and crater population starts to develop then crater SFD represents the production SFD of the projectiles. Many authors have tabulated and generalized large amount of crater-counts data in an attempt to understand this production function. Some of the most commonly known lunar crater SFD are proposed by W. Hartmann and G. Neukum. 
+
+\subsection{Hartmann Production Function (HPF)}
+Hartmann uses a log-incremental SFD representation with a standard bin size for diameter to represent the crater SFD of terrestrial planets. The obtained results are referred as Hartmann production function or HPF. The number of craters per kilometers squared are calculated for a certain diameter range which is $D_{L} < D < D_{R}$, this range represents a bin where $D_{L}$ and $D_{R}$ are the left and right boundaries of diameter range respectively. The standard bin width is $D_{R}/D_{L} = 2^{1/2}$. HPF provides a resultant tabulated data for one specific moment of time, this is the average time of lunar mare surface formation. Findings from most of the lunar mare basalt samples suggests a narrow range of ages between 3.2 to 3.5 G.y. \cite{stoffler2001stratigraphy} therefore, the condition of having a fresh surface is satisfied. Some lava flows on the surface could be younger \cite{hiesinger2000ages} therefore the age variation is represented by a factor of 1.1.
+
+The tabulated HPF is considered reliable for the projectile of a production function because the crater counts from different areas of the Moon are combined and averaged. The incremental form of HPF takes form of a piece-wise three segment power law \cite{ivanov2002comparison}.
+
+\begin{equation}
+\log N_{2^{1/2}} = -2.616 - 3.82 \log D_{L}, (D<1.41km)
+\end{equation}
+
+\begin{equation}
+\log N_{2^{1/2}} = -2.920 - 1.80 \log D_{L},
+(1.41km < D < 64km)
+\end{equation}
+
+\begin{equation}
+\log N_{2^{1/2}} = -2.616 - 3.82 \log D_{L},
+(D>64km)
+\end{equation}
+
+The function is represented in Fig \ref{fig:HPF}. Hatmann chose power law segments in 1960s when this work started. Some of the selections were on the basis of historical reasoning that only the craters branch with diameter range between 1.41km and 64km was well established. At that time there were already existing laws of meteorites and asteroids and Hartmann's attempt was to relate those laws to lunar data.
+
+\subsection{Neukum Production Function (NPF)}
+Neukum proposed an analytical function describing the cumulative SFD of maria and oriental basin. He wrote a series of publications in description of his function. For summaries, see \cite{neukum1994crater} and \cite{neukum1983meteoritenbombardement}. On the basis of age assumption NPF was fit to the crater count. It is notable that both HPF and NPF are a good match for the crater diameter (D) data under 1km range. However, with D $>$ 1km, HPF is much higher than HPF and both functions meet together at diameters of approx. 40km
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=75mm,height=170mm,  scale=0.8]{files/lunar_functions/HPF.jpg}
+	\caption{(a) The incremental representation of the Hartmann pro-
+		duction function (HPF). The HPF, in a direct sense, is the set of
+		points shown in the plot. Straight lines represent the piece-wise
+		power law fitting to the data (equation (1)). (b) Comparison of pro-
+		duction functions derived by Hartmann (HPF) and Neukum (NPF)
+		in the R plot representation. The maximum discrepancy between
+		HPF (2) and NPF (3) (roughly a factor of 3) is observed in the
+		diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam-
+		eter range of 30–100 km, the HPF and NPF give the same or simi-
+		lar results. Fitting the HPF to equation (3), we obtain a model age
+		of 3.4 G.y. The NPF, which is fit to the wide range count of impact
+		craters in the Orientale Basin, yields a model age of ~3.7 G.y. The
+		dashed line 1 represents the approximate saturation level estimated
+		by Hartmann (1995).}
+	\label{fig:HPF}
+\end{figure}
+
+
 
 \section{Related Work}
 Most of the craters are formed as the result of meteoroid impacts. The relative formation age of local area of planet could be estimated when frequency of size distribution of meteoroids and its time variations are known. \cite{sawabe_2006} proposed an algorithm that did not depend on cameras, spatial resolution or sun illumination. It also did not require to tune any parameters either. This algorithm was improvement to their own previously proposed algorithm. Their previous method did not include pyramid representation of the image which was included in later method and thus improving accuracy and reducing processing time. The algorithm was applied on images acquired by Clementine and Apollo under different solar elevation. The accuracy was more than 80\% compared to the manual detection results \cite{sawabe_2006}. Accuracy rate was validated by comparing with crater count results of \cite{neukum1975cratering}. In 2009 \cite{martins2009crater} performed Viola and Jones (2004) algorithm on Mars dataset gathered by the Mars Orbiter Camera onboard Mars Global Surveyor probe. In this paper author claims that no such method existed that is satisfactory for craters detection.
@@ -351,7 +402,7 @@ Most of the craters are formed as the result of meteoroid impacts. The relative 
 
 The idea of machine learning existed well before early 2000s but because of lack of powerful GPU it was not possible to process the intense computation. In last decade, object detection techniques have been improved considerably. In 2013 a method was developed that refined the object detection performance from previously used approaches. The idea was to combine region proposals with CNN's and the method was referred to as R-CNN \cite{girshick_rich_2013}. Since then pixel level processing advancement in the algorithm has been made and in 2017 a team of Facebook researchers came up with a new algorithm that contributed to reduced processing time and increased accuracy (up to 99\%) \cite{he_mask_2017}. They came up with a method that does not only detect an object but also generates a high quality segmentation mask for each instance \cite{he_mask_2017}. 
 
-\par
+
 YOLO (You Look Only Once) is another method which was developed with an intention to detect objects at a greater speed than existing algorithms. YOLO lacks state of the art object detection accuracy achieved by other CNN algorithms i.e. Faster R-CNN and Mask R-CNN. But as it states you look only once, YOLO detects an object very quickly as compared to Mask R-CNN but it struggles to localize some objects, specially small ones ~\cite{redmon_you_2016}. This is because of its spatial constraints on bounding box predictions as every grid cell can have only one class.
 
 %\subsection{Dataset}
@@ -361,8 +412,8 @@ YOLO (You Look Only Once) is another method which was developed with an intentio
 \section{Methodology}
 The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Firstly, craters in images will be labeled. Every image will be subjected to image augmentation. This is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means increased dataset and that let algorithm to have more training data and thus achieve better performance on test data. Most commonly used methods are mirroring and random cropping. Here in the dataset there are no RGB images hence color augmentation can not be performed.
 
-\par
-Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Figure \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.  
+
+Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Figure \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
 
 \newpage
 
