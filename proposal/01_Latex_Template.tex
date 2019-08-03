@@ -372,7 +372,15 @@ The tabulated HPF is considered reliable for the projectile of a production func
 The function is represented in Fig \ref{fig:HPF}. Hatmann chose power law segments in 1960s when this work started. Some of the selections were on the basis of historical reasoning that only the craters branch with diameter range between 1.41km and 64km was well established. At that time there were already existing laws of meteorites and asteroids and Hartmann's attempt was to relate those laws to lunar data.
 
 \subsection{Neukum Production Function (NPF)}
-Neukum proposed an analytical function describing the cumulative SFD of maria and oriental basin. He wrote a series of publications in description of his function. For summaries, see \cite{neukum1994crater} and \cite{neukum1983meteoritenbombardement}. On the basis of age assumption NPF was fit to the crater count. It is notable that both HPF and NPF are a good match for the crater diameter (D) data under 1km range. However, with D $>$ 1km, HPF is much higher than HPF and both functions meet together at diameters of approx. 40km
+Neukum proposed an analytical function describing the cumulative SFD of lunar impact craters. He wrote a series of publications in description of his function. For summaries, see \cite{neukum1994crater} and \cite{neukum1983meteoritenbombardement}. Neukum showed that the production function is stable since 4 G.y. The time Neukum proposed this function, a full size crater spectrum was known. His approach was different from Hartmann in a way that he computed a polynomial fit to the cumulative number of craters, N per squared kilometers with diameters greater than the provided values of D. Where as Hartmann proposed a piece-wise exponential equations for his production function. For the time period of 1 G.y., Neukum's production function can be represented as
+
+\begin{equation}
+\log_{10} (N) = a_0 + \sum_{n=1}^{11} a_n[\log_{10} (D)]^n
+\end{equation}
+
+In above equation D is in km, N is the number of craters with diameters greater than D per squared kilometers per Giga year and values of coefficients $a_n$ are provided in table. The above equation is valid for crater diameters from 0.01km to 300km.
+
+On the basis of age assumption NPF was fit to the crater count. It is notable that both HPF and NPF are a good match for the crater diameter (D) data under 1km range. However, with D $>$ 1km, HPF is much higher than NPF and both functions meet again at diameter of approx. 40km. In Fig \ref{HPF} it can be seen that the maximum variation between the two functions is a factor 3 around the diameter of approx. 6km. Note that below the diameter of 1km and between 30-100km, both of the functions are same. After 100km both started to decline but HPF declines more rapid as compared to NPF.
 
 \begin{figure}[H]
 	\centering
@@ -391,9 +399,8 @@ Neukum proposed an analytical function describing the cumulative SFD of maria an
 		craters in the Orientale Basin, yields a model age of ~3.7 G.y. The
 		dashed line 1 represents the approximate saturation level estimated
 		by Hartmann (1995).}
-	\label{fig:HPF}
+	\label{HPF}
 \end{figure}
-
 
 
 \section{Related Work}
@@ -413,7 +420,7 @@ YOLO (You Look Only Once) is another method which was developed with an intentio
 The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Firstly, craters in images will be labeled. Every image will be subjected to image augmentation. This is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means increased dataset and that let algorithm to have more training data and thus achieve better performance on test data. Most commonly used methods are mirroring and random cropping. Here in the dataset there are no RGB images hence color augmentation can not be performed.
 
 
-Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Figure \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
+Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
 
 \newpage
 
