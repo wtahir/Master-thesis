@@ -4,15 +4,21 @@
 \contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{5}
 \contentsline {subsection}{\numberline {2.2}Linear Classification}{7}
 \contentsline {subsection}{\numberline {2.3}Normalization}{8}
-\contentsline {subsection}{\numberline {2.4}Neural Network Overview}{8}
-\contentsline {subsection}{\numberline {2.5}Convolutional Neural Network Overview}{9}
-\contentsline {subsection}{\numberline {2.6}Concept of layers in CNNs}{9}
-\contentsline {subsubsection}{\numberline {2.6.1}Convolutional layer}{9}
-\contentsline {subsubsection}{\numberline {2.6.2}Pooling layer}{10}
-\contentsline {subsubsection}{\numberline {2.6.3}Fully Connected layer}{10}
-\contentsline {subsection}{\numberline {2.7}Lunar Production Function}{11}
-\contentsline {subsection}{\numberline {2.8}Hartmann Production Function (HPF)}{11}
-\contentsline {subsection}{\numberline {2.9}Neukum Production Function (NPF)}{12}
-\contentsline {section}{\numberline {3}Related Work}{14}
-\contentsline {section}{\numberline {4}Methodology}{14}
-\contentsline {section}{References}{16}
+\contentsline {section}{\numberline {3}Loss Function}{9}
+\contentsline {subsection}{\numberline {3.1}Cross Entropy Loss}{9}
+\contentsline {subsection}{\numberline {3.2}Hinge Loss}{10}
+\contentsline {section}{\numberline {4}Activation Functions}{10}
+\contentsline {subsection}{\numberline {4.1}Sigmoid Function}{10}
+\contentsline {subsection}{\numberline {4.2}Softmax Classifier}{10}
+\contentsline {subsection}{\numberline {4.3}Neural Network Overview}{11}
+\contentsline {subsection}{\numberline {4.4}Convolutional Neural Network Overview}{12}
+\contentsline {subsection}{\numberline {4.5}Concept of layers in CNNs}{12}
+\contentsline {subsubsection}{\numberline {4.5.1}Convolutional layer}{13}
+\contentsline {subsubsection}{\numberline {4.5.2}Pooling layer}{13}
+\contentsline {subsubsection}{\numberline {4.5.3}Fully Connected layer}{14}
+\contentsline {subsection}{\numberline {4.6}Lunar Production Function}{14}
+\contentsline {subsection}{\numberline {4.7}Hartmann Production Function (HPF)}{15}
+\contentsline {subsection}{\numberline {4.8}Neukum Production Function (NPF)}{16}
+\contentsline {section}{\numberline {5}Related Work}{18}
+\contentsline {section}{\numberline {6}Methodology}{18}
+\contentsline {section}{References}{20}

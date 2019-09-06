@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  3 AUG 2019 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  6 SEP 2019 19:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1100,7 +1100,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [6 <./files/nneg.jpeg>]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 290.
+Package pdftex.def Info: files/TUs.png  used on input line 286.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1110,14 +1110,60 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-<files/NN.jpeg, id=42, 938.50626pt x 454.69875pt>
+<files/cnn_architecture/linear_class.png, id=42, 983.675pt x 363.3575pt>
+File: files/cnn_architecture/linear_class.png Graphic file (type png)
+<use files/cnn_architecture/linear_class.png>
+Package pdftex.def Info: files/cnn_architecture/linear_class.png  used on input
+ line 289.
+(pdftex.def)             Requested size: 786.94109pt x 290.68639pt.
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 302.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8 <./files/cnn_architecture/linear_class.png (PNG copy)>]
+Overfull \hbox (0.80524pt too wide) in paragraph at lines 327--328
+[]\OT1/cmr/m/n/10.95 If for ex-am-ple a true la-bel is $[]$ and pre-dic-tions a
+re $[]$
+ []
+
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 331.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 358.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10]
+<files/NN.jpeg, id=54, 938.50626pt x 454.69875pt>
 File: files/NN.jpeg Graphic file (type jpg)
 <use files/NN.jpeg>
-Package pdftex.def Info: files/NN.jpeg  used on input line 292.
+Package pdftex.def Info: files/NN.jpeg  used on input line 370.
 (pdftex.def)             Requested size: 441.01773pt x 213.66681pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 301.
+Package pdftex.def Info: files/TUs.png  used on input line 374.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1126,16 +1172,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8 <./files/NN.jpeg>]
-<files/cnn_architecture/conv.png, id=48, 805.0878pt x 251.0178pt>
-File: files/cnn_architecture/conv.png Graphic file (type png)
-<use files/cnn_architecture/conv.png>
-Package pdftex.def Info: files/cnn_architecture/conv.png  used on input line 30
-9.
-(pdftex.def)             Requested size: 441.01773pt x 137.50482pt.
+[11]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 321.
+Package pdftex.def Info: files/TUs.png  used on input line 385.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1144,63 +1184,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9 <./files/cnn_architecture/conv.png>]
-<files/cnn_architecture/pooling.png, id=53, 665.8476pt x 211.5102pt>
+[12 <./files/NN.jpeg>]
+<files/cnn_architecture/conv.png, id=65, 805.0878pt x 251.0178pt>
+File: files/cnn_architecture/conv.png Graphic file (type png)
+<use files/cnn_architecture/conv.png>
+Package pdftex.def Info: files/cnn_architecture/conv.png  used on input line 38
+7.
+(pdftex.def)             Requested size: 441.01773pt x 137.50482pt.
+<files/cnn_architecture/pooling.png, id=66, 665.8476pt x 211.5102pt>
 File: files/cnn_architecture/pooling.png Graphic file (type png)
 <use files/cnn_architecture/pooling.png>
 Package pdftex.def Info: files/cnn_architecture/pooling.png  used on input line
- 326.
+ 404.
 (pdftex.def)             Requested size: 441.01773pt x 140.09094pt.
-<files/cnn_architecture/arch.png, id=54, 710.655pt x 265.74281pt>
-File: files/cnn_architecture/arch.png Graphic file (type png)
-<use files/cnn_architecture/arch.png>
-Package pdftex.def Info: files/cnn_architecture/arch.png  used on input line 33
-7.
-(pdftex.def)             Requested size: 441.01773pt x 164.91698pt.
-File: files/TUs.png Graphic file (type png)
-<use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 341.
-(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 47.36118pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10 <./files/cnn_architecture/pooling.png>]
-File: files/TUs.png Graphic file (type png)
-<use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 357.
-(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 47.36118pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11 <./files/cnn_architecture/arch.png>]
-
-LaTeX Warning: Reference `fig:HPF' on page 12 undefined on input line 372.
-
-<files/lunar_functions/HPF.jpg, id=63, 447.6725pt x 978.65625pt>
-File: files/lunar_functions/HPF.jpg Graphic file (type jpg)
-<use files/lunar_functions/HPF.jpg>
-Package pdftex.def Info: files/lunar_functions/HPF.jpg  used on input line 387.
-
-(pdftex.def)             Requested size: 358.13847pt x 782.92607pt.
-File: files/TUs.png Graphic file (type png)
-<use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 404.
-(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 47.36118pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[12]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
 Package pdftex.def Info: files/TUs.png  used on input line 408.
@@ -1212,10 +1208,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./files/lunar_functions/HPF.jpg>]
+[13 <./files/cnn_architecture/conv.png>]
+<files/cnn_architecture/arch.png, id=71, 710.655pt x 265.74281pt>
+File: files/cnn_architecture/arch.png Graphic file (type png)
+<use files/cnn_architecture/arch.png>
+Package pdftex.def Info: files/cnn_architecture/arch.png  used on input line 41
+5.
+(pdftex.def)             Requested size: 441.01773pt x 164.91698pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 424.
+Package pdftex.def Info: files/TUs.png  used on input line 428.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1224,10 +1226,30 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
+[14 <./files/cnn_architecture/pooling.png> <./files/cnn_architecture/arch.png>]
+
+LaTeX Warning: Reference `fig:HPF' on page 15 undefined on input line 450.
+
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 425.
+Package pdftex.def Info: files/TUs.png  used on input line 454.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15]
+<files/lunar_functions/HPF.jpg, id=81, 447.6725pt x 978.65625pt>
+File: files/lunar_functions/HPF.jpg Graphic file (type jpg)
+<use files/lunar_functions/HPF.jpg>
+Package pdftex.def Info: files/lunar_functions/HPF.jpg  used on input line 465.
+
+(pdftex.def)             Requested size: 358.13847pt x 782.92607pt.
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 482.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1236,7 +1258,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15] (./01_Latex_Template.bbl
+[16]
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 486.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17 <./files/lunar_functions/HPF.jpg>]
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 502.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18]
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 503.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19] (./01_Latex_Template.bbl
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
 Package pdftex.def Info: files/TUs.png  used on input line 92.
@@ -1248,10 +1306,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16])
+[20])
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 438.
+Package pdftex.def Info: files/TUs.png  used on input line 516.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1260,35 +1318,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17] (./01_Latex_Template.aux)
+[21] (./01_Latex_Template.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 7819 strings out of 492982
- 110390 string characters out of 6134897
- 202004 words of memory out of 5000000
- 11189 multiletter control sequences out of 15000+600000
+ 7827 strings out of 492982
+ 110630 string characters out of 6134897
+ 202031 words of memory out of 5000000
+ 11196 multiletter control sequences out of 15000+600000
  12680 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,16n,43p,1655b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on 01_Latex_Template.pdf (18 pages, 726434 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on 01_Latex_Template.pdf (22 pages, 928946 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 149 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
