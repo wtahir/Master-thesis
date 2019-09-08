@@ -342,11 +342,50 @@ Without activation functions weights and bias would be simply doing a linear tra
 Most commonly used activation functions are discussed below:
 
 \subsection{Sigmoid Function}
-It is given be the equation:
+It is defines as:
 
 \begin{equation}
-f(x)=\frac{1}{1+e^{-x}}=\frac{e^{x}}{e^{x}+1}
+a = \sigma(z) = \frac{1}{1+e^{-z}}=\frac{e^{z}}{e^{z}+1}
 \end{equation}
+
+where
+
+\begin{equation}
+z = Wx_i + b
+\end{equation}
+
+$W being weight vector and x_i is image vector, b stands for bias$
+
+
+The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/cnn_architecture/sigmoid.eps}
+	\caption{Sigmoid Function}
+	\label{fig: Sigmoid}
+\end{figure}
+
+From the graph it can be seen in the graph that $z$ is 0 when curve is passing though 0.5. In convention a rule can be set if i.e. $z$ is greater than 0.5 then output is always 1 and if less than 0.5 then it is 0. A notable behavior of this function is that if $z$ is larger than the dotted region in graph then the derivative of this function is close to zero and same way if it is negative slope is again equal to or close to zero. 
+
+This means that it can slow down gradient descent. It also becomes a source of vanishing gradient problem. If the weights are initialized with either very large or very small values then these values saturate the input to sigmoid at very valued region (close to zero or close to one). Even if weights are initialized at a value i.e. ~0.2, in a deep network with many layers it will also lead to vanishing gradient problem. In case of only 4 layer network $0.2^{4}=0.0016$ which is small and will get even smaller in next layers. Also the mean of data is 0.5 which meas that data is not centered for the next layer. 
+
+It is used for a problem where binary classification is required. In a neural network layer sigmoid must not be used in every layer because of the problems mentioned above. Anyhow, where binary classification is required, it can be useful in the last layer of the network to squash output such as $ 1 \geq \hat{y} \geq 0$.
+
+\subsection{ReLU Function}
+It stands for rectified linear unit and defined as:
+
+\begin{equation}
+a = \max (0, z)
+\end{equation}
+
+The graphical form is given as:
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/cnn_architecture/relu.eps}
+	\caption{ReLU Function}
+	\label{fig: relu}
+\end{figure}
+
 
 \subsection{Softmax Classifier}
 A binary classifier is a function that determines the class of an object i.e. if there is a crater (which has an assigned class of 1), ideally it will recognize it as one. Softmax classifier is generalization of binary form of logistic regression. It interprets the scores as unnormalized log probabilities for each class and has the following form:

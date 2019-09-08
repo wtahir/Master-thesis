@@ -9,16 +9,17 @@
 \contentsline {subsection}{\numberline {3.2}Hinge Loss}{10}
 \contentsline {section}{\numberline {4}Activation Functions}{10}
 \contentsline {subsection}{\numberline {4.1}Sigmoid Function}{10}
-\contentsline {subsection}{\numberline {4.2}Softmax Classifier}{10}
-\contentsline {subsection}{\numberline {4.3}Neural Network Overview}{11}
-\contentsline {subsection}{\numberline {4.4}Convolutional Neural Network Overview}{12}
-\contentsline {subsection}{\numberline {4.5}Concept of layers in CNNs}{12}
-\contentsline {subsubsection}{\numberline {4.5.1}Convolutional layer}{13}
-\contentsline {subsubsection}{\numberline {4.5.2}Pooling layer}{13}
-\contentsline {subsubsection}{\numberline {4.5.3}Fully Connected layer}{14}
-\contentsline {subsection}{\numberline {4.6}Lunar Production Function}{14}
-\contentsline {subsection}{\numberline {4.7}Hartmann Production Function (HPF)}{15}
-\contentsline {subsection}{\numberline {4.8}Neukum Production Function (NPF)}{16}
-\contentsline {section}{\numberline {5}Related Work}{18}
-\contentsline {section}{\numberline {6}Methodology}{18}
-\contentsline {section}{References}{20}
+\contentsline {subsection}{\numberline {4.2}ReLU Function}{11}
+\contentsline {subsection}{\numberline {4.3}Softmax Classifier}{12}
+\contentsline {subsection}{\numberline {4.4}Neural Network Overview}{13}
+\contentsline {subsection}{\numberline {4.5}Convolutional Neural Network Overview}{14}
+\contentsline {subsection}{\numberline {4.6}Concept of layers in CNNs}{14}
+\contentsline {subsubsection}{\numberline {4.6.1}Convolutional layer}{14}
+\contentsline {subsubsection}{\numberline {4.6.2}Pooling layer}{15}
+\contentsline {subsubsection}{\numberline {4.6.3}Fully Connected layer}{15}
+\contentsline {subsection}{\numberline {4.7}Lunar Production Function}{16}
+\contentsline {subsection}{\numberline {4.8}Hartmann Production Function (HPF)}{16}
+\contentsline {subsection}{\numberline {4.9}Neukum Production Function (NPF)}{17}
+\contentsline {section}{\numberline {5}Related Work}{20}
+\contentsline {section}{\numberline {6}Methodology}{20}
+\contentsline {section}{References}{22}
