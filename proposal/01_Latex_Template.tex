@@ -386,6 +386,15 @@ The graphical form is given as:
 	\label{fig: relu}
 \end{figure}
 
+As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky_imagenet_2012} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh. 
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/cnn_architecture/relu_fast.png}
+	\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh.}
+	\label{fig: relu_fast}
+\end{figure}
+
+Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Fig \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. Also in Fig \ref{fig: relu_fast} \cite{krizhevsky2012imagenet} it can be seen that ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
 
 \subsection{Softmax Classifier}
 A binary classifier is a function that determines the class of an object i.e. if there is a crater (which has an assigned class of 1), ideally it will recognize it as one. Softmax classifier is generalization of binary form of logistic regression. It interprets the scores as unnormalized log probabilities for each class and has the following form:

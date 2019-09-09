@@ -40,10 +40,16 @@ Koeberl, C. (1994).
   importance.
 \newblock {\em Journal of African Earth Sciences}, 18(4):263--295.
 
-\bibitem[Krizhevsky et~al., 2012]{krizhevsky_imagenet_2012}
-Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
+\bibitem[Krizhevsky et~al., 2012a]{krizhevsky_imagenet_2012}
+Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012a).
 \newblock {ImageNet} classification with deep convolutional neural networks.
 \newblock 60(6):84--90.
+
+\bibitem[Krizhevsky et~al., 2012b]{krizhevsky2012imagenet}
+Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012b).
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  1097--1105.
 
 \bibitem[Martins et~al., 2009]{martins2009crater}
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
