@@ -6,7 +6,6 @@
 \contentsline {subsection}{\numberline {2.3}Normalization}{8}
 \contentsline {section}{\numberline {3}Loss Function}{9}
 \contentsline {subsection}{\numberline {3.1}Cross Entropy Loss}{9}
-\contentsline {subsection}{\numberline {3.2}Hinge Loss}{10}
 \contentsline {section}{\numberline {4}Activation Functions}{10}
 \contentsline {subsection}{\numberline {4.1}Sigmoid Function}{10}
 \contentsline {subsection}{\numberline {4.2}ReLU Function}{11}
