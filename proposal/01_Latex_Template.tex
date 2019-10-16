@@ -538,10 +538,19 @@ Most of the craters are formed as the result of meteoroid impacts. The relative 
 The idea of machine learning existed well before early 2000s but because of lack of powerful GPU it was not possible to process the intense computation. In last decade, object detection techniques have been improved considerably. In 2013 a method was developed that refined the object detection performance from previously used approaches. The idea was to combine region proposals with CNN's and the method was referred to as R-CNN \cite{girshick_rich_2013}. Since then pixel level processing advancement in the algorithm has been made and in 2017 a team of Facebook researchers came up with a new algorithm that contributed to reduced processing time and increased accuracy (up to 99\%) \cite{he_mask_2017}. They came up with a method that does not only detect an object but also generates a high quality segmentation mask for each instance \cite{he_mask_2017}. 
 
 
-YOLO (You Look Only Once) is another method which was developed with an intention to detect objects at a greater speed than existing algorithms. YOLO lacks state of the art object detection accuracy achieved by other CNN algorithms i.e. Faster R-CNN and Mask R-CNN. But as it states you look only once, YOLO detects an object very quickly as compared to Mask R-CNN but it struggles to localize some objects, specially small ones ~\cite{redmon_you_2016}. This is because of its spatial constraints on bounding box predictions as every grid cell can have only one class.
+%YOLO (You Look Only Once) is another method which was developed with an intention to detect objects at a greater speed than existing algorithms. YOLO lacks state of the art object detection accuracy achieved by other CNN algorithms i.e. Faster R-CNN and Mask R-CNN. But as it states you look only once, YOLO detects an object very quickly as compared to Mask R-CNN but it struggles to localize some objects, specially small ones ~\cite{redmon_you_2016}. This is because of its spatial constraints on bounding box predictions as every grid cell can have only one class.
 
 %\subsection{Dataset}
 %For training and testing of model. The dataset is taken in the form of images from LRO in 2 different formats: grayscale and RGB. These images are of moon and consists craters of different sizes.
+
+\section{Model Architecture}
+The model architecture is composed of a contracting and expansive paths as shown in the Figure \ref{fig:U-net}. Like in a CNN the image becomes smaller as a result of convolutional operations, U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image.    
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/unet/arch.png}
+	\caption{U-net Architecture}
+	\label{fig:U-net}
+\end{figure} 
 
 
 \section{Methodology}
