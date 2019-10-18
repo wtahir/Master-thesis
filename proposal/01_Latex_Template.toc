@@ -21,5 +21,6 @@
 \contentsline {subsection}{\numberline {4.9}Neukum Production Function (NPF)}{19}
 \contentsline {section}{\numberline {5}Related Work}{21}
 \contentsline {section}{\numberline {6}Model Architecture}{21}
-\contentsline {section}{\numberline {7}Methodology}{22}
-\contentsline {section}{References}{23}
+\contentsline {section}{\numberline {7}Methodology}{23}
+\contentsline {subsection}{\numberline {7.1}Image Annotation}{23}
+\contentsline {section}{References}{25}
