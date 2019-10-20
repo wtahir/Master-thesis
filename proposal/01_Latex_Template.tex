@@ -564,18 +564,53 @@ The right part of Figure \ref{fig:U-net} illustrates the expansive path where ev
 
 
 \section{Methodology}
-The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred kilometers. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler.
+The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. The amount of cropped images are 300 each with size 350x350 and are gray scale images.
 
 \subsection{Image Annotation}
+Labeling or annotation of dataset could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great of work that has been done before in terms of machine learning and finding already annotated dataset is seems difficult to find. Therefore labeling is needed for training purpose. There are several tools to perform annotation, some are listed below.
+\begin{itemize}
+	\item \underline{LabelMe}: One of the most commonly used tools. It has been observed that it is slow on UI mainly when zooming into images.
+	\item \underline{RectLabel}: At the time of annotation there was no support for Linux, it only worked for Mac.
+	\item \underline{LabelBox}: It provides options for different labeling tasks and works well for larger annotation projects.
+	\item \underline{VGG Image Annotator (VIA)}: Very simple design and easy to use for beginners as well as suitable for large projects as well.
+	\item \underline{COCO UI}: This tool for COCO dataset annotations
+\end{itemize}
+
+After performing few annotation experiments from the above mentioned tools, VGG Image Annotator was found most simple and faster to annotate lunar crater dataset. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as x and y coordinates and radius respectively. \\\\
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.3\textwidth]{files/annotation/66.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/29.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/20.png}
+\end{figure*}
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.3\textwidth]{files/annotation/66n.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/29n.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/20n.png}
+	\caption{Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool}
+	\label{ann}
+\end{figure*}
+
+\subsection{Pre-processing}
+The dataset composed of 300 images is divided into training (80\%) and validation (20\%) dataset. This percentage practice in typical machine learning, however it does not have to be always at this rate. In case of large dataset i.e. several thousands of images, 60\% or even less can be set for training. In our case there is not test data taken out from the dataset because of limited annotations. As mentioned in introduction, test data is taken from another thesis student who has labeled all the craters by hand. 
+
+In Figure \ref{ann}, images in the first row are part of the training dataset and below them are the annotations. These images are not directly used for the training of algorithm. Like mentioned before the result of annotations (json) is projected to get the masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure \ref{mask}. These binary masks have pixel values ranging from 0 to 255.\\\\
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.3\textwidth]{files/annotation/66m.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/29m.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/annotation/20m.png}
+	\caption{Visualization of binary masks after projection from annotated (json format) images that belong to Figure 13}
+	\label{mask}
+\end{figure*}
+
+To create larger dataset without additional annotations, data augmentation is commonly used method. This is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means increased dataset and that let algorithm to have more training data and thus achieve better performance on test data. Most commonly used methods are mirroring and random cropping. In lunar crater dataset there are no RGB images hence color augmentation is opted out.
+
+\subsection{Training} 
 
 
-
-
-
-Firstly, craters in images will be labeled. Every image will be subjected to image augmentation. This is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means increased dataset and that let algorithm to have more training data and thus achieve better performance on test data. Most commonly used methods are mirroring and random cropping. Here in the dataset there are no RGB images hence color augmentation can not be performed.
-
-
-Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
+%Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
 
 \newpage
 
