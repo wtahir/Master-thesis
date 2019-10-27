@@ -90,6 +90,12 @@ Robinson, M., Brylow, S., Tschimmel, M., Humm, D., Lawrence, S., Thomas, P.,
 \newblock Lunar reconnaissance orbiter camera (lroc) instrument overview.
 \newblock {\em Space science reviews}, 150(1-4):81--124.
 
+\bibitem[Ronneberger et~al., 2015]{ronneberger2015u}
+Ronneberger, O., Fischer, P., and Brox, T. (2015).
+\newblock U-net: Convolutional networks for biomedical image segmentation.
+\newblock In {\em International Conference on Medical image computing and
+  computer-assisted intervention}, pages 234--241. Springer.
+
 \bibitem[Sawabe et~al., 2006]{sawabe_2006}
 Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
 \newblock Automated detection and classification of lunar craters using
