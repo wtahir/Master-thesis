@@ -13,6 +13,8 @@
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{url}
+\usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{multicol}
@@ -407,7 +409,7 @@ L_i = -\log\left(\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }\right)
 Loss function has to minimize the negative log likelihood of correct class. Here $f$ is the mapping function $(x_i,W)$ and $f_j$ represents the j-th element of the class scores vector $f$. In order to represent softmax function for the entire dataset, one would need to take the mean of $L_i$ over all training data and hence softmax function is represented as:
 
 \begin{equation}
-f_j(z) = \frac{e^{z_j}}{\sum_k e^{z_k}}
+f_j(z) = \frac{e^{z_j}}{\sum_{k=1}^{K} e^{z_k}}
 \end{equation}
 
 $z$ is the vector of score of arbitrary real values and those are squashed to a vector of values ranging between zero and one. The sum of these values is one. The form $\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }$ in eq.$\ref{singlesoftmax}$ is the estimated distribution. Plugging it into eq.$\ref{crossent}$ makes it clear that softmax is minizing the loss.
@@ -610,7 +612,9 @@ To create larger dataset without additional annotations, data augmentation is ne
 \subsection{Training}
 The input images along with their corresponding segmentation maps are utilized to train network with stochastic gradient decent implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Whereas Keras implementation can be found here:
 \textit{https://github.
-	com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the correct direction.   
+	com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax function as defined in eq.7, $z_{j}$ denotes the activation in feature channel $j$ at the pixel position $z \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $f_jz$ is the approximated maximum function. This means that $f_jz$ will be close to 1 for $j$ with maximum activation and vice versa for other values of $j$. The cross entropy function penalizes each deviation of $q(x)$ from 1 as defined in eq.1.
+
+The weights are saved in a checkpoints when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
 
 
 %Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
