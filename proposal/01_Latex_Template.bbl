@@ -6,21 +6,12 @@ El~Khiyari, H. and Wechsler, H. (2016).
   networks.
 \newblock {\em Journal of Information Security}, 7(03):141.
 
-\bibitem[Girshick et~al., ]{girshick_rich_2013}
-Girshick, R., Donahue, J., Darrell, T., and Malik, J.
-\newblock Rich feature hierarchies for accurate object detection and semantic
-  segmentation.
-
 \bibitem[Hartmann, 1981]{hartmann1981chronology}
 Hartmann, W.~K. (1981).
 \newblock Chronology of planetary volcanism by comparative studies of planetary
   cratering.
 \newblock {\em Basaltic Volcanism on the Terrestrial Planets.}, pages
   1049--1127.
-
-\bibitem[He et~al., ]{he_mask_2017}
-He, K., Gkioxari, G., Dollár, P., and Girshick, R.
-\newblock Mask r-{CNN}.
 
 \bibitem[Hiesinger et~al., 2000]{hiesinger2000ages}
 Hiesinger, H., Jaumann, R., Neukum, G., and Head~III, J.~W. (2000).
@@ -50,6 +41,12 @@ Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012b).
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock In {\em Advances in neural information processing systems}, pages
   1097--1105.
+
+\bibitem[Long et~al., 2015]{long2015fully}
+Long, J., Shelhamer, E., and Darrell, T. (2015).
+\newblock Fully convolutional networks for semantic segmentation.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 3431--3440.
 
 \bibitem[Martins et~al., 2009]{martins2009crater}
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
@@ -101,6 +98,12 @@ Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
 \newblock Automated detection and classification of lunar craters using
   multiple approaches.
 \newblock 37(1):21--27.
+
+\bibitem[Silburt et~al., 2019]{silburt2019lunar}
+Silburt, A., Ali-Dib, M., Zhu, C., Jackson, A., Valencia, D., Kissin, Y.,
+  Tamayo, D., and Menou, K. (2019).
+\newblock Lunar crater identification via deep learning.
+\newblock {\em Icarus}, 317:27--38.
 
 \bibitem[Soderblom, 1970]{soderblom1970distribution}
 Soderblom, L.~A. (1970).

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  30 OCT 2019 19:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  1 NOV 2019 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1377,14 +1377,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20 <./files/lunar_functions/HPF.jpg>]
-<files/unet/tile.png, id=155, 599.23875pt x 282.05376pt>
-File: files/unet/tile.png Graphic file (type png)
-<use files/unet/tile.png>
-Package pdftex.def Info: files/unet/tile.png  used on input line 552.
-(pdftex.def)             Requested size: 441.01773pt x 207.5846pt.
+<files/unet/dem.png, id=155, 957.5775pt x 320.19624pt>
+File: files/unet/dem.png Graphic file (type png)
+<use files/unet/dem.png>
+Package pdftex.def Info: files/unet/dem.png  used on input line 544.
+(pdftex.def)             Requested size: 441.01773pt x 147.46794pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 556.
+Package pdftex.def Info: files/TUs.png  used on input line 548.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1394,14 +1394,31 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
-<files/unet/arch.png, id=159, 920.43875pt x 612.2875pt>
+<files/unet/tile.png, id=159, 599.23875pt x 282.05376pt>
+File: files/unet/tile.png Graphic file (type png)
+<use files/unet/tile.png>
+Package pdftex.def Info: files/unet/tile.png  used on input line 564.
+(pdftex.def)             Requested size: 441.01773pt x 207.5846pt.
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 568.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22 <./files/unet/dem.png (PNG copy)>]
+<files/unet/arch.png, id=163, 920.43875pt x 612.2875pt>
 File: files/unet/arch.png Graphic file (type png)
 <use files/unet/arch.png>
-Package pdftex.def Info: files/unet/arch.png  used on input line 562.
+Package pdftex.def Info: files/unet/arch.png  used on input line 574.
 (pdftex.def)             Requested size: 441.01773pt x 293.37148pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 566.
+Package pdftex.def Info: files/TUs.png  used on input line 578.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1410,10 +1427,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22 <./files/unet/tile.png (PNG copy)>]
+[23 <./files/unet/tile.png (PNG copy)>]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 573.
+Package pdftex.def Info: files/TUs.png  used on input line 585.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1422,49 +1439,49 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23 <./files/unet/arch.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+[24 <./files/unet/arch.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 581--582
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
 
  []
 
-<files/annotation/66.png, id=166, 351.3125pt x 351.3125pt>
+<files/annotation/66.png, id=171, 351.3125pt x 351.3125pt>
 File: files/annotation/66.png Graphic file (type png)
 <use files/annotation/66.png>
-Package pdftex.def Info: files/annotation/66.png  used on input line 584.
+Package pdftex.def Info: files/annotation/66.png  used on input line 596.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
-<files/annotation/29.png, id=167, 351.3125pt x 351.3125pt>
+<files/annotation/29.png, id=172, 351.3125pt x 351.3125pt>
 File: files/annotation/29.png Graphic file (type png)
 <use files/annotation/29.png>
-Package pdftex.def Info: files/annotation/29.png  used on input line 585.
+Package pdftex.def Info: files/annotation/29.png  used on input line 597.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
-<files/annotation/20.png, id=168, 351.3125pt x 351.3125pt>
+<files/annotation/20.png, id=173, 351.3125pt x 351.3125pt>
 File: files/annotation/20.png Graphic file (type png)
 <use files/annotation/20.png>
-Package pdftex.def Info: files/annotation/20.png  used on input line 586.
+Package pdftex.def Info: files/annotation/20.png  used on input line 598.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
-<files/annotation/66n.png, id=169, 351.3125pt x 351.3125pt>
+<files/annotation/66n.png, id=174, 351.3125pt x 351.3125pt>
 File: files/annotation/66n.png Graphic file (type png)
 <use files/annotation/66n.png>
-Package pdftex.def Info: files/annotation/66n.png  used on input line 590.
+Package pdftex.def Info: files/annotation/66n.png  used on input line 602.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
-<files/annotation/29n.png, id=170, 351.3125pt x 351.3125pt>
+<files/annotation/29n.png, id=175, 351.3125pt x 351.3125pt>
 File: files/annotation/29n.png Graphic file (type png)
 <use files/annotation/29n.png>
-Package pdftex.def Info: files/annotation/29n.png  used on input line 591.
+Package pdftex.def Info: files/annotation/29n.png  used on input line 603.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
-<files/annotation/20n.png, id=171, 351.3125pt x 351.3125pt>
+<files/annotation/20n.png, id=176, 351.3125pt x 351.3125pt>
 File: files/annotation/20n.png Graphic file (type png)
 <use files/annotation/20n.png>
-Package pdftex.def Info: files/annotation/20n.png  used on input line 592.
+Package pdftex.def Info: files/annotation/20n.png  used on input line 604.
 (pdftex.def)             Requested size: 132.30666pt x 132.31007pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 599.
+Package pdftex.def Info: files/TUs.png  used on input line 611.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1472,42 +1489,42 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./files/annotation/66.png (PNG copy)> <./files/annotation/29.png (PNG copy
+[25 <./files/annotation/66.png (PNG copy)> <./files/annotation/29.png (PNG copy
 )> <./files/annotation/20.png (PNG copy)> <./files/annotation/66n.png> <./files
 /annotation/29n.png> <./files/annotation/20n.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 600--601
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 600--601
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
 
  []
 
-<files/annotation/66m.png, id=180, 361.35pt x 361.35pt>
+<files/annotation/66m.png, id=184, 361.35pt x 361.35pt>
 File: files/annotation/66m.png Graphic file (type png)
 <use files/annotation/66m.png>
-Package pdftex.def Info: files/annotation/66m.png  used on input line 603.
+Package pdftex.def Info: files/annotation/66m.png  used on input line 615.
 (pdftex.def)             Requested size: 132.30666pt x 132.30794pt.
-<files/annotation/29m.png, id=181, 361.35pt x 361.35pt>
+<files/annotation/29m.png, id=185, 361.35pt x 361.35pt>
 File: files/annotation/29m.png Graphic file (type png)
 <use files/annotation/29m.png>
-Package pdftex.def Info: files/annotation/29m.png  used on input line 604.
+Package pdftex.def Info: files/annotation/29m.png  used on input line 616.
 (pdftex.def)             Requested size: 132.30666pt x 132.30794pt.
-<files/annotation/20m.png, id=182, 361.35pt x 361.35pt>
+<files/annotation/20m.png, id=186, 361.35pt x 361.35pt>
 File: files/annotation/20m.png Graphic file (type png)
 <use files/annotation/20m.png>
-Package pdftex.def Info: files/annotation/20m.png  used on input line 605.
+Package pdftex.def Info: files/annotation/20m.png  used on input line 617.
 (pdftex.def)             Requested size: 132.30666pt x 132.30794pt.
 
-Overfull \hbox (3.43866pt too wide) in paragraph at lines 613--616
+Overfull \hbox (3.43866pt too wide) in paragraph at lines 625--628
 \OT1/cmr/m/n/10.95 [[]]). Whereas Keras im-ple-men-ta-tion can be found here: \
 OT1/cmr/m/it/10.95 https://github.
  []
 
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 616.
+Package pdftex.def Info: files/TUs.png  used on input line 628.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1515,11 +1532,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./files/annotation/66m.png (PNG copy)> <./files/annotation/29m.png (PNG co
+[26 <./files/annotation/66m.png (PNG copy)> <./files/annotation/29m.png (PNG co
 py)> <./files/annotation/20m.png (PNG copy)>]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 622.
+Package pdftex.def Info: files/TUs.png  used on input line 634.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1528,10 +1545,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26] (./01_Latex_Template.bbl
+[27] (./01_Latex_Template.bbl
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 92.
+Package pdftex.def Info: files/TUs.png  used on input line 89.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1540,10 +1557,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27])
+[28])
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 635.
+Package pdftex.def Info: files/TUs.png  used on input line 647.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1552,19 +1569,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28] (./01_Latex_Template.aux)
+[29] (./01_Latex_Template.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8192 strings out of 492982
- 115901 string characters out of 6134897
- 201502 words of memory out of 5000000
- 11527 multiletter control sequences out of 15000+600000
+ 8197 strings out of 492982
+ 115995 string characters out of 6134897
+ 201521 words of memory out of 5000000
+ 11531 multiletter control sequences out of 15000+600000
  14256 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,16n,43p,1655b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,16n,43p,1655b,417s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -1582,10 +1599,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfrm1095.pfb>
-Output written on 01_Latex_Template.pdf (29 pages, 1887425 bytes).
+Output written on 01_Latex_Template.pdf (30 pages, 2044999 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 256 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
