@@ -6,6 +6,12 @@ El~Khiyari, H. and Wechsler, H. (2016).
   networks.
 \newblock {\em Journal of Information Security}, 7(03):141.
 
+\bibitem[Greeley and Gault, 1970]{greeley1970precision}
+Greeley, R. and Gault, D.~E. (1970).
+\newblock Precision size-frequency distributions of craters for 12 selected
+  areas of the lunar surface.
+\newblock {\em The Moon}, 2(1):10--77.
+
 \bibitem[Hartmann, 1981]{hartmann1981chronology}
 Hartmann, W.~K. (1981).
 \newblock Chronology of planetary volcanism by comparative studies of planetary
@@ -110,6 +116,12 @@ Soderblom, L.~A. (1970).
 \newblock {\em The distribution and ages of regional lithologies in the lunar
   maria}.
 \newblock PhD thesis, California Institute of Technology.
+
+\bibitem[Stepinski et~al., 2012]{stepinski2012detecting}
+Stepinski, T., Ding, W., and Vilalta, R. (2012).
+\newblock Detecting impact craters in planetary images using machine learning.
+\newblock In {\em Intelligent data analysis for real-life applications: theory
+  and practice}, pages 146--159. IGI Global.
 
 \bibitem[St{\"o}ffler and Ryder, 2001]{stoffler2001stratigraphy}
 St{\"o}ffler, D. and Ryder, G. (2001).
