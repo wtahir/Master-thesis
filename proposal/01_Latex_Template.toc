@@ -26,5 +26,7 @@
 \contentsline {section}{\numberline {9}Methodology}{24}
 \contentsline {subsection}{\numberline {9.1}Image Annotation}{24}
 \contentsline {subsection}{\numberline {9.2}Pre-processing}{26}
-\contentsline {subsection}{\numberline {9.3}Training}{26}
-\contentsline {section}{References}{28}
+\contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{26}
+\contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{27}
+\contentsline {subsection}{\numberline {9.3}Training}{28}
+\contentsline {section}{References}{29}
