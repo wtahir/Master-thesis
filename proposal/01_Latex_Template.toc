@@ -6,12 +6,13 @@
 \contentsline {subsection}{\numberline {4.1}Bounding Box Proposal}{6}
 \contentsline {subsection}{\numberline {4.2}Linear Classification}{7}
 \contentsline {subsection}{\numberline {4.3}Normalization}{8}
+\contentsline {subsection}{\numberline {4.4}Backpropagation}{9}
 \contentsline {section}{\numberline {5}Loss Function}{9}
 \contentsline {subsection}{\numberline {5.1}Cross Entropy Loss}{9}
 \contentsline {section}{\numberline {6}Activation Functions}{10}
-\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{10}
+\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{11}
 \contentsline {subsection}{\numberline {6.2}ReLU Function}{12}
-\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{13}
+\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{14}
 \contentsline {subsection}{\numberline {6.4}Neural Network Overview}{14}
 \contentsline {subsection}{\numberline {6.5}Convolutional Neural Network Overview}{15}
 \contentsline {subsection}{\numberline {6.6}Concept of layers in CNNs}{15}
@@ -28,5 +29,6 @@
 \contentsline {subsection}{\numberline {9.2}Pre-processing}{26}
 \contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{26}
 \contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{27}
-\contentsline {subsection}{\numberline {9.3}Training}{28}
+\contentsline {subsection}{\numberline {9.3}Training}{27}
+\contentsline {subsection}{\numberline {9.4}Post-processing}{28}
 \contentsline {section}{References}{29}

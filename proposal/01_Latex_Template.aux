@@ -27,11 +27,13 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The graphical representation of eq ($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.}}{8}}
 \newlabel{fig: linear classifier}{{2}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Normalization}{8}}
+\citation{rumelhart1988learning}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Backpropagation}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Loss Function}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Cross Entropy Loss}{9}}
-\newlabel{crossent}{{1}{9}}
+\newlabel{crossent}{{1}{10}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Activation Functions}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Sigmoid Function}}{11}}
 \newlabel{fig: Sigmoid}{{3}{11}}
 \citation{krizhevsky_imagenet_2012}
@@ -41,8 +43,8 @@
 \citation{krizhevsky2012imagenet}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh.}}{13}}
 \newlabel{fig: relu_fast}{{5}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{13}}
-\newlabel{singlesoftmax}{{6}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{14}}
+\newlabel{singlesoftmax}{{6}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Neural Network Overview}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces A typical Neural Network architecture}}{15}}
 \newlabel{fig: Neural Network architecture}{{6}{15}}
@@ -72,7 +74,7 @@
 \citation{sawabe_2006}
 \citation{neukum1975cratering}
 \citation{martins2009crater}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (a) The incremental representation of the Hartmann pro- duction function (HPF). The HPF, in a direct sense, is the set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (1)). (b) Comparison of pro- duction functions derived by Hartmann (HPF) and Neukum (NPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam- eter range of 30\IeC {\textendash }100 km, the HPF and NPF give the same or simi- lar results. Fitting the HPF to equation (3), we obtain a model age of 3.4 G.y. The NPF, which is fit to the wide range count of impact craters in the Orientale Basin, yields a model age of ~3.7 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).}}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (a) The incremental representation of the Hartmann production function (HPF). The HPF, in a direct sense, is the set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (1)). (b) Comparison of pro- duction functions derived by Hartmann (HPF) and Neukum (NPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam- eter range of 30\IeC {\textendash }100 km, the HPF and NPF give the same or simi- lar results. Fitting the HPF to equation (3), we obtain a model age of 3.4 G.y. The NPF, which is fit to the wide range count of impact craters in the Orientale Basin, yields a model age of ~3.7 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).}}{20}}
 \newlabel{HPF}{{10}{20}}
 \citation{long2015fully}
 \citation{silburt2019lunar}
@@ -95,11 +97,12 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{26}}
 \citation{ronneberger2015u}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Histogram of an image before contrast limited adaptive histogram equilization}}{27}}
-\newlabel{hist}{{16}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Histogram of an image after contrast limited adaptive histogram equilization}}{27}}
-\newlabel{clahe}{{17}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Training}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Training}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Histogram of an image before contrast limited adaptive histogram equilization}}{28}}
+\newlabel{hist}{{16}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Histogram of an image after contrast limited adaptive histogram equilization}}{28}}
+\newlabel{clahe}{{17}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Post-processing}{28}}
 \bibstyle{apalike}
 \bibdata{mybib}
 \bibcite{2016face}{El~Khiyari and Wechsler, 2016}
@@ -120,6 +123,7 @@
 \bibcite{robinson2010lunar}{Robinson et~al., 2010}
 \@writefile{toc}{\contentsline {section}{References}{29}}
 \bibcite{ronneberger2015u}{Ronneberger et~al., 2015}
+\bibcite{rumelhart1988learning}{Rumelhart et~al., 1988}
 \bibcite{sawabe_2006}{Sawabe et~al., 2006}
 \bibcite{silburt2019lunar}{Silburt et~al., 2019}
 \bibcite{soderblom1970distribution}{Soderblom, 1970}
