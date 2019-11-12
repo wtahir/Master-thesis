@@ -13,22 +13,23 @@
 \contentsline {subsection}{\numberline {4.5}Linear Classification}{11}
 \contentsline {subsection}{\numberline {4.6}Normalization}{12}
 \contentsline {subsection}{\numberline {4.7}Backpropagation}{13}
-\contentsline {section}{\numberline {5}Loss Function}{13}
-\contentsline {subsection}{\numberline {5.1}Cross Entropy Loss}{13}
-\contentsline {section}{\numberline {6}Activation Functions}{14}
-\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{14}
-\contentsline {subsection}{\numberline {6.2}ReLU Function}{16}
-\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{17}
-\contentsline {subsection}{\numberline {6.4}Lunar Production Function}{18}
-\contentsline {subsection}{\numberline {6.5}Hartmann Production Function (HPF)}{18}
-\contentsline {subsection}{\numberline {6.6}Neukum Production Function (NPF)}{19}
-\contentsline {section}{\numberline {7}Related Work}{21}
-\contentsline {section}{\numberline {8}Model Architecture}{22}
-\contentsline {section}{\numberline {9}Methodology}{24}
-\contentsline {subsection}{\numberline {9.1}Image Annotation}{24}
-\contentsline {subsection}{\numberline {9.2}Pre-processing}{26}
-\contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{26}
-\contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{27}
-\contentsline {subsection}{\numberline {9.3}Training}{27}
-\contentsline {subsection}{\numberline {9.4}Post-processing}{28}
-\contentsline {section}{References}{29}
+\contentsline {subsection}{\numberline {4.8}Weights Initialization}{14}
+\contentsline {section}{\numberline {5}Loss Function}{14}
+\contentsline {subsection}{\numberline {5.1}Cross Entropy Loss}{14}
+\contentsline {section}{\numberline {6}Activation Functions}{15}
+\contentsline {subsection}{\numberline {6.1}Sigmoid Function}{15}
+\contentsline {subsection}{\numberline {6.2}ReLU Function}{17}
+\contentsline {subsection}{\numberline {6.3}Softmax Classifier}{18}
+\contentsline {subsection}{\numberline {6.4}Lunar Production Function}{19}
+\contentsline {subsection}{\numberline {6.5}Hartmann Production Function (HPF)}{19}
+\contentsline {subsection}{\numberline {6.6}Neukum Production Function (NPF)}{20}
+\contentsline {section}{\numberline {7}Related Work}{22}
+\contentsline {section}{\numberline {8}Model Architecture}{23}
+\contentsline {section}{\numberline {9}Methodology}{25}
+\contentsline {subsection}{\numberline {9.1}Image Annotation}{25}
+\contentsline {subsection}{\numberline {9.2}Pre-processing}{27}
+\contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{27}
+\contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{28}
+\contentsline {subsection}{\numberline {9.3}Training}{28}
+\contentsline {subsection}{\numberline {9.4}Post-processing}{29}
+\contentsline {section}{References}{30}

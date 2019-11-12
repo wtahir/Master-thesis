@@ -365,8 +365,38 @@ Another way of normalization is to normalize a dataset by bringing it in a range
 In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
 
 \subsection{Backpropagation}
-The CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.  
+The CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
 
+For a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
+
+\begin{equation}
+f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
+\end{equation}
+
+The derivation function of a variable indicate the rate of change of a function with respect to that variable surrounding an infinitely small region near a specific point.
+
+\begin{equation}
+\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\end{equation}
+
+In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It also be seen by rearranging the above equation such that; $\left.f(x+h)=f(x)+h \frac{d f(x)}{d x}\right)$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
+
+The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
+
+\begin{equation}
+f(x, y)=x+y \quad \rightarrow \quad \frac{\partial f}{\partial x}=1 \quad \frac{\partial f}{\partial y}=1
+\end{equation}
+
+This indicates that derivative of both $x,y$ is one regardless of values of $x,y$. Increasing either $x$ or $y$ will increase the value of output to function $f$ independent of actual values of $x,y$ unlike the above case of multiplication. Another operation is a max operation:
+
+\begin{equation}
+f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y) \quad \frac{\partial f}{\partial y}=1(y>=x)
+\end{equation}
+
+That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
+
+
+\subsection{Weights Initialization}
 Initially weights of a CNN before training are randomly chosen. The key rule to pick a random weight is not to initialize with a too large or too small value to avoid the well known problem of vanishing or exploding gradients. Some initialization methods like He Initialization and Xavier Initialization are the common practices to setup weights. Before training, the CNN is not able to make meaningful predictions because there is no relation between the input images and their annotated outputs with classes. This process is performed in training where weights are adjusted in a way so that difference between desired output and network output is minimized. In other words network is trained to look for the right features needed for classification.
 
 
