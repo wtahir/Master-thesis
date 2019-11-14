@@ -25,6 +25,7 @@
 \usepackage{booktabs} 
 \usepackage{bigstrut}
 \usepackage{bigdelim}
+\usepackage{subcaption}
 \usepackage{multirow}
 \usepackage[nottoc]{tocbibind}
 \usepackage{rotating}
@@ -237,62 +238,6 @@ Object detection and classification can be performed in supervised machine learn
 In this technique an algorithm is trained by labeled images for desired classes of objects. The performance is then evaluated and tested using labeled images. The dataset is divided into 80\% training and 20\% test data. Labels are created by drawing a box around the object called a bounding box. The processes of supervised machine learning will be discussed in the later sections.
 \fi
 
-
-\subsection{Neural Network Overview}
-In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/NN.jpeg}
-	\caption{A typical Neural Network architecture}
-	\label{fig: Neural Network architecture}
-\end{figure}
-
-Artificial Neural Networks are very similar to convNets but they do not convolute on an image through a filter thus leading to many more parameters as compared to CNN i.e. in CIFAR-10 dataset, images are of 32x32x3 (width, height, 3 color channels). That means in an input image of size 32x32x3, an Artificial Neural Network would have 3072 weights. These weights tend to increase with size of image.
-
-\subsection{Convolutional Neural Network Overview}
-Just like Artificial Neural Networks as shown in Fig \ref{fig: Neural Network architecture}, convNets are also made up of neurons consisting of weights and biases which are learnable. Each neuron receives an input then performs a dot product and optionally follows it with a non-linearity. The entire network represents a single differentiable score from the raw image input to the output score. Last fully connected layer has a loss function which represents the error score. This entire process is referred to as forward pass. In convNet, the architecture assume inputs as images which provides flexibility of encoding certain properties. This greatly reduce the amount of parameters to learn and make forward pass more efficient. The layers of convNets have neurons arranged in 3 dimensions (width, height, depth). The neurons in a layer are not connected to all of the neurons in a previous layer like in an Artificial Neural Networks, instead they are connected to only small region of previous layer. The output results into a single vector of class scores by reducing the full image.
-
-\subsection{Concept of layers in CNNs}
-Following are the types of layers in a Convolutional Neural Network:
-
-\subsubsection{Convolutional layer}
-Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/conv.png}
-	\caption{Convolutional Operation}
-	\label{fig:Convolutional Operation}
-\end{figure}
-
-In fig: \ref{fig:Convolutional Operation} the output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained (stride is taken as 1). Output size can be calculated using eq.
-
-\begin{equation}
-\frac{n+2p-f}{s}+1 \times \frac{n+2p-f}{s}+1
-\end{equation}
-
-In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 filter size, $p$ is padding which equals 0 and $s$ stands for stride which is 1, inserting values in this equation would give us the size of output which is a 4x4 matrix.
-
-\subsubsection{Pooling layer}
-An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/pooling.png}
-	\caption{Pooling Operation}
-	\label{fig:Pooling Operation}
-\end{figure}
-
-
-\subsubsection{Fully Connected layer}
-After multiple convolution and pooling operations, finally an output can be generated in the form of a class. Convolution and pooling layers only extract the features and reduce amount of parameters from the input images. Fully connected layer (FC layer) is applied at the end to generate the required output equal to the number of classes. There can be multiple FC layers to further minimize the amount of parameters. In convolution the resultant is generation of 3D activation maps whereas the intention is to know whether the image belongs to a particular class or not. The output layer (which generates the class scores) has a loss function and once the forward pass is completed, backpropagation begins to update biases and weights for loss and error reduction. An overview of the architecture is shown below:
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{files/cnn_architecture/arch.png}
-	\caption{Convolutional Neural Network Architecture \cite{2016face}}
-	\label{fig: CNN architecture}
-\end{figure}
-
-
 \subsection{Bounding Box Proposal}
 In object detection, a bounding box (also referred to as region of interest or box proposal) shows the existence of object. It is a rectangular region of the input image containing the object. Bounding boxes can be generated by some heuristic search methods such as finding region proposal by objectness, region proposal network (RPN) or by selective search method. A bounding box can be either represented by storing its two corner coordinates $(x_0, y_0, x_1, y_1 )$  or most commonly by storing its center location along  with width and height such $(x, y, w, h)$. A bounding box is generated on the basis of confidence score that how likely an object exists inside the box. The difference between two bounding boxes is usually measured as the L2 distance of their vector representations. Another simplest way is to compare the images by taking pixelwise difference and summing up all the differences. To perform such procedure, given two images can be represented as vectors $I_1, I_2$ then L1 can be computed as:
 
@@ -395,14 +340,64 @@ f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y
 
 That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
 
+Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
 
 \subsection{Weights Initialization}
 Initially weights of a CNN before training are randomly chosen. The key rule to pick a random weight is not to initialize with a too large or too small value to avoid the well known problem of vanishing or exploding gradients. Some initialization methods like He Initialization and Xavier Initialization are the common practices to setup weights. Before training, the CNN is not able to make meaningful predictions because there is no relation between the input images and their annotated outputs with classes. This process is performed in training where weights are adjusted in a way so that difference between desired output and network output is minimized. In other words network is trained to look for the right features needed for classification.
 
+\subsection{Neural Network Overview}
+In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/NN.jpeg}
+	\caption{A typical Neural Network architecture}
+	\label{fig: Neural Network architecture}
+\end{figure}
+
+Artificial Neural Networks are very similar to convNets but they do not convolute on an image through a filter thus leading to many more parameters as compared to CNN i.e. in CIFAR-10 dataset, images are of 32x32x3 (width, height, 3 color channels). That means in an input image of size 32x32x3, an Artificial Neural Network would have 3072 weights. These weights tend to increase with size of image.
+
+\subsection{Convolutional Neural Network Overview}
+Just like Artificial Neural Networks as shown in Fig \ref{fig: Neural Network architecture}, convNets are also made up of neurons consisting of weights and biases which are learnable. Each neuron receives an input then performs a dot product and optionally follows it with a non-linearity. The entire network represents a single differentiable score from the raw image input to the output score. Last fully connected layer has a loss function which represents the error score. This entire process is referred to as forward pass. In convNet, the architecture assume inputs as images which provides flexibility of encoding certain properties. This greatly reduce the amount of parameters to learn and make forward pass more efficient. The layers of convNets have neurons arranged in 3 dimensions (width, height, depth). The neurons in a layer are not connected to all of the neurons in a previous layer like in an Artificial Neural Networks, instead they are connected to only small region of previous layer. The output results into a single vector of class scores by reducing the full image.
 
 
+\subsection{Concept of layers in CNNs}
+Following are the types of layers in a Convolutional Neural Network:
 
+\subsubsection{Convolutional layer}
+Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
 
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/cnn_architecture/conv.png}
+	\caption{Convolutional Operation}
+	\label{fig:Convolutional Operation}
+\end{figure}
+
+In fig: \ref{fig:Convolutional Operation} the output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained (stride is taken as 1). Output size can be calculated using eq.
+
+\begin{equation}
+\frac{n+2p-f}{s}+1 \times \frac{n+2p-f}{s}+1
+\end{equation}
+
+In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 filter size, $p$ is padding which equals 0 and $s$ stands for stride which is 1, inserting values in this equation would give us the size of output which is a 4x4 matrix.
+
+\subsubsection{Pooling layer}
+An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
+
+\begin{figure}[H]
+	\includegraphics[width=\linewidth]{files/cnn_architecture/pooling.png}
+	\caption{Pooling Operation}
+	\label{fig:Pooling Operation}
+\end{figure}
+
+\subsubsection{Fully Connected layer}
+After multiple convolution and pooling operations, finally an output can be generated in the form of a class. Convolution and pooling layers only extract the features and reduce amount of parameters from the input images. Fully connected layer (FC layer) is applied at the end to generate the required output equal to the number of classes. There can be multiple FC layers to further minimize the amount of parameters. In convolution the resultant is generation of 3D activation maps whereas the intention is to know whether the image belongs to a particular class or not. The output layer (which generates the class scores) has a loss function and once the forward pass is completed, backpropagation begins to update biases and weights for loss and error reduction. An overview of the architecture is shown below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{files/cnn_architecture/arch.png}
+	\caption{Convolutional Neural Network Architecture \cite{2016face}}
+	\label{fig: CNN architecture}
+\end{figure}
 
 \section{Loss Function}
 It determines the amount of deviation from the groundtruth or labeled data. Higher loss means the actual outcome is very different than expected result. In Fig \ref{fig: linear classifier} instead of high cat score, dog score was the highest. This anomaly is measured by loss function. A high loss function indicates poor classification of training data and low means better classification. There are different ways to define a loss function. Finding craters is a classification problem (i.e crater or no crater). So the loss is measured in as a classification loss problem.
@@ -663,10 +658,6 @@ In Figure \ref{ann}, images in the first row are part of the training dataset an
 	\label{mask}
 \end{figure*}
 
-
-
-
-
 \subsubsection{Data Augmentation}
 To create larger dataset without additional annotations, data augmentation is necessary. Creation of a larger dataset is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means larger dataset for training of algorithm and thus achieve better performance on test data. Therefore every training image is randomly augmented in following ways:
 
@@ -697,8 +688,6 @@ By applying CLAHE the detection of craters increased up to 50.5\%.
 	\label{clahe}
 \end{figure*}
 
-
-
 \subsection{Training}
 The input images along with their corresponding segmentation maps are utilized to train network with stochastic gradient decent implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Whereas Keras implementation can be found here:
 \textit{https://github.
@@ -706,8 +695,31 @@ The input images along with their corresponding segmentation maps are utilized t
 
 The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
 
+\section{Results}
+
+\begin{figure}[ht!]
+	\centering
+	\begin{subfigure}[b]{.4\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/22.png}
+		\caption{Crater image}\label{fig:image}
+	\end{subfigure}
+	
+	\begin{subfigure}[b]{.4\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/22_predict.png}
+		\setcounter{subfigure}{0}%
+		\caption{Crater prediction}\label{fig:gull}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/crater.png}
+		\caption{Extracted craters}\label{fig:tiger}
+	\end{subfigure}
+	\caption{Picture of animals}
+	\label{fig:animals}
+\end{figure}
+
 \subsection{Post-processing}
-The resulting predictions from CNN model will be post processed in which noise from the image will be removed and the amount of detected craters will be counted. Then resultant craters will be projected on the original image to visually lookout for the missing ones. The test images will be of Apollo 17 landing site where number of craters are already annotated by another thesis student. The age of geographic site is also already known. Therefor it will also provide a good evaluation of how close CSFD and crater diameters are to the manually counted ones how different the final outcome (age estimation) is from the existing proposed age by the planetary science experts. 
+The resulting predictions from CNN model will be post processed in which noise from the image will be removed and the amount of detected craters will be counted. Then resultant craters will be projected on the original image to visually lookout for the missing ones. The test images will be of Apollo 17 landing site where number of craters are already annotated by another thesis student. The age of geographic site is also already known. Therefor it will also provide a good evaluation of how close CSFD and crater diameters are to the manually counted ones how different the final outcome (age estimation) is from the existing proposed age by the planetary science experts.
+
 
 %Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
 

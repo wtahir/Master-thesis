@@ -3,17 +3,17 @@
 \contentsline {section}{\numberline {2}Problem Statement}{4}
 \contentsline {section}{\numberline {3}Research Approach}{4}
 \contentsline {section}{\numberline {4}Background}{5}
-\contentsline {subsection}{\numberline {4.1}Neural Network Overview}{6}
-\contentsline {subsection}{\numberline {4.2}Convolutional Neural Network Overview}{7}
-\contentsline {subsection}{\numberline {4.3}Concept of layers in CNNs}{7}
-\contentsline {subsubsection}{\numberline {4.3.1}Convolutional layer}{7}
-\contentsline {subsubsection}{\numberline {4.3.2}Pooling layer}{8}
-\contentsline {subsubsection}{\numberline {4.3.3}Fully Connected layer}{8}
-\contentsline {subsection}{\numberline {4.4}Bounding Box Proposal}{9}
-\contentsline {subsection}{\numberline {4.5}Linear Classification}{11}
-\contentsline {subsection}{\numberline {4.6}Normalization}{12}
-\contentsline {subsection}{\numberline {4.7}Backpropagation}{13}
-\contentsline {subsection}{\numberline {4.8}Weights Initialization}{14}
+\contentsline {subsection}{\numberline {4.1}Bounding Box Proposal}{6}
+\contentsline {subsection}{\numberline {4.2}Linear Classification}{7}
+\contentsline {subsection}{\numberline {4.3}Normalization}{8}
+\contentsline {subsection}{\numberline {4.4}Backpropagation}{9}
+\contentsline {subsection}{\numberline {4.5}Weights Initialization}{10}
+\contentsline {subsection}{\numberline {4.6}Neural Network Overview}{10}
+\contentsline {subsection}{\numberline {4.7}Convolutional Neural Network Overview}{11}
+\contentsline {subsection}{\numberline {4.8}Concept of layers in CNNs}{12}
+\contentsline {subsubsection}{\numberline {4.8.1}Convolutional layer}{12}
+\contentsline {subsubsection}{\numberline {4.8.2}Pooling layer}{13}
+\contentsline {subsubsection}{\numberline {4.8.3}Fully Connected layer}{13}
 \contentsline {section}{\numberline {5}Loss Function}{14}
 \contentsline {subsection}{\numberline {5.1}Cross Entropy Loss}{14}
 \contentsline {section}{\numberline {6}Activation Functions}{15}
@@ -31,5 +31,6 @@
 \contentsline {subsubsection}{\numberline {9.2.1}Data Augmentation}{27}
 \contentsline {subsubsection}{\numberline {9.2.2}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{28}
 \contentsline {subsection}{\numberline {9.3}Training}{28}
-\contentsline {subsection}{\numberline {9.4}Post-processing}{29}
+\contentsline {section}{\numberline {10}Results}{29}
+\contentsline {subsection}{\numberline {10.1}Post-processing}{29}
 \contentsline {section}{References}{30}
