@@ -33,7 +33,8 @@
 \contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{28}
 \contentsline {subsection}{\numberline {5.3}Training}{28}
 \contentsline {subsection}{\numberline {5.4}Post-processing}{30}
-\contentsline {subsection}{\numberline {5.5}Calibration of Lunar Chronology Function}{30}
-\contentsline {section}{\numberline {6}Results}{30}
+\contentsline {subsection}{\numberline {5.5}Otsu's Method}{30}
+\contentsline {section}{\numberline {6}Results and Evaluation}{30}
 \contentsline {subsection}{\numberline {6.1}Intersection Over Union (IoU)}{30}
-\contentsline {section}{References}{32}
+\contentsline {subsection}{\numberline {6.2}Plotting Age Curve}{30}
+\contentsline {section}{References}{31}

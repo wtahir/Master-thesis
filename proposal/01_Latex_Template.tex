@@ -716,6 +716,12 @@ The weights are saved in a checkpoint when losses are less than previous saved c
 \subsection{Post-processing}
 The resulting predictions from CNN model will be post processed in which noise from the image will be removed and the amount of detected craters will be counted. Then resultant craters will be projected on the original image to visually lookout for the missing ones. The test images will be of Apollo 17 landing site where number of craters are already annotated by another thesis student. The age of geographic site is also already known. Therefor it will also provide a good evaluation of how close CSFD and crater diameters are to the manually counted ones how different the final outcome (age estimation) is from the existing proposed age by the planetary science experts.
 
+\subsection{Otsu's Method}
+This method was presented by Scholar Otsu in 1979. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as the 
+
+
+\iffalse
+
 \subsection{Calibration of Lunar Chronology Function}
 
 \section{Results}
@@ -756,9 +762,15 @@ The resulting predictions from CNN model will be post processed in which noise f
 	\label{moon}
 \end{figure*}
 
-
+\fi
+\section{Results and Evaluation}
 
 \subsection{Intersection Over Union (IoU)}
+This method will be used to evaluate the pixel-wise detection of craters detected through the algorithm.
+
+\subsection{Plotting Age Curve}
+Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
+
 
 
 
