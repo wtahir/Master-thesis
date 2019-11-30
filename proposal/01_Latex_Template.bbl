@@ -48,6 +48,11 @@ Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012b).
 \newblock In {\em Advances in neural information processing systems}, pages
   1097--1105.
 
+\bibitem[Li and Lee, 1993]{li1993minimum}
+Li, C.~H. and Lee, C. (1993).
+\newblock Minimum cross entropy thresholding.
+\newblock {\em Pattern recognition}, 26(4):617--625.
+
 \bibitem[Long et~al., 2015]{long2015fully}
 Long, J., Shelhamer, E., and Darrell, T. (2015).
 \newblock Fully convolutional networks for semantic segmentation.
@@ -86,6 +91,12 @@ Opik, E. (1965).
 Redmon, J., Divvala, S., Girshick, R., and Farhadi, A.
 \newblock You only look once: Unified, real-time object detection.
 \newblock pages 779--788. {IEEE}.
+
+\bibitem[Ridler et~al., 1978]{ridler1978picture}
+Ridler, T., Calvard, S., et~al. (1978).
+\newblock Picture thresholding using an iterative selection method.
+\newblock {\em IEEE transactions on Systems, Man and Cybernetics},
+  8(8):630--632.
 
 \bibitem[Robinson et~al., 2010]{robinson2010lunar}
 Robinson, M., Brylow, S., Tschimmel, M., Humm, D., Lawrence, S., Thomas, P.,
@@ -134,11 +145,22 @@ St{\"o}ffler, D. and Ryder, G. (2001).
   standard for the inner solar system.
 \newblock In {\em Chronology and evolution of Mars}, pages 9--54. Springer.
 
+\bibitem[Szegedy et~al., ]{szegedy_going_2015}
+Szegedy, C., {Wei Liu}, {Yangqing Jia}, Sermanet, P., Reed, S., Anguelov, D.,
+  Erhan, D., Vanhoucke, V., and Rabinovich, A.
+\newblock Going deeper with convolutions.
+\newblock pages 1--9. {IEEE}.
+
 \bibitem[Williams et~al., 2018]{williams2018dating}
 Williams, J.-P., van~der Bogert, C.~H., Pathare, A.~V., Michael, G.~G.,
   Kirchoff, M.~R., and Hiesinger, H. (2018).
 \newblock Dating very young planetary surfaces from crater statistics: A review
   of issues and challenges.
 \newblock {\em Meteoritics \& Planetary Science}, 53(4):554--582.
+
+\bibitem[Yen et~al., 1995]{yen1995new}
+Yen, J.-C., Chang, F.-J., and Chang, S. (1995).
+\newblock A new criterion for automatic multilevel thresholding.
+\newblock {\em IEEE Transactions on Image Processing}, 4(3):370--378.
 
 \end{thebibliography}

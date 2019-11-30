@@ -713,18 +713,133 @@ com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded whic
 
 The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
 
+\section{Results}
+
 \subsection{Post-processing}
 The resulting predictions from CNN model will be post processed in which noise from the image will be removed and the amount of detected craters will be counted. Then resultant craters will be projected on the original image to visually lookout for the missing ones. The test images will be of Apollo 17 landing site where number of craters are already annotated by another thesis student. The age of geographic site is also already known. Therefor it will also provide a good evaluation of how close CSFD and crater diameters are to the manually counted ones how different the final outcome (age estimation) is from the existing proposed age by the planetary science experts.
 
 \subsection{Otsu's Method}
-This method was presented by Scholar Otsu in 1979. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as the 
+This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes.
+
+\begin{equation}
+\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+\end{equation}
+Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{subfigure}[b]{.45\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/22_predict.png}
+		\setcounter{subfigure}{0}%
+		\caption{Crater prediction}\label{pred}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/otsu.png}
+		\caption{Extracted craters}\label{otsu}
+	\end{subfigure}
+	\caption{Otsu thresholding}
+	\label{Otsu thresholding}
+\end{figure}
 
 
-\iffalse
+\subsection{Sauvola's Algorithm}
+It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
+
+\begin{equation}
+T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+\end{equation}
+
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}.
+
+\begin{figure}[ht!]
+	\centering
+	\begin{subfigure}[b]{.45\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/22_predict.png}
+		\setcounter{subfigure}{0}%
+		\caption{Crater prediction}\label{pred}
+	\end{subfigure}
+	\begin{subfigure}[b]{.45\linewidth}
+		\includegraphics[width=.9\textwidth]{files/results/sauvola.png}
+		\caption{Extracted craters}\label{sauvola}
+	\end{subfigure}
+	\caption{sauvola thresholding}
+	\label{sauvola thresholding}
+\end{figure}
+
+\subsection{Niblack Method}
+This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
+
+\begin{equation}
+T_{d}=m(x, y)+k \times s(x, y)
+\end{equation}
+where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background)
+
+\begin{figure}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_niblack.png}
+	\caption{Niblack thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Niblack_th}
+\end{figure}
+
+\subsection{Adaptive Mean Thresholding}
+In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant.
+
+\begin{figure}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_mean.png}\hfill
+	\caption{Adaptive mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Adaptive mean thresholding}
+\end{figure}
+
+\subsection{Mean Thresholding}
+This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background.
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_mean.png}
+	\caption{Mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{mean_th}
+\end{figure*}
+
+\subsection{Yen Thresholding}
+This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}
+
+\begin{figure}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_yen.png}\hfill
+	\caption{Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Yen thresholding}
+\end{figure}
+
+\subsection{Li Thresholding}
+This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}.
+
+\begin{figure}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_li.png}\hfill
+	\caption{Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Li thresholding}
+\end{figure}
+
+\subsection{Isodata Thresholding}
+Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}
+
+\begin{figure}[ht!]
+	\includegraphics[width=.3\textwidth]{files/results/22.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/22_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/22_isodata.png}\hfill
+	\caption{Isodata thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{isodata thresholding}
+\end{figure}
+
 
 \subsection{Calibration of Lunar Chronology Function}
 
-\section{Results}
 
 \begin{figure}[ht!]
 	\centering
@@ -762,9 +877,6 @@ This method was presented by Scholar Otsu in 1979. It is widely used till today 
 	\label{moon}
 \end{figure*}
 
-\fi
-\section{Results and Evaluation}
-
 \subsection{Intersection Over Union (IoU)}
 This method will be used to evaluate the pixel-wise detection of craters detected through the algorithm.
 
@@ -788,6 +900,5 @@ Another evaluation will be comparison of age with the determined age of crater c
 	
 \bibliographystyle{apalike}
 \bibliography{mybib}
-
 
 \end{document}

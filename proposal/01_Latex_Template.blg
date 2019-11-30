@@ -3,15 +3,15 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 121 of file mybib.bib
+Repeated entry---line 164 of file mybib.bib
  : @incollection{stoffler2001stratigraphy
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 130 of file mybib.bib
+Repeated entry---line 173 of file mybib.bib
  : @article{hiesinger2000ages
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 316 of file mybib.bib
+Repeated entry---line 359 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
@@ -19,45 +19,47 @@ Warning--empty journal in krizhevsky_imagenet_2012
 Warning--empty year in redmon_you_2016
 Warning--empty booktitle in redmon_you_2016
 Warning--empty journal in sawabe_2006
-You've used 24 entries,
+Warning--empty year in szegedy_going_2015
+Warning--empty booktitle in szegedy_going_2015
+You've used 28 entries,
             1935 wiz_defined-function locations,
-            624 strings with 8371 characters,
-and the built_in function-call counts, 11101 in all, are:
-= -- 1120
-> -- 451
-< -- 20
-+ -- 159
-- -- 154
-* -- 915
-:= -- 1836
-add.period$ -- 75
-call.type$ -- 24
-change.case$ -- 194
-chr.to.int$ -- 23
-cite$ -- 28
-duplicate$ -- 440
-empty$ -- 768
-format.name$ -- 186
-if$ -- 2242
+            648 strings with 9038 characters,
+and the built_in function-call counts, 13021 in all, are:
+= -- 1309
+> -- 548
+< -- 22
++ -- 195
+- -- 188
+* -- 1090
+:= -- 2163
+add.period$ -- 88
+call.type$ -- 28
+change.case$ -- 230
+chr.to.int$ -- 27
+cite$ -- 34
+duplicate$ -- 504
+empty$ -- 892
+format.name$ -- 226
+if$ -- 2615
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 22
-newline$ -- 122
-num.names$ -- 72
-pop$ -- 188
+missing$ -- 26
+newline$ -- 142
+num.names$ -- 84
+pop$ -- 223
 preamble$ -- 1
-purify$ -- 195
+purify$ -- 231
 quote$ -- 0
-skip$ -- 351
+skip$ -- 396
 stack$ -- 0
-substring$ -- 842
-swap$ -- 104
-text.length$ -- 10
+substring$ -- 983
+swap$ -- 112
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
-warning$ -- 4
-while$ -- 97
+type$ -- 168
+warning$ -- 6
+while$ -- 114
 width$ -- 0
-write$ -- 312
+write$ -- 363
 (There were 3 error messages)

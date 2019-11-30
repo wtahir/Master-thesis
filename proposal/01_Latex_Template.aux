@@ -10,107 +10,153 @@
 \citation{ivanov2002comparison}
 \citation{robinson2010lunar}
 \citation{robinson2010lunar}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{3}}
 \citation{sawabe_2006}
 \citation{sawabe_2006}
 \citation{stepinski2012detecting}
 \citation{greeley1970precision}
 \citation{krizhevsky_imagenet_2012}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Statement}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Research Approach}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example of two images which are represented as vectors and pixelwise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.\relax }}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Statement}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Research Approach}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Background}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Example of two images which are represented as vectors and pixelwise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.\relax }}{7}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig: Example of two images which are represented as vectors and pixel-wise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}{{1}{6}}
+\newlabel{fig: Example of two images which are represented as vectors and pixel-wise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}{{1}{7}}
 \citation{redmon_you_2016}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Linear Classification}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The graphical representation of eq ($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.\relax }}{8}}
-\newlabel{fig: linear classifier}{{2}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Normalization}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Linear Classification}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The graphical representation of eq ($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.\relax }}{9}}
+\newlabel{fig: linear classifier}{{2}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Normalization}{9}}
 \citation{rumelhart1988learning}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Backpropagation}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Weights Initialization}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A typical Neural Network architecture\relax }}{11}}
-\newlabel{fig: Neural Network architecture}{{3}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Convolutional Operation\relax }}{12}}
-\newlabel{fig:Convolutional Operation}{{4}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Backpropagation}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Weights Initialization}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A typical Neural Network architecture\relax }}{12}}
+\newlabel{fig: Neural Network architecture}{{3}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Convolutional Operation\relax }}{13}}
+\newlabel{fig:Convolutional Operation}{{4}{13}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}}
 \citation{2016face}
 \citation{2016face}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Pooling Operation\relax }}{13}}
-\newlabel{fig:Pooling Operation}{{5}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Convolutional Neural Network Architecture \cite  {2016face}\relax }}{14}}
-\newlabel{fig: CNN architecture}{{6}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Loss Function}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.8.1}Cross Entropy Loss}{14}}
-\newlabel{crossent}{{6}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Activation Functions}{15}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.1}Sigmoid Function}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Sigmoid Function\relax }}{16}}
-\newlabel{fig: Sigmoid}{{7}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Pooling Operation\relax }}{14}}
+\newlabel{fig:Pooling Operation}{{5}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Convolutional Neural Network Architecture \cite  {2016face}\relax }}{15}}
+\newlabel{fig: CNN architecture}{{6}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.8}Loss Function}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.8.1}Cross Entropy Loss}{15}}
+\newlabel{crossent}{{6}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Activation Functions}{16}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.1}Sigmoid Function}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Sigmoid Function\relax }}{17}}
+\newlabel{fig: Sigmoid}{{7}{17}}
 \citation{krizhevsky_imagenet_2012}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.2}ReLU Function}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces ReLU Function\relax }}{17}}
-\newlabel{fig: relu}{{8}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.2}ReLU Function}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces ReLU Function\relax }}{18}}
+\newlabel{fig: relu}{{8}{18}}
 \citation{krizhevsky2012imagenet}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh.\relax }}{18}}
-\newlabel{fig: relu_fast}{{9}{18}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.3}Softmax Classifier}{18}}
-\newlabel{singlesoftmax}{{11}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh.\relax }}{19}}
+\newlabel{fig: relu_fast}{{9}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.9.3}Softmax Classifier}{19}}
+\newlabel{singlesoftmax}{{11}{19}}
 \citation{hiesinger2000ages}
 \citation{stoffler2001stratigraphy}
 \citation{stoffler2001stratigraphy}
 \citation{hiesinger2000ages}
 \citation{ivanov2002comparison}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.10}Lunar Production Function}{19}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.10.1}Hartmann Production Function (HPF)}{19}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.10}Lunar Production Function}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.10.1}Hartmann Production Function (HPF)}{20}}
 \citation{neukum1994crater}
 \citation{neukum1983meteoritenbombardement}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{20}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{21}}
 \citation{sawabe_2006}
 \citation{sawabe_2006}
 \citation{neukum1975cratering}
 \citation{martins2009crater}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (a) The incremental representation of the Hartmann production function (HPF). The HPF, in a direct sense, is the set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (1)). (b) Comparison of pro- duction functions derived by Hartmann (HPF) and Neukum (NPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam- eter range of 30\IeC {\textendash }100 km, the HPF and NPF give the same or simi- lar results. Fitting the HPF to equation (3), we obtain a model age of 3.4 G.y. The NPF, which is fit to the wide range count of impact craters in the Orientale Basin, yields a model age of ~3.7 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).\relax }}{21}}
-\newlabel{HPF}{{10}{21}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (a) The incremental representation of the Hartmann production function (HPF). The HPF, in a direct sense, is the set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (1)). (b) Comparison of pro- duction functions derived by Hartmann (HPF) and Neukum (NPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam- eter range of 30\IeC {\textendash }100 km, the HPF and NPF give the same or simi- lar results. Fitting the HPF to equation (3), we obtain a model age of 3.4 G.y. The NPF, which is fit to the wide range count of impact craters in the Orientale Basin, yields a model age of ~3.7 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).\relax }}{22}}
+\newlabel{HPF}{{10}{22}}
 \citation{long2015fully}
 \citation{silburt2019lunar}
 \citation{silburt2019lunar}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles\relax }}{23}}
-\newlabel{dem}{{11}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Model Architecture}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring\relax }}{24}}
-\newlabel{fig:tiling}{{12}{24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces U-net Architecture\relax }}{25}}
-\newlabel{fig:U-net}{{13}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Methodology}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Data Set}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Pre-processing}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool\relax }}{27}}
-\newlabel{ann}{{14}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Visualization of binary masks after projection from annotated (json format) images that belong to Figure 13\relax }}{28}}
-\newlabel{mask}{{15}{28}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Training}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles\relax }}{24}}
+\newlabel{dem}{{11}{24}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Model Architecture}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring\relax }}{25}}
+\newlabel{fig:tiling}{{12}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces U-net Architecture\relax }}{26}}
+\newlabel{fig:U-net}{{13}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Methodology}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Data Set}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Pre-processing}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool\relax }}{28}}
+\newlabel{ann}{{14}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Visualization of binary masks after projection from annotated (json format) images that belong to Figure 13\relax }}{29}}
+\newlabel{mask}{{15}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{29}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Training}{29}}
 \citation{ronneberger2015u}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Histogram of an image before contrast limited adaptive histogram equilization\relax }}{29}}
-\newlabel{hist}{{16}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Histogram of an image after contrast limited adaptive histogram equilization\relax }}{29}}
-\newlabel{clahe}{{17}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Post-processing}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Otsu's Method}{30}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results and Evaluation}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Intersection Over Union (IoU)}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Plotting Age Curve}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Histogram of an image before contrast limited adaptive histogram equilization\relax }}{30}}
+\newlabel{hist}{{16}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Histogram of an image after contrast limited adaptive histogram equilization\relax }}{30}}
+\newlabel{clahe}{{17}{30}}
+\citation{szegedy_going_2015}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Post-processing}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Otsu's Method}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Sauvola's Algorithm}{31}}
+\newlabel{pred}{{18a}{32}}
+\newlabel{sub@pred}{{a}{32}}
+\newlabel{otsu}{{18b}{32}}
+\newlabel{sub@otsu}{{b}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Otsu thresholding\relax }}{32}}
+\newlabel{Otsu thresholding}{{18}{32}}
+\newlabel{pred}{{19a}{32}}
+\newlabel{sub@pred}{{a}{32}}
+\newlabel{sauvola}{{19b}{32}}
+\newlabel{sub@sauvola}{{b}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces sauvola thresholding\relax }}{32}}
+\newlabel{sauvola thresholding}{{19}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Niblack Method}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Niblack thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{33}}
+\newlabel{Niblack_th}{{20}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Adaptive Mean Thresholding}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Adaptive mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{33}}
+\newlabel{Adaptive mean thresholding}{{21}{33}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Mean Thresholding}{33}}
+\citation{yen1995new}
+\citation{li1993minimum}
+\citation{ridler1978picture}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{34}}
+\newlabel{mean_th}{{22}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Yen Thresholding}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{34}}
+\newlabel{Yen thresholding}{{23}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Li Thresholding}{34}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}Isodata Thresholding}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{35}}
+\newlabel{Li thresholding}{{24}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Isodata thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{35}}
+\newlabel{isodata thresholding}{{25}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10}Calibration of Lunar Chronology Function}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11}Intersection Over Union (IoU)}{35}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.12}Plotting Age Curve}{35}}
+\newlabel{img}{{26a}{36}}
+\newlabel{sub@img}{{a}{36}}
+\newlabel{pred}{{26a}{36}}
+\newlabel{sub@pred}{{a}{36}}
+\newlabel{ext}{{26b}{36}}
+\newlabel{sub@ext}{{b}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Model output of crater predictions\relax }}{36}}
+\newlabel{results}{{26}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces The image on left is ground truth of Figure \ref  {results} (a) and on right is the comparison of Figure \ref  {results} (b) with ground truth image. Red circles are extracted craters after post-processing and blue ones are the missed ones.\relax }}{36}}
+\newlabel{clahe}{{27}{36}}
 \bibstyle{apalike}
 \bibdata{mybib}
 \bibcite{2016face}{El~Khiyari and Wechsler, 2016}
@@ -120,7 +166,11 @@
 \bibcite{ivanov2002comparison}{Ivanov, 2002}
 \bibcite{koeberl1994african}{Koeberl, 1994}
 \bibcite{krizhevsky_imagenet_2012}{Krizhevsky et~al., 2012a}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Projection of extracted craters on the test image.\relax }}{37}}
+\newlabel{moon}{{28}{37}}
+\@writefile{toc}{\contentsline {section}{References}{37}}
 \bibcite{krizhevsky2012imagenet}{Krizhevsky et~al., 2012b}
+\bibcite{li1993minimum}{Li and Lee, 1993}
 \bibcite{long2015fully}{Long et~al., 2015}
 \bibcite{martins2009crater}{Martins et~al., 2009}
 \bibcite{neukum1983meteoritenbombardement}{Neukum, 1983}
@@ -128,8 +178,8 @@
 \bibcite{neukum1975cratering}{Neukum et~al., 1975}
 \bibcite{opik1965mariner}{Opik, 1965}
 \bibcite{redmon_you_2016}{Redmon et~al., }
+\bibcite{ridler1978picture}{Ridler et~al., 1978}
 \bibcite{robinson2010lunar}{Robinson et~al., 2010}
-\@writefile{toc}{\contentsline {section}{References}{31}}
 \bibcite{ronneberger2015u}{Ronneberger et~al., 2015}
 \bibcite{rumelhart1988learning}{Rumelhart et~al., 1988}
 \bibcite{sawabe_2006}{Sawabe et~al., 2006}
@@ -137,4 +187,6 @@
 \bibcite{soderblom1970distribution}{Soderblom, 1970}
 \bibcite{stepinski2012detecting}{Stepinski et~al., 2012}
 \bibcite{stoffler2001stratigraphy}{St{\"o}ffler and Ryder, 2001}
+\bibcite{szegedy_going_2015}{Szegedy et~al., }
 \bibcite{williams2018dating}{Williams et~al., 2018}
+\bibcite{yen1995new}{Yen et~al., 1995}
