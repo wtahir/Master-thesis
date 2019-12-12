@@ -32,17 +32,16 @@
 \contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{28}
 \contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{29}
 \contentsline {subsection}{\numberline {5.3}Training}{29}
-\contentsline {section}{\numberline {6}Results}{31}
-\contentsline {subsection}{\numberline {6.1}Post-processing}{31}
-\contentsline {subsection}{\numberline {6.2}Otsu's Method}{31}
-\contentsline {subsection}{\numberline {6.3}Sauvola's Algorithm}{31}
-\contentsline {subsection}{\numberline {6.4}Niblack Method}{32}
-\contentsline {subsection}{\numberline {6.5}Adaptive Mean Thresholding}{33}
-\contentsline {subsection}{\numberline {6.6}Mean Thresholding}{33}
-\contentsline {subsection}{\numberline {6.7}Yen Thresholding}{34}
-\contentsline {subsection}{\numberline {6.8}Li Thresholding}{34}
-\contentsline {subsection}{\numberline {6.9}Isodata Thresholding}{34}
-\contentsline {subsection}{\numberline {6.10}Calibration of Lunar Chronology Function}{35}
-\contentsline {subsection}{\numberline {6.11}Intersection Over Union (IoU)}{35}
-\contentsline {subsection}{\numberline {6.12}Plotting Age Curve}{35}
-\contentsline {section}{References}{37}
+\contentsline {section}{\numberline {6}Post-processing}{31}
+\contentsline {subsection}{\numberline {6.1}Otsu's Method}{31}
+\contentsline {subsection}{\numberline {6.2}Sauvola's Algorithm}{31}
+\contentsline {subsection}{\numberline {6.3}Niblack Method}{32}
+\contentsline {subsection}{\numberline {6.4}Adaptive Mean Thresholding}{33}
+\contentsline {subsection}{\numberline {6.5}Mean Thresholding}{33}
+\contentsline {subsection}{\numberline {6.6}Yen Thresholding}{33}
+\contentsline {subsection}{\numberline {6.7}Li Thresholding}{34}
+\contentsline {subsection}{\numberline {6.8}Isodata Thresholding}{35}
+\contentsline {section}{\numberline {7}Results}{35}
+\contentsline {subsection}{\numberline {7.1}Intersection Over Union (IoU)}{35}
+\contentsline {subsection}{\numberline {7.2}Plotting Age Curve}{37}
+\contentsline {section}{References}{38}
