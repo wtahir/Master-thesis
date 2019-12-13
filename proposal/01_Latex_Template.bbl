@@ -48,6 +48,11 @@ Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012b).
 \newblock In {\em Advances in neural information processing systems}, pages
   1097--1105.
 
+\bibitem[Leroy et~al., 2001]{leroy2001crater}
+Leroy, B., Medioni, G., Johnson, E., and Matthies, L. (2001).
+\newblock Crater detection for autonomous landing on asteroids.
+\newblock {\em Image and Vision Computing}, 19(11):787--792.
+
 \bibitem[Li and Lee, 1993]{li1993minimum}
 Li, C.~H. and Lee, C. (1993).
 \newblock Minimum cross entropy thresholding.
