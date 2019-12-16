@@ -1,10 +1,20 @@
 \begin{thebibliography}{}
 
+\bibitem[Dalal and Triggs, 2005]{dalal2005histograms}
+Dalal, N. and Triggs, B. (2005).
+\newblock Histograms of oriented gradients for human detection.
+
 \bibitem[El~Khiyari and Wechsler, 2016]{2016face}
 El~Khiyari, H. and Wechsler, H. (2016).
 \newblock Face recognition across time lapse using convolutional neural
   networks.
 \newblock {\em Journal of Information Security}, 7(03):141.
+
+\bibitem[Felzenszwalb et~al., 2008]{felzenszwalb2008discriminatively}
+Felzenszwalb, P., McAllester, D., and Ramanan, D. (2008).
+\newblock A discriminatively trained, multiscale, deformable part model.
+\newblock In {\em 2008 IEEE conference on computer vision and pattern
+  recognition}, pages 1--8. IEEE.
 
 \bibitem[Greeley and Gault, 1970]{greeley1970precision}
 Greeley, R. and Gault, D.~E. (1970).
@@ -37,13 +47,8 @@ Koeberl, C. (1994).
   importance.
 \newblock {\em Journal of African Earth Sciences}, 18(4):263--295.
 
-\bibitem[Krizhevsky et~al., 2012a]{krizhevsky_imagenet_2012}
-Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012a).
-\newblock {ImageNet} classification with deep convolutional neural networks.
-\newblock 60(6):84--90.
-
-\bibitem[Krizhevsky et~al., 2012b]{krizhevsky2012imagenet}
-Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012b).
+\bibitem[Krizhevsky et~al., 2012]{krizhevsky2012imagenet}
+Krizhevsky, A., Sutskever, I., and Hinton, G.~E. (2012).
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock In {\em Advances in neural information processing systems}, pages
   1097--1105.
@@ -160,6 +165,16 @@ Szegedy, C., {Wei Liu}, {Yangqing Jia}, Sermanet, P., Reed, S., Anguelov, D.,
   Erhan, D., Vanhoucke, V., and Rabinovich, A.
 \newblock Going deeper with convolutions.
 \newblock pages 1--9. {IEEE}.
+
+\bibitem[Uijlings et~al., 2013]{uijlings2013selective}
+Uijlings, J.~R., Van De~Sande, K.~E., Gevers, T., and Smeulders, A.~W. (2013).
+\newblock Selective search for object recognition.
+\newblock {\em International journal of computer vision}, 104(2):154--171.
+
+\bibitem[Viola et~al., 2001]{viola2001rapid}
+Viola, P., Jones, M., et~al. (2001).
+\newblock Rapid object detection using a boosted cascade of simple features.
+\newblock {\em CVPR (1)}, 1(511-518):3.
 
 \bibitem[Williams et~al., 2018]{williams2018dating}
 Williams, J.-P., van~der Bogert, C.~H., Pathare, A.~V., Michael, G.~G.,

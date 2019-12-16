@@ -15,7 +15,8 @@
 \citation{sawabe_2006}
 \citation{stepinski2012detecting}
 \citation{greeley1970precision}
-\citation{krizhevsky_imagenet_2012}
+\citation{long2015fully}
+\citation{krizhevsky2012imagenet}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Problem Statement}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Research Approach}{5}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{6}}
@@ -24,23 +25,23 @@
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig: Example of two images which are represented as vectors and pixel-wise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}{{1}{7}}
 \citation{redmon_you_2016}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Linear Classification}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Linear Classification}{9}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces The graphical representation of eq ($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.\relax }}{9}}
 \newlabel{fig: linear classifier}{{2}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Normalization}{9}}
 \citation{rumelhart1988learning}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Normalization}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Backpropagation}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Weights Initialization}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A typical Neural Network architecture\relax }}{12}}
 \newlabel{fig: Neural Network architecture}{{3}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{13}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{13}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Convolutional Operation\relax }}{13}}
 \newlabel{fig:Convolutional Operation}{{4}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}}
 \citation{2016face}
 \citation{2016face}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{14}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Pooling Operation\relax }}{14}}
 \newlabel{fig:Pooling Operation}{{5}{14}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{14}}
@@ -72,18 +73,21 @@
 \citation{neukum1994crater}
 \citation{neukum1983meteoritenbombardement}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{21}}
+\citation{viola2001rapid}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces (a) The incremental representation of the Hartmann production function (HPF). The HPF, in a direct sense, is the set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (1)). (b) Comparison of pro- duction functions derived by Hartmann (HPF) and Neukum (NPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D ~ 6 km. Below D ~ 1 km and in the diam- eter range of 30\IeC {\textendash }100 km, the HPF and NPF give the same or simi- lar results. Fitting the HPF to equation (3), we obtain a model age of 3.4 G.y. The NPF, which is fit to the wide range count of impact craters in the Orientale Basin, yields a model age of ~3.7 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).\relax }}{22}}
 \newlabel{HPF}{{10}{22}}
+\citation{dalal2005histograms}
+\citation{felzenszwalb2008discriminatively}
+\citation{uijlings2013selective}
 \citation{leroy2001crater}
 \citation{sawabe_2006}
 \citation{neukum1975cratering}
 \citation{sawabe_2006}
 \citation{martins2009crater}
-\citation{long2015fully}
-\citation{silburt2019lunar}
-\citation{silburt2019lunar}
-\citation{silburt2019lunar}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{23}}
+\citation{silburt2019lunar}
+\citation{silburt2019lunar}
+\citation{silburt2019lunar}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles\relax }}{24}}
 \newlabel{dem}{{11}{24}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Model Architecture}{24}}
@@ -159,21 +163,22 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Plotting Age Curve}{37}}
 \bibstyle{apalike}
 \bibdata{mybib}
+\bibcite{dalal2005histograms}{Dalal and Triggs, 2005}
 \bibcite{2016face}{El~Khiyari and Wechsler, 2016}
+\bibcite{felzenszwalb2008discriminatively}{Felzenszwalb et~al., 2008}
 \bibcite{greeley1970precision}{Greeley and Gault, 1970}
 \bibcite{hartmann1981chronology}{Hartmann, 1981}
 \bibcite{hiesinger2000ages}{Hiesinger et~al., 2000}
 \bibcite{ivanov2002comparison}{Ivanov, 2002}
 \bibcite{koeberl1994african}{Koeberl, 1994}
-\bibcite{krizhevsky_imagenet_2012}{Krizhevsky et~al., 2012a}
-\bibcite{krizhevsky2012imagenet}{Krizhevsky et~al., 2012b}
+\bibcite{krizhevsky2012imagenet}{Krizhevsky et~al., 2012}
 \bibcite{leroy2001crater}{Leroy et~al., 2001}
 \bibcite{li1993minimum}{Li and Lee, 1993}
 \bibcite{long2015fully}{Long et~al., 2015}
 \bibcite{martins2009crater}{Martins et~al., 2009}
-\bibcite{neukum1983meteoritenbombardement}{Neukum, 1983}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Patch wise mean F1 scores on test set distribution from dataset split\relax }}{38}}
 \@writefile{toc}{\contentsline {section}{References}{38}}
+\bibcite{neukum1983meteoritenbombardement}{Neukum, 1983}
 \bibcite{neukum1994crater}{Neukum and Ivanov, 1994}
 \bibcite{neukum1975cratering}{Neukum et~al., 1975}
 \bibcite{opik1965mariner}{Opik, 1965}
@@ -189,5 +194,7 @@
 \bibcite{stepinski2012detecting}{Stepinski et~al., 2012}
 \bibcite{stoffler2001stratigraphy}{St{\"o}ffler and Ryder, 2001}
 \bibcite{szegedy_going_2015}{Szegedy et~al., }
+\bibcite{uijlings2013selective}{Uijlings et~al., 2013}
+\bibcite{viola2001rapid}{Viola et~al., 2001}
 \bibcite{williams2018dating}{Williams et~al., 2018}
 \bibcite{yen1995new}{Yen et~al., 1995}

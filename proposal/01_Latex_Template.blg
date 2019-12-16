@@ -3,63 +3,64 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 183 of file mybib.bib
+Repeated entry---line 219 of file mybib.bib
  : @incollection{stoffler2001stratigraphy
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 192 of file mybib.bib
+Repeated entry---line 228 of file mybib.bib
  : @article{hiesinger2000ages
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 378 of file mybib.bib
+Repeated entry---line 414 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Warning--empty journal in krizhevsky_imagenet_2012
+Warning--I didn't find a database entry for "krizhevsky_imagenet_2012"
+Warning--empty booktitle in dalal2005histograms
 Warning--empty year in redmon_you_2016
 Warning--empty booktitle in redmon_you_2016
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 30 entries,
+You've used 33 entries,
             1935 wiz_defined-function locations,
-            661 strings with 9373 characters,
-and the built_in function-call counts, 13751 in all, are:
-= -- 1380
-> -- 578
-< -- 23
-+ -- 205
-- -- 198
-* -- 1152
-:= -- 2295
-add.period$ -- 94
-call.type$ -- 30
-change.case$ -- 245
-chr.to.int$ -- 29
-cite$ -- 36
-duplicate$ -- 531
-empty$ -- 942
-format.name$ -- 238
-if$ -- 2753
-int.to.chr$ -- 2
+            679 strings with 9906 characters,
+and the built_in function-call counts, 14973 in all, are:
+= -- 1497
+> -- 632
+< -- 25
++ -- 224
+- -- 216
+* -- 1251
+:= -- 2504
+add.period$ -- 103
+call.type$ -- 33
+change.case$ -- 268
+chr.to.int$ -- 33
+cite$ -- 39
+duplicate$ -- 585
+empty$ -- 1031
+format.name$ -- 261
+if$ -- 2999
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 152
-num.names$ -- 90
-pop$ -- 235
+missing$ -- 31
+newline$ -- 166
+num.names$ -- 99
+pop$ -- 262
 preamble$ -- 1
-purify$ -- 246
+purify$ -- 269
 quote$ -- 0
-skip$ -- 417
+skip$ -- 454
 stack$ -- 0
-substring$ -- 1032
-swap$ -- 114
-text.length$ -- 11
+substring$ -- 1095
+swap$ -- 122
+text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 180
+type$ -- 198
 warning$ -- 6
-while$ -- 120
+while$ -- 130
 width$ -- 0
-write$ -- 388
+write$ -- 426
 (There were 3 error messages)

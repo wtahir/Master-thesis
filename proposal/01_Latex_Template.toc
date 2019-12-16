@@ -4,14 +4,14 @@
 \contentsline {subsection}{\numberline {1.2}Research Approach}{5}
 \contentsline {section}{\numberline {2}Background}{6}
 \contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{7}
-\contentsline {subsection}{\numberline {2.2}Linear Classification}{8}
-\contentsline {subsection}{\numberline {2.3}Normalization}{9}
+\contentsline {subsection}{\numberline {2.2}Linear Classification}{9}
+\contentsline {subsection}{\numberline {2.3}Normalization}{10}
 \contentsline {subsection}{\numberline {2.4}Backpropagation}{10}
 \contentsline {subsection}{\numberline {2.5}Weights Initialization}{11}
-\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{11}
-\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}
+\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{12}
+\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{13}
 \contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{13}
-\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}
+\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{14}
 \contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{14}
 \contentsline {subsection}{\numberline {2.8}Loss Function}{15}
 \contentsline {subsubsection}{\numberline {2.8.1}Cross Entropy Loss}{15}
