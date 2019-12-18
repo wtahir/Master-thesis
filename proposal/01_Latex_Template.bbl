@@ -16,6 +16,17 @@ Felzenszwalb, P., McAllester, D., and Ramanan, D. (2008).
 \newblock In {\em 2008 IEEE conference on computer vision and pattern
   recognition}, pages 1--8. IEEE.
 
+\bibitem[Girshick, 2015]{girshick2015fast}
+Girshick, R. (2015).
+\newblock Fast r-cnn.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 1440--1448.
+
+\bibitem[Girshick et~al., ]{girshick_rich_2013}
+Girshick, R., Donahue, J., Darrell, T., and Malik, J.
+\newblock Rich feature hierarchies for accurate object detection and semantic
+  segmentation.
+
 \bibitem[Greeley and Gault, 1970]{greeley1970precision}
 Greeley, R. and Gault, D.~E. (1970).
 \newblock Precision size-frequency distributions of craters for 12 selected
@@ -28,6 +39,10 @@ Hartmann, W.~K. (1981).
   cratering.
 \newblock {\em Basaltic Volcanism on the Terrestrial Planets.}, pages
   1049--1127.
+
+\bibitem[He et~al., ]{he_mask_2017}
+He, K., Gkioxari, G., Dollár, P., and Girshick, R.
+\newblock Mask r-{CNN}.
 
 \bibitem[Hiesinger et~al., 2000]{hiesinger2000ages}
 Hiesinger, H., Jaumann, R., Neukum, G., and Head~III, J.~W. (2000).
@@ -107,6 +122,13 @@ Redmon, J., Divvala, S., Girshick, R., and Farhadi, A.
 \newblock You only look once: Unified, real-time object detection.
 \newblock pages 779--788. {IEEE}.
 
+\bibitem[Ren et~al., 2015]{ren2015faster}
+Ren, S., He, K., Girshick, R., and Sun, J. (2015).
+\newblock Faster r-cnn: Towards real-time object detection with region proposal
+  networks.
+\newblock In {\em Advances in neural information processing systems}, pages
+  91--99.
+
 \bibitem[Ridler et~al., 1978]{ridler1978picture}
 Ridler, T., Calvard, S., et~al. (1978).
 \newblock Picture thresholding using an iterative selection method.
@@ -153,6 +175,11 @@ Stepinski, T., Ding, W., and Vilalta, R. (2012).
 \newblock Detecting impact craters in planetary images using machine learning.
 \newblock In {\em Intelligent data analysis for real-life applications: theory
   and practice}, pages 146--159. IGI Global.
+
+\bibitem[Stepinski et~al., 2009]{stepinski2009machine}
+Stepinski, T.~F., Mendenhall, M.~P., and Bue, B.~D. (2009).
+\newblock Machine cataloging of impact craters on mars.
+\newblock {\em icarus}, 203(1):77--87.
 
 \bibitem[St{\"o}ffler and Ryder, 2001]{stoffler2001stratigraphy}
 St{\"o}ffler, D. and Ryder, G. (2001).

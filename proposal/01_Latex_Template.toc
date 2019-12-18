@@ -23,25 +23,26 @@
 \contentsline {subsubsection}{\numberline {2.10.1}Hartmann Production Function (HPF)}{20}
 \contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{21}
 \contentsline {section}{\numberline {3}Related Work}{23}
-\contentsline {section}{\numberline {4}Model Architecture}{24}
-\contentsline {section}{\numberline {5}Methodology}{26}
-\contentsline {subsection}{\numberline {5.1}Data Set}{26}
-\contentsline {subsection}{\numberline {5.2}Pre-processing}{27}
-\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{27}
-\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{28}
-\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{28}
-\contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{29}
-\contentsline {subsection}{\numberline {5.3}Training}{29}
-\contentsline {section}{\numberline {6}Post-processing}{31}
-\contentsline {subsection}{\numberline {6.1}Otsu's Method}{31}
-\contentsline {subsection}{\numberline {6.2}Sauvola's Algorithm}{31}
-\contentsline {subsection}{\numberline {6.3}Niblack Method}{32}
-\contentsline {subsection}{\numberline {6.4}Adaptive Mean Thresholding}{33}
-\contentsline {subsection}{\numberline {6.5}Mean Thresholding}{33}
-\contentsline {subsection}{\numberline {6.6}Yen Thresholding}{33}
-\contentsline {subsection}{\numberline {6.7}Li Thresholding}{34}
-\contentsline {subsection}{\numberline {6.8}Isodata Thresholding}{35}
-\contentsline {section}{\numberline {7}Results}{35}
-\contentsline {subsection}{\numberline {7.1}Intersection Over Union (IoU)}{35}
-\contentsline {subsection}{\numberline {7.2}Plotting Age Curve}{37}
-\contentsline {section}{References}{38}
+\contentsline {subsection}{\numberline {3.1}Crater Detection}{25}
+\contentsline {section}{\numberline {4}Model Architecture}{26}
+\contentsline {section}{\numberline {5}Methodology}{28}
+\contentsline {subsection}{\numberline {5.1}Data Set}{28}
+\contentsline {subsection}{\numberline {5.2}Pre-processing}{29}
+\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{29}
+\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{30}
+\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{30}
+\contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{31}
+\contentsline {subsection}{\numberline {5.3}Training}{31}
+\contentsline {section}{\numberline {6}Post-processing}{33}
+\contentsline {subsection}{\numberline {6.1}Otsu's Method}{33}
+\contentsline {subsection}{\numberline {6.2}Sauvola's Algorithm}{33}
+\contentsline {subsection}{\numberline {6.3}Niblack Method}{34}
+\contentsline {subsection}{\numberline {6.4}Adaptive Mean Thresholding}{35}
+\contentsline {subsection}{\numberline {6.5}Mean Thresholding}{35}
+\contentsline {subsection}{\numberline {6.6}Yen Thresholding}{35}
+\contentsline {subsection}{\numberline {6.7}Li Thresholding}{36}
+\contentsline {subsection}{\numberline {6.8}Isodata Thresholding}{37}
+\contentsline {section}{\numberline {7}Results}{37}
+\contentsline {subsection}{\numberline {7.1}Intersection Over Union (IoU)}{37}
+\contentsline {subsection}{\numberline {7.2}Plotting Age Curve}{39}
+\contentsline {section}{References}{40}
