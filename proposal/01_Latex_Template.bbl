@@ -10,6 +10,13 @@ El~Khiyari, H. and Wechsler, H. (2016).
   networks.
 \newblock {\em Journal of Information Security}, 7(03):141.
 
+\bibitem[Emami et~al., 2015]{emami2015automatic}
+Emami, E., Bebis, G., Nefian, A., and Fong, T. (2015).
+\newblock Automatic crater detection using convex grouping and convolutional
+  neural networks.
+\newblock In {\em International Symposium on Visual Computing}, pages 213--224.
+  Springer.
+
 \bibitem[Felzenszwalb et~al., 2008]{felzenszwalb2008discriminatively}
 Felzenszwalb, P., McAllester, D., and Ramanan, D. (2008).
 \newblock A discriminatively trained, multiscale, deformable part model.
@@ -50,6 +57,11 @@ Hiesinger, H., Jaumann, R., Neukum, G., and Head~III, J.~W. (2000).
 \newblock {\em Journal of Geophysical Research: Planets},
   105(E12):29239--29275.
 
+\bibitem[Honda and Azuma, 2000]{honda2000crater}
+Honda, R. and Azuma, R. (2000).
+\newblock Crater extraction and classification system for lunar images.
+\newblock {\em Mem. Fac. Sci. Kochi Univ.(Inform. Sci.)}, 21:13--22.
+
 \bibitem[Ivanov, 2002]{ivanov2002comparison}
 Ivanov, B. (2002).
 \newblock The comparison of size-frequency distributions of impact craters and
@@ -88,6 +100,11 @@ Long, J., Shelhamer, E., and Darrell, T. (2015).
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
 \newblock Crater detection by a boosting approach.
 \newblock {\em IEEE Geoscience and Remote Sensing Letters}, 6(1):127--131.
+
+\bibitem[Meng et~al., 2009]{meng2009method}
+Meng, D., Yunfeng, C., and Qingxian, W. (2009).
+\newblock Method of passive image based crater autonomous detection.
+\newblock {\em Chinese Journal of Aeronautics}, 22(3):301--306.
 
 \bibitem[Neukum, 1983]{neukum1983meteoritenbombardement}
 Neukum, G. (1983).
@@ -152,6 +169,14 @@ Rumelhart, D.~E., Hinton, G.~E., Williams, R.~J., et~al. (1988).
 \newblock Learning representations by back-propagating errors.
 \newblock {\em Cognitive modeling}, 5(3):1.
 
+\bibitem[Salamuniccar and Loncaric, 2010]{salamuniccar2010method}
+Salamuniccar, G. and Loncaric, S. (2010).
+\newblock Method for crater detection from martian digital topography data
+  using gradient value/orientation, morphometry, vote analysis, slip tuning,
+  and calibration.
+\newblock {\em IEEE transactions on Geoscience and Remote Sensing},
+  48(5):2317--2329.
+
 \bibitem[Sawabe et~al., 2006]{sawabe_2006}
 Sawabe, Y., Matsunaga, T., and Rokugawa, S. (2006).
 \newblock Automated detection and classification of lunar craters using
@@ -198,10 +223,23 @@ Uijlings, J.~R., Van De~Sande, K.~E., Gevers, T., and Smeulders, A.~W. (2013).
 \newblock Selective search for object recognition.
 \newblock {\em International journal of computer vision}, 104(2):154--171.
 
+\bibitem[Vinogradova et~al., 2002]{vinogradova2002training}
+Vinogradova, T., Burl, M., and Mjolsness, E. (2002).
+\newblock Training of a crater detection algorithm for mars crater imagery.
+\newblock In {\em Proceedings, IEEE Aerospace Conference}, volume~7, pages
+  7--7. IEEE.
+
 \bibitem[Viola et~al., 2001]{viola2001rapid}
 Viola, P., Jones, M., et~al. (2001).
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock {\em CVPR (1)}, 1(511-518):3.
+
+\bibitem[Wetzler et~al., 2005]{wetzler2005learning}
+Wetzler, P.~G., Honda, R., Enke, B., Merline, W.~J., Chapman, C.~R., and Burl,
+  M.~C. (2005).
+\newblock Learning to detect small impact craters.
+\newblock In {\em 2005 Seventh IEEE Workshops on Applications of Computer
+  Vision (WACV/MOTION'05)-Volume 1}, volume~1, pages 178--184. IEEE.
 
 \bibitem[Williams et~al., 2018]{williams2018dating}
 Williams, J.-P., van~der Bogert, C.~H., Pathare, A.~V., Michael, G.~G.,

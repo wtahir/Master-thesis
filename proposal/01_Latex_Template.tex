@@ -579,7 +579,6 @@ A framework for training SVM with latent structure was proposed by \cite{felzens
 
 For a long time objects were sought to be delineated before their identification. This led to rise of segmentation which targets unique partitioning of an image through generic algorithm such that there is one part for object silhouettes in an image \cite{uijlings2013selective}. A selective search methodology was introduced which combines segmentation and exhaustive search. Similar to segmentation, image structure was used to guide the sampling process and same as exhaustive search the aim was to capture all possible object locations. The author introduced a variety of complementary image partitionings to deal with as many image conditions as possible. The resultant search method yielded 99\% recall and a Mean Average overlap of 0.879 over 10,000 locations in the test dataset. Results of this methodology were also evaluated on PASCAL VOC 2012 and PASCAL VOC 2010 with mean average precision (mAP) of 0.350 and 0.351 respectively.
 
-
 Above mentioned algorithms had a noticeable performance but such machine learning techniques had a major requirement which was an involvement of an expert to extract features. Moreover state of the art machine learning techniques also requires a problem to be broken down into different parts and then their results to be combined together at final stage i.e. in SVM a bouding box detection algorithm is needed first to identify all the objects to have histogram of oriented gradients as input to the algorithm that will learn to recognize target objects. These limitations gave rise to deep learning algorithms which are capable of not only handling large amount of data unlike state of the art machine learning techniques but also provide an end to end solution.
 
 Availability of larger labeled datset and competitive GPUs made it possible to implement a deep learning network and test its performance. A major development in this area took place when \cite{krizhevsky2012imagenet} presented a large deep convolutional neural network to classify the 1.2 million high-resolution images in ImageNet LSVRC-2010 contest. This network was trained into 1000 different classes. On test data top-1 and top-5 error rates of 37.5\% and 17.0\% were achieved which was better than previous state of the art \cite{krizhevsky2012imagenet}. This neural network had 60 million parameters with 65,000 neurons and it consisted of five convolutional layers, some of which are followed by max-pooling and three fully connected layers with a final 1000-way softmax activation. A 1000-way softmax because of 1000 classes. Non-saturating neurons was used to optimize training time and to reduce overfitting in fully connecting layers drop-out regularization was used, a newly developed method at that time. A variant of this model was also introduced in ILSVRC-2012 competition and a winning top-5 test error rate of 15.3\% was achieved
@@ -594,15 +593,40 @@ Fast R-CNN used selective search as a proposal to extract RoI which also had a r
 Now that it was possible to locate different objects with bounding boxes, could this be extended to locate exact pixels of each object? This problem is known as instance segmentation and was addressed by the framework introduced by \cite{he_mask_2017}. This method is called Mask R-CNN which extends Faster R-CNN by adding a branch of predicting an object mask in parallel along with existing branch for bounding box recognition \cite{he_mask_2017}. This branch takes input as CNN feature map and outputs matrix with 1s and 0s. 1 if a pixel belongs to the object and 0 otherwise. This output is known as binary mask as it only has 1s and 0s. Mask R-CNN adds only a small overhead to Faster R-CNN running at 5 frames per second. It does not loose detection accuracy and has been widely used in computer vision for instance segmentation tasks.
 
 \subsection{Crater Detection}
+Crater detection and categorization process through data-mining from large scale scientific image database was proposed by \cite{honda2000crater}. The detection module was based on state of the art image processing method including binarization, circular object detection using Genetic Algorithm and Hough transformation. Their method took normalized image vectors, discrete cosine transform (DCT) components and intensity histograms as input vectors.
+
 One of the method suggested by \cite{leroy2001crater} was to detect craters using a multi-scale approach based on voting, and tensors as a representation. This method infer curvature estimation from noisy sparse data. The idea was to obtain the oriented normals of the edge curves by applying this method on edge images. This system was applied on Phobos to compute a dense saliency map corresponding to the position and shape of the craters.
+
+Crater densities scaling and impact rates with crater size is an issues which could be addressed by automating crater counting \cite{vinogradova2002training}. Geological feature cataloging could be performed by labeling images manually but only for limited number of features, handling massive datasets and high resolution images i.e. Mars Global Surveyor, it is required to automate feature identification \cite{vinogradova2002training}. The Continuously Scalable Template Matching (CSTM) algorithm is an image-matching algorithm used by authors in this paper which was able to detect 88\% craters with no false alarms.
+
+Various machine learning algorithms were applied for cataloging impact craters including bagging and AdaBoost, SVM and CSTM. It was found that all the approaches, in particular SVM with normalized image patches provides detection and localization performance is substantially superior to boundary based approaches such as Hough transform  \cite{wetzler2005learning}. The receiver operating characteristics (ROC) curves of the tested algorithms are shown in fig: \ref{roc,wetzler}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\textwidth]{files/literature/roc_wetzler.png}
+	\caption{ROC performance of CSTM, SVM and Hough methods. Hough with lowest performance among all other methods \cite{wetzler2005learning}.}
+	\label{roc,wetzler}
+\end{figure}
 
 Most of the craters are formed as the result of meteoroid impacts. The relative formation age of local area of planet could be estimated when frequency of size distribution of meteoroids and its time variations are known. \cite{sawabe_2006} proposed an algorithm that did not depend on cameras, spatial resolution or sun illumination. It also did not require to tune any parameters either. This algorithm was improvement to their own previously proposed algorithm. Their previous method did not include pyramid representation of the image which was included in later method and thus improving accuracy and reducing processing time. The algorithm was applied on images acquired by Clementine and Apollo under different solar elevation. This approach was able to detect craters with diameter larger than 240m. Accuracy rate was validated by comparing with crater count results of \cite{neukum1975cratering} which was 80\% extraction of craters with multiple interpreters \cite{sawabe_2006}. 
 
+Changeability in appearance of craters and surrounding terrain makes passive imaging based autonomous craters detection difficult to be applied. By experimentation it is proven that unsupervised machine learning methods work well with relatively large craters having clear edge information but their efficiency declines with increase in terrain complexity \cite{meng2009method}.
+
 In 2009 \cite{martins2009crater} performed Viola and Jones (2004) algorithm on Mars dataset gathered by the Mars Orbiter Camera onboard Mars Global Surveyor probe. In this paper author claims that no such method existed that is satisfactory for craters detection. Using this approach craters with diameter larger than 7 pixels were detected. Images of 240m/pixel were used as a data set, hence craters larger than 1680m of diameter were detected. The source of images used are taken from Mars orbiter camera.
 
-Keeping in view the performance of deep learning approaches in object detection, it caught the interest of planetary science community for automating crater detection process.
-
 An automated system for cataloging impact craters was presented by \cite{stepinski2009machine}. The system used digital elevation model of Mars. The process of crater identification consists of two steps, in first step it identifies round and symmetric topographic depressions as crater candidate and second step identifies crater using a machine learning method. This process is AutoCrad system and applicable to any surface represented by a digital elevation model (DEM) \cite{stepinski2009machine}. 
+
+A crater detection algorithm (CDA) was presented by \cite{salamuniccar2010method} which was based on fuzzy edge detectors and it takes input as digital topography data instead of image data. This algorithm claimed to have more correct detections compared to previous CDA. There were also false positives which were removed manually. The data was taken from Mars Orbiter Laser Altimeter. Most of the work in automating crater detection was performed on DEMs. In 2015 a CDA was proposed by \cite{emami2015automatic} which took into account the optical images and the algorithm worked by employing a multi-scale candidate region detection step which was based on convexity cues and candidate region was verified via machine learning. In this paper a CNN classifier was tested against SVM and it was concluded that CNN classifier outperforms SVM both in terms of recall and precision \cite{emami2015automatic}. The data used for both training and testing was partially labeled by NASA scientists. Each image consisted of 600x400 and taken from LRO. The result is shown in fig: \ref{cnn_class}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\textwidth]{files/literature/emami.png}
+	\caption{ Verified regions in blue boxes on a test image \cite{wetzler2005learning}.}
+	\label{cnn_class}
+\end{figure}
+
+
+Keeping in view the performance of deep learning approaches in object detection, it caught the interest of planetary science community for automating crater detection process.
 
 A deep learning model based on CNN architecture was introduced by \cite{silburt2019lunar} for crater identification on lunar digital elevation map images also known as DEM. The author also applied transfer learning to craters on Mercury. In this paper random DEM images from LRO and Kaguya were taken as an input data. Thus it was a global gray scale map. The proposed CNN detects only half of the caters per target. The post-CNN recall is lower at 57\% $\pm$ 20\% but detections for craters less than 15 pixels largely improved the post-CNN test recall to $83 \% \pm 16 \%$. The sample of DEM from \cite{silburt2019lunar} is shown in Figure \ref{dem}.
 
@@ -893,6 +917,7 @@ Histogram based threshold alo known as inter-means or Ridler-Calvard method. Thr
 \end{figure*}
 
 \section{Results}
+Hough transformation does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}
 
 \subsection{Intersection Over Union (IoU)}
 IoU is one of the methods used here to evaluate pixelwise accuracy of the model output. 
