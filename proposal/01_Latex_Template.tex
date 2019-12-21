@@ -49,7 +49,7 @@
 %Kopfzeile links bzw. innen
 \fancyhead[L]{\large{}}
 %Kopfzeile mittig
-\fancyhead[C]{\large{Master thesis proposal}}
+\fancyhead[C]{\large{Master Thesis}}
 %Kopfzeile rechts bzw. außen
 \fancyhead[R]{\includegraphics{files/TUs}}
 %Linie oben
@@ -93,7 +93,7 @@
  
 	\end{verbatim}
 	\begin{center}
-		\textbf{\Large{Proposal: \\[1 cm] Lunar Crater Detection via Deep Learning and Validation at Apollo 17 Landing Site}}
+		\textbf{\Large{Master Thesis: \\[1 cm] Lunar Crater Detection via Deep Learning and its Application for Age Estimation}}
 	\end{center}
 	\vspace{0.25\textheight}
 	\begin{center}
@@ -247,10 +247,11 @@ In object detection, a bounding box (also referred to as region of interest or b
 d_1 (I_1, I_2) = \sum_{p} \left| I^p_1 - I^p_2 \right|
 \end{align*}
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/nneg.jpeg}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/nneg.jpeg}
 	\caption{Example of two images which are represented as vectors and pixelwise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}
-	\label{fig: Example of two images which are represented as vectors and pixel-wise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}
+	\label{fig: bbp.}
 \end{figure}
 
 The difference between bounding boxes can also be measured by the L2 distance. Similar like L1, images are represented in a vector form. $w$ and $h$ can be log-transformed before calculating distance. L2 has the geometric representation of computing euclidean distance between two vectors as:
@@ -297,7 +298,8 @@ A linear classifier computes the score of a class by taking weighted sum of all 
 
 
 \begin{figure}[H]
-	\includegraphics[width=145mm,height=60mm,  scale=0.8]{files/cnn_architecture/linear_class.png}
+	\centering
+	\includegraphics[width=90mm,height=33mm,  scale=0.8]{files/cnn_architecture/linear_class.png}
 	\caption{The graphical representation of eq 
 		($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.}
 	\label{fig: linear classifier}
@@ -351,7 +353,8 @@ Initially weights of a CNN before training are randomly chosen. The key rule to 
 In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
 
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/NN.jpeg}
+	\centering
+	\includegraphics[width=.6\linewidth]{files/NN.jpeg}
 	\caption{A typical Neural Network architecture}
 	\label{fig: Neural Network architecture}
 \end{figure}
@@ -365,7 +368,8 @@ Just like Artificial Neural Networks as shown in Fig \ref{fig: Neural Network ar
 Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
 
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/conv.png}
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/conv.png}
 	\caption{Convolutional Operation}
 	\label{fig:Convolutional Operation}
 \end{figure}
@@ -382,7 +386,8 @@ In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 fi
 An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
 
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/pooling.png}
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/pooling.png}
 	\caption{Pooling Operation}
 	\label{fig:Pooling Operation}
 \end{figure}
@@ -392,7 +397,7 @@ After multiple convolution and pooling operations, finally an output can be gene
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\linewidth]{files/cnn_architecture/arch.png}
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/arch.png}
 	\caption{Convolutional Neural Network Architecture \cite{2016face}}
 	\label{fig: CNN architecture}
 \end{figure}
@@ -454,8 +459,9 @@ $W being weight vector and x_i is image vector, b stands for bias$
 
 The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/sigmoid.eps}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/sigmoid.eps}
 	\caption{Sigmoid Function}
 	\label{fig: Sigmoid}
 \end{figure}
@@ -475,16 +481,18 @@ a = \max (0, z)
 
 The graphical form is given as:
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/relu.eps}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu.eps}
 	\caption{ReLU Function}
 	\label{fig: relu}
 \end{figure}
 
 As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky_imagenet_2012} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh. 
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/cnn_architecture/relu_fast.png}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu_fast.png}
 	\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh.}
 	\label{fig: relu_fast}
 \end{figure}
@@ -616,17 +624,20 @@ In 2009 \cite{martins2009crater} performed Viola and Jones (2004) algorithm on M
 
 An automated system for cataloging impact craters was presented by \cite{stepinski2009machine}. The system used digital elevation model of Mars. The process of crater identification consists of two steps, in first step it identifies round and symmetric topographic depressions as crater candidate and second step identifies crater using a machine learning method. This process is AutoCrad system and applicable to any surface represented by a digital elevation model (DEM) \cite{stepinski2009machine}. 
 
-A crater detection algorithm (CDA) was presented by \cite{salamuniccar2010method} which was based on fuzzy edge detectors and it takes input as digital topography data instead of image data. This algorithm claimed to have more correct detections compared to previous CDA. There were also false positives which were removed manually. The data was taken from Mars Orbiter Laser Altimeter. Most of the work in automating crater detection was performed on DEMs. In 2015 a CDA was proposed by \cite{emami2015automatic} which took into account the optical images and the algorithm worked by employing a multi-scale candidate region detection step which was based on convexity cues and candidate region was verified via machine learning. In this paper a CNN classifier was tested against SVM and it was concluded that CNN classifier outperforms SVM both in terms of recall and precision \cite{emami2015automatic}. The data used for both training and testing was partially labeled by NASA scientists. Each image consisted of 600x400 and taken from LRO. The result is shown in fig: \ref{cnn_class}.
+A crater detection algorithm (CDA) was presented by \cite{salamuniccar2010method} which was based on fuzzy edge detectors and it takes input as digital topography data instead of image data. This algorithm claimed to have more correct detections compared to previous CDA. There were also false positives which were removed manually. The data was taken from Mars Orbiter Laser Altimeter. Most of the work in automating crater detection was performed on DEMs. In 2015 a CDA was proposed by \cite{emami2015automatic} which took into account the optical images and the algorithm worked by employing a multi-scale candidate region detection step which was based on convexity cues and candidate region was verified via machine learning. In this paper a CNN classifier was tested against SVM and it was concluded that CNN classifier outperforms SVM both in terms of recall and precision \cite{emami2015automatic}. The data used for both training and testing was partially labeled by NASA scientists. Each image consists of 600x400 and taken from LRO. The result of their experiment is shown in fig: \ref{cnn_class}.
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.6\textwidth]{files/literature/emami.png}
-	\caption{ Verified regions in blue boxes on a test image \cite{wetzler2005learning}.}
+	\caption{Verified regions in boxes on a test image \cite{wetzler2005learning}.}
 	\label{cnn_class}
 \end{figure}
 
+Mars Reconnaissance Orbiter opened a new frontier to automate landforms detection process \cite{palafox2017automated}. Authors came up with two different approaches. These are detection of volcanic rootless cones and transverse aeolian ridges using CNNs and also using SVM with HOG features. They showed that CNNs can detect a wide range of landforms and has a better accuracy and recall than traditional classifiers based on SVMs.
 
 Keeping in view the performance of deep learning approaches in object detection, it caught the interest of planetary science community for automating crater detection process.
+
+\cite{wang2018crateridnet} presented a method composed of CNN architecture and named it as CraterIDNet which takes remotely sensed planetary images as input and outputs detected craters, their apparent diameters and their positions. The experiments shows that CNN based architecture has the advantages of high robustness, detection and identification accuracy over other methods used by \cite{urbach2009automatic}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer}.
 
 A deep learning model based on CNN architecture was introduced by \cite{silburt2019lunar} for crater identification on lunar digital elevation map images also known as DEM. The author also applied transfer learning to craters on Mercury. In this paper random DEM images from LRO and Kaguya were taken as an input data. Thus it was a global gray scale map. The proposed CNN detects only half of the caters per target. The post-CNN recall is lower at 57\% $\pm$ 20\% but detections for craters less than 15 pixels largely improved the post-CNN test recall to $83 \% \pm 16 \%$. The sample of DEM from \cite{silburt2019lunar} is shown in Figure \ref{dem}.
 
@@ -660,14 +671,12 @@ The model architecture is composed of contracting and expansive paths as shown i
 
 The right part of Figure \ref{fig:U-net} illustrates the expansive path where every step consists of upsampling of feature map which is followed by a 2x2 convolutional operation (also referred to as up-convolution). This halves the number of feature channels. The gray arrow shows the concatenation of corresponding feature map from contracting path where it is cropped from the image. It is then subjected to two 3x3 convolutions and each followed up by a ReLU activation function. The cropping is required because of loss of boarder pixels during convolutions. At the final layer a 1x1 convolution maps each 64 component feature vector to the target number of classes i.e. background class and crater class. The final layer follows up by sigmoid activation function which determines the output of a class score between 0 to 1. Finally, binary cross entropy determines the loss while training of algorithm. In this model the total number of convolutional layers amounts to 23. It is important to select the input image size so that max pooling operations are applied to a layer with the same x and y size. This allows seamless tiling of segmentation map in output as shown in Figure \ref{fig:tiling}
 
-
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/unet/arch.png}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/unet/arch.png}
 	\caption{U-net Architecture}
 	\label{fig:U-net}
 \end{figure} 
-
 
 \section{Methodology}
 This section is divided into following parts:
@@ -742,24 +751,6 @@ To create larger dataset without additional annotations, data augmentation is ne
 
 The images are randomly perturbed during training so that augmentation can have maximum effect. This way model have a low probability of seeing same type of training image more than once. In lunar crater dataset there are no RGB images hence color augmentation is opted out.
 
-\subsubsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
-Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
-
-By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation.
-By applying CLAHE the detection of craters increased up to 50\%. 
-
-\begin{figure*}[ht!]
-	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
-	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
-	\label{hist}
-	
-	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
-	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
-	
-	\label{clahe}
-\end{figure*}
 
 \subsection{Training}
 The data composed of images and their respective masks is divided into training (80\%) and validation (20\%) data set. This percentage practice is typical in machine learning, however it does not have to be always at this rate. In case of large data set i.e. several thousands of images, 60\% or even less can be set for training. In this particular case there is not test data taken out from the data set because of limited annotations. As mentioned in introduction, test data is taken from another thesis student who has labeled all the craters manually. 
@@ -770,16 +761,20 @@ com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded whic
 
 The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
 
+\subsection{Prediction}
+The best trained model is used for prediction on test datset. Predictions yield a probability map of each image in which light pixels depict maximum likelihood and dark pixels represents less probability of crater existence. Such heat map of one of the test images is shown in binarization methods.
 
-\section{Post-processing}
-The resulting predictions from CNN model will be post processed in which noise from the image will be removed and the amount of detected craters will be counted. Then resultant craters will be projected on the original image to visually lookout for the missing ones. The test images will be of Apollo 17 landing site where number of craters are already annotated by another thesis student. The age of geographic site is also already known. Therefor it will also provide a good evaluation of how close CSFD and crater diameters are to the manually counted ones how different the final outcome (age estimation) is from the existing proposed age by the planetary science experts.
 
-\subsection{Otsu's Method}
+\subsection{Binarization Methods}
+Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+
+\subsubsection{Otsu's Method}
 This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes.
 
 \begin{equation}
 \sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
 \end{equation}
+
 Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
 
 \begin{figure}[ht!]
@@ -790,8 +785,7 @@ Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which ar
 	\label{otsu thresholding}
 \end{figure}
 
-
-\subsection{Sauvola's Algorithm}
+\subsubsection{Sauvola's Algorithm}
 It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
 
 \begin{equation}
@@ -808,7 +802,7 @@ Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard de
 	\label{sauvola thresholding}
 \end{figure}
 
-\subsection{Niblack Method}
+\subsubsection{Niblack Method}
 This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
 
 \begin{equation}
@@ -824,7 +818,7 @@ where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an 
 	\label{Niblack_th}
 \end{figure}
 
-\subsection{Adaptive Mean Thresholding}
+\subsubsection{Adaptive Mean Thresholding}
 In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant.
 
 \begin{figure}[ht!]
@@ -835,7 +829,7 @@ In this type of thresholding, algorithm computes the threshold for a pixel on th
 	\label{Adaptive mean thresholding}
 \end{figure}
 
-\subsection{Mean Thresholding}
+\subsubsection{Mean Thresholding}
 This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background.
 
 \begin{figure*}[ht!]
@@ -846,7 +840,7 @@ This threshold is simply mean of the grayscale values of an image. All the value
 	\label{mean_th}
 \end{figure*}
 
-\subsection{Yen Thresholding}
+\subsubsection{Yen Thresholding}
 This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}
 
 \begin{figure}[ht!]
@@ -857,7 +851,7 @@ This threshold method takes number of bins used to calculate histogram and retur
 	\label{Yen thresholding}
 \end{figure}
 
-\subsection{Li Thresholding}
+\subsubsection{Li Thresholding}
 This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}.
 
 \begin{figure}[ht!]
@@ -868,7 +862,7 @@ This method is based on minimum cross entropy. The idea is to select a threshold
 	\label{Li thresholding}
 \end{figure}
 
-\subsection{Isodata Thresholding}
+\subsubsection{Isodata Thresholding}
 Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}
 
 \begin{figure}[ht!]
@@ -879,51 +873,31 @@ Histogram based threshold alo known as inter-means or Ridler-Calvard method. Thr
 	\label{isodata thresholding}
 \end{figure}
 
+\subsection{Post-processing}
+The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. Then resultant circles are projected on the original image to visualize missing craters. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot. 
 
-\begin{figure}[ht!]
-	\centering
-	\begin{subfigure}[b]{.4\linewidth}
-		\includegraphics[width=.9\textwidth]{files/results/22.png}
-		\caption{Crater image}\label{img}
-	\end{subfigure}
-	
-	\begin{subfigure}[b]{.4\linewidth}
-		\includegraphics[width=.9\textwidth]{files/results/22_predict.png}
-		\setcounter{subfigure}{0}%
-		\caption{Crater prediction}\label{pred}
-	\end{subfigure}
-	\begin{subfigure}[b]{.4\linewidth}
-		\includegraphics[width=.9\textwidth]{files/results/crater.png}
-		\caption{Extracted craters}\label{ext}
-	\end{subfigure}
-	\caption{Model output of crater predictions}
-	\label{results}
-\end{figure}
+\section{Experiments}
+Hough transformation does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}.
 
+\subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
+Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
+
+By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation.
+By applying CLAHE the detection of craters increased up to 40\%. 
+
+\clearpage
 \begin{figure*}[ht!]
-	\includegraphics[width=.4\textwidth]{files/results/gt_binary.png}
-	\hfil
-	\includegraphics[width=.4\textwidth]{files/results/diff.png}
-	\caption{The image on left is ground truth of Figure \ref{results} (a) and on right is the comparison of  Figure \ref{results} (b) with ground truth image. Red circles are extracted craters after post-processing and blue ones are the missed ones.}
-	
+	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
+	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
+	\label{hist}
+	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
+	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
 	\label{clahe}
 \end{figure*}
 
-\begin{figure*}[ht!]
-	\includegraphics[width=.9\textwidth]{files/results/enhanced_clahe_99_twice_clahe.jpg}
-	\caption{Projection of extracted craters on the test image.}
-	
-	\label{moon}
-\end{figure*}
-
-\section{Results}
-Hough transformation does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}
-
-\subsection{Intersection Over Union (IoU)}
-IoU is one of the methods used here to evaluate pixelwise accuracy of the model output. 
-
-
-\begin{table}[ht]
+\begin{table}[ht!]
 	\centering
 	\caption{F1 scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization method.}
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}
@@ -942,14 +916,18 @@ IoU is one of the methods used here to evaluate pixelwise accuracy of the model 
 \end{table}
 
 \begin{table}[ht!]
-		\centering
-	\caption{IoU on test data set}
-	\begin{tabular}{l|c|c|c|l|}
-		\cline{2-5}
-		& Otsu & Isodata & Li   & Yen  \\ \hline
-		\multicolumn{1}{|c|}{IoU} & 53.6 & 52.5    & 45.6 & 41.6 \\ \hline
+	\centering
+	\caption{Patch wise mean F1 scores on test set distribution from dataset split}
+	\begin{tabular}{c|c|c|c|}
+		\cline{2-4}
+		\multicolumn{1}{l|}{}         & Precision & Recall & F1 score \\ \hline
+		\multicolumn{1}{|c|}{Otsu}    & 77.5      & 70.6   & 73.8     \\ \hline
+		\multicolumn{1}{|c|}{Isodata} & 76.9      & 70.1   & 73.3     \\ \hline
+		\multicolumn{1}{|c|}{Li}      & 56.9      & 80.5   & 66.7     \\ \hline
+		\multicolumn{1}{|c|}{Yen}     & 51.8      & 72.9   & 60.5     \\ \hline
 	\end{tabular}
 \end{table}
+
 
 \begin{table}[ht!]
 	\centering
@@ -964,29 +942,17 @@ IoU is one of the methods used here to evaluate pixelwise accuracy of the model 
 	\end{tabular}
 \end{table}
 
-\begin{table}[]
-	\centering
-	\caption{Patch wise mean F1 scores on test set distribution from dataset split}
-	\begin{tabular}{c|c|c|c|}
-		\cline{2-4}
-		\multicolumn{1}{l|}{}         & Precision & Recall & F1 score \\ \hline
-		\multicolumn{1}{|c|}{Otsu}    & 77.5      & 70.6   & 73.8     \\ \hline
-		\multicolumn{1}{|c|}{Isodata} & 76.9      & 70.1   & 73.3     \\ \hline
-		\multicolumn{1}{|c|}{Li}      & 56.9      & 80.5   & 66.7     \\ \hline
-		\multicolumn{1}{|c|}{Yen}     & 51.8      & 72.9   & 60.5     \\ \hline
-	\end{tabular}
-	\end{table}
-
 \subsection{Plotting Age Curve}
 Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
 
+\section{Discussion}
+
+\section{Conclusion}
 
 
-
-
-%Once this dataset is labeled and augmented then next step is to utilize this datset for training of the algorithm. In this process the selected amount of filters convolute over the image and outputs a layer with detected features. All the filters detect particular features and outputs a layer as shown in Fig \ref{fig: CNN architecture}. Number of layers generated are equal to amount of filters. These layers are then subjected to pooling function to downsize image and get the neurons of highest activation. A fully connected layer is the aggregation of all the layers followed by a loss function to determine if the image contains craters or not. Loss function determines the error in percentage and a process of back propagation adjusts the weights to minimize the error. After the detection is made with a minimal error possible, it would be interesting to come up with the evaluation method for challenging the performance of this algorithm.
 
 \newpage
+\clearpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

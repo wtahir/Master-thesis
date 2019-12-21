@@ -1,8 +1,27 @@
 \begin{thebibliography}{}
 
+\bibitem[Bandeira et~al., 2010]{bandeira2010automatic}
+Bandeira, L., Ding, W., and Stepinski, T. (2010).
+\newblock Automatic detection of sub-km craters using shape and texture
+  information.
+\newblock In {\em Lunar and Planetary Science Conference}, volume~41, page
+  1144.
+
+\bibitem[Burger et~al., 2009]{burger2009principles}
+Burger, W., Burge, M.~J., Burge, M.~J., and Burge, M.~J. (2009).
+\newblock {\em Principles of digital image processing}, volume~54.
+\newblock Springer.
+
 \bibitem[Dalal and Triggs, 2005]{dalal2005histograms}
 Dalal, N. and Triggs, B. (2005).
 \newblock Histograms of oriented gradients for human detection.
+
+\bibitem[Ding et~al., 2011]{ding2011subkilometer}
+Ding, W., Stepinski, T.~F., Mu, Y., Bandeira, L., Ricardo, R., Wu, Y., Lu, Z.,
+  Cao, T., and Wu, X. (2011).
+\newblock Subkilometer crater discovery with boosting and transfer learning.
+\newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
+  2(4):39.
 
 \bibitem[El~Khiyari and Wechsler, 2016]{2016face}
 El~Khiyari, H. and Wechsler, H. (2016).
@@ -129,6 +148,12 @@ Neukum, G., K{\"o}nig, B., Fechtig, H., and Storzer, D. (1975).
 Opik, E. (1965).
 \newblock Mariner iv and craters on mars.
 
+\bibitem[Palafox et~al., 2017]{palafox2017automated}
+Palafox, L.~F., Hamilton, C.~W., Scheidt, S.~P., and Alvarez, A.~M. (2017).
+\newblock Automated detection of geological landforms on mars using
+  convolutional neural networks.
+\newblock {\em Computers \& geosciences}, 101:48--56.
+
 \bibitem[Polegubic, 2020]{dino2020}
 Polegubic, D. (2020).
 \newblock Landing site characterization for the pts lunar mission to apollo 17.
@@ -223,6 +248,12 @@ Uijlings, J.~R., Van De~Sande, K.~E., Gevers, T., and Smeulders, A.~W. (2013).
 \newblock Selective search for object recognition.
 \newblock {\em International journal of computer vision}, 104(2):154--171.
 
+\bibitem[Urbach and Stepinski, 2009]{urbach2009automatic}
+Urbach, E.~R. and Stepinski, T.~F. (2009).
+\newblock Automatic detection of sub-km craters in high resolution planetary
+  images.
+\newblock {\em Planetary and Space Science}, 57(7):880--887.
+
 \bibitem[Vinogradova et~al., 2002]{vinogradova2002training}
 Vinogradova, T., Burl, M., and Mjolsness, E. (2002).
 \newblock Training of a crater detection algorithm for mars crater imagery.
@@ -233,6 +264,12 @@ Vinogradova, T., Burl, M., and Mjolsness, E. (2002).
 Viola, P., Jones, M., et~al. (2001).
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock {\em CVPR (1)}, 1(511-518):3.
+
+\bibitem[Wang et~al., 2018]{wang2018crateridnet}
+Wang, H., Jiang, J., and Zhang, G. (2018).
+\newblock Crateridnet: an end-to-end fully convolutional neural network for
+  crater detection and identification in remotely sensed planetary images.
+\newblock {\em Remote Sensing}, 10(7):1067.
 
 \bibitem[Wetzler et~al., 2005]{wetzler2005learning}
 Wetzler, P.~G., Honda, R., Enke, B., Merline, W.~J., Chapman, C.~R., and Burl,

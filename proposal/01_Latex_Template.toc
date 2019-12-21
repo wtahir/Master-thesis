@@ -5,44 +5,47 @@
 \contentsline {section}{\numberline {2}Background}{6}
 \contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{7}
 \contentsline {subsection}{\numberline {2.2}Linear Classification}{9}
-\contentsline {subsection}{\numberline {2.3}Normalization}{10}
+\contentsline {subsection}{\numberline {2.3}Normalization}{9}
 \contentsline {subsection}{\numberline {2.4}Backpropagation}{10}
 \contentsline {subsection}{\numberline {2.5}Weights Initialization}{11}
 \contentsline {subsection}{\numberline {2.6}Neural Network Overview}{12}
-\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{13}
+\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}
 \contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{13}
-\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{14}
+\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}
 \contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{14}
-\contentsline {subsection}{\numberline {2.8}Loss Function}{15}
+\contentsline {subsection}{\numberline {2.8}Loss Function}{14}
 \contentsline {subsubsection}{\numberline {2.8.1}Cross Entropy Loss}{15}
-\contentsline {subsection}{\numberline {2.9}Activation Functions}{16}
+\contentsline {subsection}{\numberline {2.9}Activation Functions}{15}
 \contentsline {subsubsection}{\numberline {2.9.1}Sigmoid Function}{16}
-\contentsline {subsubsection}{\numberline {2.9.2}ReLU Function}{18}
-\contentsline {subsubsection}{\numberline {2.9.3}Softmax Classifier}{19}
-\contentsline {subsection}{\numberline {2.10}Lunar Production Function}{20}
-\contentsline {subsubsection}{\numberline {2.10.1}Hartmann Production Function (HPF)}{20}
-\contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{21}
-\contentsline {section}{\numberline {3}Related Work}{23}
-\contentsline {subsection}{\numberline {3.1}Crater Detection}{25}
-\contentsline {section}{\numberline {4}Model Architecture}{28}
-\contentsline {section}{\numberline {5}Methodology}{29}
+\contentsline {subsubsection}{\numberline {2.9.2}ReLU Function}{17}
+\contentsline {subsubsection}{\numberline {2.9.3}Softmax Classifier}{18}
+\contentsline {subsection}{\numberline {2.10}Lunar Production Function}{19}
+\contentsline {subsubsection}{\numberline {2.10.1}Hartmann Production Function (HPF)}{19}
+\contentsline {subsubsection}{\numberline {2.10.2}Neukum Production Function (NPF)}{20}
+\contentsline {section}{\numberline {3}Related Work}{22}
+\contentsline {subsection}{\numberline {3.1}Crater Detection}{24}
+\contentsline {section}{\numberline {4}Model Architecture}{27}
+\contentsline {section}{\numberline {5}Methodology}{28}
 \contentsline {subsection}{\numberline {5.1}Data Set}{29}
-\contentsline {subsection}{\numberline {5.2}Pre-processing}{30}
-\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{30}
-\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{31}
+\contentsline {subsection}{\numberline {5.2}Pre-processing}{29}
+\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{29}
+\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{30}
 \contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{31}
-\contentsline {subsubsection}{\numberline {5.2.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{32}
 \contentsline {subsection}{\numberline {5.3}Training}{32}
-\contentsline {section}{\numberline {6}Post-processing}{34}
-\contentsline {subsection}{\numberline {6.1}Otsu's Method}{34}
-\contentsline {subsection}{\numberline {6.2}Sauvola's Algorithm}{34}
-\contentsline {subsection}{\numberline {6.3}Niblack Method}{35}
-\contentsline {subsection}{\numberline {6.4}Adaptive Mean Thresholding}{36}
-\contentsline {subsection}{\numberline {6.5}Mean Thresholding}{36}
-\contentsline {subsection}{\numberline {6.6}Yen Thresholding}{36}
-\contentsline {subsection}{\numberline {6.7}Li Thresholding}{37}
-\contentsline {subsection}{\numberline {6.8}Isodata Thresholding}{38}
-\contentsline {section}{\numberline {7}Results}{38}
-\contentsline {subsection}{\numberline {7.1}Intersection Over Union (IoU)}{38}
-\contentsline {subsection}{\numberline {7.2}Plotting Age Curve}{38}
+\contentsline {subsection}{\numberline {5.4}Prediction}{32}
+\contentsline {subsection}{\numberline {5.5}Binarization Methods}{32}
+\contentsline {subsubsection}{\numberline {5.5.1}Otsu's Method}{33}
+\contentsline {subsubsection}{\numberline {5.5.2}Sauvola's Algorithm}{33}
+\contentsline {subsubsection}{\numberline {5.5.3}Niblack Method}{33}
+\contentsline {subsubsection}{\numberline {5.5.4}Adaptive Mean Thresholding}{34}
+\contentsline {subsubsection}{\numberline {5.5.5}Mean Thresholding}{35}
+\contentsline {subsubsection}{\numberline {5.5.6}Yen Thresholding}{35}
+\contentsline {subsubsection}{\numberline {5.5.7}Li Thresholding}{35}
+\contentsline {subsubsection}{\numberline {5.5.8}Isodata Thresholding}{36}
+\contentsline {subsection}{\numberline {5.6}Post-processing}{37}
+\contentsline {section}{\numberline {6}Experiments}{37}
+\contentsline {subsection}{\numberline {6.1}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{37}
+\contentsline {subsection}{\numberline {6.2}Plotting Age Curve}{38}
+\contentsline {section}{\numberline {7}Discussion}{38}
+\contentsline {section}{\numberline {8}Conclusion}{38}
 \contentsline {section}{References}{40}

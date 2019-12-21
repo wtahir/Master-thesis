@@ -15,7 +15,7 @@ Repeated entry---line 414 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 562 of file mybib.bib
+Repeated entry---line 622 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
@@ -30,45 +30,45 @@ Warning--empty booktitle in redmon_you_2016
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 44 entries,
+You've used 50 entries,
             1935 wiz_defined-function locations,
-            733 strings with 11840 characters,
-and the built_in function-call counts, 20134 in all, are:
-= -- 2018
-> -- 844
-< -- 35
-+ -- 296
-- -- 288
-* -- 1672
-:= -- 3345
-add.period$ -- 137
-call.type$ -- 44
-change.case$ -- 359
-chr.to.int$ -- 44
-cite$ -- 54
-duplicate$ -- 798
-empty$ -- 1392
-format.name$ -- 348
-if$ -- 4053
+            770 strings with 13134 characters,
+and the built_in function-call counts, 22783 in all, are:
+= -- 2265
+> -- 987
+< -- 39
++ -- 346
+- -- 338
+* -- 1913
+:= -- 3808
+add.period$ -- 155
+call.type$ -- 50
+change.case$ -- 413
+chr.to.int$ -- 50
+cite$ -- 60
+duplicate$ -- 895
+empty$ -- 1558
+format.name$ -- 406
+if$ -- 4565
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 42
-newline$ -- 219
-num.names$ -- 132
-pop$ -- 365
+missing$ -- 49
+newline$ -- 249
+num.names$ -- 150
+pop$ -- 417
 preamble$ -- 1
-purify$ -- 360
+purify$ -- 415
 quote$ -- 0
-skip$ -- 614
+skip$ -- 686
 stack$ -- 0
-substring$ -- 1465
-swap$ -- 174
-text.length$ -- 19
+substring$ -- 1607
+swap$ -- 191
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 264
+type$ -- 298
 warning$ -- 10
-while$ -- 175
+while$ -- 194
 width$ -- 0
-write$ -- 566
+write$ -- 645
 (There were 4 error messages)
