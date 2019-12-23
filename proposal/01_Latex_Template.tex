@@ -643,9 +643,10 @@ A deep learning model based on CNN architecture was introduced by \cite{silburt2
 
 
 
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/unet/dem.png}
-	\caption{Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles} \cite{silburt2019lunar}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.8\linewidth]{files/unet/dem.png}
+	\caption{Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles \cite{silburt2019lunar}.}
 	\label{dem}
 \end{figure}
 
@@ -664,8 +665,9 @@ A deep learning model based on CNN architecture was introduced by \cite{silburt2
 The model architecture is composed of contracting and expansive paths as shown in the Figure \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding. Dropout is nothing but regularization which reduces interdependent learning amongst neurons. This reduces the possibility of overfitting the model.
 
 \begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/unet/tile.png}
-	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring}
+	\centering
+	\includegraphics[width=.6\linewidth]{files/unet/tile.png}
+	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring \cite{ronneberger2015u}.}
 	\label{fig:tiling}
 \end{figure} 
 
@@ -673,7 +675,7 @@ The right part of Figure \ref{fig:U-net} illustrates the expansive path where ev
 
 \begin{figure}[ht!]
 	\centering
-	\includegraphics[width=.6\linewidth]{files/unet/arch.png}
+	\includegraphics[width=.7\linewidth]{files/unet/arch.png}
 	\caption{U-net Architecture}
 	\label{fig:U-net}
 \end{figure} 
@@ -760,6 +762,23 @@ The input images along with their corresponding segmentation maps are utilized t
 com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax function as defined in eq.7, $z_{j}$ denotes the activation in feature channel $j$ at the pixel position $z \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $f_jz$ is the approximated maximum function. This means that $f_jz$ will be close to 1 for $j$ with maximum activation and vice versa for other values of $j$. The cross entropy function penalizes each deviation of $q(x)$ from 1 as defined in eq.1.
 
 The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
+
+\subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
+Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
+
+By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation.
+By applying CLAHE the detection of craters increased up to 40\%. 
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
+	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
+	\label{hist}
+	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
+	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
+	\label{clahe}
+\end{figure*}
 
 \subsection{Prediction}
 The best trained model is used for prediction on test datset. Predictions yield a probability map of each image in which light pixels depict maximum likelihood and dark pixels represents less probability of crater existence. Such heat map of one of the test images is shown in binarization methods.
@@ -874,30 +893,40 @@ Histogram based threshold alo known as inter-means or Ridler-Calvard method. Thr
 \end{figure}
 
 \subsection{Post-processing}
-The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. Then resultant circles are projected on the original image to visualize missing craters. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot. 
+The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. Then resultant circles are projected on the original image to visualize missing craters. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot.
 
-\section{Experiments}
-Hough transformation does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}.
+\subsection{Evaluation Method}
+Precision, recall and F1 scores evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
 
-\subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
-Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
+\begin{equation*}
+\frac{\text{True positive}}{\text{True positive + False positive}}
+\end{equation*}
 
-By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation.
-By applying CLAHE the detection of craters increased up to 40\%. 
+True positives are correctly identified craters and false positives are craters detected by the algorithm but no crater exists on that location.
 
-\clearpage
-\begin{figure*}[ht!]
-	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
-	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
-	\label{hist}
-	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
-	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
-	\label{clahe}
-\end{figure*}
+Recall is defined as the percentage of total relevant results correctly classified by the algorithm and is given by:
 
-\begin{table}[ht!]
+\begin{equation*}
+\frac{\text{True positive}}{\text{True positive + False negative}}
+\end{equation*}
+
+In the above equation false negatives are simply missed craters by the algorithms.
+
+For overall evaluation both of these metrics are taken into account and finally F1-score has been computed by the given equation:
+
+\begin{equation*}
+\text{F1 Score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
+\end{equation*}
+
+Hence higher the F1-score better is the performance of algorithm and vice versa. A verified region is a true positive if it has more than 40\% overlap with
+a ground truth crater; otherwise, it is a false positive \cite{emami2015automatic}.
+
+\section{Experimental Results and Discussion}
+Trained model has been used to predict on two test datasets. First test dataset is similar to training dataset but test images are not seen by model during training or evaluation. Second dataset is taken from \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using given binarization methods at different ranges from their respective threshold values. These are given in table 1.
+
+Apart from region proposal algorithm, Hough circle transformation was also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}.
+
+\begin{table}[H]
 	\centering
 	\caption{F1 scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization method.}
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}

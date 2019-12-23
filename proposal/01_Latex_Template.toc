@@ -26,26 +26,27 @@
 \contentsline {subsection}{\numberline {3.1}Crater Detection}{24}
 \contentsline {section}{\numberline {4}Model Architecture}{27}
 \contentsline {section}{\numberline {5}Methodology}{28}
-\contentsline {subsection}{\numberline {5.1}Data Set}{29}
+\contentsline {subsection}{\numberline {5.1}Data Set}{28}
 \contentsline {subsection}{\numberline {5.2}Pre-processing}{29}
 \contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{29}
 \contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{30}
 \contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{31}
-\contentsline {subsection}{\numberline {5.3}Training}{32}
-\contentsline {subsection}{\numberline {5.4}Prediction}{32}
-\contentsline {subsection}{\numberline {5.5}Binarization Methods}{32}
-\contentsline {subsubsection}{\numberline {5.5.1}Otsu's Method}{33}
-\contentsline {subsubsection}{\numberline {5.5.2}Sauvola's Algorithm}{33}
-\contentsline {subsubsection}{\numberline {5.5.3}Niblack Method}{33}
-\contentsline {subsubsection}{\numberline {5.5.4}Adaptive Mean Thresholding}{34}
-\contentsline {subsubsection}{\numberline {5.5.5}Mean Thresholding}{35}
-\contentsline {subsubsection}{\numberline {5.5.6}Yen Thresholding}{35}
-\contentsline {subsubsection}{\numberline {5.5.7}Li Thresholding}{35}
-\contentsline {subsubsection}{\numberline {5.5.8}Isodata Thresholding}{36}
-\contentsline {subsection}{\numberline {5.6}Post-processing}{37}
-\contentsline {section}{\numberline {6}Experiments}{37}
-\contentsline {subsection}{\numberline {6.1}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{37}
-\contentsline {subsection}{\numberline {6.2}Plotting Age Curve}{38}
-\contentsline {section}{\numberline {7}Discussion}{38}
-\contentsline {section}{\numberline {8}Conclusion}{38}
+\contentsline {subsection}{\numberline {5.3}Training}{31}
+\contentsline {subsection}{\numberline {5.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{32}
+\contentsline {subsection}{\numberline {5.5}Prediction}{32}
+\contentsline {subsection}{\numberline {5.6}Binarization Methods}{32}
+\contentsline {subsubsection}{\numberline {5.6.1}Otsu's Method}{33}
+\contentsline {subsubsection}{\numberline {5.6.2}Sauvola's Algorithm}{34}
+\contentsline {subsubsection}{\numberline {5.6.3}Niblack Method}{34}
+\contentsline {subsubsection}{\numberline {5.6.4}Adaptive Mean Thresholding}{35}
+\contentsline {subsubsection}{\numberline {5.6.5}Mean Thresholding}{36}
+\contentsline {subsubsection}{\numberline {5.6.6}Yen Thresholding}{36}
+\contentsline {subsubsection}{\numberline {5.6.7}Li Thresholding}{36}
+\contentsline {subsubsection}{\numberline {5.6.8}Isodata Thresholding}{37}
+\contentsline {subsection}{\numberline {5.7}Post-processing}{37}
+\contentsline {subsection}{\numberline {5.8}Evaluation Method}{38}
+\contentsline {section}{\numberline {6}Experimental Results and Discussion}{38}
+\contentsline {subsection}{\numberline {6.1}Plotting Age Curve}{39}
+\contentsline {section}{\numberline {7}Discussion}{39}
+\contentsline {section}{\numberline {8}Conclusion}{39}
 \contentsline {section}{References}{40}

@@ -15,7 +15,11 @@ Repeated entry---line 414 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 622 of file mybib.bib
+Repeated entry---line 589 of file mybib.bib
+ : @inproceedings{ronneberger2015u
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 631 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
@@ -71,4 +75,4 @@ warning$ -- 10
 while$ -- 194
 width$ -- 0
 write$ -- 645
-(There were 4 error messages)
+(There were 5 error messages)
