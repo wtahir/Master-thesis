@@ -884,7 +884,7 @@ This method is based on minimum cross entropy. The idea is to select a threshold
 \subsubsection{Isodata Thresholding}
 Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}
 
-\begin{figure}[ht!]
+\begin{figure}[H]
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/isodata.png}\hfill
@@ -896,7 +896,7 @@ Histogram based threshold alo known as inter-means or Ridler-Calvard method. Thr
 The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. Then resultant circles are projected on the original image to visualize missing craters. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot.
 
 \subsection{Evaluation Method}
-Precision, recall and F1 scores evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
+Precision, recall and F1-score evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
 
 \begin{equation*}
 \frac{\text{True positive}}{\text{True positive + False positive}}
@@ -915,16 +915,15 @@ In the above equation false negatives are simply missed craters by the algorithm
 For overall evaluation both of these metrics are taken into account and finally F1-score has been computed by the given equation:
 
 \begin{equation*}
-\text{F1 Score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
+\text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
 \end{equation*}
 
-Hence higher the F1-score better is the performance of algorithm and vice versa. A verified region is a true positive if it has more than 40\% overlap with
-a ground truth crater; otherwise, it is a false positive \cite{emami2015automatic}.
+Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive .
 
 \section{Experimental Results and Discussion}
-Trained model has been used to predict on two test datasets. First test dataset is similar to training dataset but test images are not seen by model during training or evaluation. Second dataset is taken from \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using given binarization methods at different ranges from their respective threshold values. These are given in table 1.
+Trained model has been used to predict on two test datasets. First test dataset is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table \ref{exp}.
 
-Apart from region proposal algorithm, Hough circle transformation was also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}.
+Apart from region proposal algorithm, Hough circle transformation was also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting can be seen in Figure: \ref{hough}.
 
 \begin{table}[H]
 	\centering
@@ -932,19 +931,24 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}
 		\cline{2-12}
 		& -50 \% & -40 \% & -30 \% & -20 \% & -10 \% & 0\%   & 10\%  & 20\%  & 30\%  & 40\%  & 50\%  \\ \hline
-		\multicolumn{1}{|l|}{Otsu}              & 41.7  & 42.9  & 42.6  & 41.2  & 42.3  & 41.2 & 39.8 & 39.1 & 36.9 & 35.5 & 34.5 \\ \hline
-		\multicolumn{1}{|l|}{Yen}               & 26.7  & 28.7  & 31.3  & 34.3  & 35.1  & 35.8 & 35.3 & 37.5 & 38.1 & 38.9 & 39.1 \\ \hline
-		\multicolumn{1}{|l|}{Li}                & 26.7  & 28.7  & 34.2  & 34.3  & 35.1  & 35.7 & 35.8 & 38.0 & 38.1 & 39.1 & 39.0 \\ \hline
-		\multicolumn{1}{|l|}{Mean}              & 22.5  & 25.2  & 26.1  & 26.8  & 28.8  & 30.1 & 32.6 & 34.4 & 34.6 & 36.0 & 35.8 \\ \hline
-		\multicolumn{1}{|l|}{Isodata}           & 37.9  & 38.9  & 37.3  & 37.9  & 38.0  & 36.2 & 36.6 & 36.7 & 33.7 & 33.4 & 32.8 \\ \hline
+		\multicolumn{1}{|l|}{Otsu}              & 51.7  & 52.9  & 52.6  & 51.2  & 52.3  & 51.2 & 49.8 & 49.1 & 46.9 & 45.5 & 44.5 \\ \hline
+		\multicolumn{1}{|l|}{Yen}               & 36.7  & 38.7  & 41.3  & 44.3  & 45.1  & 45.8 & 45.3 & 47.5 & 48.1 & 48.9 & 49.1 \\ \hline
+		\multicolumn{1}{|l|}{Li}                & 36.7  & 38.7  & 44.2  & 44.3  & 45.1  & 45.7 & 45.8 & 48.0 & 48.1 & 49.1 & 49.0 \\ \hline
+		\multicolumn{1}{|l|}{Mean}              & 32.5  & 35.2  & 36.1  & 36.8  & 38.8  & 40.1 & 42.6 & 44.4 & 44.6 & 46.0 & 45.8 \\ \hline
+		\multicolumn{1}{|l|}{Isodata}           & 47.9  & 48.9  & 47.3  & 47.9  & 48.0  & 46.2 & 46.6 & 46.7 & 43.7 & 43.4 & 42.8 \\ \hline
 		\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}c@{}}Adaptive\\ mean\end{tabular}}     & \multicolumn{11}{c|}{2.2}                                                                 \\ \hline
 		\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}c@{}}Adaptive\\ Gaussian\end{tabular}} & \multicolumn{11}{c|}{9.3}                                                                 \\ \hline
 		\multicolumn{1}{|l|}{Sauvola}           & \multicolumn{11}{c|}{14.0}                                                                \\ \hline
 		\multicolumn{1}{|l|}{Niblack}           & \multicolumn{11}{c|}{9.3}                                                                 \\ \hline
 	\end{tabular}
+\label{exp}
 \end{table}
 
-\begin{table}[ht!]
+Experimental results given in Table \ref{exp} are performed on \cite{dino2020} dataset. The dataset consists of a single image of the size 3130x2427 pixels and it is cropped into several 256x256 images for predictions. Cropping is done because the algorithm takes this input size for both training and prediction. Then prediction is performed on all the images and resulting predictions are concatenated together in an order exactly like the original image. Next the experiment presented in Table 1 is setup to compute the F1-scores on several binarization techniques and find out which one yields highest F1-score.
+
+Scores given in Table \ref{exp} are taken as benchmarks for image binarization. It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and Isodata it decreases slowly by further increasing threshold. Otsu and Isodata results into a high threshold value thus often by decreasing threshold it is likely that F1-score would increase. This is expected and observed in experimentation. 
+
+\begin{table}[H]
 	\centering
 	\caption{Patch wise mean F1 scores on test set distribution from dataset split}
 	\begin{tabular}{c|c|c|c|}
@@ -955,10 +959,12 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 		\multicolumn{1}{|c|}{Li}      & 56.9      & 80.5   & 66.7     \\ \hline
 		\multicolumn{1}{|c|}{Yen}     & 51.8      & 72.9   & 60.5     \\ \hline
 	\end{tabular}
+\label{mine}
 \end{table}
 
 
-\begin{table}[ht!]
+
+\begin{table}[H]
 	\centering
 	\caption{Patch wise mean F1 scores on a different test annotated from \cite{dino2020}}
 	\begin{tabular}{c|c|c|c|}
@@ -969,7 +975,15 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 		\multicolumn{1}{|c|}{Li}      & 60.7      & 59.2   & 59.9     \\ \hline
 		\multicolumn{1}{|c|}{Yen}     & 51.9      & 53.1   & 52.5     \\ \hline
 	\end{tabular}
+\label{dino}
 \end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\textwidth]{files/results/hough.png}
+	\caption{Hough circle fitting on predicted image.}
+	\label{hough}
+\end{figure}
 
 \subsection{Plotting Age Curve}
 Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
