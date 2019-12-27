@@ -899,7 +899,7 @@ The resulting predictions from CNN model are post processed in which the amount 
 Precision, recall and F1-score evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
 
 \begin{equation*}
-\frac{\text{True positive}}{\text{True positive + False positive}}
+\text{Precision} = \frac{\text{True positive}}{\text{True positive + False positive}}
 \end{equation*}
 
 True positives are correctly identified craters and false positives are craters detected by the algorithm but no crater exists on that location.
@@ -907,7 +907,7 @@ True positives are correctly identified craters and false positives are craters 
 Recall is defined as the percentage of total relevant results correctly classified by the algorithm and is given by:
 
 \begin{equation*}
-\frac{\text{True positive}}{\text{True positive + False negative}}
+\text{Recall} = \frac{\text{True positive}}{\text{True positive + False negative}}
 \end{equation*}
 
 In the above equation false negatives are simply missed craters by the algorithms.
@@ -921,7 +921,7 @@ For overall evaluation both of these metrics are taken into account and finally 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive .
 
 \section{Experimental Results and Discussion}
-Trained model has been used to predict on two test datasets. First test dataset is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table \ref{exp}.
+Trained model has been used to predict on two test sets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table \ref{exp}.
 
 Apart from region proposal algorithm, Hough circle transformation was also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting can be seen in Figure: \ref{hough}.
 
@@ -944,9 +944,9 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 \label{exp}
 \end{table}
 
-Experimental results given in Table \ref{exp} are performed on \cite{dino2020} dataset. The dataset consists of a single image of the size 3130x2427 pixels and it is cropped into several 256x256 images for predictions. Cropping is done because the algorithm takes this input size for both training and prediction. Then prediction is performed on all the images and resulting predictions are concatenated together in an order exactly like the original image. Next the experiment presented in Table 1 is setup to compute the F1-scores on several binarization techniques and find out which one yields highest F1-score.
+Experimental results given in Table \ref{exp} are performed on \cite{dino2020} dataset. The dataset consists of a single image of the size 3130x2427 pixels and it is cropped into several 256x256 images for predictions. Cropping is done because the algorithm takes this input size for both training and prediction. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. Then the experiment presented in Table 1 is setup to compute the F1-scores on several binarization techniques and find out which one yields highest F1-score.
 
-Scores given in Table \ref{exp} are taken as benchmarks for image binarization. It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and Isodata it decreases slowly by further increasing threshold. Otsu and Isodata results into a high threshold value thus often by decreasing threshold it is likely that F1-score would increase. This is expected and observed in experimentation. 
+Scores given in Table \ref{exp} are taken as benchmarks for image binarization. It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and Isodata it decreases slowly by further increasing threshold. These thresholding methods results into over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus often by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that punishes precision thus resulting F1-score is lower in comparison. This makes sense and observed in experimentation. 
 
 \begin{table}[H]
 	\centering
@@ -962,7 +962,7 @@ Scores given in Table \ref{exp} are taken as benchmarks for image binarization. 
 \label{mine}
 \end{table}
 
-
+Table \ref{mine} shows the F1-score on 20 test images taken out from dataset used for training. Computation is performed on each image separately then average of all the images is taken. Given filters are chosen on the basis of experimentation of different filters and their F1 comparison given in Table \ref{exp}. It can be seen that Otsu has the best precision because of higher threshold value which yields less false positives. High threshold has a drawback of missing small craters which are usually less than 6 pixels and also those which are highly degraded and barely have a shadow. This can be seen by threshold of Li and Yen's method where recall is high but precision is punished. Overall, Otsu outperforms are the other binarization methods.
 
 \begin{table}[H]
 	\centering
@@ -977,6 +977,12 @@ Scores given in Table \ref{exp} are taken as benchmarks for image binarization. 
 	\end{tabular}
 \label{dino}
 \end{table}
+
+Table \ref{dino} shows F1 results on \cite{dino2020} dataset. It is expected to see low F1-score compared to actual test set because of difference of shade length. Precision has not changed too much but there is notable decrement in recall score of methods and after analysing images visually it is concluded to have happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
+
+It has been observed that taking a larger image than 256x256, cropping it into 256x256, performing predictions and concatenating prediction images back together to form the actual image results into lower F1-score than computation on each image separately. This is due to the fact that many of the detected craters are cut into two different images and some are located in such a way on one image there is shadow and other has sun illumination. This results into detection of crater on one image but not on the other which there is one true positive and one false negative which recall is 50\% instead of 100\%. That is why scores in Table \ref{exp} are much lower than Table \ref{mine} and \ref{dino}.
+
+Hough circle transformation was also applied for blob detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them.
 
 \begin{figure}[H]
 	\centering

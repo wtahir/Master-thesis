@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  24 DEC 2019 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  27 DEC 2019 20:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1897,14 +1897,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [38]
-<files/results/hough.png, id=307, 256.96pt x 256.96pt>
-File: files/results/hough.png Graphic file (type png)
-<use files/results/hough.png>
-Package pdftex.def Info: files/results/hough.png  used on input line 983.
-(pdftex.def)             Requested size: 176.40439pt x 176.40862pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 987.
+Package pdftex.def Info: files/TUs.png  used on input line 966.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1914,6 +1909,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [39]
+<files/results/hough.png, id=310, 256.96pt x 256.96pt>
+File: files/results/hough.png Graphic file (type png)
+<use files/results/hough.png>
+Package pdftex.def Info: files/results/hough.png  used on input line 989.
+(pdftex.def)             Requested size: 176.40439pt x 176.40862pt.
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
 Package pdftex.def Info: files/TUs.png  used on input line 997.
@@ -1925,7 +1925,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[40 <./files/results/hough.png (PNG copy)>] (./01_Latex_Template.bbl
+[40 <./files/results/hough.png (PNG copy)>]
+File: files/TUs.png Graphic file (type png)
+<use files/TUs.png>
+Package pdftex.def Info: files/TUs.png  used on input line 1003.
+(pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 47.36118pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[41] (./01_Latex_Template.bbl
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
 Package pdftex.def Info: files/TUs.png  used on input line 96.
@@ -1937,7 +1949,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41
+[42
 
 ]
 File: files/TUs.png Graphic file (type png)
@@ -1951,7 +1963,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42]
+[43]
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
 Package pdftex.def Info: files/TUs.png  used on input line 262.
@@ -1963,10 +1975,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43])
+[44])
 File: files/TUs.png Graphic file (type png)
 <use files/TUs.png>
-Package pdftex.def Info: files/TUs.png  used on input line 1010.
+Package pdftex.def Info: files/TUs.png  used on input line 1016.
 (pdftex.def)             Requested size: 57.2136pt x 43.16113pt.
 
 
@@ -1975,7 +1987,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44] (./01_Latex_Template.aux)
+[45] (./01_Latex_Template.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1983,7 +1995,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  9415 strings out of 492982
  138572 string characters out of 6134897
- 229158 words of memory out of 5000000
+ 228158 words of memory out of 5000000
  12722 multiletter control sequences out of 15000+600000
  14256 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2005,10 +2017,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/pub
 lic/cm-super/sfrm1095.pfb>
-Output written on 01_Latex_Template.pdf (45 pages, 2788248 bytes).
+Output written on 01_Latex_Template.pdf (46 pages, 2790715 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
+ 388 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
