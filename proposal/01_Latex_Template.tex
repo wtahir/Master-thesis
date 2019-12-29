@@ -931,11 +931,11 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}
 		\cline{2-12}
 		& -50 \% & -40 \% & -30 \% & -20 \% & -10 \% & 0\%   & 10\%  & 20\%  & 30\%  & 40\%  & 50\%  \\ \hline
-		\multicolumn{1}{|l|}{Otsu}              & 51.7  & 52.9  & 52.6  & 51.2  & 52.3  & 51.2 & 49.8 & 49.1 & 46.9 & 45.5 & 44.5 \\ \hline
-		\multicolumn{1}{|l|}{Yen}               & 36.7  & 38.7  & 41.3  & 44.3  & 45.1  & 45.8 & 45.3 & 47.5 & 48.1 & 48.9 & 49.1 \\ \hline
-		\multicolumn{1}{|l|}{Li}                & 36.7  & 38.7  & 44.2  & 44.3  & 45.1  & 45.7 & 45.8 & 48.0 & 48.1 & 49.1 & 49.0 \\ \hline
-		\multicolumn{1}{|l|}{Mean}              & 32.5  & 35.2  & 36.1  & 36.8  & 38.8  & 40.1 & 42.6 & 44.4 & 44.6 & 46.0 & 45.8 \\ \hline
-		\multicolumn{1}{|l|}{Isodata}           & 47.9  & 48.9  & 47.3  & 47.9  & 48.0  & 46.2 & 46.6 & 46.7 & 43.7 & 43.4 & 42.8 \\ \hline
+		\multicolumn{1}{|l|}{Otsu}              & 51.9  & 53.3  & 53.0  & 51.7  & 52.8  & 51.9 & 50.7 & 50.1 & 47.9 & 46.7 & 45.9 \\ \hline
+		\multicolumn{1}{|l|}{Isodata}           & 47.6  & 49.2  & 47.7  & 48.4  & 48.6  & 46.9 & 47.4 & 47.6 & 44.7 & 44.6 & 44.1 \\ \hline
+		\multicolumn{1}{|l|}{Yen}               & 36.7  & 38.7  & 41.4  & 44.3  & 45.1  & 45.8 & 45.8 & 47.7 & 48.3 & 49.2 & 49.4 \\ \hline
+		\multicolumn{1}{|l|}{Li}                & 36.7  & 38.7  & 44.2  & 44.4  & 45.2  & 45.8 & 45.8 & 48.2 & 48.4 & 49.5 & 49.3 \\ \hline
+		\multicolumn{1}{|l|}{Mean}              & 32.5  & 35.1  & 36.0  & 36.7  & 38.8  & 40.1 & 42.6 & 44.4 & 44.6 & 46.0 & 45.8 \\ \hline
 		\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}c@{}}Adaptive\\ mean\end{tabular}}     & \multicolumn{11}{c|}{2.2}                                                                 \\ \hline
 		\multicolumn{1}{|l|}{\begin{tabular}[c]{@{}c@{}}Adaptive\\ Gaussian\end{tabular}} & \multicolumn{11}{c|}{9.3}                                                                 \\ \hline
 		\multicolumn{1}{|l|}{Sauvola}           & \multicolumn{11}{c|}{14.0}                                                                \\ \hline
@@ -946,8 +946,10 @@ Apart from region proposal algorithm, Hough circle transformation was also used 
 
 Experimental results given in Table \ref{exp} are performed on \cite{dino2020} dataset. The dataset consists of a single image of the size 3130x2427 pixels and it is cropped into several 256x256 images for predictions. Cropping is done because the algorithm takes this input size for both training and prediction. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. Then the experiment presented in Table 1 is setup to compute the F1-scores on several binarization techniques and find out which one yields highest F1-score.
 
-Scores given in Table \ref{exp} are taken as benchmarks for image binarization. It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and Isodata it decreases slowly by further increasing threshold. These thresholding methods results into over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus often by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that punishes precision thus resulting F1-score is lower in comparison. This makes sense and observed in experimentation. 
+Scores given in Table \ref{exp} are taken as benchmarks for image binarization. It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and Isodata it decreases slowly by further increasing threshold. These thresholding methods results into over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus often by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that punishes precision thus resulting F1-score is lower in comparison. This makes sense and observed in experimentation.
 
+Relationship between precision and recall of different filters is shown in Figure: \ref{thresh_methods}. Adaptive mean, adaptive gausssian, sauvola and niblack are not shown in graphs because of their poor performance in respect of F1-scores. It is clear that by setting higher threshold reduces recall but increases precision. This can be observed from Otsu and Isodata methods as both results into higher threshold values. Other filters have low thresholding value which results into problem of over-segmentation that punishes both precision and recall, which can be seen in mean, li and yen's bnarization methods. From graphs it can be noted that Otsu and Isodata provides a good trade off between precision and recall thus results into higher F1-score than other methods.
+ 
 \begin{table}[H]
 	\centering
 	\caption{Patch wise mean F1 scores on test set distribution from dataset split}
@@ -981,6 +983,33 @@ Table \ref{mine} shows the F1-score on 20 test images taken out from dataset use
 Table \ref{dino} shows F1 results on \cite{dino2020} dataset. It is expected to see low F1-score compared to actual test set because of difference of shade length. Precision has not changed too much but there is notable decrement in recall score of methods and after analysing images visually it is concluded to have happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
 
 It has been observed that taking a larger image than 256x256, cropping it into 256x256, performing predictions and concatenating prediction images back together to form the actual image results into lower F1-score than computation on each image separately. This is due to the fact that many of the detected craters are cut into two different images and some are located in such a way on one image there is shadow and other has sun illumination. This results into detection of crater on one image but not on the other which there is one true positive and one false negative which recall is 50\% instead of 100\%. That is why scores in Table \ref{exp} are much lower than Table \ref{mine} and \ref{dino}.
+ 
+\begin{figure}[H]
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=7.5cm]{files/results/otsu.eps}
+		\caption{Otsu}
+	\end{subfigure}
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=7.5cm]{files/results/isodata.eps}
+		\caption{Isodata}
+	\end{subfigure}
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=7.5cm]{files/results/mean.eps}
+		\caption{Mean}
+	\end{subfigure}
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=7.5cm]{files/results/li.eps}
+		\caption{Li}
+	\end{subfigure}
+	\begin{subfigure}[b]{1.0\textwidth}
+		\centering
+		\includegraphics[width=7.5cm]{files/results/yen.eps}
+		\caption{Yen}
+	\end{subfigure}
+
+	\caption{Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement from resultant threshold values at 10\% intervals.}
+	\label{thresh_methods}
+\end{figure}
 
 Hough circle transformation was also applied for blob detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them.
 
@@ -994,7 +1023,6 @@ Hough circle transformation was also applied for blob detection but the performa
 \subsection{Plotting Age Curve}
 Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
 
-\section{Discussion}
 
 \section{Conclusion}
 
