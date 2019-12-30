@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Badrinarayanan et~al., 2017]{badrinarayanan2017segnet}
+Badrinarayanan, V., Kendall, A., and Cipolla, R. (2017).
+\newblock Segnet: A deep convolutional encoder-decoder architecture for image
+  segmentation.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  39(12):2481--2495.
+
 \bibitem[Bandeira et~al., 2010]{bandeira2010automatic}
 Bandeira, L., Ding, W., and Stepinski, T. (2010).
 \newblock Automatic detection of sub-km craters using shape and texture
@@ -156,7 +163,8 @@ Palafox, L.~F., Hamilton, C.~W., Scheidt, S.~P., and Alvarez, A.~M. (2017).
 
 \bibitem[Polegubic, 2020]{dino2020}
 Polegubic, D. (2020).
-\newblock Landing site characterization for the pts lunar mission to apollo 17.
+\newblock Landing site characterization for the pts lunar mission to the apollo
+  17 area.
 \newblock {\em Master thesis at the Technical University of Berlin}.
 
 \bibitem[Redmon et~al., ]{redmon_you_2016}
