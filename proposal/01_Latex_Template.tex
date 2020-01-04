@@ -967,7 +967,9 @@ Table \ref{mine} shows the F1-score on 20 test images taken out from dataset use
 
 Table \ref{dino} shows F1 results on \cite{dino2020} dataset. It is expected to see low F1-score compared to actual test set because of difference of shade length. Precision has not changed too much but there is notable decrement in recall score of methods and after analysing images visually it is concluded to have happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
 
-It has been observed that taking a larger image than 256x256, cropping it into 256x256, performing predictions and concatenating prediction images back together to form the actual image results into lower F1-score than computation on each image separately. This is due to the fact that many of the detected craters are cut into two different images and some are located in such a way on one image there is shadow and other has sun illumination. This results into detection of crater on one image but not on the other which there is one true positive and one false negative which recall is 50\% instead of 100\%. That is why scores in Table \ref{exp} are much lower than Table \ref{mine} and \ref{dino}.
+It has been observed that taking a larger image than 256x256, cropping it into 256x256, performing predictions and concatenating prediction images back together to form the actual image results into lower F1-score than computation on every image separately. This is due to the fact that many of the detected craters are cut into two different images and some are located in such a way on one image there is shadow and other has sun illumination. This results into detection of crater on one image but not on the other which there is one true positive and one false negative which recall is 50\% instead of 100\%. That is why scores in Table \ref{exp} are much lower than Table \ref{mine} and \ref{dino}.
+
+Mask R-CNN which is a deep neural network based architecture was also applied in experimentation. It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. It is believed that this happened because of not enough dataset for sufficient training. Lunar craters does not resemble with the classes it is trained on i.e. COCO dataset. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a dataset composed of less than 300 images. However, further research is needed to draw more concrete conclusions in this regard.
  
 \begin{figure}[H]
 	\begin{subfigure}{7cm}
@@ -996,7 +998,7 @@ It has been observed that taking a larger image than 256x256, cropping it into 2
 	\label{thresh_methods}
 \end{figure}
 
-Hough circle transformation was also applied for blob detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them.
+Hough circle transformation was also applied for blob detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them. This phenomena was also observed by \cite{wetzler2005learning} and his performance curves can be seen in Figure: \ref{roc,wetzler}.
 
 \begin{figure}[H]
 	\centering
@@ -1008,10 +1010,14 @@ Hough circle transformation was also applied for blob detection but the performa
 \subsection{Plotting Age Curve}
 Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
 
-
 \section{Conclusion}
+Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. U-Net was applied with an Adam optimizer and binary cross entropy loss function to detect craters in optical images taken by Lunar Reconnaissance Orbiter. It is observed that by applying Contrast Limited Adaptive Histogram Equalization (CLAHE) the detection is increased up to 40\% with almost no false positives. The resulting probability or heat maps were subjected to several binarization methods to create blobs out of light pixels in an image and Regional Proposal algorithm (implemented in scikit python library) was applied to detect blobs along with their respective diameters. Experiments show that Otsu's binarization method performs best even though Otsu's threshold creates an under-segmentation problem. 
 
+It is also observed that cropping a large image and performing predictions on smaller cropped images will result into artifacts when segmented maps are patched together. After binarization of patched large image, it results into addition of false positives on reflection to artifacts which penalizes F1-score and has been observed in Table: \ref{exp}, therefore it makes more sense to perform image wise binarization and calculate F1-score on single image basis.
 
+Several deep learning architectures have been applied to solve crater detection problem but largely are experimented with digital elevation models which eliminates small craters. In this thesis, U-Net was applied on optical images and it was tested on a proportion of dataset used for training and also on a different testset which is annotated by \cite{dino2020} with tighter solar longitude angle as compared to training dataset. An F1-score of 73\% was achieved on first testset whereas change in solar angle penalized F1-score to a value of 64\%.
+
+From the age estimation plot it can be seen that small craters with only 10 meters in diameter were also detected by U-Net. Introduction of larger dataset instead of data augmentation with different solar longitude angles might increase the performance of algorithm. 
 
 \newpage
 \clearpage
