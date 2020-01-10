@@ -60,8 +60,8 @@ Girshick, R., Donahue, J., Darrell, T., and Malik, J.
 \newblock Rich feature hierarchies for accurate object detection and semantic
   segmentation.
 
-\bibitem[Greeley and Gault, 1970]{greeley1970precision}
-Greeley, R. and Gault, D.~E. (1970).
+\bibitem[Greeley~et al., 1970]{greeley1970precision}
+Greeley~et al., Gault, D.~E. (1970).
 \newblock Precision size-frequency distributions of craters for 12 selected
   areas of the lunar surface.
 \newblock {\em The Moon}, 2(1):10--77.

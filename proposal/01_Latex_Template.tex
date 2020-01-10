@@ -32,6 +32,7 @@
 \usepackage[parfill]{parskip}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{comment} 
 
 %pagestyle
 \geometry{paper=a4paper,left=30mm,right=25mm,top=40mm,bottom =30mm,headsep=20mm}
@@ -190,28 +191,28 @@ Figure \ref{fig:YOLO running on sample artwork and natural images from the inter
 \fi
 
 \section{Introduction}
-Studying impact craters present a valuable information about the geology of planets and characteristics of the surface. Computation of crater density has provided a gateway for the establishment of evolution of planet terrains chronologically \cite{martins2009crater}. This study provide not only the information about geological processes of the planet but also the history of our solar system. According to geologists impact craters are the only modifying and surface forming process for other planets and moons of all planets \cite{koeberl1994african}. Impact craters have also been a useful source of information for planetologist in providing the relative age of surfaces. If the relationship between crater size and impact energy is known and flux caused by the impact is understood then craters with larger densities indicate older surfaces \cite{ivanov2002comparison}.
+Studying impact craters present a valuable information about the geology of planets and characteristics of the surface. Computation of crater density has provided a gateway for the establishment of evolution of planet terrains chronologically \cite{martins2009crater}. This study provide not only the information about geological processes of the planet but also the history of our solar system. According to geologists impact craters are the only modifying and surface forming processes for other planets and moons of all planets \cite{koeberl1994african}. Impact craters have also been a useful source of information for planetary scientists in providing the relative age of surfaces. If the relationship between crater size and impact energy is known and flux caused by the impact is understood then craters with larger densities indicate older surfaces \cite{ivanov2002comparison}.
 
-Various processes alter crater populations specially of those with smaller diameters \cite{opik1965mariner} more often in planets with an atmosphere. This results deviations in crater size-frequency distributions (CSFD). Factors like deceleration, ablation, fragmentation of meteors while passing through the atmosphere before striking the surface, the effect of target properties on scale of crater formation and postformation changes of craters by erosion and deposition play an important role in altering crater populations. Therefore, crater counts with relatively smaller diameters (i.e. d $<$ 1 km) are at a larger risk of representing an age which could be misinterpreted if the modeled production function does not take into account the factors responsible for altering CSFD in an observed range of diameter \cite{hartmann1981chronology}. Moreover, several factors may lead to surface age as well as statistical uncertainties because smaller crater's identification is prone to certain biases such as resolution limits, illumination effects, compact crater count areas or limited number of craters \cite{soderblom1970distribution}.
+Various processes alter crater populations especially of those with smaller diameters \cite{opik1965mariner} more often in planets with dense atmosphere resulting in deviations in the crater size-frequency distributions (CSFD). Such processes are: deceleration, ablation, fragmentation of meteors while passing through the atmosphere prior to surface impact and postformation modification of craters by erosion and deposition. Therefore, crater counts with relatively smaller diameter (i.e. diameter $<$ 0.01 km) are at a larger risk of representing an age which could be misinterpreted if the modeled production function does not take into account the factors responsible for altering CSFD in an observed range of diameter \cite{hartmann1981chronology}. Moreover, several factors may lead to surface age as well as statistical uncertainties because smaller crater's identification is prone to certain biases such as resolution limits, illumination effects, compact crater count areas or limited number of craters \cite{soderblom1970distribution}.
 
 In case of earth's Moon, modeling of impact craters depends on the knowledge of age-dated lunar samples with correlation to observed CSFDs \cite{williams2018dating}. Chronology is a system composed of two elements such as a production function describing the CSFD shape and a chronology function which is related to the accumulation of craters density to absolute time. Both of these functions collectively provide a predicted CSFD or isochron for a given time length a surface has been under crater strikes. This is valid for lunar surface as Moon has no atmosphere. This chronology can also be applied to other solar system objects but with an addition of factors such as impactor flux and surface gravity \cite{ivanov2002comparison}.
 
 If CSFD and the diameter of crater is known then age of the lunar surface can be determined using both of these parameters. It is only possible to determine the age of the same area where crater count has been performed. There are production functions proposed by planetary scientists which provide an approximation to surface age if CSFD and crater diameters are known. The examples of such functions are Hartmann Production Function (HPF) and Neukum Production Function (NPF).
 
-Crater-counts gives the frequency of crater distribution of a certain area. This can be performed by counting craters manually. This task could not only be time consuming but also expensive and labor intensive depending upon the number of images and amount of craters present in images. Satellites are the source of images which provide opportunity to count craters depending on the type of cameras on board. Also number of craters in a certain area may change with a passage of time which would mean that possibly same task for the same surface has to be performed again.
+Crater counts provides the frequency of crater distribution of a certain area. This can be performed by counting craters manually. This task could not only be time consuming but also expensive and labor intensive depending upon the number of images and amount of craters present in images. Satellites are the source of images which provide opportunity to count craters depending on the type of cameras on board. Also number of craters in a certain area may change with a passage of time which would mean that possibly same task for the same surface has to be performed again.
 
-Since early 2000 many missions and satellites have been deployed to Moon for research purposes including crater studies. LRO (Lunar Reconnaissance Orbiter) is one of the satellites on lunar mission operated by USA and is collecting lunar images since 2009. LRO has gathered millions of images since its launch. Lunar Reconnaissance Orbiter Camera (LROC) was specifically designed for the assessment of meter and smaller scale features to help carry out safety analysis for future lunar landing sites on moon including polar region. The Narrow Angle Cameras (NAC) mounted on LRO are able to detect craters with diameter of 2.5 m or greater \cite{robinson2010lunar}. It is common to find craters less than 100 m in diameter on lunar surface \cite{robinson2010lunar}.
+Since early 2000 many missions and satellites have been deployed to Moon for research purposes including crater studies. LRO (Lunar Reconnaissance Orbiter) is one of the satellites on lunar mission operated by USA and is collecting lunar images since 2009. LRO has gathered millions of images since its launch. Lunar Reconnaissance Orbiter Camera (LROC) was specifically designed for the assessment of meter-scale and smaller features to help carry out safety analysis for future lunar landing sites on moon including polar region. The Narrow Angle Cameras (NAC) mounted on LRO are able to detect craters with diameter of 2.5m or greater \cite{robinson2010lunar}. It is common to find craters less than 100m in diameter on lunar surface \cite{robinson2010lunar}. Now with this information these images can be utilized to count craters. Traditional methods of counting craters are manual by visual inspection of images. This approach is not practical when dealing large amount of images with craters of various sizes on either Moon or any other planet. But to achieve this task through computers there is a demanding processing hardware requirement.
 
 Images taken from LRO are large in size (resolution of 1.009). The data is available publicly and can be seen or downloaded through this link \textit{(http://wms.lroc.asu.edu/lroc/)}. 
 Such images cannot be processed without a competitive machine. There are methods developed to perform image processing tasks which are highly dependent on a machine's memory and performance. Therefore, developing techniques without advancement in computer technology was simply not enough. This problem was already known during 1960s and therefore it lead to the development of Graphical processing unit (GPU). A GPU performs quick math calculations and frees the space for CPU to do other tasks. Unlike CPU it has thousands of cores designed for multi-tasking. A much needed hardware to perform computationally expensive calculations without exhaustion. 
 
-In 2000s many companies like Intel, Nvidia and AMD/ATI stepped into the race of manufacturing faster GPUs and dominated market. This competition continues till today and GPUs are becoming more and more powerful. Meanwhile, the need for GPUs is also increasing because of big data processing needs. Nvidia introduced a chip capable of programmable pixel shaders i.e. compute color, position, depth or stencil of a pixel, the Ge-Force 3. A short program could now process each pixel before projecting it to the screen, this processing included but not limited to addition of image textures. By 2002 ATI Radeon 9700 the world's first Direct3D 9.0 accelerator was introduced my Microsoft containing support for multiple render targets, floating point texture formats, multiple-element textures and stencil buffer methods. In 2010 Nvidia began a partnership with Audi to power car dashboards. This mainly increased the functionality of navigation and entertainment systems. In 2014 the PS4 and Xbox One were released powered by GPUs based on AMD's Radeon HD 7850 and 7790. Lately RTX was released by Nvidia with the aim of enabling real time ray tracing. This was a new development in computer graphics for generation of interactive images reacting to lighting, reflections and shadows. RTX also includes artificial intelligence (AI) integration like enhancing video processing, graphics and images directly into applications. Today, parallel GPUs are making complex computations in the fields of oil exploration, machine learning, image processing, 3D reconstruction, statistics and even in stock market for stock rates determination. 
+In 2000s many companies like Intel, Nvidia and AMD/ATI stepped into the race of manufacturing faster GPUs and dominated market. This competition continues till today and GPUs are becoming more and more powerful. Meanwhile, the need for GPUs is also increasing because of big data processing needs. Nvidia introduced a chip capable of programmable pixel shaders i.e. compute color, position, depth or stencil of a pixel, the Ge-Force 3. A short program could now process each pixel before projecting it to the screen, this processing included but not limited to addition of image textures. By 2002 ATI Radeon 9700 the world's first Direct3D 9.0 accelerator was introduced by Microsoft containing support for multiple render targets, floating point texture formats, multiple-element textures and stencil buffer methods. In 2010 Nvidia began a partnership with Audi to power car dashboards. This mainly increased the functionality of navigation and entertainment systems. In 2014 the PS4 and Xbox One were released powered by GPUs based on AMD's Radeon HD 7850 and 7790. Lately RTX was released by Nvidia with the aim of enabling real time ray tracing. This was a new development in computer graphics for generation of interactive images reacting to lighting, reflections and shadows. RTX also includes artificial intelligence (AI) integration like enhancing video processing, graphics and images directly into applications. Today, parallel GPUs are making complex computations in the fields of oil exploration, machine learning, image processing, 3D reconstruction, statistics and even in stock market for stock rates determination. 
 
-In the past automatic detection of craters turned out to be a difficult task in cases when rims were not clear or overlapped or if image is noisy \cite{sawabe_2006}. Multiple automated methods were presented by \cite{sawabe_2006} using the data acquired by Clementine and Apollo. One of the methods was to thin down a set of edge pixels to one pixel using Hilditch's thinning algorithm. The lines were then connected depending upon the direction and length. If the resultant lines were closed with roundness more than 0.8 then lines were regarded as crater. During last decade new techniques have been developed in object detection, localization and semantic segmentation these techniques are referred to as Deep Learning. Like mentioned earlier, these methods can now put into application because of GPUs of today, which is not only capable of performing computationally intensive tasks but also shortens the amount of processing time.
+With this advancement in computer processing ability, complex computation tasks are now possible to perform. That means a human labor intensive task can possibly be automated. This gave an opportunity to planetary scientists to experiment various methods to calculate crater counts mathematically without involvement of large number of man power or field experts. In the past automatic detection of craters turned out to be a difficult task in cases where rims were overlapped, not clear or if image was noisy \cite{sawabe_2006}. Multiple automated methods were presented by \cite{sawabe_2006} using the data acquired by Clementine and Apollo. One of the methods was to thin down a set of edge pixels to one pixel using Hilditch's thinning algorithm. The lines were then connected depending upon the direction and length. If the resultant lines were closed with roundness more than 0.8 then lines were regarded as crater. 
+
+In last decade, new techniques have been developed in object detection, classification, localization and semantic segmentation. These methods can now put into application because of GPUs of today, which are not only capable of performing computationally intensive tasks but also shortens the amount of processing time as compared to previous versions of GPUs.
 
 \subsection{Problem Statement}
-Traditional methods of finding craters are manual by visual inspection of images. This approach is not practical when dealing large amount of images with craters of various sizes on either Moon or any other planet. This has resulted in a database generated by humans that are either spatially comprehensive and restricted to largest craters or size comprehensive and limited to a specific geographic region \cite{stepinski2012detecting}. Manual crater counting by experts can result into disagreements as high as 40\% \cite{greeley1970precision}. Additionally, this requires skilled man power and time to find craters of various sizes across different geographical regions.
-
 The goal of this research is to build a framework to perform a pixelwise segmentation of lunar craters on optical images taken by LRO, finding their respective diameters and use this information to estimate the age of particular geographic location of Moon.
 
 \subsection{Research Approach}
@@ -280,6 +281,7 @@ where $p_c$ is whether or not there is an image, $b_x, b_y, b_h$ and $b_w$ is to
 
 The evaluation of object detection algorithm can be performed using $IoU$. As mentioned before, it gives the ratio between area of overlap and area of union. So if the algorithm outputs a bounding box which does not properly fit the ground truth bounding box representing the object then by convention the answer is taken correct if $IoU \geq 0.5$. If predicted and ground truth bounding boxes overlaps perfectly then IoU would be 1. The higher the IoU, the more accurate the bounding box is.
 
+\begin{comment}
 \subsection{Linear Classification}
 It is one of the simplest technique to classify an object. Eventually it is extended to the entire Convolutional Neural Network. It has two major components. One is score function which does the mapping of raw data to the class scores and other one is a loss function that defines how different predicted score is from the ground truth labels. Typically loss function is higher initially and thus required to be minimized with respect to the score function parameters. This minimization is also referred to as optimization. 
 
@@ -292,8 +294,9 @@ $$
 Here $x_i$ is the image which is flattened out to a single column vector of shape $[D \times 1]$. $\boldsymbol{W}$ is of size  $[K \times D]$ and is often referred to as weights, whereas $b$ is called bias vector with size  $[K \times 1]$. Multiplication of matrices $Wx_i$ gives separate classifiers in parallel where each classifier represents a row of weight matrix. The goal is to set the weights and bias parameters in a way that the output score match the ground truth labels of training data set as such that the correct classes has higher score than the incorrect classes.
 
 A linear classifier computes the score of a class by taking weighted sum of all pixel values in all the channels of an image. If there is an image of ship then most likely surrounding pixels of ship would be blue (because of water presence). That means across blue channel weights will be largely positive whereas mostly negative in other channels i.e. red and green. Positive weights in blue channel increases score of ship class.
+\end{comment}
 
-
+\begin{comment}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=90mm,height=33mm,  scale=0.8]{files/cnn_architecture/linear_class.png}
@@ -301,6 +304,7 @@ A linear classifier computes the score of a class by taking weighted sum of all 
 		($f(x_i, W, b) = Wx_i + b$). It shows that an image $x_i$ is represented as a one dimensional vector which is multiplied by set weights and resultant is added with a bias leading to the highest score for detection of cat image. The weights are set badly as classifier thinks it is a dog instead of a cat.}
 	\label{fig: linear classifier}
 \end{figure}
+\end{comment}
 
 \subsection{Normalization}
 In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
@@ -343,8 +347,19 @@ That is the gradient is 1 on the input which is larger and 0 on the other input.
 
 Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
 
+\begin{comment}
 \subsection{Weights Initialization}
 Initially weights of a CNN before training are randomly chosen. The key rule to pick a random weight is not to initialize with a too large or too small value to avoid the well known problem of vanishing or exploding gradients. Some initialization methods like He Initialization and Xavier Initialization are the common practices to setup weights. Before training, the CNN is not able to make meaningful predictions because there is no relation between the input images and their annotated outputs with classes. This process is performed in training where weights are adjusted in a way so that difference between desired output and network output is minimized. In other words network is trained to look for the right features needed for classification.
+\end{comment}
+
+\subsection{Activation Functions}
+These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
+
+Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
+
+\subsection{Loss Function}
+It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. There are different ways to define a loss function.
+
 
 \subsection{Neural Network Overview}
 In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
@@ -399,103 +414,7 @@ After multiple convolution and pooling operations, finally an output can be gene
 	\label{fig: CNN architecture}
 \end{figure}
 
-\subsection{Loss Function}
-It determines the amount of deviation from the groundtruth or labeled data. Higher loss means the actual outcome is very different than expected result. In Fig \ref{fig: linear classifier} instead of high cat score, dog score was the highest. This anomaly is measured by loss function. A high loss function indicates poor classification of training data and low means better classification. There are different ways to define a loss function. Finding craters is a classification problem (i.e crater or no crater). So the loss is measured in as a classification loss problem.
-
-\subsubsection{Cross Entropy Loss}
-It is also known as the log loss. It measures the performance of a classification model whose output is a probability value between zero and one. The cross entropy loss increases as the predicted probability diverges from the actual label so predicting a probability of i.e. 0.019 when the actual observation label is one would be bad and it would result in high loss value. Therefore, probability of observation as zero or one (positive or negative) is written as:
-
-\begin{equation}
-\label{crossent}
-{\displaystyle H(p,q)=-\sum _{x}p(x)\,\log q(x)}
-\end{equation}
-
-In the above equation $p$ and $q$ are the cross entropy of true distribution and predicted distribution. The calculation of above equation depends on following factors:
-
-\begin{enumerate}
-	\item Type of layers used in neural network.
-	\item Type of activation function used. Many activations might not be compatible with calculation because of output value which is either greater than one, negative value or do not sum to one. Therefore, softmax function is often used for multi class classification as it guarantees a well behaved probability distribution function.
-\end{enumerate}
-
-A machine learning, a common convention is to represent the ground truth (or labeled) data by vector $\mathbf{y}$ and $\mathbf{\hat{y}}$ is a vector containing the estimate. For a single example the equation is:
-
-\begin{equation}
-L = - \mathbf{y} \cdot \log(\mathbf{\hat{y}})
-\end{equation}
-
-If for example a true label is $\left[\begin{array}{llllll}{1} & {0} & {0} & {0} & {0}\end{array}\right]$ and predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ then in this specific example all the probability is given to the first value and remaining are zero so they can be ignored. Mathematically it will be calculated as:
-
-$$
-\begin{array}{l}{L=-(1 \times \log (0.1)+0 \times \log (0.5)+\ldots)} \\\\ {L=-\log (0.1) \approx 2.303}\end{array}
-$$
-
-It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class.  
-
-\subsection{Activation Functions}
-These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
-
-Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
-
-Most commonly used activation functions are discussed below:
-
-\subsubsection{Sigmoid Function}
-It is defines as:
-
-\begin{equation}
-a = \sigma(z) = \frac{1}{1+e^{-z}}=\frac{e^{z}}{e^{z}+1}
-\end{equation}
-
-where
-
-\begin{equation}
-z = Wx_i + b
-\end{equation}
-
-$W being weight vector and x_i is image vector, b stands for bias$
-
-
-The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/sigmoid.eps}
-	\caption{Sigmoid Function}
-	\label{fig: Sigmoid}
-\end{figure}
-
-From the graph it can be seen in the graph that $z$ is 0 when curve is passing though 0.5. In convention a rule can be set if i.e. $z$ is greater than 0.5 then output is always 1 and if less than 0.5 then it is 0. A notable behavior of this function is that if $z$ is larger than the dotted region in graph then the derivative of this function is close to zero and same way if it is negative slope is again equal to or close to zero. 
-
-This means that it can slow down gradient descent. It also becomes a source of vanishing gradient problem. If the weights are initialized with either very large or very small values then these values saturate the input to sigmoid at very valued region (close to zero or close to one). Even if weights are initialized at a value i.e. ~0.2, in a deep network with many layers it will also lead to vanishing gradient problem. In case of only 4 layer network $0.2^{4}=0.0016$ which is small and will get even smaller in next layers. Also the mean of data is 0.5 which meas that data is not centered for the next layer. 
-
-It is used for a problem where binary classification is required. In a neural network layer sigmoid must not be used in every layer because of the problems mentioned above. Anyhow, where binary classification is required, it can be useful in the last layer of the network to squash output such as $ 1 \geq \hat{y} \geq 0$.
-
-\subsubsection{ReLU Function}
-It stands for rectified linear unit and defined as:
-
-\begin{equation}
-a = \max (0, z)
-\end{equation}
-
-The graphical form is given as:
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu.eps}
-	\caption{ReLU Function}
-	\label{fig: relu}
-\end{figure}
-
-As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh. 
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu_fast.png}
-	\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh \cite{krizhevsky2012imagenet}. }
-	\label{fig: relu_fast}
-\end{figure}
-
-Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Figure: \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. Also in Figure: \ref{fig: relu_fast} it can be seen that ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
-
+\begin{comment}
 \subsubsection{Softmax Classifier}
 A binary classifier is a function that determines the class of an object i.e. if there is a crater (which has an assigned class of 1), ideally it will recognize it as one. Softmax classifier is generalization of binary form of logistic regression. It interprets the scores as unnormalized log probabilities for each class and has the following form:
 
@@ -511,7 +430,51 @@ f_j(z) = \frac{e^{z_j}}{\sum_{k=1}^{K} e^{z_k}}
 \end{equation}
 
 $z$ is the vector of score of arbitrary real values and those are squashed to a vector of values ranging between zero and one. The sum of these values is one. The form $\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }$ in eq.$\ref{singlesoftmax}$ is the estimated distribution. Plugging it into eq.$\ref{crossent}$ makes it clear that softmax is minizing the loss.
+\end{comment}
 
+\subsection{Binarization Methods}
+Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+
+\subsubsection{Otsu's Method}
+This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
+
+\begin{equation}
+\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+\end{equation}
+
+Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+
+\subsubsection{Sauvola's Algorithm}
+It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
+
+\begin{equation}
+T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+\end{equation}
+
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
+
+\subsubsection{Niblack Method}
+This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
+
+\begin{equation}
+T_{d}=m(x, y)+k \times s(x, y)
+\end{equation}
+where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
+
+\subsubsection{Adaptive Mean Thresholding}
+In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
+
+\subsubsection{Mean Thresholding}
+This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
+
+\subsubsection{Yen Thresholding}
+This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
+
+\subsubsection{Li Thresholding}
+This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
+
+\subsubsection{Isodata Thresholding}
+Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
 
 %\section{Research Question}
 %\begin{enumerate}
@@ -566,7 +529,6 @@ On the basis of age assumption NPF was fit to the crater count. It is notable th
 		diameter bins around D close to 6 km. D less than 1km and diameter range between 30-100km, both production functions outputs similar results. Fitting the HPF to equation (15), the age estimation is 3.4 G.y. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).}
 	\label{HPF}
 \end{figure}
-
 
 \section{Related Work}
 Before wide use of deep learning approaches, different machine learning methods were developed to perform the tasks of object detection. \cite{viola2001rapid} proposed a method which was composed of three key components. Firstly objective was to introduce a different image representation called Integral Image to compute rectangle features of the object. The second was an algorithm based on AdaBoost with a purpose to select critical visual features from large amount of data to get a set of classifiers. Third contribution was to combine those classifiers in a cascade to discard the background regions and only compute object-like regions. This algorithm used Haar basis features and was developed to detect faces.
@@ -648,6 +610,94 @@ A deep learning model based on CNN architecture was introduced by \cite{silburt2
 %For training and testing of model. The dataset is taken in the form of images from LRO in 2 different formats: grayscale and RGB. These images are of moon and consists craters of different sizes.
 
 \section{Model Architecture}
+
+\subsubsection{Sigmoid Function}
+It is defines as:
+
+\begin{equation}
+a = \sigma(z) = \frac{1}{1+e^{-z}}=\frac{e^{z}}{e^{z}+1}
+\end{equation}
+
+where
+
+\begin{equation}
+z = Wx_i + b
+\end{equation}
+
+$W being weight vector and x_i is image vector, b stands for bias$
+
+
+The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/sigmoid.eps}
+	\caption{Sigmoid Function}
+	\label{fig: Sigmoid}
+\end{figure}
+
+From the graph it can be seen in the graph that $z$ is 0 when curve is passing though 0.5. In convention a rule can be set if i.e. $z$ is greater than 0.5 then output is always 1 and if less than 0.5 then it is 0. A notable behavior of this function is that if $z$ is larger than the dotted region in graph then the derivative of this function is close to zero and same way if it is negative slope is again equal to or close to zero. 
+
+This means that it can slow down gradient descent. It also becomes a source of vanishing gradient problem. If the weights are initialized with either very large or very small values then these values saturate the input to sigmoid at very valued region (close to zero or close to one). Even if weights are initialized at a value i.e. ~0.2, in a deep network with many layers it will also lead to vanishing gradient problem. In case of only 4 layer network $0.2^{4}=0.0016$ which is small and will get even smaller in next layers. Also the mean of data is 0.5 which meas that data is not centered for the next layer. 
+
+It is used for a problem where binary classification is required. In a neural network layer sigmoid must not be used in every layer because of the problems mentioned above. Anyhow, where binary classification is required, it can be useful in the last layer of the network to squash output such as $ 1 \geq \hat{y} \geq 0$.
+
+\subsubsection{ReLU Function}
+It stands for rectified linear unit and defined as:
+
+\begin{equation}
+a = \max (0, z)
+\end{equation}
+
+The graphical form is given as:
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu.eps}
+	\caption{ReLU Function}
+	\label{fig: relu}
+\end{figure}
+
+As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh. 
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu_fast.png}
+	\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh \cite{krizhevsky2012imagenet}. }
+	\label{fig: relu_fast}
+\end{figure}
+
+Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Figure: \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. Also in Figure: \ref{fig: relu_fast} it can be seen that ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
+
+\subsubsection{Cross Entropy Loss}
+It is also known as the log loss. It measures the performance of a classification model whose output is a probability value between zero and one. The cross entropy loss increases as the predicted probability diverges from the actual label so predicting a probability of i.e. 0.019 when the actual observation label is one would be bad and it would result in high loss value. Therefore, probability of observation as zero or one (positive or negative) is written as:
+
+\begin{equation}
+\label{crossent}
+{\displaystyle H(p,q)=-\sum _{x}p(x)\,\log q(x)}
+\end{equation}
+
+In the above equation $p$ and $q$ are the cross entropy of true distribution and predicted distribution. The calculation of above equation depends on following factors:
+
+\begin{enumerate}
+	\item Type of layers used in neural network.
+	\item Type of activation function used. Many activations might not be compatible with calculation because of output value which is either greater than one, negative value or do not sum to one. Therefore, softmax function is often used for multi class classification as it guarantees a well behaved probability distribution function.
+\end{enumerate}
+
+A machine learning, a common convention is to represent the ground truth (or labeled) data by vector $\mathbf{y}$ and $\mathbf{\hat{y}}$ is a vector containing the estimate. For a single example the equation is:
+
+\begin{equation}
+L = - \mathbf{y} \cdot \log(\mathbf{\hat{y}})
+\end{equation}
+
+If for example a true label is $\left[\begin{array}{llllll}{1} & {0} & {0} & {0} & {0}\end{array}\right]$ and predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ then in this specific example all the probability is given to the first value and remaining are zero so they can be ignored. Mathematically it will be calculated as:
+
+$$
+\begin{array}{l}{L=-(1 \times \log (0.1)+0 \times \log (0.5)+\ldots)} \\\\ {L=-\log (0.1) \approx 2.303}\end{array}
+$$
+
+It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class.  
+
 The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding. Dropout is nothing but regularization which reduces interdependent learning amongst neurons. This reduces the possibility of overfitting the model.
 
 \begin{figure}[H]
@@ -690,14 +740,18 @@ In this step before training of Neural Network images are processed for annotati
 \subsubsection{Image Annotation}
 It is one of the most important tasks in computer vision problem related to deep learning. This task is done by human, images are annotated with labels. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These labels carry information to the Neural Network about what are the target features in image. In this particular project there is only one label which is "crater" and has shape of a circle.
  
-Annotation (labeling) could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of machine learning and finding already annotated data set seems difficult to find. Therefore labeling was needed for training purpose. There are several tools to perform annotation, some are listed below.
+Annotation (labeling) could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of machine learning and finding already annotated data set seems difficult to find. Therefore labeling was needed for training purpose. 
+
+\begin{comment}
+There are several tools to perform annotation, some are listed below.
 \begin{itemize}
-	\item \underline{LabelMe}: One of the most commonly used tools. It has been observed that it is slow on UI mainly when zooming into images.
-	\item \underline{RectLabel}: At the time of annotation there was no support for Linux, it only worked for Mac.
-	\item \underline{LabelBox}: It provides options for different labeling tasks and works well for larger annotation projects.
-	\item \underline{VGG Image Annotator (VIA)}: Very simple design and easy to use for beginners as well as suitable for large projects as well.
-	\item \underline{COCO UI}: This tool for COCO dataset annotations.
+\item \underline{LabelMe}: One of the most commonly used tools. It has been observed that it is slow on UI mainly when zooming into images.
+\item \underline{RectLabel}: At the time of annotation there was no support for Linux, it only worked for Mac.
+\item \underline{LabelBox}: It provides options for different labeling tasks and works well for larger annotation projects.
+\item \underline{VGG Image Annotator (VIA)}: Very simple design and easy to use for beginners as well as suitable for large projects as well.
+\item \underline{COCO UI}: This tool for COCO dataset annotations.
 \end{itemize}
+\end{comment}
 
 After performing few annotation experiments from the above mentioned tools, VGG Image Annotator was found most simple and faster to annotate lunar crater dataset. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as x and y coordinates and radius respectively.
 
@@ -768,115 +822,6 @@ By using CLAHE, the image is divided into small blocks also called tiles (functi
 \subsection{Prediction}
 The best trained model is used for prediction on test datset. Predictions yield a probability map of each image in which light pixels depict maximum likelihood and dark pixels represents less probability of crater existence. Such heat map of one of the test images is shown in binarization methods.
 
-
-\subsection{Binarization Methods}
-Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
-
-\subsubsection{Otsu's Method}
-This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
-
-\begin{equation}
-\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
-\end{equation}
-
-Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/otsu.png}
-	\caption{Otsu thresholding}
-	\label{otsu thresholding}
-\end{figure}
-
-\subsubsection{Sauvola's Algorithm}
-It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
-
-\begin{equation}
-T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
-\end{equation}
-
-Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/sauvola.png}
-	\caption{Sauvola thresholding}
-	\label{sauvola thresholding}
-\end{figure}
-
-\subsubsection{Niblack Method}
-This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
-
-\begin{equation}
-T_{d}=m(x, y)+k \times s(x, y)
-\end{equation}
-where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/niblack.png}
-	\caption{Niblack thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{Niblack_th}
-\end{figure}
-
-\subsubsection{Adaptive Mean Thresholding}
-In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/adaptiveMean_mean.png}\hfill
-	\caption{Adaptive mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{Adaptive mean thresholding}
-\end{figure}
-
-\subsubsection{Mean Thresholding}
-This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
-
-\begin{figure*}[ht!]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/mean.png}
-	\caption{Mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{mean_th}
-\end{figure*}
-
-\subsubsection{Yen Thresholding}
-This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/yen.png}\hfill
-	\caption{Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{Yen thresholding}
-\end{figure}
-
-\subsubsection{Li Thresholding}
-This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/li.png}\hfill
-	\caption{Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{Li thresholding}
-\end{figure}
-
-\subsubsection{Isodata Thresholding}
-Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/isodata.png}\hfill
-	\caption{Isodata thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
-	\label{isodata thresholding}
-\end{figure}
-
 \subsection{Post-processing}
 The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot.
 
@@ -906,9 +851,73 @@ For overall evaluation both of these metrics are taken into account and finally 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive .
 
 \section{Experimental Results and Discussion}
-Trained model has been used to predict on two test sets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table: \ref{exp}.
+Trained model is used to predict on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table: \ref{exp}.
 
 Apart from region proposal algorithm, Hough circle transformation is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting on one of the test images can be visualized in Figure: \ref{hough}.
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/otsu.png}
+	\caption{Otsu thresholding}
+	\label{otsu thresholding}
+\end{figure}
+
+\begin{figure*}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/mean.png}
+	\caption{Mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{mean_th}
+\end{figure*}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/yen.png}\hfill
+	\caption{Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Yen thresholding}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/isodata.png}\hfill
+	\caption{Isodata thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{isodata thresholding}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/niblack.png}
+	\caption{Niblack thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Niblack_th}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/sauvola.png}
+	\caption{Sauvola thresholding}
+	\label{sauvola thresholding}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/adaptiveMean_mean.png}\hfill
+	\caption{Adaptive mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Adaptive mean thresholding}
+\end{figure}
+
+\begin{figure}[H]
+	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
+	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
+	\includegraphics[width=.3\textwidth]{files/results/li.png}\hfill
+	\caption{Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\label{Li thresholding}
+\end{figure}
 
 \begin{table}[H]
 	\centering
@@ -1008,7 +1017,7 @@ Hough circle transformation was also applied for blob detection but the performa
 \end{figure}
 
 \subsection{Plotting Age Curve}
-Another evaluation will be comparison of age with the determined age of crater counted surface by planetary scientists.
+Another evaluation is comparison of age with the determined age of crater counted surface by planetary scientists.
 
 \section{Conclusion}
 Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. U-Net based architecture was applied to detect craters in optical images taken by Lunar Reconnaissance Orbiter. It is observed that by applying Contrast Limited Adaptive Histogram Equalization (CLAHE) the detection is increased up to 40\%. The resulting probability or heat maps were subjected to several binarization methods to create blobs for the lighter pixels in an image and Regional Proposal algorithm (implemented in scikit) was applied to detect blobs along with their respective diameters. Experiments show that Otsu's binarization method performs best even though Otsu's threshold creates an under-segmentation map. 
@@ -1017,7 +1026,10 @@ It is also observed that cropping a large image and performing predictions on sm
 
 Several deep learning architectures have been applied to solve crater detection problem but largely are experimented with digital elevation models which eliminates small craters. In this thesis, U-Net was applied on optical images and it was tested on a proportion of dataset used for training and also on a different testset which is annotated by \cite{dino2020} with tighter solar longitude angle as compared to training dataset. An F1-score of 73\% was achieved on first testset whereas change in solar angle reduced F1-score to a value of 64\%.
 
-From the age estimation plot it can be seen that small craters with only 10 meters in diameter were also detected by U-Net. Introduction of larger dataset instead of data augmentation with different solar longitude angles might increase the performance of algorithm. 
+%From the age estimation plot it can be seen that small craters with only 10 meters in diameter were also detected by U-Net. Introduction of larger dataset instead of data augmentation with different solar longitude angles might increase the performance of algorithm. 
+
+\section{Cut}
+These images could also be utilized for crater counting. Traditional methods of counting craters are manual by visual inspection of images. This approach is not practical when dealing large amount of images with craters of various sizes on either Moon or any other planet. This means that generated data is spatially comprehensive and restricted to largest craters or size comprehensive and limited to a specific geographic region \cite{stepinski2012detecting}. Manual crater counting by experts can result into disagreements as high as 40\% \cite{greeley1970precision}. Additionally, this requires skilled man power and time to find craters of various sizes across different geographical regions.
 
 \newpage
 \clearpage

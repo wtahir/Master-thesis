@@ -23,7 +23,6 @@ Repeated entry---line 642 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "krizhevsky_imagenet_2012"
 Warning--empty booktitle in dalal2005histograms
 Warning--empty year in girshick_rich_2013
 Warning--empty journal in girshick_rich_2013
@@ -36,32 +35,32 @@ Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
 You've used 51 entries,
             1935 wiz_defined-function locations,
-            776 strings with 13400 characters,
-and the built_in function-call counts, 23230 in all, are:
-= -- 2310
-> -- 1005
+            775 strings with 13372 characters,
+and the built_in function-call counts, 23189 in all, are:
+= -- 2306
+> -- 999
 < -- 39
-+ -- 352
-- -- 344
-* -- 1956
-:= -- 3884
++ -- 350
+- -- 342
+* -- 1950
+:= -- 3878
 add.period$ -- 158
 call.type$ -- 51
-change.case$ -- 421
+change.case$ -- 420
 chr.to.int$ -- 51
 cite$ -- 61
 duplicate$ -- 909
 empty$ -- 1590
-format.name$ -- 413
-if$ -- 4651
+format.name$ -- 409
+if$ -- 4643
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 50
 newline$ -- 254
 num.names$ -- 153
-pop$ -- 423
+pop$ -- 422
 preamble$ -- 1
-purify$ -- 423
+purify$ -- 422
 quote$ -- 0
 skip$ -- 696
 stack$ -- 0
