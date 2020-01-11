@@ -3,23 +3,23 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 219 of file mybib.bib
+Repeated entry---line 239 of file mybib.bib
  : @incollection{stoffler2001stratigraphy
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 228 of file mybib.bib
+Repeated entry---line 248 of file mybib.bib
  : @article{hiesinger2000ages
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 414 of file mybib.bib
+Repeated entry---line 434 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 589 of file mybib.bib
+Repeated entry---line 609 of file mybib.bib
  : @inproceedings{ronneberger2015u
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 642 of file mybib.bib
+Repeated entry---line 662 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
@@ -33,45 +33,45 @@ Warning--empty booktitle in redmon_you_2016
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 51 entries,
+You've used 53 entries,
             1935 wiz_defined-function locations,
-            775 strings with 13372 characters,
-and the built_in function-call counts, 23189 in all, are:
-= -- 2306
-> -- 999
-< -- 39
-+ -- 350
-- -- 342
-* -- 1950
-:= -- 3878
-add.period$ -- 158
-call.type$ -- 51
-change.case$ -- 420
-chr.to.int$ -- 51
-cite$ -- 61
-duplicate$ -- 909
-empty$ -- 1590
-format.name$ -- 409
-if$ -- 4643
+            788 strings with 13672 characters,
+and the built_in function-call counts, 23818 in all, are:
+= -- 2367
+> -- 1024
+< -- 40
++ -- 360
+- -- 350
+* -- 2001
+:= -- 3996
+add.period$ -- 164
+call.type$ -- 53
+change.case$ -- 434
+chr.to.int$ -- 53
+cite$ -- 63
+duplicate$ -- 933
+empty$ -- 1631
+format.name$ -- 419
+if$ -- 4760
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 50
-newline$ -- 254
-num.names$ -- 153
-pop$ -- 422
+missing$ -- 51
+newline$ -- 264
+num.names$ -- 159
+pop$ -- 431
 preamble$ -- 1
-purify$ -- 422
+purify$ -- 436
 quote$ -- 0
-skip$ -- 696
+skip$ -- 715
 stack$ -- 0
-substring$ -- 1650
-swap$ -- 192
+substring$ -- 1685
+swap$ -- 193
 text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 304
+type$ -- 316
 warning$ -- 10
-while$ -- 198
+while$ -- 203
 width$ -- 0
-write$ -- 658
+write$ -- 683
 (There were 5 error messages)

@@ -3,28 +3,28 @@
 \contentsline {subsection}{\numberline {1.1}Problem Statement}{5}
 \contentsline {subsection}{\numberline {1.2}Research Approach}{5}
 \contentsline {section}{\numberline {2}Background}{6}
-\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{7}
-\contentsline {subsection}{\numberline {2.2}Normalization}{9}
+\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{6}
+\contentsline {subsection}{\numberline {2.2}Normalization}{8}
 \contentsline {subsection}{\numberline {2.3}Backpropagation}{9}
 \contentsline {subsection}{\numberline {2.4}Activation Functions}{10}
-\contentsline {subsection}{\numberline {2.5}Loss Function}{11}
-\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{11}
-\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}
+\contentsline {subsection}{\numberline {2.5}Loss Function}{10}
+\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{10}
+\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{11}
 \contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{12}
-\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}
+\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{12}
 \contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{13}
-\contentsline {subsection}{\numberline {2.8}Binarization Methods}{14}
-\contentsline {subsubsection}{\numberline {2.8.1}Otsu's Method}{14}
+\contentsline {subsection}{\numberline {2.8}Binarization Methods}{13}
+\contentsline {subsubsection}{\numberline {2.8.1}Otsu's Method}{13}
 \contentsline {subsubsection}{\numberline {2.8.2}Sauvola's Algorithm}{14}
-\contentsline {subsubsection}{\numberline {2.8.3}Niblack Method}{15}
-\contentsline {subsubsection}{\numberline {2.8.4}Adaptive Mean Thresholding}{15}
+\contentsline {subsubsection}{\numberline {2.8.3}Niblack Method}{14}
+\contentsline {subsubsection}{\numberline {2.8.4}Adaptive Mean Thresholding}{14}
 \contentsline {subsubsection}{\numberline {2.8.5}Mean Thresholding}{15}
 \contentsline {subsubsection}{\numberline {2.8.6}Yen Thresholding}{15}
 \contentsline {subsubsection}{\numberline {2.8.7}Li Thresholding}{15}
-\contentsline {subsubsection}{\numberline {2.8.8}Isodata Thresholding}{16}
-\contentsline {subsection}{\numberline {2.9}Lunar Production Function}{16}
+\contentsline {subsubsection}{\numberline {2.8.8}Isodata Thresholding}{15}
+\contentsline {subsection}{\numberline {2.9}Lunar Production Function}{15}
 \contentsline {subsubsection}{\numberline {2.9.1}Hartmann Production Function (HPF)}{16}
-\contentsline {subsubsection}{\numberline {2.9.2}Neukum Production Function (NPF)}{17}
+\contentsline {subsubsection}{\numberline {2.9.2}Neukum Production Function (NPF)}{16}
 \contentsline {section}{\numberline {3}Related Work}{19}
 \contentsline {section}{\numberline {4}Model Architecture}{23}
 \contentsline {subsubsection}{\numberline {4.0.1}Sigmoid Function}{23}

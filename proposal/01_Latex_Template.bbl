@@ -94,6 +94,12 @@ Ivanov, B. (2002).
   asteroids and the planetary cratering rate.
 \newblock {\em Asteroids III}, 1:89--101.
 
+\bibitem[Ivanov et~al., 2015]{ivanov2015probabilistic}
+Ivanov, T.~I., Huertas, A., and Johnson, A.~E. (2015).
+\newblock Probabilistic surface characterization for safe landing hazard
+  detection and avoidance (hda).
+\newblock US Patent 9,141,113.
+
 \bibitem[Koeberl, 1994]{koeberl1994african}
 Koeberl, C. (1994).
 \newblock African meteorite impact craters: Characteristics and geological
@@ -126,6 +132,11 @@ Long, J., Shelhamer, E., and Darrell, T. (2015).
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
 \newblock Crater detection by a boosting approach.
 \newblock {\em IEEE Geoscience and Remote Sensing Letters}, 6(1):127--131.
+
+\bibitem[Melosh, 1988]{melosh1988rocky}
+Melosh, H. (1988).
+\newblock The rocky road to panspermia.
+\newblock {\em Nature}, 332(6166):687.
 
 \bibitem[Meng et~al., 2009]{meng2009method}
 Meng, D., Yunfeng, C., and Qingxian, W. (2009).
