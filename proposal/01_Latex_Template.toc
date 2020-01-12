@@ -3,46 +3,46 @@
 \contentsline {subsection}{\numberline {1.1}Problem Statement}{5}
 \contentsline {subsection}{\numberline {1.2}Research Approach}{5}
 \contentsline {section}{\numberline {2}Background}{6}
-\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{6}
-\contentsline {subsection}{\numberline {2.2}Normalization}{8}
+\contentsline {subsection}{\numberline {2.1}Bounding Box Proposal}{7}
+\contentsline {subsection}{\numberline {2.2}Normalization}{9}
 \contentsline {subsection}{\numberline {2.3}Backpropagation}{9}
-\contentsline {subsection}{\numberline {2.4}Activation Functions}{10}
-\contentsline {subsection}{\numberline {2.5}Loss Function}{10}
-\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{10}
-\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{11}
+\contentsline {subsection}{\numberline {2.4}Activation Functions}{11}
+\contentsline {subsection}{\numberline {2.5}Loss Function}{11}
+\contentsline {subsection}{\numberline {2.6}Neural Network Overview}{11}
+\contentsline {subsection}{\numberline {2.7}Convolutional Neural Network Overview}{12}
 \contentsline {subsubsection}{\numberline {2.7.1}Convolutional layer}{12}
-\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{12}
-\contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{13}
-\contentsline {subsection}{\numberline {2.8}Binarization Methods}{13}
-\contentsline {subsubsection}{\numberline {2.8.1}Otsu's Method}{13}
-\contentsline {subsubsection}{\numberline {2.8.2}Sauvola's Algorithm}{14}
-\contentsline {subsubsection}{\numberline {2.8.3}Niblack Method}{14}
-\contentsline {subsubsection}{\numberline {2.8.4}Adaptive Mean Thresholding}{14}
+\contentsline {subsubsection}{\numberline {2.7.2}Pooling layer}{13}
+\contentsline {subsubsection}{\numberline {2.7.3}Fully Connected layer}{14}
+\contentsline {subsection}{\numberline {2.8}Binarization Methods}{14}
+\contentsline {subsubsection}{\numberline {2.8.1}Otsu's Method}{14}
+\contentsline {subsubsection}{\numberline {2.8.2}Sauvola's Algorithm}{15}
+\contentsline {subsubsection}{\numberline {2.8.3}Niblack Method}{15}
+\contentsline {subsubsection}{\numberline {2.8.4}Adaptive Mean Thresholding}{15}
 \contentsline {subsubsection}{\numberline {2.8.5}Mean Thresholding}{15}
-\contentsline {subsubsection}{\numberline {2.8.6}Yen Thresholding}{15}
-\contentsline {subsubsection}{\numberline {2.8.7}Li Thresholding}{15}
-\contentsline {subsubsection}{\numberline {2.8.8}Isodata Thresholding}{15}
-\contentsline {subsection}{\numberline {2.9}Lunar Production Function}{15}
+\contentsline {subsubsection}{\numberline {2.8.6}Yen Thresholding}{16}
+\contentsline {subsubsection}{\numberline {2.8.7}Li Thresholding}{16}
+\contentsline {subsubsection}{\numberline {2.8.8}Isodata Thresholding}{16}
+\contentsline {subsection}{\numberline {2.9}Lunar Production Function}{16}
 \contentsline {subsubsection}{\numberline {2.9.1}Hartmann Production Function (HPF)}{16}
-\contentsline {subsubsection}{\numberline {2.9.2}Neukum Production Function (NPF)}{16}
-\contentsline {section}{\numberline {3}Related Work}{19}
-\contentsline {section}{\numberline {4}Model Architecture}{23}
-\contentsline {subsubsection}{\numberline {4.0.1}Sigmoid Function}{23}
-\contentsline {subsubsection}{\numberline {4.0.2}ReLU Function}{25}
-\contentsline {subsubsection}{\numberline {4.0.3}Cross Entropy Loss}{26}
-\contentsline {section}{\numberline {5}Methodology}{28}
-\contentsline {subsection}{\numberline {5.1}Data Set}{28}
-\contentsline {subsection}{\numberline {5.2}Pre-processing}{29}
-\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{29}
-\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{29}
-\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{30}
-\contentsline {subsection}{\numberline {5.3}Training}{31}
-\contentsline {subsection}{\numberline {5.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{32}
-\contentsline {subsection}{\numberline {5.5}Prediction}{33}
-\contentsline {subsection}{\numberline {5.6}Post-processing}{33}
-\contentsline {subsection}{\numberline {5.7}Evaluation Method}{33}
-\contentsline {section}{\numberline {6}Experimental Results and Discussion}{34}
-\contentsline {subsection}{\numberline {6.1}Plotting Age Curve}{40}
-\contentsline {section}{\numberline {7}Conclusion}{40}
-\contentsline {section}{\numberline {8}Cut}{41}
-\contentsline {section}{References}{42}
+\contentsline {subsubsection}{\numberline {2.9.2}Neukum Production Function (NPF)}{17}
+\contentsline {section}{\numberline {3}Related Work}{20}
+\contentsline {section}{\numberline {4}Model Architecture}{24}
+\contentsline {subsubsection}{\numberline {4.0.1}Sigmoid Function}{24}
+\contentsline {subsubsection}{\numberline {4.0.2}ReLU Function}{26}
+\contentsline {subsubsection}{\numberline {4.0.3}Cross Entropy Loss}{27}
+\contentsline {section}{\numberline {5}Methodology}{29}
+\contentsline {subsection}{\numberline {5.1}Data Set}{29}
+\contentsline {subsection}{\numberline {5.2}Pre-processing}{30}
+\contentsline {subsubsection}{\numberline {5.2.1}Image Annotation}{30}
+\contentsline {subsubsection}{\numberline {5.2.2}Extraction of Binary Masks}{30}
+\contentsline {subsubsection}{\numberline {5.2.3}Data Augmentation}{31}
+\contentsline {subsection}{\numberline {5.3}Training}{32}
+\contentsline {subsection}{\numberline {5.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{33}
+\contentsline {subsection}{\numberline {5.5}Prediction}{34}
+\contentsline {subsection}{\numberline {5.6}Post-processing}{34}
+\contentsline {subsection}{\numberline {5.7}Evaluation Method}{34}
+\contentsline {section}{\numberline {6}Experimental Results and Discussion}{35}
+\contentsline {subsection}{\numberline {6.1}Plotting Age Curve}{41}
+\contentsline {section}{\numberline {7}Conclusion}{41}
+\contentsline {section}{\numberline {8}Cut}{42}
+\contentsline {section}{References}{43}

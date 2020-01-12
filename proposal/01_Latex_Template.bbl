@@ -14,10 +14,21 @@ Bandeira, L., Ding, W., and Stepinski, T. (2010).
 \newblock In {\em Lunar and Planetary Science Conference}, volume~41, page
   1144.
 
+\bibitem[Brunelli and Poggio, 1993]{brunelli1993face}
+Brunelli, R. and Poggio, T. (1993).
+\newblock Face recognition: Features versus templates.
+\newblock {\em IEEE transactions on pattern analysis and machine intelligence},
+  15(10):1042--1052.
+
 \bibitem[Burger et~al., 2009]{burger2009principles}
 Burger, W., Burge, M.~J., Burge, M.~J., and Burge, M.~J. (2009).
 \newblock {\em Principles of digital image processing}, volume~54.
 \newblock Springer.
+
+\bibitem[Burl et~al., 2001]{burl2001automated}
+Burl, M.~C., Stough, T., Colwell, W., Bierhaus, E., Merline, W., and Chapman,
+  C. (2001).
+\newblock Automated detection of craters and other geological features.
 
 \bibitem[Dalal and Triggs, 2005]{dalal2005histograms}
 Dalal, N. and Triggs, B. (2005).
