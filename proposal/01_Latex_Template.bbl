@@ -30,6 +30,11 @@ Burl, M.~C., Stough, T., Colwell, W., Bierhaus, E., Merline, W., and Chapman,
   C. (2001).
 \newblock Automated detection of craters and other geological features.
 
+\bibitem[Cohen et~al., 2016]{cohen2016crater}
+Cohen, J.~P., Lo, H.~Z., Lu, T., and Ding, W. (2016).
+\newblock Crater detection via convolutional neural networks.
+\newblock {\em arXiv preprint arXiv:1601.00978}.
+
 \bibitem[Dalal and Triggs, 2005]{dalal2005histograms}
 Dalal, N. and Triggs, B. (2005).
 \newblock Histograms of oriented gradients for human detection.
@@ -70,12 +75,6 @@ Girshick, R. (2015).
 Girshick, R., Donahue, J., Darrell, T., and Malik, J.
 \newblock Rich feature hierarchies for accurate object detection and semantic
   segmentation.
-
-\bibitem[Greeley~et al., 1970]{greeley1970precision}
-Greeley~et al., Gault, D.~E. (1970).
-\newblock Precision size-frequency distributions of craters for 12 selected
-  areas of the lunar surface.
-\newblock {\em The Moon}, 2(1):10--77.
 
 \bibitem[Hartmann, 1981]{hartmann1981chronology}
 Hartmann, W.~K. (1981).
@@ -249,12 +248,6 @@ Soderblom, L.~A. (1970).
 \newblock {\em The distribution and ages of regional lithologies in the lunar
   maria}.
 \newblock PhD thesis, California Institute of Technology.
-
-\bibitem[Stepinski et~al., 2012]{stepinski2012detecting}
-Stepinski, T., Ding, W., and Vilalta, R. (2012).
-\newblock Detecting impact craters in planetary images using machine learning.
-\newblock In {\em Intelligent data analysis for real-life applications: theory
-  and practice}, pages 146--159. IGI Global.
 
 \bibitem[Stepinski et~al., 2009]{stepinski2009machine}
 Stepinski, T.~F., Mendenhall, M.~P., and Bue, B.~D. (2009).

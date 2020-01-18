@@ -229,12 +229,45 @@ There are many reasons for usage of CNN to crater detection problem. CNNs have p
 
 An algorithm based on CNN is trained and tested for lunar crater detection. The inputs are images taken by Lunar Reconnaissance Orbiter irrespective of specific camera limitations. The outcome of this model is a trained version of this model also called as a checkpoint with minimum loss function. This trained model is tested on lunar images which is divided into two groups of testsets, first testset is taken from dataset for training and evaluation split and second is taken from \cite{dino2020} with different sun illumination angle and it yields predictions of craters in those images (pixel wise segmentation of crater in an image). These predictions after post-processing provides the size frequency distribution of craters. In post-processing step, several binarization methods are applied to detect blobs from the segmentation heat map. These methods are analyzed and compared to each with respect to F1-score. This measure is also used to evaluate performance of algorithm. In order to detect craters from blobbed images and their respective diameters Region proposal algorithm was applied. Now with this information a lunar production function is used to plot the age of surface where craters are counted.
 
-\section{Background}
-Studying the surface of other planets is a source of learning about our own planet. How crater impacts can effect the life on Earth, climatic change globally and possible consequences of extreme environmental disaster. It is a known fact that solid planet surfaces are covered with tremendous amount of craters of various sizes and shapes \cite{melosh1988rocky}. Largely they form as a result of meteoroid impacts and also considered as windows into the interiors of solid planets \cite{honda2000crater}. Knowledge of lunar surface features including craters is vital for safe landing on Moon \cite{ivanov2015probabilistic}. Finding age from crater-counts is a commonly accepted method. Therefore, crater-counts provide a much less expensive way to find out the age of surface as compared to Radioactive Age-Dating. As for the second, a rock sample is needed and age can only be determined for a specific area whereas by crater-counts it is possible to find out the age of a larger area. Despite the importance of crater and tremendous amount of data available, for decades crater analysis remained dependent on human vision and manual operation \cite{honda2000crater}.
+\section{Related Work}
+Before wide use of deep learning approaches, different machine learning methods were developed to perform the tasks of object detection. \cite{viola2001rapid} proposed a method which was composed of three key components. Firstly objective was to introduce a different image representation called Integral Image to compute rectangle features of the object. The second was an algorithm based on AdaBoost with a purpose to select critical visual features from large amount of data to get a set of classifiers. Third contribution was to combine those classifiers in a cascade to discard the background regions and only compute object-like regions. This algorithm used Haar basis features and was developed to detect faces.
 
-Pattern recognition algorithms originally developed for particle physics, medical imaging or optical character recognition were applied on planetary science problems such as crater detection. Types of identified features were ellipses, circles, ridges and lines etc. Hough transformation was developed originally for high energy physics by Hough in 1959. Later, generalized Hough transformation (GHT) methods were developed and applied for crater detection. One of the application of GHT based method was made by \cite{honda2000crater} for selected lunar images taken by Clementine but this method was not validated for scientific use. An ellipse/edge detection method based on GHT was developed by \cite{leroy2001crater}. The efficiency of this method was measured as ratio of detected craters to true craters, which was about 20\% and was acceptable for addressing landing problems.
+Human detection methods were reviewed by \cite{dalal2005histograms} and they came up with Histograms of Oriented Gradient (HOG) descriptors which experimentally outperformed then existing feature sets including wavelets for human detection. A linear support vector machine or (SVM) was used as a baseline classifier. Test was conducted on MIT pedestrian dataset with mostly upright pose. A more challenging set of 1800 images with different poses and background was introduced to test the performance of algorithm and it was concluded that using locally normalized HOG features in a dense overlapping grid provides better results than Haar-like feature approach for human detection. An algorithm for training support vector machine with a latent structure was proposed by \cite{felzenszwalb2008discriminatively}. This method learn the relationships between HOG features of object parts via a latent SVM which is a semi-convex training problem but once latent information is specified for positive examples then it turns into a convex training. This approach was tested on PASCAL dataset and ranked first in 10 out of 20 classes that entered in PASCAL VOC 2007 competition.
 
-Impact craters remained some of the most studied features in lunar ans planetary science. This made crater detection algorithms or CDAs an important subject of scientific research, as evident form the amount of publications regarding crater detection in the past. This research range from dating of planetary surfaces, searching of still unknown crater impacts on surface of the Earth and safe landing sites on other planets and asteroids. The application of CDAs introduced by \cite{salamuniccar2010method} were based on edge detection and elevation data. The CDA presented was an improvement to previous CDAs and the purpose was to contribute to Martian crater catalog. With each new planetary and lunar mission, the volume of data increases significantly. This justifies research on automatic detection methods and importance of their role in processing, archiving, retrieving and interpreting large amounts of image data. \cite{salamuniccar2010method} provided an overview of 73 CDA-related publications from numerous authors. Working on CDAs has been a challenging task for many reasons, e.g. multiple possible applications of CDA could provide a good solution for one specific problem on the particular planetary surface i.e. dating \cite{sawabe_2006} but not necessarily good for other surfaces depending on the terrain features or problems such as autonomous landing on other planets or asteroids \cite{leroy2001crater}. Another challenge of CDA is to distinguish between crater and non-crater objects. Set of features that separates these two depends on the type of surface, properties of illumination and shapes and sizes of craters. Existing algorithms mainly focus on large craters located on simple surfaces which dictates a specific choice of image features \cite{bandeira2010automatic}. Therefore, it is not surprising that still no CDA available is robust as scientific community would like and that fits several research groups. Also CDA not only detects craters but also finds crater candidates that needs to be manually rejected, or corrected with diameter by computer-assistance. 
+A selective search methodology was introduced by \cite{uijlings2013selective} which combines segmentation and exhaustive search. Same as segmentation, image structure was used to guide the sampling process and similar to extensive search the objective was to detect all possible locations of the object. The author introduced a variety of complementary image partitionings to deal with as many image conditions as possible. The resultant search method yielded 99\% recall and a Mean Average overlap of 0.879 over 10,000 locations in the test dataset. Results of this methodology were also evaluated on PASCAL VOC 2012 and PASCAL VOC 2010 with mean average precision (mAP) of 0.350 and 0.351 respectively.
+
+Such algorithms had a noticeable performance but such machine learning techniques had a major requirement which was an involvement of an expert to extract features. Moreover state of the art machine learning techniques also requires a problem to be broken down into different parts and then their results to be combined together at final stage i.e. in SVM a bouding box detection algorithm is needed first to identify all the objects to have histogram of oriented gradients as input to the algorithm that will learn to recognize target objects. These limitations gave rise to deep learning algorithms which are capable of not only handling large amount of data unlike state of the art machine learning techniques but also provide an end to end solution.
+
+Availability of larger labeled datset and competitive GPUs made it possible to implement a deep learning network and test its performance. A notable development in this field took place when \cite{krizhevsky2012imagenet} showed that a large deep convolutional neural network  was able to classify  1.2 million high-resolution images in contest of ImageNet LSVRC-2010. This network was trained into 1000 different classes. On test data top-1 and top-5 error rates of 37.5\% and 17.0\% were achieved which was better than previous state of the art \cite{krizhevsky2012imagenet}. This neural network had 60 million parameters with 65,000 neurons and it consisted of five convolutional layers, some of which are followed by max-pooling and three fully connected layers with a final 1000-way softmax activation. A 1000-way softmax because of 1000 classes. Non-saturating neurons was used to optimize training time and to reduce overfitting in fully connecting layers drop-out regularization was used, a newly developed method at that time. A variant of this model was also introduced in ILSVRC-2012 competition and a winning top-5 test error rate of 15.3\% was achieved
+compared to 26.2\% by the second-best entry.
+
+The best performing methods were complex assembled systems that typically combine low-level image features with a high-level context \cite{girshick_rich_2013}. In 2014 an approach presented by \cite{girshick_rich_2013} aims to get better performance on semantic segmentation as well as object detection than other networks at that time. The network is called R-CNN by its authors because it combines regions with CNN features. Therefore R-CNN means Regions with ConvNet features. Detection and segmentation requires localization of objects within an image unlike image classification. This proposed scalable detection algorithm achieved mean average precision mAP of 53.3\% on PASCAL VOC 2012. R-CNN was also compared to OverFeat network (a sliding window detector based on a similar CNN architecture) and it was determined that R-CNN outperforms OverFeat by a margin of 7\% mAP on 200-class ILSVRC2013. OverFeat network had the best result with 24.3\% mAP before introduction of R-CNN (mAP of 31.4\%).
+
+R-CNN finds a region of interest (RoI) from an image, creating a warped image region for all the RoIs and forward it to convolutional network. Once each of the region is forwarded, bounding box regressors are applied and classification is done by SVM. These processes are done in three separate models in R-CNN. This resulted in slow training. Fast R-CNN introduces several innovations to improve training and testing speed while also improving detection accuracy \cite{girshick2015fast}. Fast R-CNN takes in an entire image and forwards it to convolutional network to create a feature map. Then it determines RoI and on top of that it applies a single layer of RoI max pooling followed by a fully connected layer. Then softmax classifers and bounding box regressors are applied. This procedure makes the layer below RoI max pooling trainable which makes Fast R-CNN training a single-stage, using multi-task loss, it also does not require any disk storage for feature caching. Unlike R-CNN, Fast R-CNN uses a single model for feature extraction from regions, dividing them into different classes and returns boundary boxes simultaneously. Fast R-CNN trains very deep VGG16 network 9 times faster than R-CNN and 213 times faster at test-time \cite{girshick2015fast}. Fast R-CNN achieved 66.1\% mAP on PASCAL VOC 2012.
+
+Fast R-CNN used selective search as a proposal to extract RoI which also had a room for optimization. That lead to further development of Fast R-CNN. The next version of this network is called Faster R-CNN. It uses region proposal network (RPN) which takes feature maps of an image as input and generates a set of object proposals and each one of them with an objectness score as output simultaneously. RPNs are trained end to end to generate RoI which are used by Fast R-CNN for detection \cite{ren2015faster}. An alternating optimization was introduced so that RPN and Fast R-CNN can be trained to share convolutional features. Faster R-CNN achieved 70.4\% mAP on PASCAL VOC 2012.
+
+Now that it was possible to locate different objects with bounding boxes, could this be extended to locate exact pixels of each object? This problem is known as instance segmentation and was addressed by the framework introduced by \cite{he_mask_2017}. This method is called Mask R-CNN which extends Faster R-CNN by adding a branch of predicting an object mask in parallel along with existing branch for bounding box recognition \cite{he_mask_2017}. This branch takes input as CNN feature map and outputs matrix with 1s and 0s. 1 if a pixel belongs to the object and 0 otherwise. This output is known as binary mask as it only has 1s and 0s. Mask R-CNN adds only a small overhead to Faster R-CNN running at 5 frames per second. It does not loose detection accuracy and has been widely used in computer vision for instance segmentation tasks.
+
+Analysis of surface of other planets is a source of learning about our own planet. How crater impacts can effect the life on Earth, climatic change globally and possible consequences of extreme environmental disaster. It is a known fact that solid planet surfaces are covered with tremendous amount of craters of various sizes and shapes \cite{melosh1988rocky}. Largely they form as a result of meteoroid impacts and also considered as windows into the interiors of solid planets \cite{honda2000crater}. Knowledge of lunar surface features including craters is vital for safe landing on Moon \cite{ivanov2015probabilistic}. Finding age from crater-counts is a commonly accepted method. Therefore, crater-counts provide a much less expensive way to find out the age of surface as compared to Radioactive Age-Dating. As for the second, a rock sample is needed and age can only be determined for a specific area whereas by crater-counts it is possible to find out the age of a larger area. Despite the importance of crater and tremendous amount of data available, for decades crater analysis remained dependent on human vision and manual operation \cite{honda2000crater}.
+
+\subsection{State of the Art}
+Experimentation with pattern recognition algorithms showed that it was possible to automate crater detection task. These algorithms; originally developed for particle physics, medical imaging or optical character recognition were applied on planetary science problems such as crater detection. Types of identified features were ellipses, circles, ridges and lines etc. Hough transformation was developed originally for high energy physics by Hough in 1959. Later, generalized Hough transformation (GHT) methods were developed and applied for crater detection. One of the application of GHT based method was made by \cite{honda2000crater} for selected lunar images taken by Clementine but this method was not validated for scientific use. An ellipse/edge detection method based on GHT was developed by \cite{leroy2001crater}. The efficiency of this method was measured as ratio of detected craters to true craters, which was about 20\% and was acceptable for addressing landing problems.
+
+Crater detection and categorization process through data-mining from large scale scientific image database was proposed by \cite{honda2000crater}. The detection module was based on state of the art image processing method including binarization, circular object detection using Genetic Algorithm and Hough transformation. Their method took normalized image vectors, discrete cosine transform (DCT) components and intensity histograms as input vectors. One of the method suggested by \cite{leroy2001crater} was to detect craters using a multi-scale approach based on voting, and tensors as a representation. This method infer curvature estimation from noisy sparse data. The idea was to obtain the oriented normals of the edge curves by applying this method on edge images. This system was applied on Phobos to compute a dense saliency map corresponding to the position and shape of the craters.
+
+Crater densities scaling and impact rates with crater size is an issues which could be addressed by automating crater counting \cite{vinogradova2002training}. Geological feature cataloging could be performed by labeling images manually but only for limited number of features, handling massive datasets and high resolution images i.e. Mars Global Surveyor, it is required to automate feature identification \cite{vinogradova2002training}. The Continuously Scalable Template Matching (CSTM) algorithm is an image-matching algorithm used by authors in this paper which was able to detect 88\% craters with no false alarms.
+
+Various machine learning algorithms were applied for cataloging impact craters including bagging and AdaBoost, SVM and CSTM. It was found that all the approaches, in particular SVM with normalized image patches provides detection and localization performance is substantially superior to boundary based approaches such as Hough transform  \cite{wetzler2005learning}. The receiver operating characteristics (ROC) curves of the tested algorithms are shown in Figure: \ref{roc,wetzler}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\textwidth]{files/literature/roc_wetzler.png}
+	\caption{ROC performance of CSTM, SVM and Hough methods. Hough with lowest performance among all other methods \cite{wetzler2005learning}.}
+	\label{roc,wetzler}
+\end{figure}
+
+Impact craters remained some of the most studied features in lunar and planetary science. This lead to development of crater detection algorithms or CDAs based on inspiration from pattern recognition methods. CDAs are an important subject of scientific research, as evident form the amount of publications regarding crater detection in the past. This research range from dating of planetary surfaces, searching of still unknown crater impacts on surface of the Earth and safe landing sites on other planets and asteroids. A notable application of CDAs was introduced by \cite{salamuniccar2010method} which was based on edge detection and elevation data. The CDA presented was an improvement to previous CDAs and the purpose was to contribute to Martian crater catalog. With each new planetary and lunar mission, the volume of data increases significantly. This justifies research on automatic detection methods and importance of their role in processing, archiving, retrieving and interpreting large amounts of image data. \cite{salamuniccar2010method} provided an overview of 73 CDA-related publications from numerous authors. Working on CDAs has been a challenging task for many reasons, e.g. multiple possible applications of CDA could provide a good solution for one specific problem on the particular planetary surface i.e. dating \cite{sawabe_2006} but not necessarily good for other surfaces depending on the terrain features or problems such as autonomous landing on other planets or asteroids \cite{leroy2001crater}. Another challenge of CDA is to distinguish between crater and non-crater objects. Set of features that separates these two depends on the type of surface, properties of illumination and shapes and sizes of craters. Existing algorithms mainly focus on large craters located on simple surfaces which dictates a specific choice of image features \cite{bandeira2010automatic}. Therefore, it is not surprising that still no CDA available is robust as scientific community would like and that fits several research groups. Also CDA not only detects craters but also finds crater candidates that needs to be manually rejected, or corrected with diameter by computer-assistance. 
 
 Despite of extensive research in CDAs, no algorithm became a standard tool for planetary science practitioners and crater counts continued to be done via visual inspection even as high resolution datasets keep on increasing \cite{bandeira2010automatic}. Crater appearance in an optical image depends on their level of degradation, inter morphologies (such as presence of central peaks, central pits, peak rings and wall terraces etc.), amount of overlap on other craters, quality of image (which includes illumination angle and surface properties) and on size that might differ by the order of magnitude. A notable advancement in CDA was proposed by \cite{bandeira2010automatic} which used the approach of applying series of filters for background noise removal and creates a set of features that look for the characteristics of crescent-shaped shadow of a crater. In addition to noise removal, texture recognition was added to improve algorithm precision.
 
@@ -242,7 +275,42 @@ Another approach begins with template matching in which image array pixels are r
 
 For crater automation, large focus remained on looking for circular or elliptical shape of edges on crater boundary i.e. Hough transform \cite{honda2000crater}.  Boundary based approaches seemed to perform well (relative to image resolution) under certain conditions such as detection of medium to large craters with limited texture in background because of other processes or features. However the performance of these deteriorated with complexity in background terrain or when craters are small. Alternating to boundary-based detection methods \cite{wetzler2005learning} proposed to look directly at the pixel-level pattern in an image. The idea was to automate crater detection process by looking for adjacent bright-dark regions of proper relative size.
 
-Existing approaches to detection techniques can be divided into two categories: supervised (requiring a labeled input data) and unsupervised (fully autonomous). \cite{stepinski2009machine} has discussed both of these approaches and their usage. Unsupervised techniques are based on pattern recognition approaches to identify crater rims in an image as circular objects. Supervised techniques are the machine learning methods to train a classifier which is then used to distinguish between craters and other objects. However, in both approaches features are detected by narrowing down to the set of potential candidates. In a supervised method the narrowing is achieved by thresholding a probability of positive detection ba a classifier. In an unsupervised approach narrowing is achieved by thresholding a parameter that measure how well the object fits a circle.
+Most of the craters are formed as the result of meteoroid impacts. The relative formation age of local area of planet could be estimated when frequency of size distribution of meteoroids and its time variations are known. \cite{sawabe_2006} proposed an algorithm that did not depend on cameras, spatial resolution or sun illumination. It also did not require to tune any parameters either. This algorithm was improvement to their own previously proposed algorithm. Their previous method did not include pyramid representation of the image which was included in later method and thus improving accuracy and reducing processing time. The algorithm was applied on images acquired by Clementine and Apollo under different solar elevation. This approach was able to detect craters with diameter larger than 240m. Accuracy rate was validated by comparing with crater count results of \cite{neukum1975cratering} which was 80\% extraction of craters with multiple interpreters \cite{sawabe_2006}. 
+
+Changeability in appearance of craters and surrounding terrain makes passive imaging based autonomous craters detection difficult to be applied. By experimentation it is proven that unsupervised machine learning methods work well with relatively large craters having clear edge information but their efficiency declines with increase in terrain complexity \cite{meng2009method}.
+
+In 2009 \cite{martins2009crater} performed Viola and Jones (2004) algorithm on Mars dataset gathered by the Mars Orbiter Camera onboard Mars Global Surveyor probe. In this paper author claims that no such method existed that is satisfactory for craters detection. Using this approach craters with diameter larger than 7 pixels were detected. Images of 240m/pixel were used as a data set, hence craters larger than 1680m of diameter were detected. The source of images used are taken from Mars orbiter camera.
+
+An automated system for cataloging impact craters was presented by \cite{stepinski2009machine}. The system used digital elevation model of Mars. The process of crater identification consists of two steps, in first step it identifies round and symmetric topographic depressions as crater candidate and second step identifies crater using a machine learning method. This process is AutoCrad system and applicable to any surface represented by a digital elevation model (DEM) \cite{stepinski2009machine}. 
+
+A crater detection algorithm (CDA) was presented by \cite{salamuniccar2010method} which was based on fuzzy edge detectors and it takes input as digital topography data instead of image data. This algorithm claimed to have more correct detections compared to previous CDA. There were also false positives which were removed manually. The data was taken from Mars Orbiter Laser Altimeter. Most of the work in automating crater detection was performed on DEMs.
+
+\subsection{Deep Learning}
+Existing approaches to detection techniques can be divided into two categories: supervised (requiring a labeled input data) and unsupervised (fully autonomous). \cite{stepinski2009machine} has discussed both of these approaches and their usage. Unsupervised techniques are based on pattern recognition approaches to identify crater rims in an image as circular objects. Supervised techniques are the machine learning methods to train a classifier which is then used to distinguish between craters and other objects. However, in both approaches features are detected by narrowing down to the set of potential candidates. In a supervised method the narrowing is achieved by thresholding a probability of positive detection ba a classifier. In an unsupervised approach narrowing is achieved by thresholding a parameter that measure how well the object fits a circle. In general unsupervised approaches tend to be fast and more appropriate for large sized crater detection; however their performance reduces when dealing challenging terrains and smaller sub-kilometer sized craters. This makes unsupervised not a general purpose crater detection technique \cite{emami2015automatic}. On the other hand, supervised approaches are more robust but usually slower and requires labeled input data, the performance depends on the quality and number of labeled data samples.
+
+In 2015 a CDA was proposed by \cite{emami2015automatic} which took into account the optical images and the algorithm worked by employing a multi-scale candidate region detection step which was based on convexity cues and candidate region was verified via machine learning. In this paper a CNN classifier was tested against SVM and it was concluded that CNN classifier outperforms SVM both in terms of recall and precision \cite{emami2015automatic}. The data used for both training and testing was partially labeled by NASA scientists. Each image consists of 600x400 and taken from LRO. The result of their experiment is shown in Figure: \ref{cnn_class}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.6\textwidth]{files/literature/emami.png}
+	\caption{Verified regions in boxes on a test image \cite{wetzler2005learning}.}
+	\label{cnn_class}
+\end{figure}
+
+Mars Reconnaissance Orbiter opened a new frontier to automate landforms detection process \cite{palafox2017automated}. Authors came up with two different approaches. These are detection of volcanic rootless cones and transverse aeolian ridges using CNNs and also using SVM with HOG features. They showed that CNNs can detect a wide range of landforms and has a better accuracy and recall than traditional classifiers based on SVMs.
+
+\cite{wang2018crateridnet} presented a method composed of CNN architecture and named it as CraterIDNet which takes remotely sensed planetary images as input and outputs detected craters, their apparent diameters and their positions. The experiments shows that CNN based architecture has the advantages of high robustness, detection and identification accuracy over other methods used by \cite{urbach2009automatic}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer}.
+
+A deep learning model based on CNN architecture was introduced by \cite{silburt2019lunar} for crater identification on lunar digital elevation map images also known as DEM. The author also applied transfer learning to craters on Mercury. In this paper random DEM images from LRO and Kaguya were taken as an input data. Thus it was a global gray scale map. The proposed CNN detects only half of the caters per target. The post-CNN recall is lower at 57\% $\pm$ 20\% but detections for craters less than 15 pixels largely improved the post-CNN test recall to $83 \% \pm 16 \%$. The sample of DEM from \cite{silburt2019lunar} is shown in Figure: \ref{dem}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.8\linewidth]{files/unet/dem.png}
+	\caption{Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles \cite{silburt2019lunar}.}
+	\label{dem}
+\end{figure}
+
+\cite{cohen2016crater} demonstrated that ConvNet for crater detection outperformed previously tested methods including CDAs presented by \cite{stepinski2009machine}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer} in the same dataset.
 
 \begin{comment}
 \cite{honda2000crater} compared multiple methods for crater detection and categorization. Those included combinational Hough transform and genetic algorithms. The idea was to first detect then classify according to shape of craters i.e. cone-shaped, bowl-shaped or flat-floored with central peak.
@@ -257,6 +325,7 @@ Deep learning methods are the representations of multiple levels obtained by com
 Object detection and classification can be performed in supervised machine learning. In a typical supervised machine learning method a system is built that can classify different objects (belonging to several classes such as human, animals, trees, cars and bikes etc.) then first it is required to have a labeled data set of such objects. For example to categorize horses and people, it is needed to have a data set which will consist of labeled images containing horses and people. This dataset would be required to train the machine about learning that how horses and people looks like so that it can classify the categories. The algorithm then outputs a vector of scores for each category. To get the category rightly identified, it is required to have the highest score for desired category out of all categories. This is not likely to happen without training of the algorithm. It is needed to compute a loss function that calculates the distance or error between the output scores and desired pattern of scores. This function helps algorithm to adjust its internal parameters that could be changed to reduce this error. These parameters are commonly referred to as weights and are real numbers.
 \end{comment}
 
+\begin{comment}
 \subsection{Bounding Box Proposal}
 In object detection, a bounding box (also referred to as region of interest or box proposal) shows the existence of object. It is a rectangular region of the input image containing the object. Bounding boxes can be generated by some heuristic search methods such as finding region proposal by objectness, region proposal network (RPN) or by selective search method. A bounding box can be either represented by storing its two corner coordinates $(x_0, y_0, x_1, y_1 )$  or most commonly by storing its center location along  with width and height such $(x, y, w, h)$. A bounding box is generated on the basis of confidence score that how likely an object exists inside the box. The difference between two bounding boxes is usually measured as the L2 distance of their vector representations. Another simplest way is to compare the images by taking pixelwise difference and summing up all the differences. To perform such procedure, given two images can be represented as vectors $I_1, I_2$ then L1 can be computed as:
 
@@ -265,10 +334,10 @@ d_1 (I_1, I_2) = \sum_{p} \left| I^p_1 - I^p_2 \right|
 \end{align*}
 
 \begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/nneg.jpeg}
-	\caption{Example of two images which are represented as vectors and pixelwise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}
-	\label{fig: bbp.}
+\centering
+\includegraphics[width=.6\linewidth]{files/nneg.jpeg}
+\caption{Example of two images which are represented as vectors and pixelwise difference is calculated to compare both images with L1 distance. This example shows one color channel. All the pixel-wise differences are added to denote a single digit value. If this value is close to zero then it indicates that images are identical. A large value shows that both images are very different.}
+\label{fig: bbp.}
 \end{figure}
 
 The difference between bounding boxes can also be measured by the L2 distance. Similar like L1, images are represented in a vector form. $w$ and $h$ can be log-transformed before calculating distance. L2 has the geometric representation of computing euclidean distance between two vectors as:
@@ -276,9 +345,9 @@ The difference between bounding boxes can also be measured by the L2 distance. S
 \begin{align*}
 d_2 (I_1, I_2) = \sqrt{\sum_{p} \left( I^p_1 - I^p_2 \right)^2}
 \end{align*}
- 
+
 In simple words this operation also computes the pixelwise difference like L1 but here all the differences are squared then added and finally equation is subjected to square root. Difference in measurement between both metrics differs in a way that L2 prefers many medium disagreements to one big one when it comes to difference between vectors.
- 
+
 In case of multiple bounding boxes a common algorithm to merge them is non maximum suppression (NMS). A bounding box that overlaps another one having higher confidence score with a factor such as its intersection over union (IoU) is greater than IoU threshold, is removed. Intersection over union provides similarity between two bounding boxes. ${\textit{Area of Overlap}} /{\textit{Area of Union}} = IoU
 $. The bounding boxes play an important role in setting up dataset for the algorithm. Learning of the algorithm largely depends on correctly placed bounding box on the object.
 
@@ -299,6 +368,8 @@ $$
 where $p_c$ is whether or not there is an image, $b_x, b_y, b_h$ and $b_w$ is to specify bounding box, $c_1$ is object class (i.e, craters). If there is no crater then $p_c$ will be zero and hence the entire vector is to be dropped. When $p_c$ = 1, it represents there is a crater and all the bounding box parameters would specify position of this box and hence the value of $c_1$ would be 1. Each grid cell will have this output vector $y$. The idea is to feed an input image and run forward pass (convolution, max pooling and relu) to get this output vector $y$.
 
 The evaluation of object detection algorithm can be performed using $IoU$. As mentioned before, it gives the ratio between area of overlap and area of union. So if the algorithm outputs a bounding box which does not properly fit the ground truth bounding box representing the object then by convention the answer is taken correct if $IoU \geq 0.5$. If predicted and ground truth bounding boxes overlaps perfectly then IoU would be 1. The higher the IoU, the more accurate the bounding box is.
+
+\end{comment}
 
 \begin{comment}
 \subsection{Linear Classification}
@@ -325,113 +396,37 @@ A linear classifier computes the score of a class by taking weighted sum of all 
 \end{figure}
 \end{comment}
 
-\subsection{Normalization}
-In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
-$$ z = \dfrac{x-m}{s}$$
-
-Another way of normalization is to normalize a dataset by bringing it in a range of 0 to 1. This is typically true for image processing when pixels ranging from 0 to 255 which are normalized from 0 to 1. It is necessary to normalize data because without it some numerical data points can be very high and other might be very low. The larger data points in non-normalized datasets can cause instability in neural networks because the relatively large inputs can cascade down through the layers in the network which may cause imbalance gradients which may therefore cause the exploding gradient problem. This makes a network drastically harder to train and additionally significantly decrease training speed.
-
-In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
-
-\subsection{Backpropagation}
-The CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
-
-For a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
-
-\begin{equation}
-f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
-\end{equation}
-
-The derivation function of a variable indicate the rate of change of a function with respect to that variable surrounding an infinitely small region near a specific point.
-
-\begin{equation}
-\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
-\end{equation}
-
-In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It also be seen by rearranging the above equation such that; $\left.f(x+h)=f(x)+h \frac{d f(x)}{d x}\right)$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
-
-The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
-
-\begin{equation}
-f(x, y)=x+y \quad \rightarrow \quad \frac{\partial f}{\partial x}=1 \quad \frac{\partial f}{\partial y}=1
-\end{equation}
-
-This indicates that derivative of both $x,y$ is one regardless of values of $x,y$. Increasing either $x$ or $y$ will increase the value of output to function $f$ independent of actual values of $x,y$ unlike the above case of multiplication. Another operation is a max operation:
-
-\begin{equation}
-f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y) \quad \frac{\partial f}{\partial y}=1(y>=x)
-\end{equation}
-
-That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
-
-Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
-
 \begin{comment}
 \subsection{Weights Initialization}
 Initially weights of a CNN before training are randomly chosen. The key rule to pick a random weight is not to initialize with a too large or too small value to avoid the well known problem of vanishing or exploding gradients. Some initialization methods like He Initialization and Xavier Initialization are the common practices to setup weights. Before training, the CNN is not able to make meaningful predictions because there is no relation between the input images and their annotated outputs with classes. This process is performed in training where weights are adjusted in a way so that difference between desired output and network output is minimized. In other words network is trained to look for the right features needed for classification.
-\end{comment}
-
-\subsection{Activation Functions}
-These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
-
-Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
-
-\subsection{Loss Function}
-It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. There are different ways to define a loss function.
-
 
 \subsection{Neural Network Overview}
 In supervised machine learning object detection task can be achieved using different approaches. There are various architectures based upon statistical functions. A neural network is made up of neurons having learnable weights and biases. It means that during training process, weights and biases can be updated. A neuron in an artificial neural network is referred to a mathematical function. It receives inputs which can also be output of neurons from a previous layer, weighs each input and sum them up. A weight shows the strength of connection of one neuron to another neuron in next layer. Every neuron has a bias and it determines if the neuron is activated or not. Biases are added to the product of weight and value of neuron. Each neuron is fully connected to all the neurons of previous layer. These neurons do not share any connection within a single layer. The last fully connected layer is referred to as "output layer". The network takes an input and computes the output by taking a dot product. The entire network takes raw image pixels and presents an output in the form of a digit representing the class score for an object. Output layer represents the class scores. It expresses a single differentiable score function. There could be few to many hidden layers and a fully connected layer that has a loss function i.e support vector machine (SVM) or softmax. A typical neural network architecture is shown below:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/NN.jpeg}
-	\caption{A typical Neural Network architecture}
-	\label{fig: Neural Network architecture}
+\centering
+\includegraphics[width=.6\linewidth]{files/NN.jpeg}
+\caption{A typical Neural Network architecture}
+\label{fig: Neural Network architecture}
 \end{figure}
 
 Artificial Neural Networks are very similar to convNets but they do not convolute on an image through a filter thus leading to many more parameters as compared to CNN i.e. in CIFAR-10 dataset, images are of 32x32x3 (width, height, 3 color channels). That means in an input image of size 32x32x3, an Artificial Neural Network would have 3072 weights. These weights tend to increase with size of image.
+\end{comment}
 
+\begin{comment}
 \subsection{Convolutional Neural Network Overview}
 Just like Artificial Neural Networks as shown in Fig \ref{fig: Neural Network architecture}, convNets are also made up of neurons consisting of weights and biases which are learnable. Each neuron receives an input then performs a dot product and optionally follows it with a non-linearity. The entire network represents a single differentiable score from the raw image input to the output score. Last fully connected layer has a loss function which represents the error score. This entire process is referred to as forward pass. In convNet, the architecture assume inputs as images which provides flexibility of encoding certain properties. This greatly reduce the amount of parameters to learn and make forward pass more efficient. The layers of convNets have neurons arranged in 3 dimensions (width, height, depth). The neurons in a layer are not connected to all of the neurons in a previous layer like in an Artificial Neural Networks, instead they are connected to only small region of previous layer. The output results into a single vector of class scores by reducing the full image. Following are the types of layers in a Convolutional Neural Network:
-
-\subsubsection{Convolutional layer}
-Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/conv.png}
-	\caption{Convolutional Operation}
-	\label{fig:Convolutional Operation}
-\end{figure}
-
-In fig: \ref{fig:Convolutional Operation} the output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained (stride is taken as 1). Output size can be calculated using eq.
-
-\begin{equation}
-\frac{n+2p-f}{s}+1 \times \frac{n+2p-f}{s}+1
-\end{equation}
-
-In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 filter size, $p$ is padding which equals 0 and $s$ stands for stride which is 1, inserting values in this equation would give us the size of output which is a 4x4 matrix.
-
-\subsubsection{Pooling layer}
-An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/pooling.png}
-	\caption{Pooling Operation}
-	\label{fig:Pooling Operation}
-\end{figure}
 
 \subsubsection{Fully Connected layer}
 After multiple convolution and pooling operations, finally an output can be generated in the form of a class. Convolution and pooling layers only extract the features and reduce amount of parameters from the input images. Fully connected layer (FC layer) is applied at the end to generate the required output equal to the number of classes. There can be multiple FC layers to further minimize the amount of parameters. In convolution the resultant is generation of 3D activation maps whereas the intention is to know whether the image belongs to a particular class or not. The output layer (which generates the class scores) has a loss function and once the forward pass is completed, backpropagation begins to update biases and weights for loss and error reduction. An overview of the architecture is shown below:
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/arch.png}
-	\caption{Convolutional Neural Network Architecture \cite{2016face}}
-	\label{fig: CNN architecture}
+\centering
+\includegraphics[width=.6\linewidth]{files/cnn_architecture/arch.png}
+\caption{Convolutional Neural Network Architecture \cite{2016face}}
+\label{fig: CNN architecture}
 \end{figure}
+\end{comment}
 
 \begin{comment}
 \subsubsection{Softmax Classifier}
@@ -451,56 +446,12 @@ f_j(z) = \frac{e^{z_j}}{\sum_{k=1}^{K} e^{z_k}}
 $z$ is the vector of score of arbitrary real values and those are squashed to a vector of values ranging between zero and one. The sum of these values is one. The form $\frac{e^{f_{y_i}}}{ \sum_j e^{f_j} }$ in eq.$\ref{singlesoftmax}$ is the estimated distribution. Plugging it into eq.$\ref{crossent}$ makes it clear that softmax is minizing the loss.
 \end{comment}
 
-\subsection{Binarization Methods}
-Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
-
-\subsubsection{Otsu's Method}
-This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
-
-\begin{equation}
-\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
-\end{equation}
-
-Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
-
-\subsubsection{Sauvola's Algorithm}
-It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
-
-\begin{equation}
-T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
-\end{equation}
-
-Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
-
-\subsubsection{Niblack Method}
-This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
-
-\begin{equation}
-T_{d}=m(x, y)+k \times s(x, y)
-\end{equation}
-where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
-
-\subsubsection{Adaptive Mean Thresholding}
-In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
-
-\subsubsection{Mean Thresholding}
-This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
-
-\subsubsection{Yen Thresholding}
-This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
-
-\subsubsection{Li Thresholding}
-This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
-
-\subsubsection{Isodata Thresholding}
-Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
-
 %\section{Research Question}
 %\begin{enumerate}
 %	\item How to evaluate the performance of algorithm?
 %\end{enumerate}
 
-\subsection{Lunar Production Function}
+\subsection{Planetary Surface Age Dating}
 Moon provides an ideal test site for studying crater records, particularly since almost all of the lunar endogenic activities ended more than around 3 Giga years (G.y.) with some exceptions \cite{hiesinger2000ages}. Therefore, in last 3 G.y. crater impacts have dominated to change lunar landscape. Space missions have also studied the Moon extensively and collected samples from Moon have provided a unique opportunity to assign age to craters and areas where accumulated crater are counted \cite{stoffler2001stratigraphy}. Therefore, on the Moon it an be estimated that cratering rate is the number of craters of a given diameter that are accumulated at given surface during a given time interval.
 
 Crater population is changed by obliteration processes. If it is assumed that a planetary surface is obliterated by some process and crater population starts to develop then crater SFD represents the production SFD of the projectiles. Many authors have tabulated and generalized large amount of crater-counts data in an attempt to understand this production function. Some of the most commonly known lunar crater SFD are proposed by W. Hartmann and G. Neukum. 
@@ -549,77 +500,6 @@ On the basis of age assumption NPF was fit to the crater count. It is notable th
 	\label{HPF}
 \end{figure}
 
-\section{Related Work}
-Before wide use of deep learning approaches, different machine learning methods were developed to perform the tasks of object detection. \cite{viola2001rapid} proposed a method which was composed of three key components. Firstly objective was to introduce a different image representation called Integral Image to compute rectangle features of the object. The second was an algorithm based on AdaBoost with a purpose to select critical visual features from large amount of data to get a set of classifiers. Third contribution was to combine those classifiers in a cascade to discard the background regions and only compute object-like regions. This algorithm used Haar basis features and was developed to detect faces.
-
-Human detection methods were reviewed by \cite{dalal2005histograms} and they came up with Histograms of Oriented Gradient (HOG) descriptors which experimentally outperformed then existing feature sets including wavelets for human detection. A linear support vector machine or (SVM) was used as a baseline classifier. Test was conducted on MIT pedestrian dataset with mostly upright pose. A more challenging set of 1800 images with different poses and background was introduced to test the performance of algorithm and it was concluded that using locally normalized HOG features in a dense overlapping grid provides better results than Haar-like feature approach for human detection.
-
-An algorithm for training support vector machine with a latent structure was proposed by \cite{felzenszwalb2008discriminatively}. This method learn the relationships between HOG features of object parts via a latent SVM which is a semi-convex training problem but once latent information is specified for positive examples then it turns into a convex training. This approach was tested on PASCAL dataset and ranked first in 10 out of 20 classes that entered in PASCAL VOC 2007 competition.
-
-For a long time before identification of objects they were sought to be delineated. This led to rise of segmentation which targets unique partitioning of an image through generic algorithm such that there is one part for object silhouettes in an image \cite{uijlings2013selective}. A selective search methodology was introduced which combines segmentation and exhaustive search. Same as segmentation, image structure was used to guide the sampling process and similar to extensive search the objective was to detect all possible locations of the object. The author introduced a variety of complementary image partitionings to deal with as many image conditions as possible. The resultant search method yielded 99\% recall and a Mean Average overlap of 0.879 over 10,000 locations in the test dataset. Results of this methodology were also evaluated on PASCAL VOC 2012 and PASCAL VOC 2010 with mean average precision (mAP) of 0.350 and 0.351 respectively.
-
-Above mentioned algorithms had a noticeable performance but such machine learning techniques had a major requirement which was an involvement of an expert to extract features. Moreover state of the art machine learning techniques also requires a problem to be broken down into different parts and then their results to be combined together at final stage i.e. in SVM a bouding box detection algorithm is needed first to identify all the objects to have histogram of oriented gradients as input to the algorithm that will learn to recognize target objects. These limitations gave rise to deep learning algorithms which are capable of not only handling large amount of data unlike state of the art machine learning techniques but also provide an end to end solution.
-
-Availability of larger labeled datset and competitive GPUs made it possible to implement a deep learning network and test its performance. A notable development in this field took place when \cite{krizhevsky2012imagenet} showed that a large deep convolutional neural network  was able to classify  1.2 million high-resolution images in contest of ImageNet LSVRC-2010. This network was trained into 1000 different classes. On test data top-1 and top-5 error rates of 37.5\% and 17.0\% were achieved which was better than previous state of the art \cite{krizhevsky2012imagenet}. This neural network had 60 million parameters with 65,000 neurons and it consisted of five convolutional layers, some of which are followed by max-pooling and three fully connected layers with a final 1000-way softmax activation. A 1000-way softmax because of 1000 classes. Non-saturating neurons was used to optimize training time and to reduce overfitting in fully connecting layers drop-out regularization was used, a newly developed method at that time. A variant of this model was also introduced in ILSVRC-2012 competition and a winning top-5 test error rate of 15.3\% was achieved
-compared to 26.2\% by the second-best entry.
-
-The best performing methods were complex assembled systems that typically combine low-level image features with a high-level context \cite{girshick_rich_2013}. In 2014 an approach presented by \cite{girshick_rich_2013} aims to get better performance on semantic segmentation as well as object detection than other networks at that time. The network is called R-CNN by its authors because it combines regions with CNN features. Therefore R-CNN means Regions with ConvNet features. Detection and segmentation requires localization of objects within an image unlike image classification. This proposed scalable detection algorithm achieved mean average precision mAP of 53.3\% on PASCAL VOC 2012. R-CNN was also compared to OverFeat network (a sliding window detector based on a similar CNN architecture) and it was determined that R-CNN outperforms OverFeat by a margin of 7\% mAP on 200-class ILSVRC2013. OverFeat network had the best result with 24.3\% mAP before introduction of R-CNN (mAP of 31.4\%).
-
-R-CNN finds a region of interest (RoI) from an image, creating a warped image region for all the RoIs and forward it to convolutional network. Once each of the region is forwarded, bounding box regressors are applied and classification is done by SVM. These processes are done in three separate models in R-CNN. This resulted in slow training. Fast R-CNN introduces several innovations to improve training and testing speed while also improving detection accuracy \cite{girshick2015fast}. Fast R-CNN takes in an entire image and forwards it to convolutional network to create a feature map. Then it determines RoI and on top of that it applies a single layer of RoI max pooling followed by a fully connected layer. Then softmax classifers and bounding box regressors are applied. This procedure makes the layer below RoI max pooling trainable which makes Fast R-CNN training a single-stage, using multi-task loss, it also does not require any disk storage for feature caching. Unlike R-CNN, Fast R-CNN uses a single model for feature extraction from regions, dividing them into different classes and returns boundary boxes simultaneously. Fast R-CNN trains very deep VGG16 network 9 times faster than R-CNN and 213 times faster at test-time \cite{girshick2015fast}. Fast R-CNN achieved 66.1\% mAP on PASCAL VOC 2012.
-
-Fast R-CNN used selective search as a proposal to extract RoI which also had a room for optimization. That lead to further development of Fast R-CNN. The next version of this network is called Faster R-CNN. It uses region proposal network (RPN) which takes feature maps of an image as input and generates a set of object proposals and each one of them with an objectness score as output simultaneously. RPNs are trained end to end to generate RoI which are used by Fast R-CNN for detection \cite{ren2015faster}. An alternating optimization was introduced so that RPN and Fast R-CNN can be trained to share convolutional features. Faster R-CNN achieved 70.4\% mAP on PASCAL VOC 2012.
-
-Now that it was possible to locate different objects with bounding boxes, could this be extended to locate exact pixels of each object? This problem is known as instance segmentation and was addressed by the framework introduced by \cite{he_mask_2017}. This method is called Mask R-CNN which extends Faster R-CNN by adding a branch of predicting an object mask in parallel along with existing branch for bounding box recognition \cite{he_mask_2017}. This branch takes input as CNN feature map and outputs matrix with 1s and 0s. 1 if a pixel belongs to the object and 0 otherwise. This output is known as binary mask as it only has 1s and 0s. Mask R-CNN adds only a small overhead to Faster R-CNN running at 5 frames per second. It does not loose detection accuracy and has been widely used in computer vision for instance segmentation tasks.
-
-Crater detection and categorization process through data-mining from large scale scientific image database was proposed by \cite{honda2000crater}. The detection module was based on state of the art image processing method including binarization, circular object detection using Genetic Algorithm and Hough transformation. Their method took normalized image vectors, discrete cosine transform (DCT) components and intensity histograms as input vectors.
-
-One of the method suggested by \cite{leroy2001crater} was to detect craters using a multi-scale approach based on voting, and tensors as a representation. This method infer curvature estimation from noisy sparse data. The idea was to obtain the oriented normals of the edge curves by applying this method on edge images. This system was applied on Phobos to compute a dense saliency map corresponding to the position and shape of the craters.
-
-Crater densities scaling and impact rates with crater size is an issues which could be addressed by automating crater counting \cite{vinogradova2002training}. Geological feature cataloging could be performed by labeling images manually but only for limited number of features, handling massive datasets and high resolution images i.e. Mars Global Surveyor, it is required to automate feature identification \cite{vinogradova2002training}. The Continuously Scalable Template Matching (CSTM) algorithm is an image-matching algorithm used by authors in this paper which was able to detect 88\% craters with no false alarms.
-
-Various machine learning algorithms were applied for cataloging impact craters including bagging and AdaBoost, SVM and CSTM. It was found that all the approaches, in particular SVM with normalized image patches provides detection and localization performance is substantially superior to boundary based approaches such as Hough transform  \cite{wetzler2005learning}. The receiver operating characteristics (ROC) curves of the tested algorithms are shown in Figure: \ref{roc,wetzler}
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\textwidth]{files/literature/roc_wetzler.png}
-	\caption{ROC performance of CSTM, SVM and Hough methods. Hough with lowest performance among all other methods \cite{wetzler2005learning}.}
-	\label{roc,wetzler}
-\end{figure}
-
-Most of the craters are formed as the result of meteoroid impacts. The relative formation age of local area of planet could be estimated when frequency of size distribution of meteoroids and its time variations are known. \cite{sawabe_2006} proposed an algorithm that did not depend on cameras, spatial resolution or sun illumination. It also did not require to tune any parameters either. This algorithm was improvement to their own previously proposed algorithm. Their previous method did not include pyramid representation of the image which was included in later method and thus improving accuracy and reducing processing time. The algorithm was applied on images acquired by Clementine and Apollo under different solar elevation. This approach was able to detect craters with diameter larger than 240m. Accuracy rate was validated by comparing with crater count results of \cite{neukum1975cratering} which was 80\% extraction of craters with multiple interpreters \cite{sawabe_2006}. 
-
-Changeability in appearance of craters and surrounding terrain makes passive imaging based autonomous craters detection difficult to be applied. By experimentation it is proven that unsupervised machine learning methods work well with relatively large craters having clear edge information but their efficiency declines with increase in terrain complexity \cite{meng2009method}.
-
-In 2009 \cite{martins2009crater} performed Viola and Jones (2004) algorithm on Mars dataset gathered by the Mars Orbiter Camera onboard Mars Global Surveyor probe. In this paper author claims that no such method existed that is satisfactory for craters detection. Using this approach craters with diameter larger than 7 pixels were detected. Images of 240m/pixel were used as a data set, hence craters larger than 1680m of diameter were detected. The source of images used are taken from Mars orbiter camera.
-
-An automated system for cataloging impact craters was presented by \cite{stepinski2009machine}. The system used digital elevation model of Mars. The process of crater identification consists of two steps, in first step it identifies round and symmetric topographic depressions as crater candidate and second step identifies crater using a machine learning method. This process is AutoCrad system and applicable to any surface represented by a digital elevation model (DEM) \cite{stepinski2009machine}. 
-
-A crater detection algorithm (CDA) was presented by \cite{salamuniccar2010method} which was based on fuzzy edge detectors and it takes input as digital topography data instead of image data. This algorithm claimed to have more correct detections compared to previous CDA. There were also false positives which were removed manually. The data was taken from Mars Orbiter Laser Altimeter. Most of the work in automating crater detection was performed on DEMs. In 2015 a CDA was proposed by \cite{emami2015automatic} which took into account the optical images and the algorithm worked by employing a multi-scale candidate region detection step which was based on convexity cues and candidate region was verified via machine learning. In this paper a CNN classifier was tested against SVM and it was concluded that CNN classifier outperforms SVM both in terms of recall and precision \cite{emami2015automatic}. The data used for both training and testing was partially labeled by NASA scientists. Each image consists of 600x400 and taken from LRO. The result of their experiment is shown in Figure: \ref{cnn_class}.
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\textwidth]{files/literature/emami.png}
-	\caption{Verified regions in boxes on a test image \cite{wetzler2005learning}.}
-	\label{cnn_class}
-\end{figure}
-
-Mars Reconnaissance Orbiter opened a new frontier to automate landforms detection process \cite{palafox2017automated}. Authors came up with two different approaches. These are detection of volcanic rootless cones and transverse aeolian ridges using CNNs and also using SVM with HOG features. They showed that CNNs can detect a wide range of landforms and has a better accuracy and recall than traditional classifiers based on SVMs.
-
-\cite{wang2018crateridnet} presented a method composed of CNN architecture and named it as CraterIDNet which takes remotely sensed planetary images as input and outputs detected craters, their apparent diameters and their positions. The experiments shows that CNN based architecture has the advantages of high robustness, detection and identification accuracy over other methods used by \cite{urbach2009automatic}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer}.
-
-A deep learning model based on CNN architecture was introduced by \cite{silburt2019lunar} for crater identification on lunar digital elevation map images also known as DEM. The author also applied transfer learning to craters on Mercury. In this paper random DEM images from LRO and Kaguya were taken as an input data. Thus it was a global gray scale map. The proposed CNN detects only half of the caters per target. The post-CNN recall is lower at 57\% $\pm$ 20\% but detections for craters less than 15 pixels largely improved the post-CNN test recall to $83 \% \pm 16 \%$. The sample of DEM from \cite{silburt2019lunar} is shown in Figure: \ref{dem}.
-
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.8\linewidth]{files/unet/dem.png}
-	\caption{Most left is the Moon DEM sample and middle image shows prediction of craters and most right one shows the missing classifications which are marked in red circles \cite{silburt2019lunar}.}
-	\label{dem}
-\end{figure}
-
-
-
-
 %The idea of machine learning existed well before early 2000s but because of lack of powerful GPU it was not possible to process the intense computation. In last decade, object detection techniques have been improved considerably. In 2013 a method was developed that refined the object detection performance from previously used approaches. The idea was to combine region proposals with CNN's and the method was referred to as R-CNN \cite{girshick_rich_2013}. Since then pixel level processing advancement in the algorithm has been made and in 2017 a team of Facebook researchers came up with a new algorithm that contributed to reduced processing time and increased accuracy (up to 99\%) \cite{he_mask_2017}. They came up with a method that does not only detect an object but also generates a high quality segmentation mask for each instance \cite{he_mask_2017}.
 
 
@@ -629,6 +509,83 @@ A deep learning model based on CNN architecture was introduced by \cite{silburt2
 %For training and testing of model. The dataset is taken in the form of images from LRO in 2 different formats: grayscale and RGB. These images are of moon and consists craters of different sizes.
 
 \section{Model Architecture}
+
+\subsection{Normalization}
+In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
+$$ z = \dfrac{x-m}{s}$$
+
+Another way of normalization is to normalize a dataset by bringing it in a range of 0 to 1. This is typically true for image processing when pixels ranging from 0 to 255 which are normalized from 0 to 1. It is necessary to normalize data because without it some numerical data points can be very high and other might be very low. The larger data points in non-normalized datasets can cause instability in neural networks because the relatively large inputs can cascade down through the layers in the network which may cause imbalance gradients which may therefore cause the exploding gradient problem. This makes a network drastically harder to train and additionally significantly decrease training speed.
+
+In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
+
+\subsection{Convolutional layer}
+Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/conv.png}
+	\caption{Convolutional Operation}
+	\label{fig:Convolutional Operation}
+\end{figure}
+
+In fig: \ref{fig:Convolutional Operation} the output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained (stride is taken as 1). Output size can be calculated using eq.
+
+\begin{equation}
+\frac{n+2p-f}{s}+1 \times \frac{n+2p-f}{s}+1
+\end{equation}
+
+In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 filter size, $p$ is padding which equals 0 and $s$ stands for stride which is 1, inserting values in this equation would give us the size of output which is a 4x4 matrix.
+
+\subsection{Pooling layer}
+An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/cnn_architecture/pooling.png}
+	\caption{Pooling Operation}
+	\label{fig:Pooling Operation}
+\end{figure}
+
+\subsection{Activation Functions}
+These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
+
+Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
+
+\subsection{Backpropagation}
+The CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
+
+For a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
+
+\begin{equation}
+f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
+\end{equation}
+
+The derivation function of a variable indicate the rate of change of a function with respect to that variable surrounding an infinitely small region near a specific point.
+
+\begin{equation}
+\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\end{equation}
+
+In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It also be seen by rearranging the above equation such that; $\left.f(x+h)=f(x)+h \frac{d f(x)}{d x}\right)$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
+
+The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
+
+\begin{equation}
+f(x, y)=x+y \quad \rightarrow \quad \frac{\partial f}{\partial x}=1 \quad \frac{\partial f}{\partial y}=1
+\end{equation}
+
+This indicates that derivative of both $x,y$ is one regardless of values of $x,y$. Increasing either $x$ or $y$ will increase the value of output to function $f$ independent of actual values of $x,y$ unlike the above case of multiplication. Another operation is a max operation:
+
+\begin{equation}
+f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y) \quad \frac{\partial f}{\partial y}=1(y>=x)
+\end{equation}
+
+That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
+
+Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
+
+\subsection{Loss Function}
+It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. There are different ways to define a loss function.
 
 \subsubsection{Sigmoid Function}
 It is defines as:
@@ -643,8 +600,7 @@ where
 z = Wx_i + b
 \end{equation}
 
-$W being weight vector and x_i is image vector, b stands for bias$
-
+$W$ being weight vector and $x_i$ is image vector, $b$ stands for bias
 
 The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
 
@@ -717,7 +673,7 @@ $$
 
 It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class.  
 
-The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding. Dropout is nothing but regularization which reduces interdependent learning amongst neurons. This reduces the possibility of overfitting the model.
+The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
 
 \begin{figure}[H]
 	\centering
@@ -841,6 +797,50 @@ By using CLAHE, the image is divided into small blocks also called tiles (functi
 \subsection{Prediction}
 The best trained model is used for prediction on test datset. Predictions yield a probability map of each image in which light pixels depict maximum likelihood and dark pixels represents less probability of crater existence. Such heat map of one of the test images is shown in binarization methods.
 
+\subsection{Binarization Methods}
+Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+
+\subsubsection{Otsu's Method}
+This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
+
+\begin{equation}
+\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+\end{equation}
+
+Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+
+\subsubsection{Sauvola's Algorithm}
+It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
+
+\begin{equation}
+T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+\end{equation}
+
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
+
+\subsubsection{Niblack Method}
+This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
+
+\begin{equation}
+T_{d}=m(x, y)+k \times s(x, y)
+\end{equation}
+where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
+
+\subsubsection{Adaptive Mean Thresholding}
+In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
+
+\subsubsection{Mean Thresholding}
+This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
+
+\subsubsection{Yen Thresholding}
+This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
+
+\subsubsection{Li Thresholding}
+This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
+
+\subsubsection{Isodata Thresholding}
+Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
+
 \subsection{Post-processing}
 The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot.
 
@@ -870,6 +870,7 @@ For overall evaluation both of these metrics are taken into account and finally 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive .
 
 \section{Experimental Results and Discussion}
+
 Trained model is used to predict on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table: \ref{exp}.
 
 Apart from region proposal algorithm, Hough circle transformation is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting on one of the test images can be visualized in Figure: \ref{hough}.
