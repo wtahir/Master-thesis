@@ -158,7 +158,6 @@ Keeping in view the achievements of Mask R-CNN over previously developed algorit
 
 \par
 Machine learning methodology becomes handy over classical object detection approaches when it comes to detecting objects from different datasets on which algorithm was not trained. In classical computer vision methods, the images are needed to be ---------- Machine learning algorithm requires labeling on of the dataset. 
- 
 
 
 \section{Introduction}
@@ -508,6 +507,111 @@ On the basis of age assumption NPF was fit to the crater count. It is notable th
 %\subsection{Dataset}
 %For training and testing of model. The dataset is taken in the form of images from LRO in 2 different formats: grayscale and RGB. These images are of moon and consists craters of different sizes.
 
+\section{Methods}
+With multiple lunar missions there are millions of images taken by various satellites which are important source of data for crater detection. Deep learning methods require labeled input data for training so that an algorithm is able to detect objects. Performance of these algorithms increases with increase in training samples. According to size and distribution of lunar craters there can be hundreds of them in one single image. Generating a large labeled or groundtruth dataset is expensive even though a domain expert is not necessarily required for image annotation. Deep neural networks typically require thousands of images for training such as Mask-RCNN. Often transfer learning is also helpful for loss convergence when training on a new dataset. On the other hand, there are deep learning models that have proven to perform well on small dataset with only few hundred images. These shallow networks can also be trained from scratch on a dataset.
+
+\subsection{Semantic Segmentation}
+Image level classification means treating each image as an identical category. In image detection an object is localized and recognized with respect to type of its class. Whereas semantic segmentation is also called pixel-level classification. This is a task of clustering parts of an image together which belong to the same object class \cite{thoma2016survey}. It can also be treated as pixel-level prediction because it classifies each pixel of an object into its category. However this type of segmentation does not distinguish between different instances of an object.
+
+\subsection{Hough Transformation}
+
+\subsection{Instance Segmentation}
+Instance segmentation provides not only a pixel-level segmentation to an object but also determines the different instances of objects in an image. This addition makes instance segmentation more challenging that semantic segmentation. In last 3 years neural networks have been introduced that are able to perform instance segmentation and also keep better accuracy as compared to state of the art methods. But a successful training of such deep networks requires many thousands of labeled samples. 
+
+In this thesis, the proposed method for crater detection with a small dataset is based on an encoder-decoder architecture. This architecture is a slight variation of a neural network also known as U-Net presented by \cite{ronneberger2015u}. This network is chosen to perform pixel-wise segmentation because of three main reasons; it does not require several thousands of images for training, it does not need transfer learning and can be trained from scratch which makes it robust and it has a simple network structure which can be easily altered to fit segmentation goals. U-Net has also proven to be an effective network for segmenting single class in satellite data \cite{Snuverink2017}. U-Net was originally developed for segmentation of biomedical images and it achieved an average IOU of 77.5\% on DIC-HeLa dataset in ISBI cell tracking challenge 2015 which was the best score at that time. A different version of U-Net was applied for Martian craters segmentation by \cite{delatte2019segmentation} and 76\% accuracy was achieved along with age dating results consistent with human annotations for same geological units. This application demonstrated that CNN offers an advantageous approach to labor-intensive challenging task of satellites image analysis. 
+
+\begin{itemize}
+ \item{Data Set}
+ \item{Pre-processing}
+ \item{Training of Network}
+ \item{Postprocessing to get segmented images}
+\end{itemize}
+
+\subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
+Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
+
+By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation. By applying CLAHE the detection of craters increased up to 40\%. 
+
+\begin{figure*}[ht!]
+	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
+	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
+	\label{hist}
+	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
+	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
+	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
+	\label{clahe}
+\end{figure*}
+
+\subsection{Binarization Methods}
+Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+
+\subsubsection{Otsu's Method}
+This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
+
+\begin{equation}
+\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+\end{equation}
+
+Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+
+\subsubsection{Sauvola's Algorithm}
+It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
+
+\begin{equation}
+T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+\end{equation}
+
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
+
+\subsubsection{Niblack Method}
+This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
+
+\begin{equation}
+T_{d}=m(x, y)+k \times s(x, y)
+\end{equation}
+where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
+
+\subsubsection{Adaptive Mean Thresholding}
+In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
+
+\subsubsection{Mean Thresholding}
+This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
+
+\subsubsection{Yen Thresholding}
+This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
+
+\subsubsection{Li Thresholding}
+This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
+
+\subsubsection{Isodata Thresholding}
+Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
+
+\subsection{Evaluation Method}
+Precision, recall and F1-score evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
+
+\begin{equation*}
+\text{Precision} = \frac{\text{True positive}}{\text{True positive + False positive}}
+\end{equation*}
+
+True positives are correctly identified craters and false positives are craters detected by the algorithm but no crater exists on that location.
+
+Recall is defined as the percentage of total relevant results correctly classified by the algorithm and is given by:
+
+\begin{equation*}
+\text{Recall} = \frac{\text{True positive}}{\text{True positive + False negative}}
+\end{equation*}
+
+In the above equation false negatives are simply missed craters by the algorithms.
+
+For overall evaluation both of these metrics are taken into account and finally F1-score has been computed by the given equation:
+
+\begin{equation*}
+\text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
+\end{equation*}
+
+Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive.
+
 \section{Model Architecture}
 
 \subsection{Normalization}
@@ -691,15 +795,7 @@ The right part of Figure: \ref{fig:U-net} illustrates the expansive path where e
 	\label{fig:U-net}
 \end{figure} 
 
-\section{Methodology}
-This section is divided into following parts:
-
-\begin{itemize}
- \item{Data Set}
- \item{Pre-processing}
- \item{Training of Network}
- \item{Postprocessing to get segmented images}
-\end{itemize}
+\section{Experiments}
 
 \subsection{Data Set}
 The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. The amount of cropped images are 300 each with size 350x350 and are gray scale images.
@@ -708,13 +804,13 @@ The dataset which is in the form of gray scale lunar images is taken from lunar 
 In this step before training of Neural Network images are processed for annotation and extracting labeled masks for the preparation of input data set for training. It involves following step.
 
 \begin{itemize}
-\item {Image Annotation}
-\item {Extraction of Binary Masks}
+	\item {Image Annotation}
+	\item {Extraction of Binary Masks}
 \end{itemize}
 
 \subsubsection{Image Annotation}
 It is one of the most important tasks in computer vision problem related to deep learning. This task is done by human, images are annotated with labels. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These labels carry information to the Neural Network about what are the target features in image. In this particular project there is only one label which is "crater" and has shape of a circle.
- 
+
 Annotation (labeling) could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of machine learning and finding already annotated data set seems difficult to find. Therefore labeling was needed for training purpose. 
 
 \begin{comment}
@@ -761,119 +857,31 @@ Like mentioned before the result of these annotations (json) is projected to get
 To create larger dataset without additional annotations, data augmentation is necessary. Creation of a larger dataset is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means larger dataset for training of algorithm and thus achieve better performance on test data. Therefore every training image is randomly augmented in following ways:
 
 \begin{enumerate}
-\item \underline{Rotation}: Random rotation of images from $0^{\circ}$ to $360^{\circ}$ angle.
-\item \underline{Translation}: Random change in shift in x and y direction of image between -4 to 4 pixels.
-\item \underline{Flipping}: Image is flipped with a factor of 0.5 as probability. 
+	\item \underline{Rotation}: Random rotation of images from $0^{\circ}$ to $360^{\circ}$ angle.
+	\item \underline{Translation}: Random change in shift in x and y direction of image between -4 to 4 pixels.
+	\item \underline{Flipping}: Image is flipped with a factor of 0.5 as probability. 
 \end{enumerate}
 
 The images are randomly perturbed during training so that augmentation can have maximum effect. This way model have a low probability of seeing same type of training image more than once. In lunar crater dataset there are no RGB images hence color augmentation is opted out.
 
-
 \subsection{Training}
 The data composed of images and their respective masks is divided into training (80\%) and validation (20\%) data set. This percentage practice is typical in machine learning, however it does not have to be always at this rate. In case of large data set i.e. several thousands of images, 60\% or even less can be set for training. In this particular case there is not test data taken out from the data set because of limited annotations. As mentioned in introduction, test data is taken from another thesis student who has labeled all the craters manually. 
 
-The input images along with their corresponding segmentation maps are utilized to train network with stochastic gradient decent implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Whereas Keras implementation can be found here:
-\textit{https://github.
-com/zhixuhao/unet}. Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax function as defined in eq.7, $z_{j}$ denotes the activation in feature channel $j$ at the pixel position $z \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $f_jz$ is the approximated maximum function. This means that $f_jz$ will be close to 1 for $j$ with maximum activation and vice versa for other values of $j$. The cross entropy function penalizes each deviation of $q(x)$ from 1 as defined in eq.1.
+The input images along with their corresponding segmentation maps are utilized to train network with stochastic gradient decent implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax function as defined in eq.7, $z_{j}$ denotes the activation in feature channel $j$ at the pixel position $z \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $f_jz$ is the approximated maximum function. This means that $f_jz$ will be close to 1 for $j$ with maximum activation and vice versa for other values of $j$. The cross entropy function penalizes each deviation of $q(x)$ from 1 as defined in eq.1.
 
 The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
-
-\subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
-Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
-
-By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation. By applying CLAHE the detection of craters increased up to 40\%. 
-
-\begin{figure*}[ht!]
-	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
-	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
-	\label{hist}
-	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
-	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
-	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
-	\label{clahe}
-\end{figure*}
 
 \subsection{Prediction}
 The best trained model is used for prediction on test datset. Predictions yield a probability map of each image in which light pixels depict maximum likelihood and dark pixels represents less probability of crater existence. Such heat map of one of the test images is shown in binarization methods.
 
-\subsection{Binarization Methods}
-Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+Trained model is used to predict on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table: \ref{exp}.
 
-\subsubsection{Otsu's Method}
-This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
-
-\begin{equation}
-\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
-\end{equation}
-
-Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
-
-\subsubsection{Sauvola's Algorithm}
-It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
-
-\begin{equation}
-T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
-\end{equation}
-
-Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
-
-\subsubsection{Niblack Method}
-This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
-
-\begin{equation}
-T_{d}=m(x, y)+k \times s(x, y)
-\end{equation}
-where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
-
-\subsubsection{Adaptive Mean Thresholding}
-In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
-
-\subsubsection{Mean Thresholding}
-This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
-
-\subsubsection{Yen Thresholding}
-This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
-
-\subsubsection{Li Thresholding}
-This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
-
-\subsubsection{Isodata Thresholding}
-Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
+Apart from region proposal algorithm, Hough circle transformation is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting on one of the test images can be visualized in Figure: \ref{hough}.
 
 \subsection{Post-processing}
 The resulting predictions from CNN model are post processed in which the amount of detected craters are counted along with respective diameters and location by using region proposal algorithm proposed by \cite{burger2009principles} on binarized images by several binarization methods discussed in binarization section. The test images are taken from similar datset to training with same sun illumination angle as well as with different illumination (geographic location of Apollo 17) where number of craters are annotated by \cite{dino2020}. The age of this location is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot.
 
-\subsection{Evaluation Method}
-Precision, recall and F1-score evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
-
-\begin{equation*}
-\text{Precision} = \frac{\text{True positive}}{\text{True positive + False positive}}
-\end{equation*}
-
-True positives are correctly identified craters and false positives are craters detected by the algorithm but no crater exists on that location.
-
-Recall is defined as the percentage of total relevant results correctly classified by the algorithm and is given by:
-
-\begin{equation*}
-\text{Recall} = \frac{\text{True positive}}{\text{True positive + False negative}}
-\end{equation*}
-
-In the above equation false negatives are simply missed craters by the algorithms.
-
-For overall evaluation both of these metrics are taken into account and finally F1-score has been computed by the given equation:
-
-\begin{equation*}
-\text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
-\end{equation*}
-
-Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive .
-
-\section{Experimental Results and Discussion}
-
-Trained model is used to predict on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second dataset is annotated by \cite{dino2020} which has a different sun illumination angle as well as incidence angle of the spacecraft. Number of experiments are performed using several binarization methods at different ranges from their respective threshold values. These results are given in Table: \ref{exp}.
-
-Apart from region proposal algorithm, Hough circle transformation is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large-sized or medium craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting on one of the test images can be visualized in Figure: \ref{hough}.
+\subsection{Results and Discussion}
 
 \begin{figure}[H]
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill

@@ -39,18 +39,20 @@ Cohen, J.~P., Lo, H.~Z., Lu, T., and Ding, W. (2016).
 Dalal, N. and Triggs, B. (2005).
 \newblock Histograms of oriented gradients for human detection.
 
+\bibitem[DeLatte et~al., 2019]{delatte2019segmentation}
+DeLatte, D.~M., Crites, S.~T., Guttenberg, N., Tasker, E.~J., and Yairi, T.
+  (2019).
+\newblock Segmentation convolutional neural networks for automatic crater
+  detection on mars.
+\newblock {\em IEEE Journal of Selected Topics in Applied Earth Observations
+  and Remote Sensing}, 12(8):2944--2957.
+
 \bibitem[Ding et~al., 2011]{ding2011subkilometer}
 Ding, W., Stepinski, T.~F., Mu, Y., Bandeira, L., Ricardo, R., Wu, Y., Lu, Z.,
   Cao, T., and Wu, X. (2011).
 \newblock Subkilometer crater discovery with boosting and transfer learning.
 \newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
   2(4):39.
-
-\bibitem[El~Khiyari and Wechsler, 2016]{2016face}
-El~Khiyari, H. and Wechsler, H. (2016).
-\newblock Face recognition across time lapse using convolutional neural
-  networks.
-\newblock {\em Journal of Information Security}, 7(03):141.
 
 \bibitem[Emami et~al., 2015]{emami2015automatic}
 Emami, E., Bebis, G., Nefian, A., and Fong, T. (2015).
@@ -188,11 +190,6 @@ Polegubic, D. (2020).
   17 area.
 \newblock {\em Master thesis at the Technical University of Berlin}.
 
-\bibitem[Redmon et~al., ]{redmon_you_2016}
-Redmon, J., Divvala, S., Girshick, R., and Farhadi, A.
-\newblock You only look once: Unified, real-time object detection.
-\newblock pages 779--788. {IEEE}.
-
 \bibitem[Ren et~al., 2015]{ren2015faster}
 Ren, S., He, K., Girshick, R., and Sun, J. (2015).
 \newblock Faster r-cnn: Towards real-time object detection with region proposal
@@ -243,6 +240,11 @@ Silburt, A., Ali-Dib, M., Zhu, C., Jackson, A., Valencia, D., Kissin, Y.,
 \newblock Lunar crater identification via deep learning.
 \newblock {\em Icarus}, 317:27--38.
 
+\bibitem[Snuverink, 2017]{Snuverink2017}
+Snuverink, I. (2017).
+\newblock Deep learning for pixelwise classification of hyperspectral images.
+\newblock {\em Master of Science Thesis}.
+
 \bibitem[Soderblom, 1970]{soderblom1970distribution}
 Soderblom, L.~A. (1970).
 \newblock {\em The distribution and ages of regional lithologies in the lunar
@@ -265,6 +267,11 @@ Szegedy, C., {Wei Liu}, {Yangqing Jia}, Sermanet, P., Reed, S., Anguelov, D.,
   Erhan, D., Vanhoucke, V., and Rabinovich, A.
 \newblock Going deeper with convolutions.
 \newblock pages 1--9. {IEEE}.
+
+\bibitem[Thoma, 2016]{thoma2016survey}
+Thoma, M. (2016).
+\newblock A survey of semantic segmentation.
+\newblock {\em arXiv preprint arXiv:1602.06541}.
 
 \bibitem[Uijlings et~al., 2013]{uijlings2013selective}
 Uijlings, J.~R., Van De~Sande, K.~E., Gevers, T., and Smeulders, A.~W. (2013).
