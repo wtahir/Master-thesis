@@ -813,6 +813,33 @@ It is clear that loss would be same even if predictions are $\left[\begin{array}
 \end{comment} 
 
 \section{Experiments}
+\subsection{Crater Detection Pipeline}
+After training, to get detected craters from raw images, LRO large images are split into 256 $\times$ 256 sized tiles which goes through the following.
+
+\begin{enumerate}
+ \item Each 256 $\times$ 256 tile is fed to the segmentation network.
+ \item Prediction results are stitched back together into the full sized original image. At this stage the resultant is a probability map which is also an image and can be compared to the target input image. 
+\end{enumerate}
+
+\begin{table}[H]
+	\centering
+	\caption{Layers in U-Net}
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{Layer type} & \multicolumn{1}{c|}{Comments}                                                                                                                  \\ \hline
+		\textit{Encoder}                 & \multicolumn{1}{c|}{}                                                                                                                          \\[2ex] \hline
+		Conv2D                           & Zero padding, ReLU activation                                                                                                                  \\ \hline
+		Dropout                          & Value of 0.5                                                                                                                                   \\ \hline
+		MaxPooling2D                     &                                                                                                                                                \\ \hline
+		\textit{Decoder}                 &                                                                                                                                                \\[2ex] \hline
+		UpSamplig2D                      & Size 2                                                                                                                                         \\ \hline
+		Conv2D                           &                                                                                                                                                \\ \hline
+		Dropout                          & Value of 0.5                                                                                                                                   \\ \hline
+		Add                              & \begin{tabular}[c]{@{}l@{}}Adding the result of previous dropout with the \\ correspondingly sized Conv2D layer from encoder part\end{tabular} \\ \hline
+		Final Layer                      &                                                                                                                                                \\ \hline
+		Conv2D                           & Zero padding with sigmoid activation                                                                                                           \\ \hline
+	\end{tabular}
+\end{table} 
 
 \subsection{Data Set}
 The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. The amount of cropped images are 300 each with size 350x350 and are gray scale images.
@@ -821,12 +848,14 @@ The dataset which is in the form of gray scale lunar images is taken from lunar 
 Normalization is a key step in the preprocessing pipeline for any deep learning task. Normalization is also very important for medical images and there are a variety of methods for doing this. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
 are of most importance. Normalizing image inputs: Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. Data normalization is done by subtracting the mean from each pixel and then dividing the result by the standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs we need the pixel numbers to be positive, so we might choose to scale the normalized data in the range [0,1] or [0, 255]. 
 
+\begin{comment}
 In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
 $$ z = \dfrac{x-m}{s}$$
 
 Another way of normalization is to normalize a dataset by bringing it in a range of 0 to 1. This is typically true for image processing when pixels ranging from 0 to 255 which are normalized from 0 to 1. It is necessary to normalize data because without it some numerical data points can be very high and other might be very low. The larger data points in non-normalized datasets can cause instability in neural networks because the relatively large inputs can cascade down through the layers in the network which may cause imbalance gradients which may therefore cause the exploding gradient problem. This makes a network drastically harder to train and additionally significantly decrease training speed.
 
 In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
+\end{comment}
 
 \subsection{Pre-processing}
 In this step before training of Neural Network images are processed for annotation and extracting labeled masks for the preparation of input data set for training. It involves following step.

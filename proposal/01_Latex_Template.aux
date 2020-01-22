@@ -157,25 +157,27 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Loss Function}{26}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Binary Cross-Entropy}{27}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Data Set}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Pixel Normalization}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Pre-processing}{28}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Image Annotation}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Crater Detection Pipeline}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Layers in U-Net\relax }}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Set}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Pixel Normalization}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Pre-processing}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Image Annotation}{28}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool\relax }}{29}}
 \newlabel{ann}{{13}{29}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Extraction of Binary Masks}{29}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Extraction of Binary Masks}{29}}
 \citation{ronneberger2015u}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Visualization of binary masks after projection from annotated (json format) images that belong to Figure: \ref  {ann}\relax }}{30}}
 \newlabel{mask}{{14}{30}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Data Augmentation}{30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Training}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.3}Data Augmentation}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Training}{30}}
 \citation{dino2020}
 \citation{wetzler2005learning}
 \citation{burger2009principles}
 \citation{dino2020}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Prediction}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Post-processing}{31}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Results and Discussion}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Prediction}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Post-processing}{31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Results and Discussion}{32}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Otsu thresholding\relax }}{32}}
 \newlabel{otsu thresholding}{{15}{32}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{32}}
@@ -192,22 +194,22 @@
 \citation{badrinarayanan2017segnet}
 \@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.\relax }}{34}}
 \newlabel{Li thresholding}{{22}{34}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces F1 scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization method.\relax }}{34}}
-\newlabel{exp}{{1}{34}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces F1 scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization method.\relax }}{34}}
+\newlabel{exp}{{2}{34}}
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Patch wise mean F1 scores on test set distribution from dataset split\relax }}{35}}
-\newlabel{mine}{{2}{35}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1 scores on a different test annotated from \cite  {dino2020}\relax }}{35}}
-\newlabel{dino}{{3}{35}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1 scores on test set distribution from dataset split\relax }}{35}}
+\newlabel{mine}{{3}{35}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Patch wise mean F1 scores on a different test annotated from \cite  {dino2020}\relax }}{35}}
+\newlabel{dino}{{4}{35}}
 \citation{wetzler2005learning}
 \@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement from resultant threshold values at 10\% intervals.\relax }}{37}}
 \newlabel{thresh_methods}{{23}{37}}
 \citation{dino2020}
 \@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Hough circle fitting on predicted image.\relax }}{38}}
 \newlabel{hough}{{24}{38}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Plotting Age Curve}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Plotting Age Curve}{38}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{38}}
 \bibstyle{apalike}
 \bibdata{mybib}
