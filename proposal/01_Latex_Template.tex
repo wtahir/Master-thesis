@@ -218,8 +218,6 @@ Based on satellite images characteristics of a planet terrain could be complex t
 
 \begin{comment}
 The goal of this research is to build a framework to perform a pixelwise segmentation of lunar craters on optical images taken by LRO, finding their respective diameters and use this information to estimate the age of particular geographic location of Moon.
-\end{comment}
-
 
 \subsection{Research Approach}
 The approach is to automate crater detection process by using deep learning technique which would be faster as compared to manual counts and does not require involvement of experts for annotation. The model to perform pixelwise segmentation is based on Convolutional Neural Network (CNN). In this model images are subjected to convolutional operation (mathematical element wise-multiplication) and such type of neural networks are known as ConvNets or simply CNNs. These networks belong to category of supervised machine learning that have proved their success by winning Large Scale Visual Recognition Challenge (ILSVRC-2010) competition which was composed of 1.2 million high-resolution images. \cite{krizhevsky2012imagenet} achieved top-1 and top-5 error rates of 37.5\% and 17.0\% respectively.
@@ -227,6 +225,7 @@ The approach is to automate crater detection process by using deep learning tech
 There are many reasons for usage of CNN to crater detection problem. CNNs have proven record in computer vision problems and such datasets where a correlation lies between features \cite{long2015fully}. Not only in computer vision based on images but also CNNs have demonstrated their versatility in sounds and signals as well. Another major reason of using CNNs is the ability to learn from features hence they have the capability to engineer their own representation of features, thus removing human involvement in developing sophisticated pre-processing models and custom input features. CNNs are also able to classify objects in images which are in different scales even when on a single image. For lunar craters this case is similar where craters range from few meters in diameter to several hundreds of meters and could have multiple instances in a single image.
 
 An algorithm based on CNN is trained and tested for lunar crater detection. The inputs are images taken by Lunar Reconnaissance Orbiter irrespective of specific camera limitations. The outcome of this model is a trained version of this model also called as a checkpoint with minimum loss function. This trained model is tested on lunar images which is divided into two groups of testsets, first testset is taken from dataset for training and evaluation split and second is taken from \cite{dino2020} with different sun illumination angle and it yields predictions of craters in those images (pixel wise segmentation of crater in an image). These predictions after post-processing provides the size frequency distribution of craters. In post-processing step, several binarization methods are applied to detect blobs from the segmentation heat map. These methods are analyzed and compared to each with respect to F1-score. This measure is also used to evaluate performance of algorithm. In order to detect craters from blobbed images and their respective diameters Region proposal algorithm was applied. Now with this information a lunar production function is used to plot the age of surface where craters are counted.
+\end{comment}
 
 \section{Related Work}
 Before wide use of deep learning approaches, different machine learning methods were developed to perform the tasks of object detection. \cite{viola2001rapid} proposed a method which was composed of three key components. Firstly objective was to introduce a different image representation called Integral Image to compute rectangle features of the object. The second was an algorithm based on AdaBoost with a purpose to select critical visual features from large amount of data to get a set of classifiers. Third contribution was to combine those classifiers in a cascade to discard the background regions and only compute object-like regions. This algorithm used Haar basis features and was developed to detect faces.
@@ -513,19 +512,13 @@ With multiple lunar missions there are millions of images taken by various satel
 \subsection{Semantic Segmentation}
 Image level classification means treating each image as an identical category. In image detection an object is localized and recognized with respect to type of its class. Whereas semantic segmentation is also called pixel-level classification. This is a task of clustering parts of an image together which belong to the same object class \cite{thoma2016survey}. It can also be treated as pixel-level prediction because it classifies each pixel of an object into its category. However this type of segmentation does not distinguish between different instances of an object.
 
-\subsection{Hough Transformation}
+\subsection{Hough Circle Transformation}
+Hough proposed a procedure for line detection in images. This method was extended to Generalized Hough Circle Transformation for detection of curves in a picture and detailed procedure is provided by \cite{duda1972use}. This has remained one of the widely used methods for circle detection in field of computer vision.
 
 \subsection{Instance Segmentation}
 Instance segmentation provides not only a pixel-level segmentation to an object but also determines the different instances of objects in an image. This addition makes instance segmentation more challenging that semantic segmentation. In last 3 years neural networks have been introduced that are able to perform instance segmentation and also keep better accuracy as compared to state of the art methods. But a successful training of such deep networks requires many thousands of labeled samples. 
 
 In this thesis, the proposed method for crater detection with a small dataset is based on an encoder-decoder architecture. This architecture is a slight variation of a neural network also known as U-Net presented by \cite{ronneberger2015u}. This network is chosen to perform pixel-wise segmentation because of three main reasons; it does not require several thousands of images for training, it does not need transfer learning and can be trained from scratch which makes it robust and it has a simple network structure which can be easily altered to fit segmentation goals. U-Net has also proven to be an effective network for segmenting single class in satellite data \cite{Snuverink2017}. U-Net was originally developed for segmentation of biomedical images and it achieved an average IOU of 77.5\% on DIC-HeLa dataset in ISBI cell tracking challenge 2015 which was the best score at that time. A different version of U-Net was applied for Martian craters segmentation by \cite{delatte2019segmentation} and 76\% accuracy was achieved along with age dating results consistent with human annotations for same geological units. This application demonstrated that CNN offers an advantageous approach to labor-intensive challenging task of satellites image analysis. 
-
-\begin{itemize}
- \item{Data Set}
- \item{Pre-processing}
- \item{Training of Network}
- \item{Postprocessing to get segmented images}
-\end{itemize}
 
 \subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
 Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
@@ -613,17 +606,41 @@ For overall evaluation both of these metrics are taken into account and finally 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive.
 
 \section{Model Architecture}
+The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
 
-\subsection{Normalization}
-In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
-$$ z = \dfrac{x-m}{s}$$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/unet/tile.png}
+	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring \cite{ronneberger2015u}.}
+	\label{fig:tiling}
+\end{figure} 
 
-Another way of normalization is to normalize a dataset by bringing it in a range of 0 to 1. This is typically true for image processing when pixels ranging from 0 to 255 which are normalized from 0 to 1. It is necessary to normalize data because without it some numerical data points can be very high and other might be very low. The larger data points in non-normalized datasets can cause instability in neural networks because the relatively large inputs can cascade down through the layers in the network which may cause imbalance gradients which may therefore cause the exploding gradient problem. This makes a network drastically harder to train and additionally significantly decrease training speed.
+The right part of Figure: \ref{fig:U-net} illustrates the expansive path where every step consists of upsampling of feature map which is followed by a 2x2 convolutional operation (also referred to as up-convolution). This halves the number of feature channels. The gray arrow shows the concatenation of corresponding feature map from contracting path where it is cropped from the image. It is then subjected to two 3x3 convolutions and each followed up by a ReLU activation function. The cropping is required because of loss of boarder pixels during convolutions. At the final layer a 1x1 convolution maps each 64 component feature vector to the target number of classes i.e. background class and crater class. The final layer follows up by sigmoid activation function which determines the output of a class score between 0 to 1. Finally, binary cross entropy determines the loss while training of algorithm. In this model the total number of convolutional layers amounts to 23. It is important to select the input image size so that max pooling operations are applied to a layer with the same x and y size. This allows seamless tiling of segmentation map in output as shown in Figure: \ref{fig:tiling}
 
-In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.7\linewidth]{files/unet/arch.png}
+	\caption{U-net Architecture \cite{ronneberger2015u}.}
+	\label{fig:U-net}
+\end{figure} 
 
-\subsection{Convolutional layer}
-Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image. In example, it would look as shown in fig: \ref{fig:Convolutional Operation}
+\subsection{Convolutional Layer}
+Convolutional layers essentially extracts a feature map from images. Images are mathematically represented by matrices with three color channels as red, green and blue (RGB). Gray scale images have only single channel. Therefore an image has a size $h \times w \times d$ where $d$ is depth represented by number of channels. Convolutional layers includes a filter (also referred to as kernel) which is also composed of $f_h \times f_w \times d$. Filter has a height and width smaller than the image size. It slides over (convolves with) the image producing a feature map. This convolution is the sum of element-wise multiplication of filter with the image. It is to be noted that depth of the filter is same as that of the input image therefore it varies with network.
+
+Filter stride is a parameter that needs to be defined before training in convolutional layers. It determines the number of pixels by which a filter shifts at a time. Convolutional layers tend to reduce the output mapping size. A larger stride size will also result in a smaller sized output. Equation shows the relationship between output and input size of an image with a stride $s$ and filter $f$. The size of feature maps decreases by increase in convolutional layers. Row ($O_x$) and column ($O_y$) output size of convolutional layers are calculated as:
+
+\begin{align}
+O_{x}=\frac{i_{x}-f_{x} + 2p}{s}+1, \\
+O_{y}=\frac{i_{y}-f_{y} + 2p}{s}+1
+\end{align} 
+
+Assuming example of an input image with size ($256 \times 256$) and a filter size of ($3 \times 3$) having a stride $s$ of 1 and zero padding $p$ will result into an output size of ($254 \times 254$). By using additional filters $n$, the feature map will be of size ($254 \times 254 \times n$). So, addition of filters will increase the output depth of a convolutional layer.
+
+\begin{comment}
+Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image.
+\end{comment}
+
+Example shown in fig: \ref{fig:Convolutional Operation} represents a typical convolutional operation without padding and stride of 1. The output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained the same way.
 
 \begin{figure}[H]
 	\centering
@@ -632,13 +649,13 @@ Lets suppose there is a 2D input image of size 6x6. A filter convolves through t
 	\label{fig:Convolutional Operation}
 \end{figure}
 
-In fig: \ref{fig:Convolutional Operation} the output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained (stride is taken as 1). Output size can be calculated using eq.
-
+\begin{comment}
 \begin{equation}
 \frac{n+2p-f}{s}+1 \times \frac{n+2p-f}{s}+1
 \end{equation}
 
 In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 filter size, $p$ is padding which equals 0 and $s$ stands for stride which is 1, inserting values in this equation would give us the size of output which is a 4x4 matrix.
+\end{comment}
 
 \subsection{Pooling layer}
 An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
@@ -654,42 +671,6 @@ An input image could be large which increases the amount of parameters and intro
 These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
 
 Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
-
-\subsection{Backpropagation}
-The CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
-
-For a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
-
-\begin{equation}
-f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
-\end{equation}
-
-The derivation function of a variable indicate the rate of change of a function with respect to that variable surrounding an infinitely small region near a specific point.
-
-\begin{equation}
-\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
-\end{equation}
-
-In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It also be seen by rearranging the above equation such that; $\left.f(x+h)=f(x)+h \frac{d f(x)}{d x}\right)$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
-
-The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
-
-\begin{equation}
-f(x, y)=x+y \quad \rightarrow \quad \frac{\partial f}{\partial x}=1 \quad \frac{\partial f}{\partial y}=1
-\end{equation}
-
-This indicates that derivative of both $x,y$ is one regardless of values of $x,y$. Increasing either $x$ or $y$ will increase the value of output to function $f$ independent of actual values of $x,y$ unlike the above case of multiplication. Another operation is a max operation:
-
-\begin{equation}
-f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y) \quad \frac{\partial f}{\partial y}=1(y>=x)
-\end{equation}
-
-That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
-
-Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
-
-\subsection{Loss Function}
-It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. There are different ways to define a loss function.
 
 \subsubsection{Sigmoid Function}
 It is defines as:
@@ -737,16 +718,69 @@ The graphical form is given as:
 	\label{fig: relu}
 \end{figure}
 
-As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh. 
+As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh.
+
+Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Figure: \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
+
+\subsection{Backpropagation}
+A CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
+
+Initial weights of an untrained network are randomly taken. Without training a network is not able to make meaningful predictions for an input as there is no relation between an image and its groundtruth output yet. The weights in a network are adjusted by exposing a network to training samples which are labeled according the correct class. Before backpropagation there is a forward pass in which an image is taken into the network and first layer of network computes a feature map which is a very low level feature map. Then this activation map is fed to the next layer usually a hidden layer that computers another activation map with slightly high level features than the previous layer and this goes on till last layer yielding a network output. This results into a feature map which is determined by a loss function how much different it is from that of labeled feature. During backpropagation step of training the aim is to adapt weights in a way that difference between network output and desired output is minimized so that correct features can be extracted from an input image. There are usually multiple epochs till weights are adjusted so that loss is minimized. Backpropogation works on derivation chain rule to minimize loss function and all weights are updated in the negative direction of gradient function. A gradient is a vector containing derivatives. It is computed using partial derivatives and produces a vector field unlike a derivative which is dependent on a single variable. A Jacobian matrix represents gradient. Optimization algorithms such as Adam optimizer minimize or maximize loss function using its gradient values with respect to parameters.
+
+Assuming a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
+
+\begin{equation}
+f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
+\end{equation}
+
+The derivation function of a variable indicate the rate of change of a function with respect to that variable surrounding an infinitely small region near a specific point.
+
+\begin{equation}
+\frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\end{equation}
+
+In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It can also be seen by rearranging the above equation such that; $f(x+h)=f(x)+h \frac{d f(x)}{d x}$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
+
+\begin{comment}
+The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
+
+\begin{equation}
+f(x, y)=x+y \quad \rightarrow \quad \frac{\partial f}{\partial x}=1 \quad \frac{\partial f}{\partial y}=1
+\end{equation}
+
+This indicates that derivative of both $x,y$ is one regardless of values of $x,y$. Increasing either $x$ or $y$ will increase the value of output to function $f$ independent of actual values of $x,y$ unlike the above case of multiplication. Another operation is a max operation:
+
+\begin{equation}
+f(x, y)=\max (x, y) \quad \rightarrow \quad \frac{\partial f}{\partial x}=1(x>=y) \quad \frac{\partial f}{\partial y}=1(y>=x)
+\end{equation}
+
+That is the gradient is 1 on the input which is larger and 0 on the other input. If $x = 4, y=2$, then max is $x$ and the function is not sensitive to value of $y$. If the value of $y$ is increased by a tiny amount $h$, the function will keep outputting value of $x$ which is 4, hence the gradient is 0. If the value of $y$ is changed by a large amount (in this case larger than 2) then output of $f$ will change. Derivatives shows nothing about the large changes on the function inputs. They only inform about the infinitely tiny amount of changes on the inputs as indicated in eq. 3.
+
+Backpropagation relies on the above explained rule in a more complex neural network. It computes the gradient of loss function with respect to each weight via chain rule based on the above mentioned examples. The computation is performed one layer at a time starting from last layer till the second layer of network. First layer is not included as it is the input layer. Also redundant calculations are avoided by computing derivative of each layer at a time. In other words, the weights are adjusted every time in such a way that loss is minimized and the model reaches at a checkpoint where adjusted weights are very close to target features, hence to get most accurate predictions.
 
 \begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu_fast.png}
-	\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh \cite{krizhevsky2012imagenet}. }
-	\label{fig: relu_fast}
+\centering
+\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu_fast.png}
+\caption{A CNN of four layers trained with ReLU in solid line and tanh in dashed line. It shows that ReLU reaches a 25\% training rate on CIFAR-10 six times faster as compared to tanh \cite{krizhevsky2012imagenet}. }
+\label{fig: relu_fast}
 \end{figure}
+\end{comment}
 
-Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Figure: \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. Also in Figure: \ref{fig: relu_fast} it can be seen that ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
+\subsection{Loss Function}
+It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. If training is carried out in set of batches then a loss function is able to define the average of losses for individual training samples. 
+
+There are different loss functions which are mainly chosen according to the type of problem. 
+
+\subsection{Binary Cross-Entropy}
+As the name suggests, it is a default loss function used for a binary classification problems. It is used where target values are 0 or 1. It calculates a score that summarizes the average difference between predicted and actual probability distributions for a predicting class 1. An ideal value for a cross entropy loss function is 0. Mathematically representation is given as:
+
+\begin{equation}
+H_{p}(q)=-\frac{1}{N} \sum_{i=1}^{N} y_{i} \cdot \log \left(p\left(y_{i}\right)\right)+\left(1-y_{i}\right) \cdot \log \left(1-p\left(y_{i}\right)\right)
+\end{equation}
+
+Where $y$ is the label and $p(y)$ is predicted probability for $N$ points.
+
+\begin{comment}
 
 \subsubsection{Cross Entropy Loss}
 It is also known as the log loss. It measures the performance of a classification model whose output is a probability value between zero and one. The cross entropy loss increases as the predicted probability diverges from the actual label so predicting a probability of i.e. 0.019 when the actual observation label is one would be bad and it would result in high loss value. Therefore, probability of observation as zero or one (positive or negative) is written as:
@@ -759,8 +793,8 @@ It is also known as the log loss. It measures the performance of a classificatio
 In the above equation $p$ and $q$ are the cross entropy of true distribution and predicted distribution. The calculation of above equation depends on following factors:
 
 \begin{enumerate}
-	\item Type of layers used in neural network.
-	\item Type of activation function used. Many activations might not be compatible with calculation because of output value which is either greater than one, negative value or do not sum to one. Therefore, softmax function is often used for multi class classification as it guarantees a well behaved probability distribution function.
+\item Type of layers used in neural network.
+\item Type of activation function used. Many activations might not be compatible with calculation because of output value which is either greater than one, negative value or do not sum to one. Therefore, softmax function is often used for multi class classification as it guarantees a well behaved probability distribution function.
 \end{enumerate}
 
 A machine learning, a common convention is to represent the ground truth (or labeled) data by vector $\mathbf{y}$ and $\mathbf{\hat{y}}$ is a vector containing the estimate. For a single example the equation is:
@@ -775,30 +809,24 @@ $$
 \begin{array}{l}{L=-(1 \times \log (0.1)+0 \times \log (0.5)+\ldots)} \\\\ {L=-\log (0.1) \approx 2.303}\end{array}
 $$
 
-It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class.  
-
-The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/unet/tile.png}
-	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring \cite{ronneberger2015u}.}
-	\label{fig:tiling}
-\end{figure} 
-
-The right part of Figure: \ref{fig:U-net} illustrates the expansive path where every step consists of upsampling of feature map which is followed by a 2x2 convolutional operation (also referred to as up-convolution). This halves the number of feature channels. The gray arrow shows the concatenation of corresponding feature map from contracting path where it is cropped from the image. It is then subjected to two 3x3 convolutions and each followed up by a ReLU activation function. The cropping is required because of loss of boarder pixels during convolutions. At the final layer a 1x1 convolution maps each 64 component feature vector to the target number of classes i.e. background class and crater class. The final layer follows up by sigmoid activation function which determines the output of a class score between 0 to 1. Finally, binary cross entropy determines the loss while training of algorithm. In this model the total number of convolutional layers amounts to 23. It is important to select the input image size so that max pooling operations are applied to a layer with the same x and y size. This allows seamless tiling of segmentation map in output as shown in Figure: \ref{fig:tiling}
-
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=.7\linewidth]{files/unet/arch.png}
-	\caption{U-net Architecture \cite{ronneberger2015u}.}
-	\label{fig:U-net}
-\end{figure} 
+It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class. 
+\end{comment} 
 
 \section{Experiments}
 
 \subsection{Data Set}
 The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. The amount of cropped images are 300 each with size 350x350 and are gray scale images.
+
+\subsection{Pixel Normalization}
+Normalization is a key step in the preprocessing pipeline for any deep learning task. Normalization is also very important for medical images and there are a variety of methods for doing this. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
+are of most importance. Normalizing image inputs: Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. Data normalization is done by subtracting the mean from each pixel and then dividing the result by the standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs we need the pixel numbers to be positive, so we might choose to scale the normalized data in the range [0,1] or [0, 255]. 
+
+In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
+$$ z = \dfrac{x-m}{s}$$
+
+Another way of normalization is to normalize a dataset by bringing it in a range of 0 to 1. This is typically true for image processing when pixels ranging from 0 to 255 which are normalized from 0 to 1. It is necessary to normalize data because without it some numerical data points can be very high and other might be very low. The larger data points in non-normalized datasets can cause instability in neural networks because the relatively large inputs can cascade down through the layers in the network which may cause imbalance gradients which may therefore cause the exploding gradient problem. This makes a network drastically harder to train and additionally significantly decrease training speed.
+
+In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
 
 \subsection{Pre-processing}
 In this step before training of Neural Network images are processed for annotation and extracting labeled masks for the preparation of input data set for training. It involves following step.

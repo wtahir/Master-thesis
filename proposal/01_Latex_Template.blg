@@ -3,27 +3,27 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 300 of file mybib.bib
+Repeated entry---line 311 of file mybib.bib
  : @incollection{stoffler2001stratigraphy
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 309 of file mybib.bib
+Repeated entry---line 320 of file mybib.bib
  : @article{hiesinger2000ages
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 495 of file mybib.bib
+Repeated entry---line 506 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 651 of file mybib.bib
+Repeated entry---line 662 of file mybib.bib
  : @article{ding2011subkilometer
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 670 of file mybib.bib
+Repeated entry---line 681 of file mybib.bib
  : @inproceedings{ronneberger2015u
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 723 of file mybib.bib
+Repeated entry---line 734 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
@@ -36,45 +36,45 @@ Warning--empty journal in he_mask_2017
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 55 entries,
+You've used 56 entries,
             1935 wiz_defined-function locations,
-            793 strings with 13970 characters,
-and the built_in function-call counts, 24243 in all, are:
-= -- 2389
-> -- 1074
-< -- 39
-+ -- 380
-- -- 368
-* -- 2054
-:= -- 4114
-add.period$ -- 167
-call.type$ -- 55
-change.case$ -- 453
-chr.to.int$ -- 55
-cite$ -- 64
-duplicate$ -- 932
-empty$ -- 1637
-format.name$ -- 439
-if$ -- 4797
+            799 strings with 14115 characters,
+and the built_in function-call counts, 24629 in all, are:
+= -- 2429
+> -- 1087
+< -- 40
++ -- 384
+- -- 372
+* -- 2089
+:= -- 4180
+add.period$ -- 170
+call.type$ -- 56
+change.case$ -- 460
+chr.to.int$ -- 56
+cite$ -- 65
+duplicate$ -- 946
+empty$ -- 1665
+format.name$ -- 446
+if$ -- 4872
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 53
-newline$ -- 273
-num.names$ -- 165
-pop$ -- 442
+missing$ -- 54
+newline$ -- 278
+num.names$ -- 168
+pop$ -- 446
 preamble$ -- 1
-purify$ -- 455
+purify$ -- 462
 quote$ -- 0
-skip$ -- 716
+skip$ -- 727
 stack$ -- 0
-substring$ -- 1681
-swap$ -- 177
+substring$ -- 1712
+swap$ -- 178
 text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 328
+type$ -- 334
 warning$ -- 9
-while$ -- 202
+while$ -- 206
 width$ -- 0
-write$ -- 703
+write$ -- 716
 (There were 6 error messages)

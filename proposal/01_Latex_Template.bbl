@@ -54,6 +54,12 @@ Ding, W., Stepinski, T.~F., Mu, Y., Bandeira, L., Ricardo, R., Wu, Y., Lu, Z.,
 \newblock {\em ACM Transactions on Intelligent Systems and Technology (TIST)},
   2(4):39.
 
+\bibitem[Duda and Hart, 1972]{duda1972use}
+Duda, R.~O. and Hart, P.~E. (1972).
+\newblock Use of the hough transformation to detect lines and curves in
+  pictures.
+\newblock {\em Communications of the ACM}, 15(1):11--15.
+
 \bibitem[Emami et~al., 2015]{emami2015automatic}
 Emami, E., Bebis, G., Nefian, A., and Fong, T. (2015).
 \newblock Automatic crater detection using convex grouping and convolutional
