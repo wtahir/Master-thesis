@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[Ali-Dib et~al., 2019]{ali2019automated}
+Ali-Dib, M., Menou, K., Zhu, C., Hammond, N., and Jackson, A.~P. (2019).
+\newblock Automated crater shape retrieval using weakly-supervised deep
+  learning.
+\newblock {\em arXiv preprint arXiv:1906.08826}.
+
 \bibitem[Badrinarayanan et~al., 2017]{badrinarayanan2017segnet}
 Badrinarayanan, V., Kendall, A., and Cipolla, R. (2017).
 \newblock Segnet: A deep convolutional encoder-decoder architecture for image
@@ -73,6 +79,11 @@ Felzenszwalb, P., McAllester, D., and Ramanan, D. (2008).
 \newblock In {\em 2008 IEEE conference on computer vision and pattern
   recognition}, pages 1--8. IEEE.
 
+\bibitem[Finkelstein et~al., ]{finkelsteinautomatic}
+Finkelstein, M., Baby, S.~M., and Kitano, H.
+\newblock Automatic lunar crater detection from optical images and elevation
+  maps.
+
 \bibitem[Girshick, 2015]{girshick2015fast}
 Girshick, R. (2015).
 \newblock Fast r-cnn.
@@ -140,12 +151,6 @@ Li, C.~H. and Lee, C. (1993).
 \newblock Minimum cross entropy thresholding.
 \newblock {\em Pattern recognition}, 26(4):617--625.
 
-\bibitem[Long et~al., 2015]{long2015fully}
-Long, J., Shelhamer, E., and Darrell, T. (2015).
-\newblock Fully convolutional networks for semantic segmentation.
-\newblock In {\em Proceedings of the IEEE conference on computer vision and
-  pattern recognition}, pages 3431--3440.
-
 \bibitem[Martins et~al., 2009]{martins2009crater}
 Martins, R., Pina, P., Marques, J.~S., and Silveira, M. (2009).
 \newblock Crater detection by a boosting approach.
@@ -195,6 +200,12 @@ Polegubic, D. (2020).
 \newblock Landing site characterization for the pts lunar mission to the apollo
   17 area.
 \newblock {\em Master thesis at the Technical University of Berlin}.
+
+\bibitem[Reiss, 1993]{reiss1993recognizing}
+Reiss, T.~H. (1993).
+\newblock {\em Recognizing planar objects using invariant image features},
+  volume~17.
+\newblock Springer.
 
 \bibitem[Ren et~al., 2015]{ren2015faster}
 Ren, S., He, K., Girshick, R., and Sun, J. (2015).

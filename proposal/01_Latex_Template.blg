@@ -3,32 +3,34 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: 01_Latex_Template.aux
 The style file: apalike.bst
 Database file #1: mybib.bib
-Repeated entry---line 311 of file mybib.bib
+Repeated entry---line 331 of file mybib.bib
  : @incollection{stoffler2001stratigraphy
  :                                       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 320 of file mybib.bib
+Repeated entry---line 340 of file mybib.bib
  : @article{hiesinger2000ages
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 506 of file mybib.bib
+Repeated entry---line 526 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 662 of file mybib.bib
+Repeated entry---line 682 of file mybib.bib
  : @article{ding2011subkilometer
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 681 of file mybib.bib
+Repeated entry---line 701 of file mybib.bib
  : @inproceedings{ronneberger2015u
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 734 of file mybib.bib
+Repeated entry---line 754 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
 Warning--empty journal in burl2001automated
 Warning--empty booktitle in dalal2005histograms
+Warning--empty year in finkelsteinautomatic
+Warning--empty journal in finkelsteinautomatic
 Warning--empty year in girshick_rich_2013
 Warning--empty journal in girshick_rich_2013
 Warning--empty year in he_mask_2017
@@ -36,45 +38,45 @@ Warning--empty journal in he_mask_2017
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 56 entries,
+You've used 58 entries,
             1935 wiz_defined-function locations,
-            799 strings with 14115 characters,
-and the built_in function-call counts, 24629 in all, are:
-= -- 2429
-> -- 1087
-< -- 40
-+ -- 384
-- -- 372
-* -- 2089
-:= -- 4180
-add.period$ -- 170
-call.type$ -- 56
-change.case$ -- 460
-chr.to.int$ -- 56
-cite$ -- 65
-duplicate$ -- 946
-empty$ -- 1665
-format.name$ -- 446
-if$ -- 4872
+            805 strings with 14359 characters,
+and the built_in function-call counts, 25056 in all, are:
+= -- 2457
+> -- 1122
+< -- 41
++ -- 396
+- -- 384
+* -- 2129
+:= -- 4285
+add.period$ -- 175
+call.type$ -- 58
+change.case$ -- 475
+chr.to.int$ -- 58
+cite$ -- 69
+duplicate$ -- 957
+empty$ -- 1683
+format.name$ -- 460
+if$ -- 4930
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 54
-newline$ -- 278
-num.names$ -- 168
-pop$ -- 446
+missing$ -- 57
+newline$ -- 287
+num.names$ -- 174
+pop$ -- 463
 preamble$ -- 1
-purify$ -- 462
+purify$ -- 478
 quote$ -- 0
-skip$ -- 727
+skip$ -- 732
 stack$ -- 0
-substring$ -- 1712
-swap$ -- 178
+substring$ -- 1696
+swap$ -- 169
 text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 334
-warning$ -- 9
-while$ -- 206
+type$ -- 344
+warning$ -- 11
+while$ -- 207
 width$ -- 0
-write$ -- 716
+write$ -- 737
 (There were 6 error messages)
