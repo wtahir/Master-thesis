@@ -52,7 +52,7 @@
 %Kopfzeile mittig
 \fancyhead[C]{\large{Master Thesis}}
 %Kopfzeile rechts bzw. außen
-\fancyhead[R]{\includegraphics{files/TUs}}
+%\fancyhead[R]{\includegraphics{files/TUs}}
 %Linie oben
 \renewcommand{\headrulewidth}{0.5 pt}
 
@@ -309,7 +309,16 @@ A deep learning model based on CNN architecture was introduced by \cite{silburt2
 	\label{dem}
 \end{figure}
 
-\cite{cohen2016crater} demonstrated that ConvNet for crater detection outperformed previously tested methods including CDAs presented by \cite{stepinski2009machine}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer} in the same dataset.
+\cite{cohen2016crater} demonstrated that ConvNet for crater detection outperformed previously tested methods including CDAs presented by \cite{stepinski2009machine}, \cite{bandeira2010automatic} and \cite{ding2011subkilometer} in the same dataset. An algorithm based on Fast-RCNN was proposed by \cite{emami2015automatic} for lunar crater detection on LRO dataset and it showed great potential in CNN applications for this task. ConvNets are becoming more common in crater detection problems and these are specially of more importance because of the fact that major part of CDAs is not accepted by planetary science community as general purpose crater detection tools \cite{emami2015automatic}. Intersection over union (IoU) was taken as 30\% by the author based on experimentation of precision and recall values.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\linewidth]{files/literature/fastrcnn.png}
+	\caption{Crater detection results on LRO dataset by using Fast R-CNN based network \cite{emami2015automatic}.}
+	\label{dem}
+\end{figure}
+
+In recent months \cite{ali2019automated} experimented with instance segmentation method on crater detection problem. The algorithm is well known Mask-RCNN presented by \cite{he2017mask}. Model was trained on Lunar digital elevation maps (DEMs) to detect craters in an image and simultaneously producing a mask for each crater that also traces the outer rim of it. Then a post-processing pipeline was introduced to find the closest fitting ellipse to these masks. However, optical images were not taken into account because the target diameter was $\leq$ 5 km which justifies the use of DEMs.
 
 \begin{comment}
 \cite{honda2000crater} compared multiple methods for crater detection and categorization. Those included combinational Hough transform and genetic algorithms. The idea was to first detect then classify according to shape of craters i.e. cone-shaped, bowl-shaped or flat-floored with central peak.
@@ -862,16 +871,8 @@ Another way of normalization is to normalize a dataset by bringing it in a range
 In neural network exploding gradient refers to a problem when weight is larger than identity and it is multiplied by pixels of image (ignoring bias in this case) then resultant is very high, this will further pass on to next neuron and it will be even higher, thus in a network specially in a deep network it will result into a very large value. The opposite problem is a vanishing gradient when a weight is less than identity then multiplication of weight results into even a smaller number therefore output is a very small value which means that network has barely learned in all of the layers.
 \end{comment}
 
-\subsection{Pre-processing}
-In this step before training of Neural Network images are processed for annotation and extracting labeled masks for the preparation of input data set for training. It involves following step.
-
-\begin{itemize}
-	\item {Image Annotation}
-	\item {Extraction of Binary Masks}
-\end{itemize}
-
-\subsubsection{Image Annotation}
-It is one of the most important tasks in computer vision problem related to deep learning. This task is done by human, images are annotated with labels. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These labels carry information to the Neural Network about what are the target features in image. In this particular project there is only one label which is "crater" and has shape of a circle.
+\subsection{Data Preparation}
+Image data is acquired from LRO with each of the image having resolution of 1.009 and each image is of the size 5064$\times$52224 pixels. These images are very large in size, therefore to make training feasible without requiring several powerful GPUs the images are cropped into 256$\times$256 sized tiles. For training a total of 300 images were taken with several thousands of craters ranging from diameter of 1 meter to 200 meters. I labeled these images and there are about 15000 marked craters. Annotation is one of the most important tasks in computer vision problem related to deep learning. This task is done by human, images are annotated with labels. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These labels carry information to the Neural Network about what are the target features in image. In this particular project there is only one label which is "crater" and has shape of a circle.
 
 Annotation (labeling) could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of machine learning and finding already annotated data set seems difficult to find. Therefore labeling was needed for training purpose. 
 
@@ -888,30 +889,23 @@ There are several tools to perform annotation, some are listed below.
 
 After performing few annotation experiments from the above mentioned tools, VGG Image Annotator was found most simple and faster to annotate lunar crater dataset. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as x and y coordinates and radius respectively.
 
-In Figure: \ref{ann}, images in the first row are part of the training dataset and below them are the annotations. Images marked with circles on craters are not intended to be used for the training of algorithm, those are only visualizations to labeled data so that wrong annotations could be removed or missing ones could be added.
-
-\begin{figure*}[ht!]
-	\includegraphics[width=.3\textwidth]{files/annotation/66.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/annotation/29.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/annotation/20.png}
-\end{figure*}
+In Figure: \ref{an}, images in the first row are part of the training dataset and below them are the annotations. Images marked with circles on craters are not intended to be used for the training of algorithm, those are only visualizations to labeled data so that wrong annotations could be removed or missing ones could be added.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/annotation/66n.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/annotation/29n.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/annotation/20n.png}
 	\caption{Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool}
-	\label{ann}
+	\label{an}
 \end{figure*}
 
-\subsubsection{Extraction of Binary Masks}
-Like mentioned before the result of these annotations (json) is projected to get the binary masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure: \ref{mask}. White circles are craters belonging to Figure: \ref{ann}. These provide learning objective to Neural Network that how the shape looks like and what features to learn. These binary masks have pixel values either 0 or 255 and are of the same shape along $x$ and $y$ as of the images. These masks are normalized in side the algorithm architecture to values 0 and 1.
+The result of these annotations is projected to get the binary masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure: \ref{mask}. White circles are craters belonging to Figure: \ref{an}. These provide learning objective to Neural Network that how the shape looks like and what features to learn. These binary masks have pixel values either 0 or 255 and are of the same shape along $x$ and $y$ as of the images. These masks are normalized in side the algorithm architecture to values 0 and 1.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/annotation/66m.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/annotation/29m.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/annotation/20m.png}
-	\caption{Visualization of binary masks after projection from annotated (json format) images that belong to Figure: \ref{ann}}
+	\caption{Visualization of binary masks after projection from annotated (json format) images that belong to Figure: \ref{an}}
 	\label{mask}
 \end{figure*}
 

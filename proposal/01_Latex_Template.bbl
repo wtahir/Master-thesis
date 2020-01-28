@@ -102,6 +102,12 @@ Hartmann, W.~K. (1981).
 \newblock {\em Basaltic Volcanism on the Terrestrial Planets.}, pages
   1049--1127.
 
+\bibitem[He et~al., 2017]{he2017mask}
+He, K., Gkioxari, G., Doll{\'a}r, P., and Girshick, R. (2017).
+\newblock Mask r-cnn.
+\newblock In {\em Proceedings of the IEEE international conference on computer
+  vision}, pages 2961--2969.
+
 \bibitem[He et~al., ]{he_mask_2017}
 He, K., Gkioxari, G., Dollár, P., and Girshick, R.
 \newblock Mask r-{CNN}.

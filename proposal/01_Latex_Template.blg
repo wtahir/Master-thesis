@@ -38,45 +38,45 @@ Warning--empty journal in he_mask_2017
 Warning--empty journal in sawabe_2006
 Warning--empty year in szegedy_going_2015
 Warning--empty booktitle in szegedy_going_2015
-You've used 58 entries,
+You've used 59 entries,
             1935 wiz_defined-function locations,
-            805 strings with 14359 characters,
-and the built_in function-call counts, 25056 in all, are:
-= -- 2457
-> -- 1122
-< -- 41
-+ -- 396
-- -- 384
-* -- 2129
-:= -- 4285
-add.period$ -- 175
-call.type$ -- 58
-change.case$ -- 475
-chr.to.int$ -- 58
-cite$ -- 69
-duplicate$ -- 957
-empty$ -- 1683
-format.name$ -- 460
-if$ -- 4930
+            809 strings with 14463 characters,
+and the built_in function-call counts, 25672 in all, are:
+= -- 2521
+> -- 1145
+< -- 42
++ -- 404
+- -- 392
+* -- 2174
+:= -- 4375
+add.period$ -- 178
+call.type$ -- 59
+change.case$ -- 484
+chr.to.int$ -- 59
+cite$ -- 70
+duplicate$ -- 986
+empty$ -- 1728
+format.name$ -- 469
+if$ -- 5065
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 57
-newline$ -- 287
-num.names$ -- 174
-pop$ -- 463
+missing$ -- 58
+newline$ -- 292
+num.names$ -- 177
+pop$ -- 476
 preamble$ -- 1
-purify$ -- 478
+purify$ -- 487
 quote$ -- 0
-skip$ -- 732
+skip$ -- 756
 stack$ -- 0
-substring$ -- 1696
-swap$ -- 169
-text.length$ -- 20
+substring$ -- 1748
+swap$ -- 181
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 344
+type$ -- 350
 warning$ -- 11
-while$ -- 207
+while$ -- 212
 width$ -- 0
-write$ -- 737
+write$ -- 750
 (There were 6 error messages)
