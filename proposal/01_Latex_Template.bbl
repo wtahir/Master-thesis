@@ -66,6 +66,19 @@ Duda, R.~O. and Hart, P.~E. (1972).
   pictures.
 \newblock {\em Communications of the ACM}, 15(1):11--15.
 
+\bibitem[Dvornik et~al., 2019]{dvornik2019importance}
+Dvornik, N., Mairal, J., and Schmid, C. (2019).
+\newblock On the importance of visual context for data augmentation in scene
+  understanding.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence}.
+
+\bibitem[Dwibedi et~al., 2017]{dwibedi2017cut}
+Dwibedi, D., Misra, I., and Hebert, M. (2017).
+\newblock Cut, paste and learn: Surprisingly easy synthesis for instance
+  detection.
+\newblock In {\em Proceedings of the IEEE International Conference on Computer
+  Vision}, pages 1301--1310.
+
 \bibitem[Emami et~al., 2015]{emami2015automatic}
 Emami, E., Bebis, G., Nefian, A., and Fong, T. (2015).
 \newblock Automatic crater detection using convex grouping and convolutional

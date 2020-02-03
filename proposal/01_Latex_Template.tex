@@ -83,10 +83,6 @@
 	%Absatz
 	\vspace{0.1\textheight}
 	
-	\begin{center}
-		Master Thesis
-	\end{center}
-	
 	%Absatz
 	\begin{verbatim}
  
@@ -856,11 +852,15 @@ After training, to get detected craters from raw images, LRO large images are sp
 \end{table} 
 
 \subsection{Data Set}
-The dataset which is in the form of gray scale lunar images is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters it contains, it was considered to take one of the image and crop it into several small images of equal size and width. This dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. The amount of cropped images are 300 each with size 350x350 and are gray scale images.
+There are two different datasets taken into account for model evaluation. First dataset which is in the form of gray scale lunar image is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064x52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters present in an image, it was considered to take one of the image entitled as "M1111897809LE" (can be easily located in LRO database) and crop it into several small images of equal size and width (256$\times$256). This image has solar longitude angle of 52.81\textdegree. This cropping dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. Initially the amount of cropped images were 300 out of which 240 are used for training and 60 are used for validation. For testing additional 20 images are annotated which makes the total annotation of 320 images with craters ranging from 1m to 200m diameters. 
 
-\subsection{Pixel Normalization}
-Normalization is a key step in the preprocessing pipeline for any deep learning task. Normalization is also very important for medical images and there are a variety of methods for doing this. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
-are of most importance. Normalizing image inputs: Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. Data normalization is done by subtracting the mean from each pixel and then dividing the result by the standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs we need the pixel numbers to be positive, so we might choose to scale the normalized data in the range [0,1] or [0, 255]. 
+Second dataset is taken from \cite{dino2020} who annotated an LRO gray scale optical lunar image with 21.36\textdegree{} solar longitude angle of the Apollo 17 landing site. The image is of the size 3130$\times$2427 pixels with resolution of 0.51 which is cropped into several images of the size 256$\times$256 for prediction. Tiles of this size are created to align this data with the testing data.
+
+%hardware of 2 GPU NVIDIA GeForce MX150 and also the model is engineered to take input size of 256$\times$256 to limit hardware requirements.  
+
+\subsection{Image Normalization}
+Normalization is a key step in the preprocessing pipeline for any deep learning task. Normalization is also very important for lunar images and there are a variety of methods for doing this. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
+are of most importance. Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. As images are comprised of matrices with pixel values. Grayscale images are single matrix of pixels unlike colored images with three color channels. Normally pixel values range between 0 and 255. This raw format can also be used as an input to the neural network but this will increase amount of parameters that will result into slower training. Instead there is a great benefit in normalizing these pixel values to the range [0,1] to centering and even standardizing values. Lunar image data is normalized by subtracting the mean from each pixel and then dividing the result by standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs, the pixel numbers should be positive, so the chosen scale to normalize each image pixel is in the range of [0,1]. 
 
 \begin{comment}
 In machine learning normalization is a typical practice in preprocessing of data before its final preparation to run it through a neural network. Data can be standardized meaning subtracting a mean of dataset from each data point and dividing the dataset by standard deviation, mathematically standardization $z$ written as:
@@ -872,9 +872,9 @@ In neural network exploding gradient refers to a problem when weight is larger t
 \end{comment}
 
 \subsection{Data Preparation}
-Image data is acquired from LRO with each of the image having resolution of 1.009 and each image is of the size 5064$\times$52224 pixels. These images are very large in size, therefore to make training feasible without requiring several powerful GPUs the images are cropped into 256$\times$256 sized tiles. For training a total of 300 images were taken with several thousands of craters ranging from diameter of 1 meter to 200 meters. I labeled these images and there are about 15000 marked craters. Annotation is one of the most important tasks in computer vision problem related to deep learning. This task is done by human, images are annotated with labels. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These labels carry information to the Neural Network about what are the target features in image. In this particular project there is only one label which is "crater" and has shape of a circle.
+For data preparation, annotation is one of the most important tasks in computer vision problem related to deep learning. This task is done manually, images are annotated and assigned a class. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These annotations carry information to the Neural Network about the target features in an image. In this data. there is only one label which is "crater" and has shape of a circle, whereas rest is the background class.
 
-Annotation (labeling) could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of machine learning and finding already annotated data set seems difficult to find. Therefore labeling was needed for training purpose. 
+Annotation or labeling could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of deep learning therefore annotation was performed by me for training purpose. There are several annotation tools and after performing few experiments with various tools, VGG Image Annotator was found most simple and faster to annotate lunar crater data. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as $x$ and $y$ coordinates and radius respectively.
 
 \begin{comment}
 There are several tools to perform annotation, some are listed below.
@@ -887,8 +887,6 @@ There are several tools to perform annotation, some are listed below.
 \end{itemize}
 \end{comment}
 
-After performing few annotation experiments from the above mentioned tools, VGG Image Annotator was found most simple and faster to annotate lunar crater dataset. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as x and y coordinates and radius respectively.
-
 In Figure: \ref{an}, images in the first row are part of the training dataset and below them are the annotations. Images marked with circles on craters are not intended to be used for the training of algorithm, those are only visualizations to labeled data so that wrong annotations could be removed or missing ones could be added.
 
 \begin{figure*}[ht!]
@@ -899,7 +897,7 @@ In Figure: \ref{an}, images in the first row are part of the training dataset an
 	\label{an}
 \end{figure*}
 
-The result of these annotations is projected to get the binary masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure: \ref{mask}. White circles are craters belonging to Figure: \ref{an}. These provide learning objective to Neural Network that how the shape looks like and what features to learn. These binary masks have pixel values either 0 or 255 and are of the same shape along $x$ and $y$ as of the images. These masks are normalized in side the algorithm architecture to values 0 and 1.
+The result of these annotations is projected to get the masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure: \ref{mask}. White circles are craters belonging to Figure: \ref{an}. These provide learning objective to Neural Network that how the shape looks like and what features to learn. These binary masks have pixel values either 0 or 1 and are of the same shape along $x$ and $y$ as of the respective images.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/annotation/66m.png}\hfill
@@ -910,11 +908,13 @@ The result of these annotations is projected to get the binary masks of craters.
 \end{figure*}
 
 \subsubsection{Data Augmentation}
-To create larger dataset without additional annotations, data augmentation is necessary. Creation of a larger dataset is done to achieve better training for the algorithm. Augmentation creates multiple images out of one image which means larger dataset for training of algorithm and thus achieve better performance on test data. Therefore every training image is randomly augmented in following ways:
+Reducing overfitting can be achieved through data augmentation. For many of the vision problems, generic input transformations like rescaling, cropping, adjusting colors or addition of noise are often helpful and may substantially improve generalization \cite{dvornik2019importance}. Development of more elaborate strategies requires prior knowledge of the task. For instance, all categories in ImageNet or Pascal VOC datasets are invariant to horizontal flips (e.g, flipping an airplane is still an airplane). But flipping will not be meaningful for the MNIST dataset, for example a flipped '5' is not a digit. Typically augmentation is achieved by creating new images with objects placed at various positions in existing scenes and this strategy of random placements has proven surprisingly effective for object instance segmentation \cite{dwibedi2017cut} which focuses on retrieving instances of a particular object. Where as in semantic segmentation the focus is on distinguishing categories rather than object themselves. For such tasks the random placement technique simply does not work and was proven through experimentation by \cite{dvornik2019importance}. 
+
+Specifically for lunar optical image augmentation, training image is randomly augmented in following ways:
 
 \begin{enumerate}
 	\item \underline{Rotation}: Random rotation of images from $0^{\circ}$ to $360^{\circ}$ angle.
-	\item \underline{Translation}: Random change in shift in x and y direction of image between -4 to 4 pixels.
+	%\item \underline{Translation}: Random change in shift in x and y direction of image between -4 to 4 pixels.
 	\item \underline{Flipping}: Image is flipped with a factor of 0.5 as probability. 
 \end{enumerate}
 

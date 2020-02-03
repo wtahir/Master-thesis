@@ -33,12 +33,12 @@
 \contentsline {section}{\numberline {5}Experiments}{28}
 \contentsline {subsection}{\numberline {5.1}Crater Detection Pipeline}{28}
 \contentsline {subsection}{\numberline {5.2}Data Set}{29}
-\contentsline {subsection}{\numberline {5.3}Pixel Normalization}{29}
+\contentsline {subsection}{\numberline {5.3}Image Normalization}{29}
 \contentsline {subsection}{\numberline {5.4}Data Preparation}{30}
 \contentsline {subsubsection}{\numberline {5.4.1}Data Augmentation}{31}
-\contentsline {subsection}{\numberline {5.5}Training}{31}
+\contentsline {subsection}{\numberline {5.5}Training}{32}
 \contentsline {subsection}{\numberline {5.6}Prediction}{32}
-\contentsline {subsection}{\numberline {5.7}Post-processing}{32}
+\contentsline {subsection}{\numberline {5.7}Post-processing}{33}
 \contentsline {subsection}{\numberline {5.8}Results and Discussion}{33}
 \contentsline {subsection}{\numberline {5.9}Plotting Age Curve}{39}
 \contentsline {section}{\numberline {6}Conclusion}{39}
