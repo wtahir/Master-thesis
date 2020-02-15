@@ -1,11 +1,12 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Introduction}{3}
-\contentsline {section}{\numberline {2}Related Work}{5}
-\contentsline {subsection}{\numberline {2.1}State of the Art}{8}
-\contentsline {subsection}{\numberline {2.2}Deep Learning}{11}
-\contentsline {subsection}{\numberline {2.3}Planetary Surface Age Dating}{13}
-\contentsline {subsubsection}{\numberline {2.3.1}Hartmann Production Function (HPF)}{14}
-\contentsline {subsubsection}{\numberline {2.3.2}Neukum Production Function (NPF)}{15}
+\contentsline {section}{\numberline {2}Related Work}{6}
+\contentsline {subsection}{\numberline {2.1}Object Detection}{6}
+\contentsline {subsection}{\numberline {2.2}Traditional Crater Detection Methods}{8}
+\contentsline {subsection}{\numberline {2.3}Crater Detection via Deep Learning}{11}
+\contentsline {subsection}{\numberline {2.4}Planetary Surface Age Dating}{14}
+\contentsline {subsubsection}{\numberline {2.4.1}Hartmann Production Function (HPF)}{14}
+\contentsline {subsubsection}{\numberline {2.4.2}Neukum Production Function (NPF)}{15}
 \contentsline {section}{\numberline {3}Methods}{17}
 \contentsline {subsection}{\numberline {3.1}Semantic Segmentation}{17}
 \contentsline {subsection}{\numberline {3.2}Hough Circle Transformation}{17}
