@@ -514,14 +514,14 @@ Image level classification means treating each image as an identical category. I
 Hough proposed a procedure for line detection in images. This method was extended to GHT for detection of curves in a picture and detailed procedure is provided by \cite{duda1972use}. This has remained one of the widely used methods for circle detection in the field of computer vision.
 
 \subsection{Instance Segmentation}
-Instance segmentation provides not only a pixel-level segmentation to an object but also determines the different instances of objects in an image. This addition makes instance segmentation more challenging that semantic segmentation. In last 3 years neural networks have been introduced that are able to perform instance segmentation and also keep better accuracy as compared to state of the art methods. But a successful training of such deep networks requires many thousands of labeled samples. 
+Instance segmentation provides not only a pixel-level segmentation to an object but also determines the different instances of objects in an image. This addition makes instance segmentation more challenging than semantic segmentation. In last 3 years neural networks have been introduced that are able to perform instance segmentation and also keep better accuracy as compared to state of the art methods. But a successful training of such deep networks requires many thousands of labeled samples. 
 
 In this thesis, the proposed method for crater detection with a small dataset is based on an encoder-decoder architecture. This architecture is a slight variation of a neural network also known as U-Net presented by \cite{ronneberger2015u}. This network is chosen to perform pixel-wise segmentation because of three main reasons; it does not require several thousands of images for training, it does not need transfer learning and can be trained from scratch which makes it robust, it also has a simple network structure which can be easily altered to fit segmentation goals. U-Net has also proven to be an effective network for segmenting single class in satellite data \cite{Snuverink2017}. U-Net was originally developed for segmentation of biomedical images and it achieved an average IoU of 77.5\% on DIC-HeLa dataset in ISBI cell tracking challenge 2015 which was the best score at that time. A different version of U-Net was applied for Martian craters segmentation by \cite{delatte2019segmentation} and 76\% accuracy was achieved along with age dating results consistent with human annotations for same geological units. This application demonstrated that CNN offers an advantageous approach to labor-intensive challenging task of satellites image analysis. 
 
 \subsection{Contrast Limited Adaptive Histogram Equalization (CLAHE)}
-Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose alot of information as those pixels are stretched further towards 255 and object becomes too bright. 
+Histogram equilization considers the global contrast of an image. Therefore in cases where image has high pixel values, such regions tend to loose significant amount of information as those pixels are stretched further towards the value of 255 and object becomes too bright. 
 
-By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation. By applying CLAHE the detection of craters increased up to 40\%. 
+By using CLAHE, the image is divided into small blocks also called tiles (function implemented in OpenCV has default tile size of 8x8 pixels). Then each one of these tiles histogram equalized. This makes histogram confined to a small area. It will be amplified if noise is there. Contrast limiting is applied to avoid this problem. The default contrast limit is 40 in OpenCV and pixels with larger values are clipped and distributed to other bins uniformly before application of histogram equilization. After that there are artifacts in tile boarders which are removed by the application of bilinear interpolation.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
@@ -535,10 +535,10 @@ By using CLAHE, the image is divided into small blocks also called tiles (functi
 \end{figure*}
 
 \subsection{Binarization Methods}
-Several binarization methods are applied to experiment best suited thresholding for probability maps. These methods are discussed below.
+Several binarization methods are applied to experiment best suited thresholding for probability maps also known as heat maps. These maps represent an image with a range of values from dark to bright pixels. Dark pixels means that it is a background class i.e. no crater whereas bright pixels means that they belong to a potential crater class. Binarization methods that are used in post-processing are discussed below.
 
 \subsubsection{Otsu's Method}
-This method was presented by Scholar Otsu. It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In lunar images probability map, the histogram has two peaks. Otsu in simple words take the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given in Figure: \ref{otsu thresholding} is the outcome of this method.
+This method was presented by Otsu (1992). It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In probability map of lunar images, the histogram has two peaks. Otsu in simple words takes the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given below is mathematical representation of this method and Fig. \ref{otsu thresholding} shows the outcome.
 
 \begin{equation}
 \sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
@@ -547,39 +547,40 @@ This method was presented by Scholar Otsu. It is widely used till today because 
 Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
 
 \subsubsection{Sauvola's Algorithm}
-It takes graysscale images as input. If an image has three color channels then its necessary to convert that into grayscale image. Savoula proposed to compute a threshold of a grayscale image at each pixel using:
+It takes gray scale images as an input. If an image has three color channels then it is necessary to convert that into a gray scale image. Savoula proposed to compute a threshold of a gray scale image at each pixel using:
 
 \begin{equation}
 T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
 \end{equation}
 
-Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which can be visualized in Figure: \ref{sauvola thresholding}.
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which means that it shows there are potential craters where there are no actual craters. This method is very sensitive to background features and hence results into over-segmentation. Result of this algorithm can be visualized in Fig. \ref{sauvola thresholding}.
 
 \subsubsection{Niblack Method}
-This method was proposed in 1986 by Niblack. Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentatio. Therefore this method was developed to preserve minute details at local while object separation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. The equation is given as:
+This method was proposed by Niblack (1986). Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentation. Therefore this method was developed to preserve minute details while segmentation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. See Eq. \ref{ni} for the mathematical representation.
 
 \begin{equation}
 T_{d}=m(x, y)+k \times s(x, y)
+\label{ni}
 \end{equation}
-where $m(x, y)$ is local mean and $s(x, y)$ is standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Figure: \ref{Niblack_th}.
+where $m(x, y)$ is local mean and $s(x, y)$ is the standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Fig. \ref{Niblack_th}.
 
 \subsubsection{Adaptive Mean Thresholding}
-In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method is given in Figure: \ref{Adaptive mean thresholding}.
+In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method can be seen in Fig. \ref{Adaptive mean thresholding}.
 
 \subsubsection{Mean Thresholding}
-This threshold is simply mean of the grayscale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Figure: \ref{mean_th}.
+This threshold is simply mean of the gray scale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Fig. \ref{mean_th}.
 
 \subsubsection{Yen Thresholding}
-This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Figure: \ref{Yen thresholding}.
+This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Fig. \ref{Yen thresholding}.
 
 \subsubsection{Li Thresholding}
-This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Figure: \ref{Li thresholding}.
+This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Fig. \ref{Li thresholding}.
 
 \subsubsection{Isodata Thresholding}
-Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Figure: \ref{isodata thresholding} shows the outcome of this method.
+Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Fig. \ref{isodata thresholding} shows the outcome of this method.
 
 \subsection{Evaluation Method}
-Precision, recall and F1-score evaluate the performance of algorithm. Precision is defined as the percentage of results which are relevant and mathematically written as:
+Precision, recall and the F1-score are chosen to evaluate performance of the algorithm. These are well known evaluation metrics in object detection problem because of taking into consideration not only the true and false positives but also the false negatives. Precision is defined as the percentage of results which are relevant and mathematically written as:
 
 \begin{equation*}
 \text{Precision} = \frac{\text{True positive}}{\text{True positive + False positive}}
@@ -593,25 +594,25 @@ Recall is defined as the percentage of total relevant results correctly classifi
 \text{Recall} = \frac{\text{True positive}}{\text{True positive + False negative}}
 \end{equation*}
 
-In the above equation false negatives are simply missed craters by the algorithms. For overall evaluation both of these metrics are taken into account and finally F1-score has been computed by the given equation:
+In the above equation false negatives are simply missed craters by the algorithms. For overall evaluation, both of these metrics are taken into account and finally F1-score has been computed by the given equation:
 
 \begin{equation*}
 \text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
 \end{equation*}
 
-Hence higher the F1-score better is the performance of algorithm and vice versa. Following the experiments of \cite{emami2015automatic} a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive.
+Hence higher the F1-score better is the performance of algorithm and vice versa. Depending on the type of data and following the experimentation results of \cite{emami2015automatic}, it is chosen that a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive.
 
 \section{Model Architecture}
-The model architecture is composed of contracting and expansive paths as shown in the Figure: \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is referred to as contracting path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of rectified linear unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number feature channels are doubled as seen in the Figure: \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
+The model architecture is composed of encoding and decoding paths as shown in the Fig. \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is also referred to as encoding path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of Rectified Linear Unit (ReLU) are followed by a layer of max pooling of the size 2x2. This results into downsampling of the image. During each downsampling step the number of feature channels are doubled as seen in the Fig. \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.6\linewidth]{files/unet/tile.png}
-	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring \cite{ronneberger2015u}.}
-	\label{fig:tiling}
-\end{figure} 
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.6\linewidth]{files/unet/tile.png}
+%	\caption{This is example of neuronal structures segmentation. It shows the overlap-tile strategy for seamless segmentation of large images. The yellow area is target for prediction and data inside the blue area is required as in input for prediction. Missing input data is exptrapolated by mirroring \cite{ronneberger2015u}.}
+%	\label{fig:tiling}
+%\end{figure} 
 
-The right part of Figure: \ref{fig:U-net} illustrates the expansive path where every step consists of upsampling of feature map which is followed by a 2x2 convolutional operation (also referred to as up-convolution). This halves the number of feature channels. The gray arrow shows the concatenation of corresponding feature map from contracting path where it is cropped from the image. It is then subjected to two 3x3 convolutions and each followed up by a ReLU activation function. The cropping is required because of loss of boarder pixels during convolutions. At the final layer a 1x1 convolution maps each 64 component feature vector to the target number of classes i.e. background class and crater class. The final layer follows up by sigmoid activation function which determines the output of a class score between 0 to 1. Finally, binary cross entropy determines the loss while training of algorithm. In this model the total number of convolutional layers amounts to 23. It is important to select the input image size so that max pooling operations are applied to a layer with the same x and y size. This allows seamless tiling of segmentation map in output as shown in Figure: \ref{fig:tiling}
+The right part of Fig. \ref{fig:U-net} illustrates the decoding path where every step consists of upsampling of feature map which is followed by a 2x2 convolutional operation (also referred to as up-convolution). This halves the number of feature channels. The gray arrow shows the concatenation of corresponding feature map from encoding path where it is cropped from the image. It is then subjected to two 3x3 convolutions and each followed up by a ReLU activation function. The cropping is required because of loss of boarder pixels during convolutions. At the final layer a 1x1 convolution maps each 64 component feature vector to the target number of classes i.e. background class and the crater class. The final layer follows up by sigmoid activation function which determines the output of a class score between zero and one. Finally, binary cross entropy determines the loss while training of algorithm. In this model the total number of convolutional layers amounts to 23. It is important to select the input image size so that max pooling operations are applied to a layer with the same $x$ and $y$ size. This allows seamless tiling of segmentation map.
 
 \begin{figure}[ht!]
 	\centering
@@ -621,22 +622,23 @@ The right part of Figure: \ref{fig:U-net} illustrates the expansive path where e
 \end{figure} 
 
 \subsection{Convolutional Layer}
-Convolutional layers essentially extracts a feature map from images. Images are mathematically represented by matrices with three color channels as red, green and blue (RGB). Gray scale images have only single channel. Therefore an image has a size $h \times w \times d$ where $d$ is depth represented by number of channels. Convolutional layers includes a filter (also referred to as kernel) which is also composed of $f_h \times f_w \times d$. Filter has a height and width smaller than the image size. It slides over (convolves with) the image producing a feature map. This convolution is the sum of element-wise multiplication of filter with the image. It is to be noted that depth of the filter is same as that of the input image therefore it varies with network.
+Convolutional layers essentially extracts a feature map from images. Images are mathematically represented by matrices with three color channels as red, green and blue (RGB). Gray scale images have only single channel. Therefore an image has a size $h \times w \times d$ where $d$ is depth represented by number of channels. Convolutional layers includes a filter (also referred to as kernel) which is also composed of $f_h \times f_w \times f_d$. Filter has a height and width smaller than the image size. It slides over (convolves with) the image producing a feature map. This convolution is the sum of element-wise multiplication of filter with the image. It is to be noted that depth of the filter is same as that of the input image therefore it varies with network.
 
-Filter stride is a parameter that needs to be defined before training in convolutional layers. It determines the number of pixels by which a filter shifts at a time. Convolutional layers tend to reduce the output mapping size. A larger stride size will also result in a smaller sized output. Equation shows the relationship between output and input size of an image with a stride $s$ and filter $f$. The size of feature maps decreases by increase in convolutional layers. Row ($O_x$) and column ($O_y$) output size of convolutional layers are calculated as:
+Filter stride is a parameter that needs to be defined before training in convolutional layers. It determines the number of pixels by which a filter shifts at a time. Convolutional layers tend to reduce the output mapping size. A larger stride size will also result in a smaller sized output. Eqs. 8 and \ref{stride} shows the relationship between output and the input size of an image with a stride $s$ and filter $f$. The size of feature maps decreases by increase in convolutional layers. Row ($O_x$) and column ($O_y$) output size of convolutional layers are calculated as:
 
 \begin{align}
 O_{x}=\frac{i_{x}-f_{x} + 2p}{s}+1, \\
 O_{y}=\frac{i_{y}-f_{y} + 2p}{s}+1
+\label{stride}
 \end{align} 
 
-Assuming example of an input image with size ($256 \times 256$) and a filter size of ($3 \times 3$) having a stride $s$ of 1 and zero padding $p$ will result into an output size of ($254 \times 254$). By using additional filters $n$, the feature map will be of size ($254 \times 254 \times n$). So, addition of filters will increase the output depth of a convolutional layer.
+Assuming example of an input image with size ($256 \times 256$) and a filter size of ($3 \times 3$) having a stride $s$ of one and zero padding $p$ will result into an output size of ($254 \times 254$). By using additional filters $n$, the feature map will be of size ($254 \times 254 \times n$). So, addition of filters will increase the output depth of a convolutional layer.
 
 \begin{comment}
 Lets suppose there is a 2D input image of size 6x6. A filter convolves through the image to extract an output image with desired features. The filter (which is also a matrix) could be of size lets say 3x3, extracts certain features of the image. This process is known as convolutional operation because filter convolve through the image.
 \end{comment}
 
-Example shown in fig: \ref{fig:Convolutional Operation} represents a typical convolutional operation without padding and stride of 1. The output 429 in 4x4 matrix is obtained by addition of element wise multiplication of the filter with top left 3x3 portion of the input image. Then filter jumps to next pixel and other values are obtained the same way.
+Example shown in Fig. \ref{fig:Convolutional Operation} represents a typical convolutional operation without padding and stride value of one. The output $429$ in $4 \times 4$ matrix is obtained by addition of element wise multiplication of the filter with top left $3 \times 3$ portion of the input image. Then filter jumps to the next pixel and other values are obtained the same way.
 
 \begin{figure}[H]
 	\centering
@@ -654,7 +656,7 @@ In the above example $n$ equals 6 as image is 6x6 and $f$ is 3 because of 3x3 fi
 \end{comment}
 
 \subsection{Pooling Layer}
-An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of 2. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig \ref{fig:Pooling Operation}, number 6 is the highest value in this quadrant. It means that the most activated pixel in this quadrant is 6 and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a 4x4 matrix to just 2x2 matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting. The resultant matrix after a pooling operation can be obtained from the eq.(1) 
+An input image could be large which increases the amount of parameters and introducing a pooling layer helps to reduce the number of parameters. Most commonly used type of pooling is max pooling. Fig. \ref{fig:Pooling Operation} shows an example of max pooling with stride and filter size of two. The idea is to keep the high values in each quadrant because the highest number represents a particular feature and in the example shown in Fig. \ref{fig:Pooling Operation}, number six is the highest value in this quadrant. It means that the most activated pixel in this quadrant is six and same goes for other quadrants. The high values are preserved and lower ones are dropped out which are not as activated. Another pooling layer type is average pooling where averaged output of all the pixels is preserved. As it can be seen in the example below that pooling has reduced a $4 \times 4$ matrix to just $2 \times 2$ matrix, significant amount of parameters are reduced, in addition pooling may also help in reducing overfitting.
 
 \begin{figure}[H]
 	\centering
@@ -664,9 +666,9 @@ An input image could be large which increases the amount of parameters and intro
 \end{figure}
 
 \subsection{Activation Functions}
-These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is noting but a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
+These functions are an extremely important feature of a neural network. These functions decide which neuron (a neuron is a mathematical function) would be activated. This means whether the information received by a neuron is relevant or should it be ignored. An activation function performs a non-linear transformation on the input signal and forward it as an input to the next layer of neurons.
 
-Without activation functions weights and bias would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is nothing but a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
+Without activation functions, weights and biases would be simply doing a linear transformation and a linear equation is easy to solve but very limited to the capacity of solving complex problems. Therefore, a neural network without having an activation function is simply a linear regression model which will not be capable of learning or performing complex tasks. Image classification or object detection is a complicated task and would require non-linear transformations. These functions make the process of back propagation possible because of the receiving gradients and error which are a measure to update weights and biases.
 
 \subsubsection{Sigmoid Activation}
 It is defines as:
@@ -683,40 +685,39 @@ z = Wx_i + b
 
 $W$ being weight vector and $x_i$ is image vector, $b$ stands for bias
 
-The maximum output of this function is 1 and minimum is 0. Output always lies between values 0 and 1. Plotting a graph of sigmoid function represents it output more clearly:
+The maximum output of this function is one and minimum is zero. Output always lies between values zero and one. Graph of sigmoid function can be viewed in Fig. \ref{Sigmoid}
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.6\linewidth]{files/cnn_architecture/sigmoid.eps}
 	\caption{Sigmoid Function}
-	\label{fig: Sigmoid}
+	\label{Sigmoid}
 \end{figure}
 
-From the graph it can be seen in the graph that $z$ is 0 when curve is passing though 0.5. In convention a rule can be set if i.e. $z$ is greater than 0.5 then output is always 1 and if less than 0.5 then it is 0. A notable behavior of this function is that if $z$ is larger than the dotted region in graph then the derivative of this function is close to zero and same way if it is negative slope is again equal to or close to zero. 
+From the graph it can be seen that $z$ is zero when curve is passing though 0.5. In convention, a rule can be set if i.e. $z$ is greater than 0.5 then output is always one and if less than 0.5 then it is zero. In other words, if $z$ is larger than 2.5 in graph then the derivative of this function is close to one and same way if it less than -2.5 then it is equal to or close to zero.
 
-This means that it can slow down gradient descent. It also becomes a source of vanishing gradient problem. If the weights are initialized with either very large or very small values then these values saturate the input to sigmoid at very valued region (close to zero or close to one). Even if weights are initialized at a value i.e. ~0.2, in a deep network with many layers it will also lead to vanishing gradient problem. In case of only 4 layer network $0.2^{4}=0.0016$ which is small and will get even smaller in next layers. Also the mean of data is 0.5 which meas that data is not centered for the next layer. 
+This means that if $z$ does not fall inside both limits i.e. -2.5 and 2.5 then it can slow down gradient descent. It also becomes a source of vanishing gradient problem. If the weights are initialized with either very large or very small values then these values saturate the input to sigmoid at a limit region (i.e. close to zero or close to one). Even if weights are initialized at a value i.e. $\sim 0.2$, in a deep network with many layers it will also lead to vanishing gradient problem. In case of only 4 layer network $0.2^{4}=0.0016$ which is small and will get even smaller in next layers, hence it will lead to vanishing gradient problem.
 
 It is used for a problem where binary classification is required. In a neural network layer sigmoid must not be used in every layer because of the problems mentioned above. Anyhow, where binary classification is required, it can be useful in the last layer of the network to squash output such as $ 1 \geq \hat{y} \geq 0$.
 
 \subsubsection{ReLU Activation}
-It stands for rectified linear unit and defined as:
+Rectified Linear Unit is defined as:
 
 \begin{equation}
 a = \max (0, z)
 \end{equation}
 
-The graphical form is given as:
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=.6\linewidth]{files/cnn_architecture/relu.eps}
 	\caption{ReLU Function}
-	\label{fig: relu}
+	\label{relu}
 \end{figure}
 
-As seen in the graph ReLU gives an output for a positive value and otherwise the output is 0. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh.
+The graphical form is given in Fig. \ref{relu}. As seen in the graph, ReLU gives an output for a positive value otherwise the output is zero. It is to be noted that in graph the line looks linear but ReLU is non-linear in nature and it is one of most popular functions used in neural networks because of its simplicity and ability to not let all the neurons fire at once. ReLU is computationally much faster than sigmoid or tanh (written as $a=\tanh (z)$), it does not have exponent computation in such as sigmoid activation function therefore reduces training time significantly in very deep neural networks. \cite{krizhevsky2012imagenet} observed that training deep CNNs with ReLU is much faster as compared to sigmoid or tanh.
 
-Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -5 or greater than 5 in Figure: \ref{fig: Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to 0, ReLU only saturate when the input is a negative value. ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
+Unlike sigmoid when the receiving input is at the right or left plateau i.e. less than -2.5 or greater than 2.5 in Fig. \ref{Sigmoid} which makes it meaningless to pass a backward pass because of derivative being closer to zero, ReLU only saturate when the input is a negative value. ReLU allows training of larger nets at much less computational costs which means more parameters can be trained at the same computational cost.
 
 \subsection{Backpropagation}
 A CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
@@ -939,7 +940,7 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\label{otsu thresholding}
 \end{figure}
 
-\begin{figure*}[H]
+\begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/mean.png}
