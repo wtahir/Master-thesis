@@ -582,23 +582,26 @@ Histogram based threshold alo known as inter-means or Ridler-Calvard method. Thr
 \subsection{Evaluation Method}
 Precision, recall and the F1-score are chosen to evaluate performance of the algorithm. These are well known evaluation metrics in object detection problem because of taking into consideration not only the true and false positives but also the false negatives. Precision is defined as the percentage of results which are relevant and mathematically written as:
 
-\begin{equation*}
+\begin{equation}
 \text{Precision} = \frac{\text{True positive}}{\text{True positive + False positive}}
-\end{equation*}
+\label{precision}
+\end{equation}
 
 True positives are correctly identified craters and false positives are craters detected by the algorithm but no crater exists on that location.
 
 Recall is defined as the percentage of total relevant results correctly classified by the algorithm and is given by:
 
-\begin{equation*}
+\begin{equation}
 \text{Recall} = \frac{\text{True positive}}{\text{True positive + False negative}}
-\end{equation*}
+\label{recall}
+\end{equation}
 
 In the above equation false negatives are simply missed craters by the algorithms. For overall evaluation, both of these metrics are taken into account and finally F1-score has been computed by the given equation:
 
-\begin{equation*}
-\text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall }}
-\end{equation*}
+\begin{equation}
+\text{F1-score} =2 * \frac{\text { Precision } * \text { Recall }}{\text { Precision }+\text { Recall}}
+\label{f1}
+\end{equation}
 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Depending on the type of data and following the experimentation results of \cite{emami2015automatic}, it is chosen that a verified region is a true positive if it has more than 40\% overlap with a ground truth crater; otherwise, it is a false positive.
 
@@ -722,9 +725,9 @@ Unlike sigmoid when the receiving input is at the right or left plateau i.e. les
 \subsection{Backpropagation}
 A CNN requires to update its weight for a given training data in order to reduce loss. Backpropagation is an efficient method for computation of gradients which are required for gradient based optimization of weights or kernel parameters in neural networks \cite{rumelhart1988learning}. This optimization problem refers to minimize the loss function which is performed by the specific combination of weights. Backpropagation requires the computation of loss function at each iteration therefore loss function should be differentiable and continuous.
 
-Initial weights of an untrained network are randomly taken. Without training a network is not able to make meaningful predictions for an input as there is no relation between an image and its groundtruth output yet. The weights in a network are adjusted by exposing a network to training samples which are labeled according the correct class. Before backpropagation there is a forward pass in which an image is taken into the network and first layer of network computes a feature map which is a very low level feature map. Then this activation map is fed to the next layer usually a hidden layer that computers another activation map with slightly high level features than the previous layer and this goes on till last layer yielding a network output. This results into a feature map which is determined by a loss function how much different it is from that of labeled feature. During backpropagation step of training the aim is to adapt weights in a way that difference between network output and desired output is minimized so that correct features can be extracted from an input image. There are usually multiple epochs till weights are adjusted so that loss is minimized. Backpropogation works on derivation chain rule to minimize loss function and all weights are updated in the negative direction of gradient function. A gradient is a vector containing derivatives. It is computed using partial derivatives and produces a vector field unlike a derivative which is dependent on a single variable. A Jacobian matrix represents gradient. Optimization algorithms such as Adam optimizer minimize or maximize loss function using its gradient values with respect to parameters.
+Initial weights of an untrained network are randomly taken. Without training, a network is not able to make meaningful predictions for an input as there is no relation between an input image and its groundtruth output yet. The weights in a network are adjusted by exposing a network to training samples which are labeled according to the correct class. Before backpropagation there is a forward pass in which an image is taken into the network and first layer of network computes a feature map which is a very low level feature map. Then this activation map is fed to the next layer usually a hidden layer that computers another activation map with slightly high level features than the previous layer and this goes on till last layer yielding a network output. This results into a feature map which is determined by a loss function how much different it is from that of labeled feature. During backpropagation step of training the aim is to adapt weights in a way that difference between network output and desired output is minimized so that correct features can be extracted from an input image. There are usually multiple epochs till weights are adjusted so that loss is minimized. Backpropogation works on derivation chain rule to minimize loss function and all weights are updated in the negative direction of gradient function. A gradient is a vector containing derivatives. It is computed using partial derivatives and produces a vector field unlike a derivative which is dependent on a single variable. A Jacobian matrix represents gradient. Optimization algorithms such as Adam optimizer minimize or maximize loss function using its gradient values with respect to parameters.
 
-Assuming a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input:
+Assuming a multiplication function of two numbers i.e. $f(x, y)=x y$, it is possible to derive the partial derivative for either of input.
 
 \begin{equation}
 f(x, y)=x y \quad \rightarrow \quad \frac{\partial f}{\partial x}=y \quad \frac{\partial f}{\partial y}=x
@@ -736,7 +739,7 @@ The derivation function of a variable indicate the rate of change of a function 
 \frac{d f(x)}{d x}=\lim _{h \rightarrow 0} \frac{f(x+h)-f(x)}{h}
 \end{equation}
 
-In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. It can be interpreted as; if $h$ is very small then s straight line determines approximation of function and slope of the line is derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It can also be seen by rearranging the above equation such that; $f(x+h)=f(x)+h \frac{d f(x)}{d x}$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
+In above equation the operator $ \frac{d}{d x} $ (a derivative operator) is applied to a function $f$. The resultant is a derivative. The sensitivity of an expression on a value is determined by the derivative. If $x=4, y=-3$ then $f(x, y)=-12$ and this would return a derivative on $x \frac{\partial f}{\partial x}=-3$. It is clear that if value of this variable is increased by a tiny amount, it would create an impact of three times decrement because of its negative sign. It can also be seen by rearranging the above equation such that; $f(x+h)=f(x)+h \frac{d f(x)}{d x}$. In other way as $\frac{\partial f}{\partial y}=4$, it is also expected that by increasing the value of $y$ by a tiny amount which is $h$ would also increase the function output by $4h$ because of positive sign.
 
 \begin{comment}
 The derivative of function $f(x,y)$ is a vector of partial derivatives which is $\nabla f=\left[\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}\right]=[y, x]$. Gradients can also be calculated for addition operation such as:
@@ -766,10 +769,10 @@ Backpropagation relies on the above explained rule in a more complex neural netw
 \subsection{Loss Function}
 It determines the amount of deviation from the groundtruth or labeled data of the algorithm. Higher loss means the actual outcome is very different than expected result. A high loss function indicates poor performance of the model. If training is carried out in set of batches then a loss function is able to define the average of losses for individual training samples. 
 
-There are different loss functions which are mainly chosen according to the type of problem. 
+There are different loss functions which are mainly chosen according to the type of problem. For lunar crater detection, binary cross-entropy was used because it is a binary classification problem.
 
 \subsection{Binary Cross-Entropy}
-As the name suggests, it is a default loss function used for a binary classification problems. It is used where target values are 0 or 1. It calculates a score that summarizes the average difference between predicted and actual probability distributions for a predicting class 1. An ideal value for a cross entropy loss function is 0. Mathematically representation is given as:
+As the name suggests, it is a default loss function used for a binary classification problems. It is used where target values are zero or one. It calculates a score that summarizes the average difference between predicted and actual probability distributions for a predicting class. An ideal value for a cross entropy loss function is zero. Mathematically representation is given as:
 
 \begin{equation}
 H_{p}(q)=-\frac{1}{N} \sum_{i=1}^{N} y_{i} \cdot \log \left(p\left(y_{i}\right)\right)+\left(1-y_{i}\right) \cdot \log \left(1-p\left(y_{i}\right)\right)
@@ -811,11 +814,11 @@ It is clear that loss would be same even if predictions are $\left[\begin{array}
 \end{comment} 
 
 \section{Experiments}
-The experiments for crater detection are largely performed with U-Net based architecture however, a method of instance segmentation (Mask R-CNN) was also tested. As U-Net does not gives the intended output of crater counts and diameters, images are binarized according to various thresholding methods and for final outcome regional proposal algorithm was used on binary images. Hough circle transformation was also applied to find amount of craters directly from probability maps. Given below is the pipeline of crater detection process and details are discussed in sections given after.
+The experiments for crater detection are largely performed with u-net based architecture. However, a method of instance segmentation (Mask R-CNN) was also tested. As u-net does not provide the intended output of crater counts and diameters, images are binarized according to various thresholding methods and for final outcome regional proposal algorithm was used on binary images. Hough Circle Transformation (HCT) was also applied to find amount of craters directly from probability maps. Given below is the pipeline of crater detection process and details are discussed in sections given after.
 
 \begin{table}[H]
 	\centering
-	\caption{Layers in U-Net}
+	\caption{Layers in u-net}
 	\begin{tabular}{|l|l|}
 		\hline
 		\multicolumn{1}{|c|}{Layer type} & \multicolumn{1}{c|}{Comments}                                                                                                                  \\ \hline
@@ -834,9 +837,9 @@ The experiments for crater detection are largely performed with U-Net based arch
 \end{table} 
 
 \subsection{Data Set}
-There are two different datasets taken into account for model evaluation. First dataset which is in the form of gray scale lunar image is taken from lunar reconnaissance orbiter camera (LROC) archive \textit{http://wms.lroc.asu.edu/lroc/search}. Images from this data source are very large in size (5064$\times$52224) with resolution of 1.009. Which means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from very few meters to several hundred meters. Keeping in view the size of an image and amount of craters present in an image, it was considered to take one of the image entitled as "M1111897809LE" (can be easily located in LRO database) and crop it into several small images of equal size and width (256$\times$256). This image has solar longitude angle of 52.81\textdegree. This cropping dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. Initially the amount of cropped images were 300 out of which 240 are used for training and 60 are used for validation. For testing additional 20 images are annotated which makes the total annotation of 320 images with craters ranging from 1m to 200m diameters. 
+There are two different datasets taken into account for model evaluation. First dataset which is in the form of gray scale lunar image is taken from LROC archive. Images from this data source are of the size (5064 $\times$ 52224 pixels) with a pixel representing a length of \SI{1.009}{m}. This means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from few meters to several kilometers. Keeping in view the size of an image and amount of craters present in an image, it was considered to take one of the image entitled as "M1111897809LE" (can be easily located in LRO database) and crop it into several small images of equal size and width (256 $\times$ 256). This image has solar longitude angle of 52.81\textdegree. This cropping dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. Initially the amount of cropped images were 300 out of which 240 are used for training and 60 are used for validation. For testing additional 20 images are annotated which makes the total annotation of 320 images with craters diameter ranging from \SI{1}{m} to \SI{200}{m}. 
 
-Second dataset is taken from \cite{dino2020} who annotated an LRO gray scale optical lunar image with 21.36\textdegree{} solar longitude angle of the Apollo 17 landing site. The image is of the size 3130$\times$2427 pixels with resolution of 0.51 which is cropped into several images of the size 256$\times$256 for prediction. Tiles of this size are created to align this data with the testing data.
+Second dataset is taken from \cite{dino2020} who annotated an LRO gray scale optical lunar image with 21.36\textdegree{} solar longitude angle of the Apollo 17 landing site. The image is of the size 3130 $\times$ 2427 pixels with one pixel representing a length of \SI{0.51}{m}. This image is cropped into several images of the size 256 $\times$ 256 for algorithm's prediction. Tiles of this size are created to align this data with the testing data from the first dataset a part of which was also used for training.
 
 %hardware of 2 GPU NVIDIA GeForce MX150 and also the model is engineered to take input size of 256$\times$256 to limit hardware requirements.  
 
@@ -852,7 +855,7 @@ In neural network exploding gradient refers to a problem when weight is larger t
 \subsection{Data Preparation}
 For data preparation, annotation is one of the most important tasks in computer vision problem related to deep learning. This task is done manually, images are annotated and assigned a class. These are established by the annotator who can perform this task on the basis of simple instructions. No skilled labor is required to do this task. These annotations carry information to the neural network about the target features in an image. In this data. there is only one label which is "crater" and has shape of a circle, whereas rest is the background class.
 
-Annotation or labeling could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of work that has been done before in terms of deep learning therefore annotation was performed by me for training purpose. There are several annotation tools and after performing few experiments with various tools, VGG Image Annotator was found most simple and faster to annotate lunar crater data. This tool stores annotations in the form of a json format. Once the labeling is complete, a large json file represents the craters with a center point as $x$ and $y$ coordinates and radius respectively.
+Annotation or labeling could be laborious and time taking task. It is specially required when a network is not trained on the same type of class as required for predictions. In the case of lunar craters, there is not a great amount of fully annotated data available publicly therefore annotation was performed by me for training purpose. There are several annotation tools and after performing few experiments with various tools, VGG Image Annotator was found most simple and faster to annotate lunar crater data. Once the labeling is complete, a file represents the craters with a center point as $x$ and $y$ coordinates and radius respectively.
 
 \begin{comment}
 There are several tools to perform annotation, some are listed below.
@@ -865,7 +868,7 @@ There are several tools to perform annotation, some are listed below.
 \end{itemize}
 \end{comment}
 
-In Figure: \ref{an}, images in the first row are part of the training dataset and below them are the annotations. Images marked with circles on craters are not intended to be used for the training of algorithm, those are only visualizations to labeled data so that wrong annotations could be removed or missing ones could be added.
+In Fig. \ref{an}, images in the first row are part of the training dataset and below them are the annotations. Images marked with circles on craters are not intended to be used for the training of algorithm, those are only visualizations to labeled data so that wrong annotations could be removed or missing ones could be added. The result of these annotations is projected to get the masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Fig. \ref{mask}, white circles are craters belonging to Fig. \ref{an}. These provide learning objective to neural network that how the shape looks like and what features to learn. These binary masks have pixel values either zero or one and are of the same shape along $x$ and $y$ as of the respective images.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/annotation/66n.png}\hfill
@@ -874,8 +877,6 @@ In Figure: \ref{an}, images in the first row are part of the training dataset an
 	\caption{Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool}
 	\label{an}
 \end{figure*}
-
-The result of these annotations is projected to get the masks of craters. These masks are binary images that represents the black and white pixel values of images. White pixels means craters and black means background class as shown in the Figure: \ref{mask}. White circles are craters belonging to Figure: \ref{an}. These provide learning objective to neural network that how the shape looks like and what features to learn. These binary masks have pixel values either 0 or 1 and are of the same shape along $x$ and $y$ as of the respective images.
 
 \begin{figure*}[ht!]
 	\includegraphics[width=.3\textwidth]{files/annotation/66m.png}\hfill
@@ -899,44 +900,46 @@ Specifically for lunar optical image augmentation, training image is randomly au
 The images are randomly perturbed during training so that augmentation can have maximum effect. This way model have a low probability of seeing same type of training image more than once. In lunar crater dataset there are no RGB images hence color augmentation is opted out.
 
 \subsection{Image Normalization}
-Normalization is a key step in the preprocessing pipeline for any deep learning task. Normalization is also very important for lunar images and there are a variety of methods for doing this. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
-are of most importance. Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. As images are comprised of matrices with pixel values. Grayscale images are single matrix of pixels unlike colored images with three color channels. Normally pixel values range between 0 and 255. This raw format can also be used as an input to the neural network but this will increase amount of parameters that will result into slower training. Instead there is a great benefit in normalizing these pixel values to the range [0,1] to centering and even standardizing values. Lunar image data is normalized by subtracting the mean from each pixel and then dividing the result by standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs, the pixel numbers should be positive, so the chosen scale to normalize each image pixel is in the range of [0,1]. 
+Normalization is a key step in the pre-processing pipeline for any deep learning task. Normalization is also very important for lunar images and there are a variety of methods for doing it. The aim of normalization is to remove heavy variation in data that does not contribute to the prediction process and instead accentuate the features and differences that
+are of most importance. Data normalization is an important step which ensures that each input parameter (pixel, in this case) has a similar data distribution. This makes convergence faster while training the network. As images are comprised of matrices with pixel values. Gray scale images are single matrix of pixels unlike colored images with three color channels. Normally pixel values range between 0 and 255. This raw format can also be used as an input to the neural network but this will increase amount of parameters that will result into slower training. Instead there is a great benefit in normalizing these pixel values to the range [0,1] to centering and even standardizing values. Lunar image data is normalized by subtracting the mean from each pixel and then dividing the result by standard deviation. The distribution of such data would resemble a Gaussian curve centered at zero. For image inputs, the pixel numbers should be positive, so the chosen scale to normalize each image pixel is in the range of [0,1]. 
 
 \subsection{Training}
-The data composed of images and their respective masks is divided into training (80\%) and validation (20\%) data set. This percentage practice is typical in machine learning, however it does not have to be always at this rate. In case of large data set i.e. several thousands of images, 60\% or even less can be set for training.
+The data composed of images and their respective masks is divided into training (80\%) and validation (20\%) dataset. This percentage practice is typical in machine learning, however it does not have to be always at this rate. In case of large dataset i.e. several thousands of images, 60\% or even less can be set for training.
 
-The input images along with their corresponding segmentation maps are utilized to train network with Adaptive Moment Estimation (Adam) implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradients vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax which is defined as $p_{k}(\mathbf{x})=\exp \left(a_{k}(\mathbf{x})\right) /\left(\sum_{k^{\prime}=1}^{K} \exp \left(a_{k^{\prime}}(\mathbf{x})\right)\right)$, where $a_{k}(\mathbf{x})$ denotes the activation in feature channel $k$ at the pixel position $\mathbf{x} \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $p_{k}(\mathbf{x})$ is the approximated maximum function. This means that $p_{k}(\mathbf{x})$ will be close to 1 for $k$ with maximum activation and vice versa for other values of $k$. The cross entropy function penalizes each deviation of $p(y)$ from 1 as defined in eq: \ref{bce}.
+The input images along with their corresponding segmentation maps are utilized to train network with Adaptive Moment Estimation (Adam) implementation of Keras (originally written in Cafe \cite{ronneberger2015u}). Inside training pipeline, the convolutions are unpadded which leads to a smaller output size after every layer. This decrease in size is of the factor of constant border width. The batch size is reduced to a single image to minimize the overhead and utilize maximum GPU memory. In this configuration momentum is kept high (0.99) such that a larger number of already seen training samples determine the update in ongoing optimization step. Momentum helps to accelerate gradient vectors in the right direction. A softmax function over the final feature map combined with cross entropy loss function determines the energy function. In softmax, which is defined as $p_{k}(\mathbf{x})=\exp \left(a_{k}(\mathbf{x})\right) /\left(\sum_{k^{\prime}=1}^{K} \exp \left(a_{k^{\prime}}(\mathbf{x})\right)\right)$, where $a_{k}(\mathbf{x})$ denotes the activation in feature channel $k$ at the pixel position $\mathbf{x} \in \Omega$ with $\Omega \subset \mathbb{Z}^{2}$. $K$ is the number of classes and $p_{k}(\mathbf{x})$ is the approximated maximum function. This means that $p_{k}(\mathbf{x})$ will be close to one for $k$ with maximum activation and vice versa for other values of $k$. The cross entropy function penalizes each deviation of $p(y)$ from one as defined in Eq. \ref{bce}.
 
-The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test data set but definitely saved weights with best performance on validation data set is the best choice to be deployed on a test data set.
+The weights are saved in a checkpoint when losses are less than previous saved checkpoint. Any of these saved weights could be utilized to apply on a test dataset but definitely saved weights with best performance on validation dataset is the best choice to be deployed on a test dataset.
 
 \subsection{Crater Detection Pipeline}
-After training, to get detected craters from raw images, LRO large images are split into 256 $\times$ 256 sized tiles which goes through the following.
+After training, to get detected craters from raw images, LRO images are split into 256 $\times$ 256 sized tiles which goes through the following.
 
 \begin{enumerate}
 	\item Each 256 $\times$ 256 tile is fed to the segmentation network.
 	\item Prediction results are stitched back together into the full sized original image. At this stage the resultant is a probability map which is also an image and can be compared to the target input image.
 	\item To compute the radii and locations, binarization methods are applied to convert probability maps to binary images.
 	\item The region proposal algorithm described by \cite{reiss1993recognizing} is used for computation of locations and radii from binary images.
-	\item The model performance is evaluated by the F1 measure on test data from dataset split and data annotated from \cite{dino2020}.
+	\item The model performance is evaluated by the F1 measure on test data from training dataset split and another dataset annotated from \cite{dino2020}.
 	\item Neukum production function is used to plot CSFD against crater diameters and lunar age for the test data surface is estimated.
 \end{enumerate}
 
 \subsection{Prediction}
-The best checkpoint of trained model is used for prediction on test data set. Prior to predictions the optical images are subjected to CLAHE for better results (more craters in a probability because of sharper contrast between craters and background). Predictions yield a probability map of each image in which light pixels depict maximum likelihood and darker ones represents low probability of crater existence. Such heat map of one of the test images is shown in binarization methods. Trained model is used for prediction on two test sets. First one is similar to training data set but test images are not seen by algorithm during training or evaluation. Second test data set (geographic location of Apollo 17) is annotated by \cite{dino2020} having a different sun illumination angle than first test data set.
+The best checkpoint of trained model is used for prediction on test dataset. In this case the checkpoint with best performance on validation set is considered as the version to be used for prediction on lunar images. First, predictions are performed on the lunar images without histogram equalization. Then lunar images are subjected to CLAHE and predictions are performed once again. The difference in results can be seen in  
 
-Apart from region proposal algorithm, Hough circle transformation is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large or medium-sized craters but overall performance is quite bad compared to SVM and CSTM \cite{wetzler2005learning}. Hough circle fitting on one of the test images can be visualized in Figure: \ref{hough}.
+Predictions yield a probability map of each image in which light pixels depict maximum likelihood and darker ones represents low probability of crater existence. Such heat map of one of the test images is shown in Fig. \ref{otsu thresholding}. Trained model is used for prediction on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second testset (geographic location of Apollo 17) is annotated by \cite{dino2020} having a different sun illumination angle than first testset.
+
+Apart from region proposal algorithm, HCT is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large or medium-sized craters but overall performance is quite bad. This was also observed in experimentation by \cite{wetzler2005learning}, they compared Hough method's performance to SVM and CSTM. HCT fitting on one of the test images can be visualized in Fig. \ref{hough}.
 
 \subsection{Post-processing}
-The resulting predictions from CNN model which are in the form of probability map are post processed, in this step images are first binarized (converted to white and black pixels) by applying various binarization methods which are discussed in binarzation section. This is needed in order to count number of craters and their diameters. Region proposal algorithm proposed by \cite{burger2009principles} is used for finding $x$, $y$ coordinates and diameter of craters along with the location in an image. The age of Apollo 17 region is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot and can be compared with dating performed by planetary scientists.
+The resulting predictions from CNN model which are in the form of probability map are post-processed, that means images are first binarized (converted to white and black pixels) by applying various binarization methods which are discussed in binarzation section. This is needed in order to count number of craters and their diameters. Region proposal algorithm proposed by \cite{burger2009principles} is used for finding $x$, $y$ coordinates and diameter of craters along with the location in an image. The age of Apollo 17 region is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot and can be compared with dating performed by planetary scientists.
 
 \subsection{Results and Discussion}
-The intermediate results of final outcome are shown in figures below. The probability maps are the prediction of craters from optical input images. Several binarization methods are experimented on probability maps that have different threshold values. These differences can be easily visualized in binary images as varying quantities of white blob type objects.  
+The intermediate results of final outcome are shown in Figs. \ref{otsu thresholding}, \ref{mean_th}, \ref{Yen thresholding}, \ref{isodata thresholding}, \ref{Niblack_th}, \ref{sauvola thresholding}, \ref{Adaptive mean thresholding} and \ref{Li thresholding}. The probability maps are the prediction of craters from optical input images. Several binarization methods are experimented on probability maps that have different threshold values. These differences can be easily visualized in binary images as varying quantities of white blob type objects.  
 
 \begin{figure}[H]
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/otsu.png}
-	\caption{Otsu thresholding. Right most image is the thresholded image of the predicted probability mapped image of the middle. Most left is the actual image.}
+	\caption{Otsu thresholding. Right image is the thresholded image of the prediction result. Left is the actual input image.}
 	\label{otsu thresholding}
 \end{figure}
 
@@ -952,7 +955,7 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/yen.png}\hfill
-	\caption{Yen thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\caption{Yen thresholding.}
 	\label{Yen thresholding}
 \end{figure}
 
@@ -960,7 +963,7 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/isodata.png}\hfill
-	\caption{Isodata thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\caption{Isodata thresholding.}
 	\label{isodata thresholding}
 \end{figure}
 
@@ -968,7 +971,7 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/niblack.png}
-	\caption{Niblack thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\caption{Niblack thresholding.}
 	\label{Niblack_th}
 \end{figure}
 
@@ -984,7 +987,7 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/adaptiveMean_mean.png}\hfill
-	\caption{Adaptive mean thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\caption{Adaptive mean thresholding.}
 	\label{Adaptive mean thresholding}
 \end{figure}
 
@@ -992,13 +995,13 @@ The intermediate results of final outcome are shown in figures below. The probab
 	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
 	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
 	\includegraphics[width=.3\textwidth]{files/results/li.png}\hfill
-	\caption{Li thresholding. Right most image is the thresholded image of the predicted probability mapped image in the middle. Most left is the actual image.}
+	\caption{Li thresholding.}
 	\label{Li thresholding}
 \end{figure}
 
 \begin{table}[H]
 	\centering
-	\caption{F1 scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization method.}
+	\caption{F1-scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.}
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}
 		\cline{2-12}
 		& -50 \% & -40 \% & -30 \% & -20 \% & -10 \% & 0\%   & 10\%  & 20\%  & 30\%  & 40\%  & 50\%  \\ \hline
@@ -1015,15 +1018,15 @@ The intermediate results of final outcome are shown in figures below. The probab
 \label{exp}
 \end{table}
 
-Experimental results given in Table: \ref{exp} are performed on \cite{dino2020} data. The data set consists of a single image of the size 3130x2427 pixels and it is cropped into several 256x256 images for predictions. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. Then the experiment presented in Table: \ref{exp} shows computation of F1-score on several binarization techniques to find out which one yields highest F1-score.
+Experimental results given in Table. \ref{exp} are performed on \cite{dino2020} data. The dataset consists of a single image of the size $3130 \times 2427$ pixels and it is cropped into several $256 \times 256$ images for predictions. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. The methods presented in Table. \ref{exp} are applied to convert the probability maps into the binarized images. Then region proposal algorithm is applied to count the number of craters, their $x$ and $y$ coordinates and diameters. Then precision, recall and F1-score is calculated by using Eqs. \ref{precision}, \ref{recall} and \ref{f1}. The experiment presented in Table. \ref{exp} shows the computation of F1-score on several binarization techniques for comparison.
 
-It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and Mean but for Otsu and Isodata it decreases slowly by further increasing threshold. The thresholding methods result into slightly over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting F1-score is lower in comparison. This makes sense and observed in experimentation.
+It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and Mean but for Otsu and Isodata it decreases slowly by further increasing threshold. Almost all of the thresholding methods result into slightly over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting lower F1-score in comparison.
 
-Relationship between precision and recall of different filters is shown in Figure: \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown in graphs because of their poor performance with respect to F1-scores as shown in Table: \ref{exp}. It is clear that by setting higher threshold reduces recall but increases precision. This can be observed from Otsu and Isodata methods as both results into higher threshold values. The difference between recall and  precision is obvious only if the segmenter is strongly over or under splitting \cite{badrinarayanan2017segnet}. In any of the case precision can be misleading as evaluation metric because it favors under segmentation. Contrary to precision, recall does not favor under or over segmentation, therefore F1-score is taken into account as the evaluation metric for segmentation accuracy. From graphs it can be noted that Otsu and Isodata provides a good trade off between precision and recall thus results into higher F1-score than other methods.
+Relationship between precision and recall of different filters is shown in Fig. \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown in graphs because of their poor performance with respect to F1-scores as shown in Table. \ref{exp}. It is clear that setting a high threshold (the value for Otsu is 99) reduces recall but increases precision. This can be observed from Otsu and Isodata methods as both results into high threshold values close to 100. The difference between recall and  precision is obvious only if the segmenter is strongly over or under splitting \cite{badrinarayanan2017segnet}. In any of the case, only considering precision can be misleading as evaluation metric because it favors under segmentation. Contrary to precision, recall does not favor under or over segmentation, therefore F1-score is taken into account as the evaluation metric for segmentation accuracy. From Fig. \ref{thresh_methods} it can be noted that Otsu and Isodata provides a good trade off between precision and recall thus results into higher F1-score as compared to other methods.
  
 \begin{table}[H]
 	\centering
-	\caption{Patch wise mean F1 scores on test set distribution from dataset split}
+	\caption{Patch wise mean F1-scores on testset distribution from dataset split}
 	\begin{tabular}{c|c|c|c|}
 		\cline{2-4}
 		\multicolumn{1}{l|}{}         & Precision & Recall & F1 score \\ \hline
@@ -1035,11 +1038,11 @@ Relationship between precision and recall of different filters is shown in Figur
 \label{mine}
 \end{table}
 
-Table \ref{mine} shows the F1-score on 20 test images taken out from the same data set used for training. Computation is performed on each image separately then average of all the images is taken. Given filters are chosen on the basis of experimentation among different filters and their F1 comparison as given in Table \ref{exp}. It can be seen that Otsu has the best precision because of higher threshold value which yields less false positives. High threshold has a drawback of missing small craters which are usually less than 6 pixels and also those which are highly degraded and barely have a shadow. This can be seen by threshold of Li and Yen's method where recall is high but precision is punished. Overall, Otsu outperforms all the other binarization methods.
+Table. \ref{mine} shows the F1-score on 20 test images taken out from the same dataset used for training. Computation is performed on each image separately then score of all the images is averaged. Given filters are chosen on the basis of experimentation among different filters and their F1 results (provided in Table. \ref{exp}). It can be seen that Otsu has the best precision because of a high threshold value which yields less false positives. High threshold has a drawback of missing small craters which are usually less than 6 pixels and also those which are highly degraded and barely have a shadow. This can be seen by threshold of Li and Yen's method where recall is high but precision is punished. Overall, Otsu outperforms all the other binarization methods.
 
 \begin{table}[H]
 	\centering
-	\caption{Patch wise mean F1 scores on a different test annotated from \cite{dino2020}}
+	\caption{F1 scores on a testset annotated from \cite{dino2020}. This dataset has a different solar angle than the training set.}
 	\begin{tabular}{c|c|c|c|}
 		\cline{2-4}
 		\multicolumn{1}{l|}{}         & Precision & Recall & F1 score \\ \hline
@@ -1051,11 +1054,11 @@ Table \ref{mine} shows the F1-score on 20 test images taken out from the same da
 \label{dino}
 \end{table}
 
-Table \ref{dino} shows F1 results on \cite{dino2020} data set. It is expected to see low F1-score compared to actual test set because of difference of shade length. Precision has not changed too much but there is notable decrement in recall score of methods and after analysing images visually, it is concluded that this happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
+Table. \ref{dino} shows F1 results on \cite{dino2020} dataset. It is expected to see low F1-score compared to actual testset because of difference of shade length. Precision has not changed too much but there is a notable decrement in recall score of methods and after analysing images visually, it is concluded that this happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
 
-It has been also observed that taking a large image, cropping it into 256$\times$256, performing predictions and stitching predicted images back together to form the actual image results into lower F1-score than computation on every image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table \ref{exp} are much lower than Table \ref{mine} and \ref{dino}. It is also observed that cropping a large image and performing predictions on smaller cropped images will result into artifacts when segmented maps are stitched together. Binarization of stitched large image results into addition of false positives on reflection to artifacts which penalizes F1-score and has been observed in Table: \ref{exp}, therefore it makes more sense to perform image wise binarization and calculate F1-score on single image basis.
+It has been also observed that taking a large image, cropping it into $256 \times 256$, performing predictions and stitching predicted images back together to form the actual image results into low F1-score in comparison to computation on every image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table. \ref{exp} are lower than that in Tables. \ref{mine} and \ref{dino}. It is also observed that cropping a large image and performing predictions on smaller cropped images will result into artifacts when segmented maps are stitched together. These can be visualized in Fig. \ref{artifacts}. Binarization of stitched large image results into addition of false positives because of these artifacts which penalizes F1-score and has been observed in Table. \ref{exp}, therefore it makes more sense to perform image wise binarization and calculate F1-score on single image basis then average the F1-score.
 
-Mask R-CNN which is a deep neural network based architecture was also applied in experimentation. It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. Analysis shows that this happened because of very little training data. Furthermore, Lunar craters does not resemble with classes the algorithm is trained on i.e. COCO or ImageNet data set. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a data set composed of less than 300 training images. However, further research is needed to draw more explanation in this regard.
+Mask R-CNN which is a deep neural network based architecture was also applied in experimentation. It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. Analysis shows that this happened because of very little training data. Furthermore, lunar craters does not resemble with classes, the algorithm is trained on i.e. COCO or ImageNet dataset. That means Mask-RCNN has to be trained on a large dataset (thousands of images) of lunar optical images. This requires intense amount of labeling craters on thousands of images. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a dataset composed of less than 300 training images.
  
 \begin{figure}[H]
 	\begin{subfigure}{7cm}
@@ -1091,7 +1094,14 @@ Mask R-CNN which is a deep neural network based architecture was also applied in
 	\label{artifacts}
 \end{figure}
 
-Hough circle transformation was also applied for crater detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them. This phenomena was also observed by \cite{wetzler2005learning} and his performance curves are given in Figure: \ref{roc,wetzler}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.8\textwidth]{files/results/with_circles.png}
+	\caption{Hough circle fitting on stitched predicted images.}
+	\label{hough_stitched}
+\end{figure}
+
+HCT was also applied for crater detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them. This phenomena was also observed by \cite{wetzler2005learning}.
 
 \begin{figure}[H]
 	\centering
@@ -1104,7 +1114,7 @@ Hough circle transformation was also applied for crater detection but the perfor
 Another evaluation is comparison of age with the determined age of crater counted surface by planetary scientists.
 
 \section{Conclusion}
-Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. U-Net based architecture was applied to detect craters in optical images taken by Lunar Reconnaissance Orbiter. It is observed that by applying Contrast Limited Adaptive Histogram Equalization (CLAHE) the detection is increased up to 40\%. The resulting probability or heat maps were subjected to several binarization methods to create blobs for the lighter pixels in an image and Regional Proposal algorithm (implemented in scikit) was applied to detect blobs along with their respective diameters. Experiments show that Otsu's binarization method performs best even though Otsu's threshold creates an under-segmentation map. 
+Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. U-Net based architecture was applied to detect craters in optical images taken by Lunar Reconnaissance Orbiter. It is observed that by applying Contrast Limited Adaptive Histogram Equalization (CLAHE) the detection is increased up to 40\%. The resulting probability or heat maps were subjected to several binarization methods to create blobs for the lighter pixels in an image and region proposal algorithm (implemented in skimage, python library) was applied to detect blobs along with their respective diameters. Experiments show that Otsu's binarization method performs best even though Otsu's threshold creates an under-segmentation map. 
 
 Several deep learning architectures have been applied to solve crater detection problem but largely are experimented with digital elevation models which eliminates small craters. In this thesis, U-Net was applied on optical images and it was tested on a proportion of dataset used for training and also on a different testset which is annotated by \cite{dino2020} with tighter solar longitude angle as compared to training dataset. An F1-score of 73\% was achieved on first testset whereas change in solar angle reduced F1-score to a value of 64\%.
 
