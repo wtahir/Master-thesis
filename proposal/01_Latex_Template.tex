@@ -537,47 +537,47 @@ By using CLAHE, the image is divided into small blocks also called tiles (functi
 \subsection{Binarization Methods}
 Several binarization methods are applied to experiment best suited thresholding for probability maps also known as heat maps. These maps represent an image with a range of values from dark to bright pixels. Dark pixels means that it is a background class i.e. no crater whereas bright pixels means that they belong to a potential crater class. Binarization methods that are used in post-processing are discussed below.
 
-\subsubsection{Otsu's Method}
-This method was presented by Otsu (1992). It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In probability map of lunar images, the histogram has two peaks. Otsu in simple words takes the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given below is mathematical representation of this method and Fig. \ref{otsu thresholding} shows the outcome.
+%\subsubsection{Otsu's Method}
+%This method was presented by Otsu (1992). It is widely used till today because of its simplicity and effectiveness. Otsu's method determines a threshold value automatically. In probability map of lunar images, the histogram has two peaks. Otsu in simple words takes the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given below is mathematical representation of this method and Fig. \ref{otsu thresholding} shows the outcome.
+%
+%\begin{equation}
+%\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+%\end{equation}
+%
+%Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
 
-\begin{equation}
-\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
-\end{equation}
+%\subsubsection{Sauvola's Algorithm}
+%It takes gray scale images as an input. If an image has three color channels then it is necessary to convert that into a gray scale image. Savoula proposed to compute a threshold of a gray scale image at each pixel using:
+%
+%\begin{equation}
+%T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+%\end{equation}
+%
+%Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which means that it shows there are potential craters where there are no actual craters. This method is very sensitive to background features and hence results into over-segmentation. Result of this algorithm can be visualized in Fig. \ref{sauvola thresholding}.
 
-Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+%\subsubsection{Niblack Method}
+%This method was proposed by Niblack (1986). Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentation. Therefore this method was developed to preserve minute details while segmentation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. See Eq. \ref{ni} for the mathematical representation.
 
-\subsubsection{Sauvola's Algorithm}
-It takes gray scale images as an input. If an image has three color channels then it is necessary to convert that into a gray scale image. Savoula proposed to compute a threshold of a gray scale image at each pixel using:
+%\begin{equation}
+%T_{d}=m(x, y)+k \times s(x, y)
+%\label{ni}
+%\end{equation}
+%where $m(x, y)$ is local mean and $s(x, y)$ is the standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Fig. \ref{Niblack_th}.
 
-\begin{equation}
-T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
-\end{equation}
+%\subsubsection{Adaptive Mean Thresholding}
+%In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method can be seen in Fig. \ref{Adaptive mean thresholding}.
 
-Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of standard deviation. $R$ = 128 with 8-bit gray scale images. Window size for computation of $m$ and $s$ is user defined. This method is computationally efficient and relatively works well on noisy and blurred documents \cite{szegedy_going_2015}. This method performs over-segmentation which means that it shows there are potential craters where there are no actual craters. This method is very sensitive to background features and hence results into over-segmentation. Result of this algorithm can be visualized in Fig. \ref{sauvola thresholding}.
+%\subsubsection{Mean Thresholding}
+%This threshold is simply mean of the gray scale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Fig. \ref{mean_th}.
 
-\subsubsection{Niblack Method}
-This method was proposed by Niblack (1986). Before introduction to this algorithm, global methods were used for image segmentation which are not capable to preserve the minute details of an image during segmentation. Therefore this method was developed to preserve minute details while segmentation. A new concept of local window was introduced. Niblack computes the threshold by calculating local mean and standard deviation of pixels value in a local window confined to an image. See Eq. \ref{ni} for the mathematical representation.
+%\subsubsection{Yen Thresholding}
+%This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Fig. \ref{Yen thresholding}.
 
-\begin{equation}
-T_{d}=m(x, y)+k \times s(x, y)
-\label{ni}
-\end{equation}
-where $m(x, y)$ is local mean and $s(x, y)$ is the standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation is not very different from Sauvola's method as can be viewed in Fig. \ref{Niblack_th}.
+%\subsubsection{Li Thresholding}
+%This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Fig. \ref{Li thresholding}.
 
-\subsubsection{Adaptive Mean Thresholding}
-In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method can be seen in Fig. \ref{Adaptive mean thresholding}.
-
-\subsubsection{Mean Thresholding}
-This threshold is simply mean of the gray scale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Fig. \ref{mean_th}.
-
-\subsubsection{Yen Thresholding}
-This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Fig. \ref{Yen thresholding}.
-
-\subsubsection{Li Thresholding}
-This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Fig. \ref{Li thresholding}.
-
-\subsubsection{Isodata Thresholding}
-Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Fig. \ref{isodata thresholding} shows the outcome of this method.
+%\subsubsection{Isodata Thresholding}
+%Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Fig. \ref{isodata thresholding} shows the outcome of this method.
 
 \subsection{Evaluation Method}
 Precision, recall and the F1-score are chosen to evaluate performance of the algorithm. These are well known evaluation metrics in object detection problem because of taking into consideration not only the true and false positives but also the false negatives. Precision is defined as the percentage of results which are relevant and mathematically written as:
@@ -814,7 +814,7 @@ It is clear that loss would be same even if predictions are $\left[\begin{array}
 \end{comment} 
 
 \section{Experiments}
-The experiments for crater detection are largely performed with u-net based architecture. However, a method of instance segmentation (Mask R-CNN) was also tested. As u-net does not provide the intended output of crater counts and diameters, images are binarized according to various thresholding methods and for final outcome regional proposal algorithm was used on binary images. Hough Circle Transformation (HCT) was also applied to find amount of craters directly from probability maps. Given below is the pipeline of crater detection process and details are discussed in sections given after.
+The experiments for crater detection are largely performed with u-net based architecture. However, a method of instance segmentation (Mask R-CNN) was also tested. As u-net does not provide the intended output of crater counts and diameters, images are binarized according to various thresholding methods and for final outcome regional proposal algorithm was used on binary images. Hough Circle Transformation (HCT) was also applied to find amount of craters directly from probability maps. Given below are layers of the u-net model used for training and generating predictions from the trained version of it.
 
 \begin{table}[H]
 	\centering
@@ -836,7 +836,7 @@ The experiments for crater detection are largely performed with u-net based arch
 	\end{tabular}
 \end{table} 
 
-\subsection{Data Set}
+\subsection{Dataset}
 There are two different datasets taken into account for model evaluation. First dataset which is in the form of gray scale lunar image is taken from LROC archive. Images from this data source are of the size (5064 $\times$ 52224 pixels) with a pixel representing a length of \SI{1.009}{m}. This means processing these images would require a competitive hardware. Also each image in this data has several thousands of craters with sizes ranging from few meters to several kilometers. Keeping in view the size of an image and amount of craters present in an image, it was considered to take one of the image entitled as "M1111897809LE" (can be easily located in LRO database) and crop it into several small images of equal size and width (256 $\times$ 256). This image has solar longitude angle of 52.81\textdegree. This cropping dimension was chosen based upon the ease for annotation process. Smaller image size would mean less craters to annotate in a single image and therefore more number of images in training set which would make data handling such as pre-processing and post-processing simpler. Initially the amount of cropped images were 300 out of which 240 are used for training and 60 are used for validation. For testing additional 20 images are annotated which makes the total annotation of 320 images with craters diameter ranging from \SI{1}{m} to \SI{200}{m}. 
 
 Second dataset is taken from \cite{dino2020} who annotated an LRO gray scale optical lunar image with 21.36\textdegree{} solar longitude angle of the Apollo 17 landing site. The image is of the size 3130 $\times$ 2427 pixels with one pixel representing a length of \SI{0.51}{m}. This image is cropped into several images of the size 256 $\times$ 256 for algorithm's prediction. Tiles of this size are created to align this data with the testing data from the first dataset a part of which was also used for training.
@@ -923,17 +923,52 @@ After training, to get detected craters from raw images, LRO images are split in
 \end{enumerate}
 
 \subsection{Prediction}
-The best checkpoint of trained model is used for prediction on test dataset. In this case the checkpoint with best performance on validation set is considered as the version to be used for prediction on lunar images. First, predictions are performed on the lunar images without histogram equalization. Then lunar images are subjected to CLAHE and predictions are performed once again. The difference in results can be seen in  
+The best checkpoint of trained model is used for prediction on test set. In this case the checkpoint with minimum loss on validation set is the best performing version used for prediction on lunar images. First, predictions are performed on the lunar images without histogram equalization. Then lunar images are subjected to CLAHE and predictions are performed once again. The difference in performance can be viewed in results section.
 
-Predictions yield a probability map of each image in which light pixels depict maximum likelihood and darker ones represents low probability of crater existence. Such heat map of one of the test images is shown in Fig. \ref{otsu thresholding}. Trained model is used for prediction on two testsets. First one is similar to training dataset but test images are not seen by algorithm during training or evaluation. Second testset (geographic location of Apollo 17) is annotated by \cite{dino2020} having a different sun illumination angle than first testset.
-
-Apart from region proposal algorithm, HCT is also used for circle fitting but overall results are poor. It does a reasonable job of detecting some of large or medium-sized craters but overall performance is quite bad. This was also observed in experimentation by \cite{wetzler2005learning}, they compared Hough method's performance to SVM and CSTM. HCT fitting on one of the test images can be visualized in Fig. \ref{hough}.
+Predictions yield a probability map of each image in which light pixels depict maximum likelihood and darker ones represents low probability of crater existence. Such heat map of one of the test images is shown in Fig. \ref{thresholding} (b). Trained model is used for prediction on two testsets. First one is similar to training dataset but test images are not seen by the algorithm during training or evaluation. Second testset is an LRO optical image of the Apollo 17 landing site and is annotated manually for the craters by \cite{dino2020}. This data has a different sun illumination angle than the first testset.
 
 \subsection{Post-processing}
-The resulting predictions from CNN model which are in the form of probability map are post-processed, that means images are first binarized (converted to white and black pixels) by applying various binarization methods which are discussed in binarzation section. This is needed in order to count number of craters and their diameters. Region proposal algorithm proposed by \cite{burger2009principles} is used for finding $x$, $y$ coordinates and diameter of craters along with the location in an image. The age of Apollo 17 region is already known. Therefore by identifying CSFD and crater diameters it is possible to estimate age which is plotted in a log-log plot and can be compared with dating performed by planetary scientists.
+The resulting predictions from u-net model which are in the form of probability map are post-processed, that means images are first binarized (converted to white and black pixels) by applying various binarization methods which are discussed in binarzation section. This is needed in order to count number of craters and their diameters. Region proposal algorithm proposed by \cite{burger2009principles} is used for finding $x$, $y$ coordinates and diameter of craters along with the location in an image. This procedure is repeated for the LRO lunar optical image of Apollo 17 landing site. The age of this lunar region is already known. Therefore, CSFD is computed by extracting craters in combination with the u-net, binarization methods and region proposal algorithm. Then CSFD is plotted against crater diameters in a log-log plot to estimate age by comparison with Neukum's lunar production function.
 
-\subsection{Results and Discussion}
-The intermediate results of final outcome are shown in Figs. \ref{otsu thresholding}, \ref{mean_th}, \ref{Yen thresholding}, \ref{isodata thresholding}, \ref{Niblack_th}, \ref{sauvola thresholding}, \ref{Adaptive mean thresholding} and \ref{Li thresholding}. The probability maps are the prediction of craters from optical input images. Several binarization methods are experimented on probability maps that have different threshold values. These differences can be easily visualized in binary images as varying quantities of white blob type objects.  
+\subsection{Results}
+The trained model is used to generate predictions on both the testsets. The resultant images are in the form of probability map but craters can not be extracted directly from prediction images. One of the such image is shown in Fig. \ref{thresholding}. In order to extract craters, these images are binarized. It is a segmentation such that an image is divided into constituent objects. This process works by finding a threshold value. This value divides an image histogram into two parts. A white part represents the foreground class or craters in this case and black part presents the background class.
+
+Otsu's method determines a threshold value automatically. In probability map of lunar images, the histogram has two peaks. Otsu in simple words takes the approximate middle value of the two peaks. This is unlike a global thresholding where an arbitrary value is normally chosen. This method works on the principle of minimizing the intra-class variance, defined as weighted sum of variances of two classes. Given below is mathematical representation of this method and Fig. \ref{thresholding} (c) shows the outcome.
+
+\begin{equation}
+\sigma_{w}^{2}(t)=\omega_{0}(t) \sigma_{0}^{2}(t)+\omega_{1}(t) \sigma_{1}^{2}(t)
+\end{equation}
+
+Here $\omega_{0}$ and $\omega_{1}$ are the probabilities of two classes which are separated by a threshold $t$. $\sigma_{0}^{2}$ and $\sigma_{1}^{2}$ represents the variances of two classes.
+
+%The intermediate results of final outcome are shown in Fig. \ref{thresholding}. The probability maps are the prediction of craters from optical input images. Several binarization methods are experimented on probability maps that have different threshold values. These differences can be easily visualized in binary images as varying quantities of white blob type objects. 
+
+Mean thresholding as shown in Fig. \ref{thresholding} (d) is computed by taking mean of the gray scale values of the prediction image (Fig. \ref{thresholding} (b)). In this method all the values higher than this mean (which is a float number) are considered to be foreground and rest is background.
+
+Yen's thresholding method is based on the consideration of two factors. One is the variance between the thresholded and the original image. Second one is the number of bits required to represent the thresholded image. Yen proposes a maximum correlation criterion for defining variance and the cost function and takes both of these factors for multilevel thresholding. The threshold values are the identified by minimizing the cost function. For mathematical derivation and further reading of Yen's method, see \cite{yen1995new}. Fig. \ref{thresholding} (e) shows the outcome on the prediction image (Fig. \ref{thresholding} (b)).
+
+Isodata thresholding is histogram based threshold also known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Fig. \ref{thresholding} (f) shows the outcome of this method on the prediction image (Fig. \ref{thresholding} (b)).
+
+Niblack's method was developed to preserve minute details while segmentation. It introduces a concept of local window. This method computes the threshold by calculating local mean and standard deviation of pixel values in a local window confined to an image. See Eq. \ref{ni} for the mathematical representation.
+
+\begin{equation}
+T_{d}=m(x, y)+k \times s(x, y)
+\label{ni}
+\end{equation}
+where $m(x, y)$ is local mean and $s(x, y)$ is the standard deviation and $k$ is an image dependent parameter selected manually by the user (normally -0.2 for dark foreground and +0.2 for dark background). The resulting segmentation performed on Fig. \ref{thresholding} (b) can be viewed in Fig. \ref{thresholding} (g).
+
+Savoula proposed to compute a threshold of a gray scale image at each pixel using:
+
+\begin{equation}
+T=m \times\left[1+k \times\left(\frac{s}{R}-1\right)\right]
+\end{equation}
+
+Here $k$ is user defined parameter, $m$ is mean and $s$ is the local standard deviation computed in a certain window size which is centered on current pixel and $R$ is the dynamic range of the standard deviation. $R$ = 128 with 8-bit gray scale images. This makes the method sensitive to background features. Result of this algorithm on Fig. \ref{thresholding} (b) can be visualized in Fig. \ref{thresholding} (h).
+
+In adaptive mean thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This method is implemented in OpenCV python library. Outcome of this method on Fig. \ref{thresholding} (b) can be seen in Fig. \ref{thresholding} (i).
+
+Li's method is based on minimum cross entropy. It select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Application of this method on Fig. \ref{thresholding} (b) can be seen in Fig. \ref{thresholding} (j).
+
 
 \begin{figure}[H]
 	\begin{subfigure}{5cm}
@@ -982,6 +1017,8 @@ The intermediate results of final outcome are shown in Figs. \ref{otsu threshold
 		\includegraphics[width=4cm]{files/results/li.png}
 		\caption{Li}\hfill
 	\end{subfigure}
+\caption{(a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.}
+\label{thresholding}
 	
 \end{figure}
 
