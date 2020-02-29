@@ -936,68 +936,56 @@ The resulting predictions from CNN model which are in the form of probability ma
 The intermediate results of final outcome are shown in Figs. \ref{otsu thresholding}, \ref{mean_th}, \ref{Yen thresholding}, \ref{isodata thresholding}, \ref{Niblack_th}, \ref{sauvola thresholding}, \ref{Adaptive mean thresholding} and \ref{Li thresholding}. The probability maps are the prediction of craters from optical input images. Several binarization methods are experimented on probability maps that have different threshold values. These differences can be easily visualized in binary images as varying quantities of white blob type objects.  
 
 \begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/otsu.png}
-	\caption{Otsu thresholding. Right image is the thresholded image of the prediction result. Left is the actual input image.}
-	\label{otsu thresholding}
+	\begin{subfigure}{5cm}
+		\centering\includegraphics[width=4cm]{files/results/26.png}\hfill
+		\caption{Lunar optical image}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering\includegraphics[width=4cm]{files/results/26_predict.png}\hfill
+		\caption{Prediction of (a)}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering\includegraphics[width=4cm]{files/results/otsu.png}\hfill
+		\caption{Otsu}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering\includegraphics[width=4cm]{files/results/mean.png}\hfill
+		\caption{Mean}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering
+		\includegraphics[width=4cm]{files/results/yen.png}
+		\caption{Yen}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering
+		\includegraphics[width=4cm]{files/results/isodata.png}
+		\caption{Isodata}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering
+		\includegraphics[width=4cm]{files/results/niblack.png}
+		\caption{Niblack}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering
+		\includegraphics[width=4cm]{files/results/sauvola.png}
+		\caption{Sauvola}\hfill
+	\end{subfigure}
+	\begin{subfigure}{5cm}
+		\centering
+		\includegraphics[width=4cm]{files/results/adaptiveMean_mean.png}
+		\caption{Adaptive Mean}\hfill
+	\end{subfigure}
+	\begin{subfigure}[b]{1.0\textwidth}
+		\centering
+		\includegraphics[width=4cm]{files/results/li.png}
+		\caption{Li}\hfill
+	\end{subfigure}
+	
 \end{figure}
 
-\begin{figure*}[ht!]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/mean.png}
-	\caption{Mean thresholding.}
-	\label{mean_th}
-\end{figure*}
 
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/yen.png}\hfill
-	\caption{Yen thresholding.}
-	\label{Yen thresholding}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/isodata.png}\hfill
-	\caption{Isodata thresholding.}
-	\label{isodata thresholding}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/niblack.png}
-	\caption{Niblack thresholding.}
-	\label{Niblack_th}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/sauvola.png}
-	\caption{Sauvola thresholding}
-	\label{sauvola thresholding}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/adaptiveMean_mean.png}\hfill
-	\caption{Adaptive mean thresholding.}
-	\label{Adaptive mean thresholding}
-\end{figure}
-
-\begin{figure}[H]
-	\includegraphics[width=.3\textwidth]{files/results/26.png}\hfill	
-	\includegraphics[width=.3\textwidth]{files/results/26_predict.png}\hfill
-	\includegraphics[width=.3\textwidth]{files/results/li.png}\hfill
-	\caption{Li thresholding.}
-	\label{Li thresholding}
-\end{figure}
 
 \begin{table}[H]
 	\centering
