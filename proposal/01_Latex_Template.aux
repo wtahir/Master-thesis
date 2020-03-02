@@ -121,9 +121,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Binarization Methods}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Evaluation Method}{17}}
 \newlabel{precision}{{5}{17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Histogram of an image before contrast limited adaptive histogram equilization\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Left is the LRO optical image tile ($256 \times 256$ pixels) of Apollo 17 landing site. Figure on the right is the histogram of left image.\relax }}{18}}
 \newlabel{hist}{{5}{18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Histogram of an image after contrast limited adaptive histogram equilization\relax }}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Left is the result of Fig. \ref  {hist} after application of CLAHE. Figure on the right shows the histogram of image on the left.\relax }}{18}}
 \newlabel{clahe}{{6}{18}}
 \newlabel{recall}{{6}{18}}
 \citation{emami2015automatic}
@@ -197,18 +197,24 @@
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces F1 scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained after using CLAHE on input images.\relax }}{34}}
 \newlabel{dino}{{4}{34}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces F1 scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained without application of CLAHE to input images.\relax }}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement from resultant threshold values at 10\% intervals.\relax }}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement by 10\% interval from their default threshold values.\relax }}{36}}
 \newlabel{thresh_methods}{{15}{36}}
-\citation{wetzler2005learning}
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Five stitched tiles ($256 \times 256$) of LRO optical images belonging to Apollo 17 landing site.\relax }}{37}}
 \newlabel{original}{{16}{37}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Prediction result of Fig.\ref  {original}. Stitching them together shows the presence of border artifacts.\relax }}{37}}
 \newlabel{artifacts}{{17}{37}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Hough circle fitting on Fig. \ref  {artifacts}.\relax }}{37}}
 \newlabel{hough_stitched}{{18}{37}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Dating Lunar Surface}{37}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Three stitched tiles ($256 \times 256$ pixel each tile) of LRO optical image of Apollo 17 landing site. This image has some of the worn out craters.\relax }}{37}}
+\newlabel{big}{{19}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Prediction tiles of Fig. \ref  {big} stitched together (each tile of $256 \times 256$ pixels). It shows that worn out craters are missed by the u-net.\relax }}{37}}
+\newlabel{pr}{{20}{37}}
+\citation{wetzler2005learning}
 \citation{dino2020}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Binarization of Fig. \ref  {pr} by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.\relax }}{38}}
+\newlabel{otsu_pr}{{21}{38}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Dating Lunar Surface}{38}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{38}}
 \bibstyle{apalike}
 \bibdata{mybib}
 \bibcite{ali2019automated}{Ali-Dib et~al., 2019}

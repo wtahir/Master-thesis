@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  1 MAR 2020 20:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  2 MAR 2020 02:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2093,6 +2093,23 @@ File: files/results/with_circles.png Graphic file (type png)
 Package pdftex.def Info: files/results/with_circles.png  used on input line 114
 4.
 (pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
+<files/results/big_crater.png, id=436, 770.88pt x 256.96pt>
+File: files/results/big_crater.png Graphic file (type png)
+<use files/results/big_crater.png>
+Package pdftex.def Info: files/results/big_crater.png  used on input line 1151.
+
+(pdftex.def)             Requested size: 227.61935pt x 71.13275pt.
+<files/results/exp.png, id=437, 765.86125pt x 250.9375pt>
+File: files/results/exp.png Graphic file (type png)
+<use files/results/exp.png>
+Package pdftex.def Info: files/results/exp.png  used on input line 1158.
+(pdftex.def)             Requested size: 227.62158pt x 71.1312pt.
+<files/results/otsu_projection.png, id=438, 765.86125pt x 250.9375pt>
+File: files/results/otsu_projection.png Graphic file (type png)
+<use files/results/otsu_projection.png>
+Package pdftex.def Info: files/results/otsu_projection.png  used on input line 
+1165.
+(pdftex.def)             Requested size: 227.62158pt x 71.1312pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2101,15 +2118,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [37 <./files/results/hcon_thesis-1_original.png> <./files/results/hcon_thesis-1
-.png> <./files/results/with_circles.png (PNG copy)>]
-Excluding 'comment' comment.
+.png> <./files/results/with_circles.png (PNG copy)> <./files/results/big_crater
+.png> <./files/results/exp.png>] Excluding 'comment' comment.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38] (./01_Latex_Template.bbl
+[38 <./files/results/otsu_projection.png (PNG copy)>] (./01_Latex_Template.bbl
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
@@ -2148,10 +2165,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [43] (./01_Latex_Template.aux) ) 
 Here is how much of TeX's memory you used:
- 20024 strings out of 492982
- 377924 string characters out of 6134897
- 426331 words of memory out of 5000000
- 23286 multiletter control sequences out of 15000+600000
+ 20041 strings out of 492982
+ 378364 string characters out of 6134897
+ 426361 words of memory out of 5000000
+ 23301 multiletter control sequences out of 15000+600000
  542718 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,50p,10389b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2172,10 +2189,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on 01_Latex_Template.pdf (44 pages, 2666270 bytes).
+Output written on 01_Latex_Template.pdf (44 pages, 2822262 bytes).
 PDF statistics:
- 515 PDF objects out of 1000 (max. 8388607)
+ 518 PDF objects out of 1000 (max. 8388607)
  193 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 

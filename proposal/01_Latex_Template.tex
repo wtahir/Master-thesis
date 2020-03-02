@@ -526,11 +526,11 @@ By using CLAHE, the image is divided into small blocks also called tiles (functi
 \begin{figure*}[ht!]
 	\includegraphics[width=.4\textwidth]{files/unet/IMG-0.png}
 	\includegraphics[width=.6\textwidth]{files/unet/0_hist.eps}
-	\caption{Histogram of an image before contrast limited adaptive histogram equilization}
+	\caption{Left is the LRO optical image tile ($256 \times 256$ pixels) of Apollo 17 landing site. Figure on the right is the histogram of left image.}
 	\label{hist}
 	\includegraphics[width=.4\textwidth]{files/unet/0_clahe.png}
 	\includegraphics[width=.6\textwidth]{files/unet/0_hist_clahe.eps}
-	\caption{Histogram of an image after contrast limited adaptive histogram equilization}
+	\caption{Left is the result of Fig. \ref{hist} after application of CLAHE. Figure on the right shows the histogram of image on the left.}
 	\label{clahe}
 \end{figure*}
 
@@ -1085,10 +1085,10 @@ Table. \ref{mine} shows the F1-score on 20 test images taken out from the same d
 	\begin{tabular}{l|l|l|l|}
 		\cline{2-4}
 		\multicolumn{1}{c|}{}         & Precision & Recall & F1-score \\ \hline
-		\multicolumn{1}{|l|}{Otsu}    & 57.8      & 49.4   & 53.3     \\ \hline
-		\multicolumn{1}{|l|}{Isodata} & 53.9      & 48.0   & 50.7     \\ \hline
-		\multicolumn{1}{|l|}{Li}      & 42.1      & 59.0   & 49.1     \\ \hline
-		\multicolumn{1}{|l|}{Yen}     & 32.2      & 48.3   & 38.6     \\ \hline
+		\multicolumn{1}{|l|}{Otsu}    & 50.8      & 42.4   & 46.2     \\ \hline
+		\multicolumn{1}{|l|}{Isodata} & 46.9      & 41.0   & 43.7     \\ \hline
+		\multicolumn{1}{|l|}{Li}      & 35.1      & 44.0   & 39.0     \\ \hline
+		\multicolumn{1}{|l|}{Yen}     & 25.2      & 39.1   & 30.6     \\ \hline
 	\end{tabular}
 \end{table}
 
@@ -1121,7 +1121,7 @@ Mask R-CNN which is a deep neural network based architecture was also applied in
 		\caption{Yen}
 	\end{subfigure}
 
-	\caption{Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement from resultant threshold values at 10\% intervals.}
+	\caption{Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement by 10\% interval from their default threshold values.}
 	\label{thresh_methods}
 \end{figure}
 
@@ -1144,6 +1144,27 @@ Mask R-CNN which is a deep neural network based architecture was also applied in
 	\includegraphics[width=.8\textwidth]{files/results/with_circles.png}
 	\caption{Hough circle fitting on Fig. \ref{artifacts}.}
 	\label{hough_stitched}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm, height=2.5cm]{files/results/big_crater.png}
+	\caption{Three stitched tiles ($256 \times 256$ pixel each tile) of LRO optical image of Apollo 17 landing site. This image has some of the worn out craters.}
+	\label{big}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm, height=2.5cm]{files/results/exp.png}
+	\caption{Prediction tiles of Fig. \ref{big} stitched together (each tile of $256 \times 256$ pixels). It shows that worn out craters are missed by the u-net.}
+	\label{pr}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm, height=2.5cm]{files/results/otsu_projection.png}
+	\caption{Binarization of Fig. \ref{pr} by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.}
+	\label{otsu_pr}
 \end{figure}
 
 HCT was also applied for crater detection but the performance is very poor. One of the image is shown with several craters detected by the algorithm but Hough circle method extracted only 4 of them. This phenomena was also observed by \cite{wetzler2005learning}.
