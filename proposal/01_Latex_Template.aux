@@ -181,42 +181,49 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Results}{30}}
 \citation{li1993minimum}
 \newlabel{ni}{{17}{31}}
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces (a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.\relax }}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces (a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. Crater marked in red was not detected by the u-net and crater marked in green was detected but removed by Otsu and Isodata methods. (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.\relax }}{32}}
 \newlabel{thresholding}{{14}{32}}
 \citation{dino2020}
-\citation{badrinarayanan2017segnet}
+\citation{dino2020}
+\citation{dino2020}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces F1-scores on applied binarization methods on lunar crater probability map. First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.\relax }}{33}}
 \newlabel{exp}{{2}{33}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1-scores on testset distribution from dataset split\relax }}{33}}
+\newlabel{mine}{{3}{33}}
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
-\citation{dino2020}
-\citation{dino2020}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1-scores on testset distribution from dataset split\relax }}{34}}
-\newlabel{mine}{{3}{34}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces F1 scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained after using CLAHE on input images.\relax }}{34}}
 \newlabel{dino}{{4}{34}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces F1 scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained without application of CLAHE to input images.\relax }}{34}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement by 10\% interval from their default threshold values.\relax }}{36}}
-\newlabel{thresh_methods}{{15}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement by 10\% interval from their default threshold values.\relax }}{35}}
+\newlabel{thresh_methods}{{15}{35}}
 \citation{dino2020}
 \citation{dino2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Five stitched tiles ($256 \times 256$) of LRO optical images belonging to Apollo 17 landing site.\relax }}{37}}
-\newlabel{original}{{16}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Prediction result of Fig.\ref  {original}. Stitching them together shows the presence of border artifacts.\relax }}{37}}
-\newlabel{artifacts}{{17}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Hough circle fitting on Fig. \ref  {artifacts}.\relax }}{37}}
-\newlabel{hough_stitched}{{18}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces A tile of LRO optical image annotated by \cite  {dino2020}. Image belong to Apollo 17 landing site. It consists of many faded craters.\relax }}{37}}
-\newlabel{big}{{19}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Prediction tiles of Fig. \ref  {big} stitched together (each tile of $256 \times 256$ pixels). It shows that worn out craters are missed by the u-net.\relax }}{37}}
-\newlabel{pr}{{20}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Five stitched tiles ($256 \times 256$) of LRO optical images belonging to Apollo 17 landing site.\relax }}{36}}
+\newlabel{original}{{16}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Prediction result of Fig.\ref  {original}. Stitching them together shows the presence of border artifacts.\relax }}{36}}
+\newlabel{artifacts}{{17}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Hough circle fitting on Fig. \ref  {artifacts}.\relax }}{36}}
+\newlabel{hough_stitched}{{18}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces A tile of LRO optical image annotated by \cite  {dino2020}. Image belong to Apollo 17 landing site. It consists of many faded craters.\relax }}{36}}
+\newlabel{big}{{19}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Prediction tiles of Fig. \ref  {big} stitched together (each tile of $256 \times 256$ pixels). It shows that worn out craters are missed by the u-net.\relax }}{36}}
+\newlabel{pr}{{20}{36}}
 \citation{wetzler2005learning}
 \citation{dino2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Binarization of Fig. \ref  {pr} by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.\relax }}{38}}
-\newlabel{otsu_pr}{{21}{38}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Dating Lunar Surface}{38}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{38}}
+\citation{dino2020}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Binarization of Fig. \ref  {pr} by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.\relax }}{37}}
+\newlabel{otsu_pr}{{21}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.\relax }}{37}}
+\newlabel{mask_rcnn}{{22}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.\relax }}{37}}
+\newlabel{dino_csfd}{{23}{37}}
+\citation{badrinarayanan2017segnet}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Plot on the left shows CSFD computed by \cite  {dino2020} manually on LRO image of Apollo 17 landing site. Plot on the right shows CSFD of predictions of the same image generated by the u-net. Craters on predictions are extracted using Otsu thresholding in combination with region proposal algorithm.\relax }}{38}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{38}}
+\citation{dino2020}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{39}}
 \bibstyle{apalike}
 \bibdata{mybib}
 \bibcite{ali2019automated}{Ali-Dib et~al., 2019}
@@ -234,7 +241,7 @@
 \bibcite{dwibedi2017cut}{Dwibedi et~al., 2017}
 \bibcite{emami2015automatic}{Emami et~al., 2015}
 \bibcite{felzenszwalb2008discriminatively}{Felzenszwalb et~al., 2008}
-\@writefile{toc}{\contentsline {section}{References}{39}}
+\@writefile{toc}{\contentsline {section}{References}{41}}
 \bibcite{finkelsteinautomatic}{Finkelstein et~al., }
 \bibcite{girshick2015fast}{Girshick, 2015}
 \bibcite{girshick_rich_2013}{Girshick et~al., }

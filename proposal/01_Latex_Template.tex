@@ -972,7 +972,7 @@ Li's method is based on minimum cross entropy. It select a threshold that minimi
 
 \begin{figure}[H]
 	\begin{subfigure}{5cm}
-		\centering\includegraphics[width=4cm]{files/results/26.png}\hfill
+		\centering\includegraphics[width=4cm]{files/results/un_detected.png}\hfill
 		\caption{Lunar optical image}\hfill
 	\end{subfigure}
 	\begin{subfigure}{5cm}
@@ -1017,7 +1017,7 @@ Li's method is based on minimum cross entropy. It select a threshold that minimi
 		\includegraphics[width=4cm]{files/results/li.png}
 		\caption{Li}\hfill
 	\end{subfigure}
-\caption{(a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.}
+\caption{(a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. Crater marked in red was not detected by the u-net and crater marked in green was detected but removed by Otsu and Isodata methods.  (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.}
 \label{thresholding}
 	
 \end{figure}
@@ -1043,11 +1043,9 @@ Li's method is based on minimum cross entropy. It select a threshold that minimi
 \label{exp}
 \end{table}
 
-Experimental results given in Table. \ref{exp} are performed on \cite{dino2020} data. The dataset consists of a single image of the size $3130 \times 2427$ pixels and it is cropped into several $256 \times 256$ images for predictions. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. The methods presented in Table. \ref{exp} are applied to convert the probability maps into the binarized images. Then region proposal algorithm is applied to count the number of craters, their $x$ and $y$ coordinates and diameters. Then precision, recall and F1-score is calculated by using Eqs. \ref{precision}, \ref{recall} and \ref{f1}. The experiment presented in Table. \ref{exp} shows the computation of F1-score on several binarization techniques for comparison.
+Experimental results given in Table. \ref{exp} are performed on \cite{dino2020} data. The dataset consists of a single image of the size $3130 \times 2427$ pixels and it is cropped into several $256 \times 256$ tiles for predictions. Then prediction is performed on all the images and resulting predictions are concatenated together in an order similar to the original image. The methods presented in Table. \ref{exp} are applied to convert the probability maps into the binarized images. Then region proposal algorithm is applied to count the number of craters, their $x$, $y$ coordinates and diameters. Then precision, recall and F1-score is calculated by using Eqs. \ref{precision}, \ref{recall} and \ref{f1}. The results presented in Table. \ref{exp} shows the computation of F1-score on several binarization techniques.
 
-It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and Mean but for Otsu and Isodata it decreases slowly by further increasing threshold. Almost all of the thresholding methods result into slightly over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting lower F1-score in comparison.
-
-Relationship between precision and recall of different filters is shown in Fig. \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown in graphs because of their poor performance with respect to F1-scores as shown in Table. \ref{exp}. It is clear that setting a high threshold (the value for Otsu is 99) reduces recall but increases precision. This can be observed from Otsu and Isodata methods as both results into high threshold values close to 100. The difference between recall and  precision is obvious only if the segmenter is strongly over or under splitting \cite{badrinarayanan2017segnet}. In any of the case, only considering precision can be misleading as evaluation metric because it favors under segmentation. Contrary to precision, recall does not favor under or over segmentation, therefore F1-score is taken into account as the evaluation metric for segmentation accuracy. From Fig. \ref{thresh_methods} it can be noted that Otsu and Isodata provides a good trade off between precision and recall thus results into higher F1-score as compared to other methods.
+Relationship between precision and recall of different filters is shown in Fig. \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown in graphs because of their poor performance with respect to F1-scores as shown in Table. \ref{exp}.
  
 \begin{table}[H]
 	\centering
@@ -1063,7 +1061,7 @@ Relationship between precision and recall of different filters is shown in Fig. 
 \label{mine}
 \end{table}
 
-Table. \ref{mine} shows the F1-score on 20 test images taken out from the same dataset used for training. Computation is performed on each image separately then score of all the images is averaged. Given filters are chosen on the basis of experimentation among different filters and their F1 results (provided in Table. \ref{exp}). It can be seen that Otsu has the best precision because of a high threshold value which yields less false positives. High threshold has a drawback of missing small craters which are usually less than 6 pixels and also those which are highly degraded and barely have a shadow. This can be seen by threshold of Li and Yen's method where recall is high but precision is punished. Overall, Otsu outperforms all the other binarization methods.
+Table. \ref{mine} shows the F1-score on 20 test images taken out from the same dataset used for training. Computation is performed on each image separately then score of all the images is averaged. Given filters are chosen on the basis of experimentation among different filters and their F1 results (provided in Table. \ref{exp}).
 
 \begin{table}[H]
 	\centering
@@ -1092,11 +1090,9 @@ Table. \ref{mine} shows the F1-score on 20 test images taken out from the same d
 	\end{tabular}
 \end{table}
 
-Table. \ref{dino} shows F1 results on \cite{dino2020} dataset. It is expected to see low F1-score compared to actual testset because of difference of shade length. Precision has not changed too much but there is a notable decrement in recall score of methods and after analysing images visually, it is concluded that this happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
+Table. \ref{dino} shows F1 results on \cite{dino2020} dataset.
 
-It has been also observed that taking a large image, cropping it into $256 \times 256$, performing predictions and stitching predicted images back together to form the actual image results into low F1-score in comparison to computation on every image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table. \ref{exp} are lower than that in Tables. \ref{mine} and \ref{dino}. It is also observed that cropping a large image and performing predictions on smaller cropped images will result into artifacts when segmented maps are stitched together. These can be visualized in Fig. \ref{artifacts}. Binarization of stitched large image results into addition of false positives because of these artifacts which penalizes F1-score and has been observed in Table. \ref{exp}, therefore it makes more sense to perform image wise binarization and calculate F1-score on single image basis then average the F1-score.
-
-Mask R-CNN which is a deep neural network based architecture was also applied in experimentation. It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. Analysis shows that this happened because of very little training data. Furthermore, lunar craters does not resemble with classes, the algorithm is trained on i.e. COCO or ImageNet dataset. That means Mask-RCNN has to be trained on a large dataset (thousands of images) of lunar optical images. This requires intense amount of labeling craters on thousands of images. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a dataset composed of less than 300 training images.
+Mask R-CNN which is a deep neural network based architecture was also applied in experimentation.
  
 \begin{figure}[H]
 	\begin{subfigure}{7cm}
@@ -1176,8 +1172,45 @@ HCT was also applied for crater detection but the performance is very poor. One 
 %	\label{hough}
 %\end{figure}
 
-\subsection{Dating Lunar Surface}
-Another evaluation is comparison of age with the determined age of crater counted surface by planetary scientists.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=8cm, height=3cm]{files/results/mask.png}
+	\caption{Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.}
+	\label{mask_rcnn}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.5cm, height=6cm]{files/results/dino_csfd.jpg}
+	\caption{Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.}
+	\label{dino_csfd}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=5.5cm, height=7cm]{files/results/dino_csfd.jpg}\hfill
+	\end{subfigure}
+	\begin{subfigure}{7cm}
+		\centering\includegraphics[width=6.5cm, height=7cm]{files/results/csfd.eps}
+
+	\end{subfigure}
+\caption{Plot on the left shows CSFD computed by \cite{dino2020} manually on LRO image of Apollo 17 landing site. Plot on the right shows CSFD of predictions of the same image generated by the u-net. Craters on predictions are extracted using Otsu thresholding in combination with region proposal algorithm.}
+\end{figure}
+
+\section{Discussion}
+The methods of semantic and instance segmentation are applied to create a probability map of craters on the optical lunar images taken by the LRO on two testsets with a different solar angle. It is not possible to detect craters directly from the probability maps, therefore images are binarized using several binarization methods. Then region proposal algorithm is used to extract the amount of craters. The used binarization methods can be viewed in Fig. \ref{thresh_methods}. Fig. \ref{thresh_methods} (a) represents a tile of the lunar optical image of Apollo 17 landing site. The image 
+
+It can be seen that the F1-score increases by increasing threshold for methods like Yen, Li and Mean but for Otsu and Isodata it decreases slowly by further increasing threshold. Almost all of the thresholding methods result into slightly over or under segmentation in the case of crater detection. It can be seen that Otsu and Isodata results into a high threshold value thus by decreasing threshold it is likely that F1-score might increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting lower F1-score in comparison.
+
+It is clear that setting a high threshold (the value for Otsu is 99) reduces recall but increases precision. This can be observed from Otsu and Isodata methods as both results into high threshold values close to 100. The difference between recall and  precision is obvious only if the segmenter is strongly over or under splitting \cite{badrinarayanan2017segnet}. In any of the case, only considering precision can be misleading as evaluation metric because it favors under segmentation. Contrary to precision, recall does not favor under or over segmentation, therefore F1-score is taken into account as the evaluation metric for segmentation accuracy. From Fig. \ref{thresh_methods} it can be noted that Otsu and Isodata provides a good trade off between precision and recall thus results into higher F1-score as compared to other methods.
+
+It can be seen that Otsu has the best precision because of a high threshold value which yields less false positives. High threshold has a drawback of missing small craters which are usually less than 6 pixels and also those which are highly degraded and barely have a shadow. This can be seen by threshold of Li and Yen's method where recall is high but precision is punished. Overall, Otsu outperforms all the other binarization methods.
+
+It is expected to see low F1-score compared to actual testset because of difference of shade length. Precision has not changed too much but there is a notable decrement in recall score of methods and after analysing images visually, it is concluded that this happened mainly because of different sun illumination angle. Otsu once again outperforms other methods including Isodata by a slight margin.
+
+It has been also observed that taking a large image, cropping it into $256 \times 256$, performing predictions and stitching predicted images back together to form the actual image results into low F1-score in comparison to computation on every image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table. \ref{exp} are lower than that in Tables. \ref{mine} and \ref{dino}. It is also observed that cropping a large image and performing predictions on smaller cropped images will result into artifacts when segmented maps are stitched together. These can be visualized in Fig. \ref{artifacts}. Binarization of stitched large image results into addition of false positives because of these artifacts which penalizes F1-score and has been observed in Table. \ref{exp}, therefore it makes more sense to perform image wise binarization and calculate F1-score on single image basis then average the F1-score.
+
+It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. Analysis shows that this happened because of very little training data. Furthermore, lunar craters does not resemble with classes, the algorithm is trained on i.e. COCO or ImageNet dataset. That means Mask-RCNN has to be trained on a large dataset (thousands of images) of lunar optical images. This requires intense amount of labeling craters on thousands of images. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a dataset composed of less than 300 training images.
 
 \section{Conclusion}
 Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. U-Net based architecture was applied to detect craters in optical images taken by Lunar Reconnaissance Orbiter. It is observed that by applying Contrast Limited Adaptive Histogram Equalization (CLAHE) the detection is increased up to 40\%. The resulting probability or heat maps were subjected to several binarization methods to create blobs for the lighter pixels in an image and region proposal algorithm (implemented in skimage, python library) was applied to detect blobs along with their respective diameters. Experiments show that Otsu's binarization method performs best even though Otsu's threshold creates an under-segmentation map. 
