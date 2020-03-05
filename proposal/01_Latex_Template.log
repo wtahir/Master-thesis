@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  4 MAR 2020 19:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  5 MAR 2020 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1840,54 +1840,54 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 <files/results/un_detected.png, id=272, 256.96pt x 256.96pt>
 File: files/results/un_detected.png Graphic file (type png)
 <use files/results/un_detected.png>
-Package pdftex.def Info: files/results/un_detected.png  used on input line 975.
+Package pdftex.def Info: files/results/un_detected.png  used on input line 978.
 
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/26_predict.png, id=273, 256.96pt x 256.96pt>
 File: files/results/26_predict.png Graphic file (type png)
 <use files/results/26_predict.png>
-Package pdftex.def Info: files/results/26_predict.png  used on input line 979.
+Package pdftex.def Info: files/results/26_predict.png  used on input line 982.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/otsu.png, id=274, 256.96pt x 256.96pt>
 File: files/results/otsu.png Graphic file (type png)
 <use files/results/otsu.png>
-Package pdftex.def Info: files/results/otsu.png  used on input line 983.
+Package pdftex.def Info: files/results/otsu.png  used on input line 986.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/mean.png, id=275, 256.96pt x 256.96pt>
 File: files/results/mean.png Graphic file (type png)
 <use files/results/mean.png>
-Package pdftex.def Info: files/results/mean.png  used on input line 987.
+Package pdftex.def Info: files/results/mean.png  used on input line 990.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/yen.png, id=276, 256.96pt x 256.96pt>
 File: files/results/yen.png Graphic file (type png)
 <use files/results/yen.png>
-Package pdftex.def Info: files/results/yen.png  used on input line 992.
+Package pdftex.def Info: files/results/yen.png  used on input line 995.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/isodata.png, id=277, 256.96pt x 256.96pt>
 File: files/results/isodata.png Graphic file (type png)
 <use files/results/isodata.png>
-Package pdftex.def Info: files/results/isodata.png  used on input line 997.
+Package pdftex.def Info: files/results/isodata.png  used on input line 1000.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/niblack.png, id=278, 256.96pt x 256.96pt>
 File: files/results/niblack.png Graphic file (type png)
 <use files/results/niblack.png>
-Package pdftex.def Info: files/results/niblack.png  used on input line 1002.
+Package pdftex.def Info: files/results/niblack.png  used on input line 1005.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/sauvola.png, id=279, 256.96pt x 256.96pt>
 File: files/results/sauvola.png Graphic file (type png)
 <use files/results/sauvola.png>
-Package pdftex.def Info: files/results/sauvola.png  used on input line 1007.
+Package pdftex.def Info: files/results/sauvola.png  used on input line 1010.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/adaptiveMean_mean.png, id=280, 256.96pt x 256.96pt>
 File: files/results/adaptiveMean_mean.png Graphic file (type png)
 <use files/results/adaptiveMean_mean.png>
 Package pdftex.def Info: files/results/adaptiveMean_mean.png  used on input lin
-e 1012.
+e 1015.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 <files/results/li.png, id=281, 256.96pt x 256.96pt>
 File: files/results/li.png Graphic file (type png)
 <use files/results/li.png>
-Package pdftex.def Info: files/results/li.png  used on input line 1017.
+Package pdftex.def Info: files/results/li.png  used on input line 1020.
 (pdftex.def)             Requested size: 113.81102pt x 113.81163pt.
 
 
@@ -1912,7 +1912,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ./files/results/niblack.png (PNG copy)> <./files/results/sauvola.png (PNG copy)
 > <./files/results/adaptiveMean_mean.png (PNG copy)> <./files/results/li.png (P
 NG copy)>]
-Overfull \hbox (8.39517pt too wide) in paragraph at lines 1030--1044
+Overfull \hbox (8.39517pt too wide) in paragraph at lines 1034--1048
  [][] 
  []
 
@@ -1931,7 +1931,7 @@ Package epstopdf Info: Source file: <files/results/otsu.eps>
 (epstopdf)                    size: 11506 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/otsu-eps-con
 verted-to.pdf files/results/otsu.eps>
-(epstopdf)             \includegraphics on input line 1099.
+(epstopdf)             \includegraphics on input line 1096.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1941,10 +1941,10 @@ df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: files/results/otsu-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/otsu-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/otsu-eps-converted-to.pdf  used on input
- line 1099.
+ line 1096.
 (pdftex.def)             Requested size: 213.39566pt x 142.26357pt.
 
-Overfull \hbox (14.22638pt too wide) in paragraph at lines 1099--1100
+Overfull \hbox (14.22638pt too wide) in paragraph at lines 1096--1097
  [][] 
  []
 
@@ -1957,7 +1957,7 @@ Package epstopdf Info: Source file: <files/results/isodata.eps>
 (epstopdf)                    size: 11173 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/isodata-eps-
 converted-to.pdf files/results/isodata.eps>
-(epstopdf)             \includegraphics on input line 1103.
+(epstopdf)             \includegraphics on input line 1100.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1968,10 +1968,10 @@ ed
 File: files/results/isodata-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/isodata-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/isodata-eps-converted-to.pdf  used on in
-put line 1103.
+put line 1100.
 (pdftex.def)             Requested size: 213.39566pt x 142.26357pt.
 
-Overfull \hbox (14.22638pt too wide) in paragraph at lines 1103--1104
+Overfull \hbox (14.22638pt too wide) in paragraph at lines 1100--1101
  [][] 
  []
 
@@ -1983,7 +1983,7 @@ Package epstopdf Info: Source file: <files/results/mean.eps>
 (epstopdf)                    size: 10738 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/mean-eps-con
 verted-to.pdf files/results/mean.eps>
-(epstopdf)             \includegraphics on input line 1107.
+(epstopdf)             \includegraphics on input line 1104.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1993,10 +1993,10 @@ df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: files/results/mean-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/mean-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/mean-eps-converted-to.pdf  used on input
- line 1107.
+ line 1104.
 (pdftex.def)             Requested size: 213.39566pt x 142.26357pt.
 
-Overfull \hbox (14.22638pt too wide) in paragraph at lines 1107--1108
+Overfull \hbox (14.22638pt too wide) in paragraph at lines 1104--1105
  [][] 
  []
 
@@ -2008,7 +2008,7 @@ Package epstopdf Info: Source file: <files/results/li.eps>
 (epstopdf)                    size: 10504 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/li-eps-conve
 rted-to.pdf files/results/li.eps>
-(epstopdf)             \includegraphics on input line 1111.
+(epstopdf)             \includegraphics on input line 1108.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -2018,10 +2018,10 @@ pdfTeX warning: /usr/bin/pdflatex (file ./files/results/li-eps-converted-to.pdf
 File: files/results/li-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/li-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/li-eps-converted-to.pdf  used on input l
-ine 1111.
+ine 1108.
 (pdftex.def)             Requested size: 213.39566pt x 142.26357pt.
 
-Overfull \hbox (14.22638pt too wide) in paragraph at lines 1111--1112
+Overfull \hbox (14.22638pt too wide) in paragraph at lines 1108--1109
  [][] 
  []
 
@@ -2033,7 +2033,7 @@ Package epstopdf Info: Source file: <files/results/yen.eps>
 (epstopdf)                    size: 10521 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/yen-eps-conv
 erted-to.pdf files/results/yen.eps>
-(epstopdf)             \includegraphics on input line 1116.
+(epstopdf)             \includegraphics on input line 1113.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -2043,15 +2043,15 @@ f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: files/results/yen-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/yen-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/yen-eps-converted-to.pdf  used on input 
-line 1116.
+line 1113.
 (pdftex.def)             Requested size: 213.39566pt x 142.26357pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1119
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1116
 []$[]$ $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1098--1119
+Underfull \hbox (badness 10000) in paragraph at lines 1095--1116
 []$ $[]$
  []
 
@@ -2066,7 +2066,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: files/results/hcon_thesis-1_original.png Graphic file (type png)
 <use files/results/hcon_thesis-1_original.png>
 Package pdftex.def Info: files/results/hcon_thesis-1_original.png  used on inpu
-t line 1126.
+t line 1145.
+(pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
+<files/results/hcon_thesis-1.png, id=301, 1284.8pt x 256.96pt>
+File: files/results/hcon_thesis-1.png Graphic file (type png)
+<use files/results/hcon_thesis-1.png>
+Package pdftex.def Info: files/results/hcon_thesis-1.png  used on input line 11
+50.
+(pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
+<files/results/with_circles.png, id=302, 1284.8pt x 256.96pt>
+File: files/results/with_circles.png Graphic file (type png)
+<use files/results/with_circles.png>
+Package pdftex.def Info: files/results/with_circles.png  used on input line 115
+5.
 (pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
 
 
@@ -2078,58 +2090,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [35 <./files/results/otsu-eps-converted-to.pdf> <./files/results/isodata-eps-co
 nverted-to.pdf> <./files/results/mean-eps-converted-to.pdf> <./files/results/li
 -eps-converted-to.pdf> <./files/results/yen-eps-converted-to.pdf>]
-<files/results/hcon_thesis-1.png, id=431, 1284.8pt x 256.96pt>
-File: files/results/hcon_thesis-1.png Graphic file (type png)
-<use files/results/hcon_thesis-1.png>
-Package pdftex.def Info: files/results/hcon_thesis-1.png  used on input line 11
-33.
-(pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
-<files/results/with_circles.png, id=432, 1284.8pt x 256.96pt>
-File: files/results/with_circles.png Graphic file (type png)
-<use files/results/with_circles.png>
-Package pdftex.def Info: files/results/with_circles.png  used on input line 114
-0.
-(pdftex.def)             Requested size: 352.81552pt x 70.5603pt.
 <files/results/dino_marking.png, id=433, 847.165pt x 277.035pt>
 File: files/results/dino_marking.png Graphic file (type png)
 <use files/results/dino_marking.png>
-Package pdftex.def Info: files/results/dino_marking.png  used on input line 114
-7.
+Package pdftex.def Info: files/results/dino_marking.png  used on input line 116
+6.
 (pdftex.def)             Requested size: 227.61298pt x 71.13123pt.
 <files/results/exp.png, id=434, 765.86125pt x 250.9375pt>
 File: files/results/exp.png Graphic file (type png)
 <use files/results/exp.png>
-Package pdftex.def Info: files/results/exp.png  used on input line 1154.
+Package pdftex.def Info: files/results/exp.png  used on input line 1171.
 (pdftex.def)             Requested size: 227.62158pt x 71.1312pt.
 <files/results/otsu_projection.png, id=435, 765.86125pt x 250.9375pt>
 File: files/results/otsu_projection.png Graphic file (type png)
 <use files/results/otsu_projection.png>
 Package pdftex.def Info: files/results/otsu_projection.png  used on input line 
-1161.
+1176.
 (pdftex.def)             Requested size: 227.62158pt x 71.1312pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.0pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[36 <./files/results/hcon_thesis-1_original.png> <./files/results/hcon_thesis-1
-.png> <./files/results/with_circles.png (PNG copy)> <./files/results/dino_marki
-ng.png (PNG copy)> <./files/results/exp.png>]
-<files/results/mask.png, id=440, 468.75125pt x 240.9pt>
+<files/results/mask.png, id=436, 468.75125pt x 240.9pt>
 File: files/results/mask.png Graphic file (type png)
 <use files/results/mask.png>
-Package pdftex.def Info: files/results/mask.png  used on input line 1177.
+Package pdftex.def Info: files/results/mask.png  used on input line 1192.
 (pdftex.def)             Requested size: 227.61588pt x 85.3565pt.
-<files/results/dino_csfd.jpg, id=441, 436.63126pt x 419.5675pt>
+<files/results/dino_csfd.jpg, id=437, 436.63126pt x 419.5675pt>
 File: files/results/dino_csfd.jpg Graphic file (type jpg)
 <use files/results/dino_csfd.jpg>
-Package pdftex.def Info: files/results/dino_csfd.jpg  used on input line 1184.
-(pdftex.def)             Requested size: 156.48756pt x 170.71776pt.
-File: files/results/dino_csfd.jpg Graphic file (type jpg)
-<use files/results/dino_csfd.jpg>
-Package pdftex.def Info: files/results/dino_csfd.jpg  used on input line 1191.
+Package pdftex.def Info: files/results/dino_csfd.jpg  used on input line 1199.
 (pdftex.def)             Requested size: 156.48756pt x 199.16858pt.
 Package epstopdf Info: Source file: <files/results/csfd.eps>
 (epstopdf)                    date: 2020-03-03 17:51:40
@@ -2139,17 +2125,17 @@ Package epstopdf Info: Source file: <files/results/csfd.eps>
 (epstopdf)                    size: 24172 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/csfd-eps-con
 verted-to.pdf files/results/csfd.eps>
-(epstopdf)             \includegraphics on input line 1194.
+(epstopdf)             \includegraphics on input line 1202.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/csfd-eps-converted-to.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<files/results/csfd-eps-converted-to.pdf, id=442, 433.62pt x 289.08pt>
+<files/results/csfd-eps-converted-to.pdf, id=438, 433.62pt x 289.08pt>
 File: files/results/csfd-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/csfd-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/csfd-eps-converted-to.pdf  used on input
- line 1194.
+ line 1202.
 (pdftex.def)             Requested size: 184.9444pt x 199.16986pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2157,15 +2143,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37 <./files/results/otsu_projection.png (PNG copy)> <./files/results/mask.png 
-(PNG copy)> <./files/results/dino_csfd.jpg>]
+[36 <./files/results/hcon_thesis-1_original.png> <./files/results/hcon_thesis-1
+.png> <./files/results/with_circles.png (PNG copy)> <./files/results/mask.png (
+PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38 <./files/results/csfd-eps-converted-to.pdf>]
+[37 <./files/results/dino_marking.png (PNG copy)> <./files/results/exp.png> <./
+files/results/otsu_projection.png (PNG copy)> <./files/results/dino_csfd.jpg> <
+./files/results/csfd-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.0pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[38]
+
+LaTeX Warning: Reference `artifacts' on page 39 undefined on input line 1219.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
@@ -2216,33 +2215,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45] (./01_Latex_Template.aux) ) 
+[45] (./01_Latex_Template.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 20058 strings out of 492982
- 378903 string characters out of 6134897
- 426381 words of memory out of 5000000
- 23315 multiletter control sequences out of 15000+600000
+ 20054 strings out of 492982
+ 378870 string characters out of 6134897
+ 426330 words of memory out of 5000000
+ 23311 multiletter control sequences out of 15000+600000
  542718 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,14n,50p,10389b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-s
-uper-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share
-/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on 01_Latex_Template.pdf (46 pages, 3116040 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfrm1095.pfb>
+Output written on 01_Latex_Template.pdf (46 pages, 3114497 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  201 compressed objects within 3 object streams
