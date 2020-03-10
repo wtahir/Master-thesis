@@ -92,8 +92,8 @@ Felzenszwalb, P., McAllester, D., and Ramanan, D. (2008).
 \newblock In {\em 2008 IEEE conference on computer vision and pattern
   recognition}, pages 1--8. IEEE.
 
-\bibitem[Finkelstein et~al., ]{finkelsteinautomatic}
-Finkelstein, M., Baby, S.~M., and Kitano, H.
+\bibitem[Finkelstein et~al., 2019]{finkelsteinautomatic}
+Finkelstein, M., Baby, S.~M., and Kitano, H. (2019).
 \newblock Automatic lunar crater detection from optical images and elevation
   maps.
 
@@ -103,8 +103,8 @@ Girshick, R. (2015).
 \newblock In {\em Proceedings of the IEEE international conference on computer
   vision}, pages 1440--1448.
 
-\bibitem[Girshick et~al., ]{girshick_rich_2013}
-Girshick, R., Donahue, J., Darrell, T., and Malik, J.
+\bibitem[Girshick et~al., 2014]{girshick_rich_2013}
+Girshick, R., Donahue, J., Darrell, T., and Malik, J. (2014).
 \newblock Rich feature hierarchies for accurate object detection and semantic
   segmentation.
 
@@ -120,10 +120,6 @@ He, K., Gkioxari, G., Doll{\'a}r, P., and Girshick, R. (2017).
 \newblock Mask r-cnn.
 \newblock In {\em Proceedings of the IEEE international conference on computer
   vision}, pages 2961--2969.
-
-\bibitem[He et~al., ]{he_mask_2017}
-He, K., Gkioxari, G., Dollár, P., and Girshick, R.
-\newblock Mask r-{CNN}.
 
 \bibitem[Hiesinger et~al., 2000]{hiesinger2000ages}
 Hiesinger, H., Jaumann, R., Neukum, G., and Head~III, J.~W. (2000).
@@ -297,12 +293,6 @@ St{\"o}ffler, D. and Ryder, G. (2001).
 \newblock Stratigraphy and isotope ages of lunar geologic units: Chronological
   standard for the inner solar system.
 \newblock In {\em Chronology and evolution of Mars}, pages 9--54. Springer.
-
-\bibitem[Szegedy et~al., ]{szegedy_going_2015}
-Szegedy, C., {Wei Liu}, {Yangqing Jia}, Sermanet, P., Reed, S., Anguelov, D.,
-  Erhan, D., Vanhoucke, V., and Rabinovich, A.
-\newblock Going deeper with convolutions.
-\newblock pages 1--9. {IEEE}.
 
 \bibitem[Thoma, 2016]{thoma2016survey}
 Thoma, M. (2016).

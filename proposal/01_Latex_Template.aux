@@ -32,10 +32,9 @@
 \citation{girshick2015fast}
 \citation{girshick2015fast}
 \citation{ren2015faster}
-\citation{he_mask_2017}
-\citation{he_mask_2017}
+\citation{he2017mask}
+\citation{he2017mask}
 \citation{honda2000crater}
-\citation{leroy2001crater}
 \citation{honda2000crater}
 \citation{leroy2001crater}
 \citation{vinogradova2002training}
@@ -72,9 +71,12 @@
 \citation{urbach2009automatic}
 \citation{bandeira2010automatic}
 \citation{ding2011subkilometer}
-\citation{silburt2019lunar}
-\citation{silburt2019lunar}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Crater Detection via Deep Learning}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Verified regions in boxes on a test image \cite  {wetzler2005learning}.\relax }}{10}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{cnn_class}{{1}{10}}
+\citation{silburt2019lunar}
+\citation{silburt2019lunar}
 \citation{silburt2019lunar}
 \citation{silburt2019lunar}
 \citation{cohen2016crater}
@@ -85,9 +87,6 @@
 \citation{emami2015automatic}
 \citation{emami2015automatic}
 \citation{emami2015automatic}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Verified regions in boxes on a test image \cite  {wetzler2005learning}.\relax }}{11}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{cnn_class}{{1}{11}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Left is the Moon DEM sample and middle image shows prediction of craters and right one shows the missing classifications which are marked in red circles \cite  {silburt2019lunar}.\relax }}{11}}
 \newlabel{dem_}{{2}{11}}
 \citation{ali2019automated}
@@ -103,10 +102,11 @@
 \citation{ivanov2002comparison}
 \citation{neukum1994crater}
 \citation{neukum1983meteoritenbombardement}
+\citation{ivanov2002comparison}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.2}Neukum Production Function (NPF)}{13}}
 \citation{ivanov2002comparison}
 \citation{ivanov2002comparison}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces These plots are taken from \cite  {ivanov2002comparison}. It shows the representation of the Hartmann production function (HPF). HPF is a function composed of set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (equation (15)). Lower figure shows the comparison of Neukum (NPF) and Hartmann (HPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D close to \SI {6}{km}. D less than \SI {1}{km} and diameter range between 30-\SI {100}{km}, both production functions outputs similar results. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).\relax }}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces These plots are taken from \cite  {ivanov2002comparison}. It shows the representation of the Hartmann production function (HPF). HPF is a function composed of set of points shown in the plot. Straight lines represent the piece-wise power law fitting to the data (Eq. 1). Lower figure shows the comparison of Neukum (NPF) and Hartmann (HPF) in the R plot representation. The maximum discrepancy between HPF (2) and NPF (3) (roughly a factor of 3) is observed in the diameter bins around D close to \SI {6}{km}. D less than \SI {1}{km} and diameter range between 30-\SI {100}{km}, both production functions outputs similar results. The dashed line 1 represents the approximate saturation level estimated by Hartmann (1995).\relax }}{15}}
 \newlabel{HPF}{{4}{15}}
 \citation{thoma2016survey}
 \citation{duda1972use}
@@ -119,79 +119,79 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Instance Segmentation}{16}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{17}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Binarization Methods}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Evaluation Method}{17}}
-\newlabel{precision}{{5}{17}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Left is the LRO optical image tile ($256 \times 256$ pixels) of Apollo 17 landing site. Figure on the right is the histogram of left image.\relax }}{18}}
 \newlabel{hist}{{5}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Left is the result of Fig. \ref  {hist} after application of CLAHE. Figure on the right shows the histogram of image on the left.\relax }}{18}}
 \newlabel{clahe}{{6}{18}}
-\newlabel{recall}{{6}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Evaluation Method}{18}}
 \citation{emami2015automatic}
 \citation{ronneberger2015u}
 \citation{ronneberger2015u}
+\newlabel{precision}{{5}{19}}
+\newlabel{recall}{{6}{19}}
 \newlabel{f1}{{7}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Model Architecture}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Convolutional Layer}{19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces U-net Architecture \cite  {ronneberger2015u}.\relax }}{20}}
 \newlabel{fig:U-net}{{7}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Convolutional Layer}{20}}
 \newlabel{stride}{{9}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Convolutional Operation\relax }}{20}}
-\newlabel{fig:Convolutional Operation}{{8}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Convolutional Operation\relax }}{21}}
+\newlabel{fig:Convolutional Operation}{{8}{21}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Pooling Layer}{21}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Pooling Operation\relax }}{21}}
 \newlabel{fig:Pooling Operation}{{9}{21}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Activation Functions}{21}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Sigmoid Activation}{21}}
-\citation{krizhevsky2012imagenet}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Sigmoid Activation}{22}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Sigmoid Function\relax }}{22}}
 \newlabel{Sigmoid}{{10}{22}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}ReLU Activation}{22}}
+\citation{krizhevsky2012imagenet}
 \citation{rumelhart1988learning}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}ReLU Activation}{23}}
 \@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces ReLU Function\relax }}{23}}
 \newlabel{relu}{{11}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Backpropagation}{23}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Loss Function}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Backpropagation}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Loss Function}{25}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Binary Cross-Entropy}{25}}
 \newlabel{bce}{{15}{25}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{25}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Layers in u-net\relax }}{25}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Dataset}{25}}
 \citation{dino2020}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Layers in u-net\relax }}{26}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Preparation}{26}}
 \citation{dvornik2019importance}
 \citation{dwibedi2017cut}
 \citation{dvornik2019importance}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Example of cropped images and corresponding labeled images. Annotation is performed using VIA tool\relax }}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Example of annotations performed on cropped images. Annotation is performed using VIA tool.\relax }}{27}}
 \newlabel{an}{{12}{27}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Visualization of binary masks after projection from annotated (json format) images that belong to Figure: \ref  {an}\relax }}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Visualization of binary masks after projection from annotated images that belong to Fig. \ref  {an}.\relax }}{27}}
 \newlabel{mask}{{13}{27}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Data Augmentation}{27}}
-\citation{ronneberger2015u}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Image Normalization}{28}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Training}{28}}
+\citation{ronneberger2015u}
 \citation{reiss1993recognizing}
 \citation{dino2020}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Crater Detection Pipeline}{29}}
 \citation{dino2020}
 \citation{burger2009principles}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Crater Detection Pipeline}{29}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Prediction}{29}}
-\citation{yen1995new}
-\citation{ridler1978picture}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Prediction}{30}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Post-processing}{30}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Results}{30}}
+\citation{yen1995new}
+\citation{ridler1978picture}
 \citation{li1993minimum}
-\citation{emami2015automatic}
 \newlabel{ni}{{17}{31}}
-\citation{dino2020}
-\citation{dino2020}
-\citation{dino2020}
-\citation{dino2020}
+\citation{emami2015automatic}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces F1-scores on applied binarization methods on lunar crater probability map (Apollo 17 landing site). First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.\relax }}{32}}
 \newlabel{exp}{{2}{32}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1-scores on testset distribution from dataset split\relax }}{32}}
-\newlabel{mine}{{3}{32}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces F1-scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained after using CLAHE on input images.\relax }}{32}}
-\newlabel{dino}{{4}{32}}
+\citation{dino2020}
+\citation{dino2020}
+\citation{dino2020}
+\citation{dino2020}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1-scores on testset distribution from training split.\relax }}{33}}
+\newlabel{mine}{{3}{33}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces F1-scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained after using CLAHE on input images.\relax }}{33}}
+\newlabel{dino}{{4}{33}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces F1-scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained without application of CLAHE to input images.\relax }}{33}}
 \newlabel{without_clahe}{{5}{33}}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Image (a) is a $256 \times 256$ tile of lunar optical image taken by LRO of the Apollo 17 landing site. Craters marked in red are not detected by the u-net and craters marked in green are detected but removed in Otsu and Isodata thresholding. (b) shows the prediction (probability map) of (a) by the u-net model. Other figures show the binarization results of thresholding methods.\relax }}{34}}
@@ -214,8 +214,9 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Plot on the left shows CSFD computed by \cite  {dino2020} manually on LRO image of Apollo 17 landing site. Plot on the right shows CSFD of predictions of the same image generated by the u-net. Craters on predictions are extracted using Otsu thresholding in combination with region proposal algorithm.\relax }}{38}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{38}}
 \citation{badrinarayanan2017segnet}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and Future Work}{40}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{40}}
 \citation{dino2020}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{40}}
 \bibstyle{apalike}
 \bibdata{mybib}
 \bibcite{ali2019automated}{Ali-Dib et~al., 2019}
@@ -234,12 +235,11 @@
 \bibcite{emami2015automatic}{Emami et~al., 2015}
 \bibcite{felzenszwalb2008discriminatively}{Felzenszwalb et~al., 2008}
 \@writefile{toc}{\contentsline {section}{References}{42}}
-\bibcite{finkelsteinautomatic}{Finkelstein et~al., }
+\bibcite{finkelsteinautomatic}{Finkelstein et~al., 2019}
 \bibcite{girshick2015fast}{Girshick, 2015}
-\bibcite{girshick_rich_2013}{Girshick et~al., }
+\bibcite{girshick_rich_2013}{Girshick et~al., 2014}
 \bibcite{hartmann1981chronology}{Hartmann, 1981}
 \bibcite{he2017mask}{He et~al., 2017}
-\bibcite{he_mask_2017}{He et~al., }
 \bibcite{hiesinger2000ages}{Hiesinger et~al., 2000}
 \bibcite{honda2000crater}{Honda and Azuma, 2000}
 \bibcite{ivanov2002comparison}{Ivanov, 2002}
@@ -270,7 +270,6 @@
 \bibcite{soderblom1970distribution}{Soderblom, 1970}
 \bibcite{stepinski2009machine}{Stepinski et~al., 2009}
 \bibcite{stoffler2001stratigraphy}{St{\"o}ffler and Ryder, 2001}
-\bibcite{szegedy_going_2015}{Szegedy et~al., }
 \bibcite{thoma2016survey}{Thoma, 2016}
 \bibcite{uijlings2013selective}{Uijlings et~al., 2013}
 \bibcite{urbach2009automatic}{Urbach and Stepinski, 2009}
