@@ -125,12 +125,12 @@
 \newlabel{clahe}{{6}{18}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Evaluation Method}{18}}
 \citation{emami2015automatic}
-\citation{ronneberger2015u}
-\citation{ronneberger2015u}
 \newlabel{precision}{{5}{19}}
 \newlabel{recall}{{6}{19}}
 \newlabel{f1}{{7}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Model Architecture}{19}}
+\citation{ronneberger2015u}
+\citation{ronneberger2015u}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces U-net Architecture \cite  {ronneberger2015u}.\relax }}{20}}
 \newlabel{fig:U-net}{{7}{20}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Convolutional Layer}{20}}
@@ -165,12 +165,12 @@
 \newlabel{an}{{12}{27}}
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Visualization of binary masks after projection from annotated images that belong to Fig. \ref  {an}.\relax }}{27}}
 \newlabel{mask}{{13}{27}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Data Augmentation}{27}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Data Augmentation}{28}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Image Normalization}{28}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Training}{28}}
 \citation{ronneberger2015u}
 \citation{reiss1993recognizing}
 \citation{dino2020}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Training}{29}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Crater Detection Pipeline}{29}}
 \citation{dino2020}
 \citation{burger2009principles}
@@ -181,14 +181,15 @@
 \citation{ridler1978picture}
 \citation{li1993minimum}
 \newlabel{ni}{{17}{31}}
+\citation{dino2020}
 \citation{emami2015automatic}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces F1-scores on applied binarization methods on lunar crater probability map (Apollo 17 landing site). First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.\relax }}{32}}
-\newlabel{exp}{{2}{32}}
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces F1-scores on applied binarization methods on lunar crater probability map (Apollo 17 landing site). First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.\relax }}{33}}
+\newlabel{exp}{{2}{33}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Patch wise mean F1-scores on testset distribution from training split.\relax }}{33}}
 \newlabel{mine}{{3}{33}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces F1-scores on Apollo 17 landing site LRO image, annotated by \cite  {dino2020}. The results are obtained after using CLAHE on input images.\relax }}{33}}
@@ -201,25 +202,26 @@
 \citation{dino2020}
 \citation{dino2020}
 \citation{dino2020}
+\citation{dino2020}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Image (a) shows five stitched tiles ($256 \times 256$) of LRO optical images belonging to Apollo 17 landing site. (b) is the prediction of (a) using u-net and tiles are stitched together in the same order as Fig. (a). (c) shows extracted craters using HCT marked in green with a red dot in the middle.\relax }}{35}}
 \newlabel{hough}{{15}{35}}
 \citation{dino2020}
 \citation{dino2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Relationship between precision and recall on different binarization methods with upto 50\% increment and 50\% decrement by 10\% interval from their default threshold values.\relax }}{36}}
-\newlabel{thresh_methods}{{16}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Fig. (a) shows a tile of LRO optical image annotated by \cite  {dino2020}. This image belong to Apollo 17 landing site. Fig. (b) shows the prediction tiles of Fig. (a) stitched together (each tile of $256 \times 256$ pixels). It shows that a large crater on the left is not detected. Fig. (c) shows binarization of Fig. (a) by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.\relax }}{36}}
+\newlabel{bigcrater}{{16}{36}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.\relax }}{36}}
+\newlabel{mask_rcnn}{{17}{36}}
 \citation{dino2020}
 \citation{dino2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Fig. (a) shows a tile of LRO optical image annotated by \cite  {dino2020}. This image belong to Apollo 17 landing site. Fig. (b) shows the prediction tiles of Fig. (a) stitched together (each tile of $256 \times 256$ pixels). It shows that a large crater on the left is not detected. Fig. (c) shows binarization of Fig. (a) by application of Otsu thresholding then using region proposal algorithm to extract crater diameters with local coordinates.\relax }}{37}}
-\newlabel{bigcrater}{{17}{37}}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Prediction of Mask-RCNN. Instance segmentation on a tile of LRO optical image belonging to Apollo 17 landing site. Each rectangle show a detected crater.\relax }}{37}}
-\newlabel{mask_rcnn}{{18}{37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Relationship between precision and recall on different binarization methods. These values lead to the F1-scores represented in Table. \ref  {exp}.\relax }}{37}}
+\newlabel{thresh_methods}{{18}{37}}
 \citation{dino2020}
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Plot on the left shows CSFD computed by \cite  {dino2020} manually on LRO image of Apollo 17 landing site. Plot on the right shows CSFD of predictions of the same image generated by the u-net. Craters on predictions are extracted using Otsu thresholding in combination with region proposal algorithm.\relax }}{38}}
 \newlabel{age}{{19}{38}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Discussion}{38}}
 \citation{badrinarayanan2017segnet}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and Future Work}{40}}
 \citation{dino2020}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Limitations and Future Work}{41}}
 \@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{41}}
 \bibstyle{apalike}
 \bibdata{mybib}
@@ -238,7 +240,7 @@
 \bibcite{dwibedi2017cut}{Dwibedi et~al., 2017}
 \bibcite{emami2015automatic}{Emami et~al., 2015}
 \bibcite{felzenszwalb2008discriminatively}{Felzenszwalb et~al., 2008}
-\@writefile{toc}{\contentsline {section}{References}{42}}
+\@writefile{toc}{\contentsline {section}{References}{43}}
 \bibcite{finkelsteinautomatic}{Finkelstein et~al., 2019}
 \bibcite{girshick2015fast}{Girshick, 2015}
 \bibcite{girshick_rich_2013}{Girshick et~al., 2014}
