@@ -73,39 +73,67 @@
 \sloppy
 
 \begin{titlepage}
-	\begin{multicols}{2} 
-		\textbf {Technische Universit\"{a}t Berlin}\\
-		Faculty:            \\ Geodesy and Geoinformation Science\\  \\
-		Professor: \\
-		Dr. Martin Kada\\
-		\columnbreak
-		\flushright
-		\includegraphics{files/TU} 
-	\end{multicols}
+%	\begin{multicols}{2} 
+%		\textbf {Technische Universit\"{a}t Berlin}\\
+%		Faculty:            \\ Geodesy and Geoinformation Science\\  \\
+%		Professor: \\
+%		Dr. Martin Kada\\
+%		\columnbreak
+%		\flushright
+%		\includegraphics{files/TU} 
+%	\end{multicols}
 
 	%Absatz
-	\vspace{0.1\textheight}
+%	\vspace{0.1\textheight}
 	
 	%Absatz
-	\begin{verbatim}
- 
- 
- 
-	\end{verbatim}
+
 	\begin{center}
-		\textbf{\Large{Master Thesis: \\[1 cm] Lunar Crater Detection via Deep Learning and its Application for Age Estimation}}
+		\textbf{\LARGE{ Lunar Crater Detection via Deep Learning and its Application for Age Estimation \\[1.2 cm]}}
+		\vspace{1.4cm}
+		\textbf{\large Thesis}\\
+		\vspace{0.2cm}
+		\textbf{\large Submitted to the}\\
+		\vspace{0.2cm}
+		\textbf{\large Institute of Geodesy and Geoinformation Science}\\
+	    \vspace{0.2cm}
+	    \textbf {\large Technische Universit\"{a}t Berlin}\\
+	    \vspace{0.2cm}
+	    \textbf{\large Faculty VI - Planen Bauen Umwelt}\\
+	    	    \vspace{0.8cm}
+	    \textbf{\large In Partial Fulfillment of the}\\
+	    	    	    \vspace{0.2 cm}
+	    \textbf{\large Requirements for the Degree of}\\
+	    	    	    \vspace{1 cm}
+	    \textbf{\Large{Master of Science}}\\
+	    	    	    	    \vspace{2.4 cm}
+	    \textbf{Submitted by}\\
+	    	    \vspace{0.2 cm}
+	    	   \textbf{Waqas Tahir}\\
+	    \vspace{0.2 cm}
+	    \textbf{Matriculation No.: 364181}\\
+	    
+	   	\vspace{1.6 cm}
+	   	\textbf{Examiner}\\
+	   		    	    \vspace{0.2 cm}
+	   	\textbf{Prof. Dr. Martin Kada}\\
+	   		    	    \vspace{0.2 cm}
+	   	\textbf{Dr. Philipp Gl\"{a}ser}\\
+	   		    	    \vspace{0.2 cm}
+	   	\textbf{M.Sc. Amgad Agoub}
+   	    
 	\end{center}
-	\vspace{0.25\textheight}
-	\begin{center}
-		\vspace{0.7cm}
-		\textbf{Author:}\\
-		Tahir, Waqas \\
-	\end{center}
-	\begin{center}	
-		\textbf{Supervisors:}\\
-		Agoub, Amgad\\
-		Gläser, Philipp
-	\end{center}
+%	\vspace{0.25\textheight}
+%	\begin{center}
+%		\vspace{0.7cm}
+%		\textbf{Author:}\\
+%		Tahir, Waqas \\
+%	\end{center}
+%	\begin{center}	
+%		\textbf{Supervisors:}\\
+%		Agoub, Amgad\\
+%		Gläser, Philipp
+%	\end{center}
 	\begin{verbatim}
 	\end{verbatim}
 	\begin{center}
@@ -117,7 +145,12 @@
 %this command is used in order to have every section in a different page, but avoid to use it!
 \newpage 
 
+\begin{abstract}
 
+In the past detection of craters from few meters to kilometer sized diameters has been performed with many techniques which are mainly rule based. In recent years deep learning methods have outperformed previous techniques in object detection. However, the focus largely remained on digital elevation maps to avoid complexion of shadows and back A deep learning architecture is proposed in this thesis for crater detection which is able to detect meter sized craters. 
+\end{abstract}
+
+\newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Table of Contents
@@ -134,59 +167,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse
-
-\section{Deep learning}
-
-
-\par
-
-\section{Supervised learning}
-
-\par
-The weight vector needs to be adjusted. The learning algorithm computes a gradient in the form of a vector for each weight which indicates the increment or decrement in error by increasing tiny amount of weight. The adjustment of weight vector is made in the opposite direction of the gradient vector. \cite{lecun_deep_2015-2}
-
-\par
-A procedure known as stochastic gradient descent is widely used by practitioners. In this procedure an input vector is shown for some examples then outputs, average gradient and errors are computed and weights are adjusted accordingly. This process is iterated for small set of multiple examples taken from training dataset until the average of objective function does not further decrease. After training, the machine's performance ability is measured by feeding a test dataset. This is completely new dataset to machine and it produces sensible outputs from the input that it has not seen during training.
-
-\section{Modern History of Object Detection}
-Object detection has greatly inproved over the last few years. The era of deep learning had a major breakthrough when ~\cite{zhevsky_imagenet_2012} won the ImageNet  \cite{lecun_deep_2015} 
-
-\section{Cut lines}
-Keeping in view the achievements of Mask R-CNN over previously developed algorithms, we decided to test this algorithm on lunar crater dataset. The dataset consists of 4 million images. Figure \ref{fig:Mask R-CNN results on the COCO test set.} shows the result of Mask R-CNN on COCO dataset. Faster R-CNN was extended for pixel level segmentation.
-
-\par
-Machine learning methodology becomes handy over classical object detection approaches when it comes to detecting objects from different datasets on which algorithm was not trained. In classical computer vision methods, the images are needed to be ---------- Machine learning algorithm requires labeling on of the dataset. 
-
-
-\section{Introduction}
-Studying impact craters present a valuable information about the geology of planets and characteristics of the surface.
-
-\par
- Small and shallow craters can be analyzed from the images with high incidence angle (\textgreater70°).
-
-\par
-One single image taken from LRO could have several craters of different diameters. Manual detection takes a lot of time and man power with required skills. In last two decades, detecting craters manually was no longer an optimal solution because of several reasons like as mentioned earlier, manual detection of craters is a laborious work with involvement of man power. Another major drawback is that only qualified individuals can perform detection process. When technology is advanced enough that this laborious task can be handed over to a machine then implementing an algorithm for the automatic detection of craters would not only save time but also dependency on skilled individuals to carry out this task. 
-
-\par
-Earlier this decade, development in computer graphical units made it possible to process big data. This created an opportunity for scientists to test machine learning architectures for object detection. Convolutional neural networks also known as CNNs or ConvNets are an architecture of supervised machine learning model that have proved their success by winning Large Scale Visual Recognition Challenge (ILSVRC-2010) competition which was composed of 1.2 million high-resolution images. \cite{krizhevsky_imagenet_2012} achieved top-1 and top-5 error rates of 37.5\% and 17.0\% respectively. This success gave rise to ConvNets architectures and since then scientists have been working to increase the object classification speed of such algorithms.
-
-The aim is to develop a CNN architect and test its performance on automatically crater presence and edge detection by performing a series of computations. R-CNN (Mask Region Convolutional neural network) was presented in 2017 where the goal was a pixel level classification of each pixel into fixed set of categories. The example image of such method is shown in figure \ref{fig:Mask R-CNN results on the COCO test set.}. Other than CNNs, there is another way to detect an object, YOLO (You Look Only Once) i.e. does not classify objects as accurately as CNN because in YOLO each object in the image is assigned to grid cell that contains the object's midpoint. Each grid detects one object only regardless the number of bounding boxes. It is faster than CNN because it takes object detection as a regression problem to spatially separated bounding boxes and class probabilities associated with it, these classes are predicted with a single neural network in one evaluation. One of the example of YOLO result is also shown in Figure  \ref{fig:YOLO running on sample artwork and natural images from the internet.}.
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/mask_R-CNN/results.jpg}
-	\caption{Mask R-CNN results on the COCO testset.}
-	\label{fig:Mask R-CNN results on the COCO test set.}
-\end{figure} 
-
-\begin{figure}[H]
-	\includegraphics[width=\linewidth]{files/yolo/results.jpg}
-	\caption{YOLO running on sample artwork and natural images from the Internet.}
-	\label{fig:YOLO running on sample artwork and natural images from the internet.}
-\end{figure}
-
-Figure \ref{fig:YOLO running on sample artwork and natural images from the internet.} shows YOLO results on Picasso and People-Art datasets. In this image it can be seen that YOLO has predicted a person as an airplane. Even though it is mostly accurate.
-\fi
 
 \section{Introduction}
 Analysis of the surface of other planets is a source of learning about our own planet. Studying impact craters present a valuable information about the geology of planets and characteristics of the surface. How crater impacts can affect the life on Earth, climatic change globally and possible consequences of extreme environmental disaster. It is a known fact that solid planet surfaces are covered with tremendous amount of craters of various sizes and shapes \cite{melosh1988rocky}. Largely they form as a result of meteoroid impacts and also considered as windows into the interiors of solid planets \cite{honda2000crater}. Computation of crater density has provided a gateway for the establishment of evolution of planet surfaces chronologically \cite{martins2009crater}. This study provides not only the information about geological processes of the planet but also the history of our solar system. Knowledge of the lunar surface features including craters is also vital for safe landing on Moon \cite{ivanov2015probabilistic}. According to geologists, impact craters are one of the major modifying and surface forming processes for other planets and moons of all the planets \cite{koeberl1994african}. Impact craters have also been a useful source of information for planetary scientists in providing the relative age of surfaces. Finding age from crater-counts is a commonly accepted method. Therefore, crater-counts provide a much less expensive way to find out the age of surface as compared to radioactive age-dating. As for the second, a rock sample is needed and age can only be determined for a specific area. Whereas by crater-counts, it is possible to find out the age of a larger area. If the relationship between the crater size and the impact energy is known then craters with larger densities indicate older surfaces \cite{ivanov2002comparison}. Despite the importance of crater and tremendous amount of data available, for decades crater analysis remained dependent on human vision and manual operation \cite{honda2000crater}.
@@ -224,6 +204,7 @@ There are many reasons for usage of CNN to crater detection problem. CNNs have p
 An algorithm based on CNN is trained and tested for lunar crater detection. The inputs are images taken by Lunar Reconnaissance Orbiter irrespective of specific camera limitations. The outcome of this model is a trained version of this model also called as a checkpoint with minimum loss function. This trained model is tested on lunar images which is divided into two groups of testsets, first testset is taken from dataset for training and evaluation split and second is taken from \cite{dino2020} with different sun illumination angle and it yields predictions of craters in those images (pixel wise segmentation of crater in an image). These predictions after post-processing provides the size frequency distribution of craters. In post-processing step, several binarization methods are applied to detect blobs from the segmentation heat map. These methods are analyzed and compared to each with respect to F1-score. This measure is also used to evaluate performance of algorithm. In order to detect craters from blobbed images and their respective diameters Region proposal algorithm was applied. Now with this information a lunar production function is used to plot the age of surface where craters are counted.
 \end{comment}
 
+\newpage
 \section{Related Work}
 \subsection{Object Detection}
 Before wide use of deep learning approaches, different machine learning methods were developed to perform the tasks of object detection. \cite{viola2001rapid} proposed a method which was composed of three key components. First one was to introduce a different image representation called Integral Image to compute rectangle features of the object. The second was an algorithm based on AdaBoost with a purpose to select critical visual features from large amount of data to get a set of classifiers. The third was to combine those classifiers in a cascade to discard the background regions and only compute object-like regions. This algorithm used Haar basis features and it was developed to detect faces.
@@ -617,6 +598,7 @@ In the above equation false negatives are simply missed craters by the algorithm
 
 Hence higher the F1-score better is the performance of algorithm and vice versa. Depending on the type of data and following the experimentation results of \cite{emami2015automatic}, it is chosen that a verified region is a true positive if it has more than 40\% IoU with a ground truth crater; otherwise, it is a false positive. IoU is calculated by the ratio of area of intersection over union.
 
+\newpage
 \section{Model Architecture}
 The model architecture is composed of encoding and decoding paths as shown in the Fig. \ref{fig:U-net}. Like in a typical CNN, the image becomes smaller as a result of convolutional operations. U-net has the same effect and thus left part of this pipeline is also referred to as encoding path. It consists of several convolutional operations such that each of two unpadded convolutional layers with an activation of Rectified Linear Unit (ReLU) are followed by a layer of max pooling of the size $2\times2$. This results into downsampling of the image. During each downsampling step the number of feature channels are doubled as seen in the Fig. \ref{fig:U-net}. This part ends up with a dropout function before it starts expanding.
 
@@ -825,6 +807,7 @@ $$
 It is clear that loss would be same even if predictions are $\left[\begin{array}{llllll}{0.1} & {0.5} & {0.1} & {0.1} & {0.2}\end{array}\right]$ or $\left[\begin{array}{llllll}{0.1} & {0.6} & {0.1} & {0.1} & {0.1}\end{array}\right]$. This is a key feature of multi class cross entropy loss. The value does not depend on how probability is split between incorrect classes, it only penalizes the probability of correct class. 
 \end{comment} 
 
+\newpage
 \section{Experiments}
 The experiments for crater detection are largely performed with u-net based architecture. However, a method of instance segmentation (Mask R-CNN) was also tested. As u-net does not provide the intended output of crater counts and diameters, images are binarized according to various thresholding methods and for final outcome regional proposal algorithm was used on binary images. HCT was also applied to find amount of craters directly from probability maps. Given below are layers of the u-net model used for training and generating predictions from the trained version of it.
 
@@ -1229,6 +1212,7 @@ The detected craters by \cite{dino2020} and the u-net are plotted in Fig. \ref{a
 		\label{age}
 \end{figure}
 
+\newpage
 \section{Discussion}
 The method of semantic segmentation based upon u-net is applied to generate probability distribution of craters on the lunar optical images taken by the LRO on two testsets which are different based upon solar angle and illumination. It is not possible to detect craters directly from the model output which are probability maps, therefore images are binarized using several binarization methods. The used binarization methods can be viewed in Fig. \ref{thresholding}. Fig. \ref{thresholding} (a) represents a tile of the lunar optical image of Apollo 17 landing site. This dataset is annotated by \cite{dino2020} and is used as a testset for the evaluation of u-net model. The probability map of this image as shown in Fig. \ref{thresholding} (b) is acquired after application of CLAHE. Bright blobs in the prediction image shows the likelihood of a crater. By observing Fig. \ref{thresholding} (a), it is obvious that partially faded out craters have less likelihood in the prediction map. In Otsu thresholding the value is calculated by taking the two peaks of an image then taking a middle value. That is, all the dark and white pixels are grouped in two histograms and the approximate middle value is taken as the thresholding value. That is why some of the craters with little likelihood or low brightness are omitted out with this threshold. Other methods except Isodata mainly result into over segmentation because of lower threshold values with reference to Otsu. In the case of Niblack and Sauvola's method the thresholding value is 17 and 27 respectively out of the total range which is 0 to 255 pixel values. Lowering thresholding creates over segmentation problem as many blobs end up combined together and a slight noise in the prediction map is also considered as a crater as seen in Fig. \ref{thresholding} (g) and (h). Background terrain features contribute to noise in the prediction map which falls in the pixel values close to threshold of Niblack and Sauvola's method. That is why these methods count background features as craters which results into low precision and therefore low F1-score. Mean, Yen and Li's method have threshold values in the range of 45 to 50 pixels with mean's method having value of 45. Because of that, mean has more blobs than the other two methods. As the name suggests, mean thresholding is simply the mean of an entire probability map. As there is more background class than foreground class, hence there are more dark pixels which result into low value of 45.
 
@@ -1248,6 +1232,7 @@ It is also observed that cropping a large image and performing predictions on sm
 
 Mask-RCNN was also used in experimentation for instance segmentation of lunar craters. Fig. \ref{mask_rcnn} shows the outcome on LRO image of Apollo 17 landing site. It is observed that performance of this architecture was poor despite of huge success on several types of object classification and instance segmentation problems. Through experimentation, it is found that this happened because of little training data. Mask-RCNN is a deep neural network with many layers for features extraction which is trained on thousands of images for generating prediction with proven accuracy record. Furthermore, lunar craters does not resemble with classes the algorithm is trained on i.e. COCO or ImageNet dataset. That means Mask-RCNN has to be trained on a large dataset of lunar optical images. This requires intense amount of labeling craters on thousands of lunar images. Moreover, the complexity of craters in optical images with shades on one side makes it difficult for such a deep architecture to learn from a dataset composed of less than 300 training images.
 
+\newpage
 \section{Limitations and Future Work}
 A deep learning model based on the u-net with a small dataset has been proven effective as compared to instance segmentation model Mask-RCNN. Obviously u-net only performs semantic segmentation which means all the craters inside a crater or overlapping craters are counted as one. The performance of crater detection deep learning algorithm can be potentially improved in the following ways.
 
@@ -1259,6 +1244,7 @@ A deep learning model based on the u-net with a small dataset has been proven ef
 \item For instance segmentation a larger dataset (i.e. $>$ 300 images) can be tested on Mask-RCNN and most likely with increase in data the performance of Mask-RCNN will also improve. With a small dataset few crater instances were already detected as shown in Fig. \ref{mask_rcnn}. Moreover, it has already shown potential by showing  on DEMs as discussed in the 'Related Work' section.
 \end{enumerate}
 
+\newpage
 \section{Conclusion}
 Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. Traditional crater detection methods composed of CDAs, GHT and CSTM along with machine learning methods such as SVM have been in practice largely till recent years. Deep learning methods have got an attention of planetary science community following the success in object detection competitions. These techniques have outperformed other traditional crater detection methods. Largely the experimentation regarding these techniques is carried out on the DEMs as crater features are not as complex as in optical images which have a shadow on one side and sun illumination on the other.
 
