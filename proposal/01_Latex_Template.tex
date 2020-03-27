@@ -120,7 +120,7 @@
 	   		    	    \vspace{0.2 cm}
 	   	\textbf{Dr. Philipp Gl\"{a}ser}\\
 	   		    	    \vspace{0.2 cm}
-	   	\textbf{M.Sc. Amgad Agoub}
+	   	\textbf{M.Sc. Amgad Agoub}\\
    	    
 	\end{center}
 %	\vspace{0.25\textheight}
@@ -135,7 +135,8 @@
 %		Gläser, Philipp
 %	\end{center}
 	\begin{verbatim}
-	\end{verbatim}
+\end{verbatim}
+\vspace{0.5 cm}
 	\begin{center}
 		\today
 	\end{center}
@@ -147,7 +148,9 @@
 
 \begin{abstract}
 
-In the past detection of craters from few meters to kilometer sized diameters has been performed with many techniques which are mainly rule based. In recent years deep learning methods have outperformed previous techniques in object detection. However, the focus largely remained on digital elevation maps to avoid complexion of shadows and back A deep learning architecture is proposed in this thesis for crater detection which is able to detect meter sized craters. 
+Impact craters are one of the most important features of a planet that provides information about the geology of a planetary surface. Counting craters also provide an economical way to estimate the age of a planetary surface. In the past detection of craters with diameter range from few meters to kilometers was performed with many techniques which are mainly rule based. These methods did not achieve a notable performance that is why crater detection and counting largely remained a manual process. In recent years deep learning methods have outperformed previous techniques in object detection. However, the focus largely remained on digital elevation maps (DEMs) of planetary surface to avoid complexion of shadows and background terrain. Using such maps meter sized small craters are mostly undetected. Moreover, it also requires an additional step of pre-processing to convert optical images into DEMs. In this thesis, a deep learning architecture is proposed for crater detection which is able to detect meter sized craters. The model is based on supervised learning, that means a labeled dataset is required to train the algorithm. A relatively small dataset composed of few hundred images was used for network training without the use of transfer learning. The trained model is applied on testset taken from training split as well as a different manually annotated dataset. This dataset belongs to Apollo 17 landing site and has different sun illumination angle on which the algorithm is not trained on. The prediction images are in the form of probability maps. Several binarization methods are applied to extract craters and their performance is compared with one another. Best results were achieved by Otsu's method with an F1-score of 73.8\% on training split and 64.6\% on Apollo 17 landing site image. The age is also plotted on Apollo 17 landing site dataset and compared with the manually counted craters which provides the same age estimation.
+
+
 \end{abstract}
 
 \newpage
