@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  27 MAR 2020 22:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.9)  28 MAR 2020 14:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2003,6 +2003,15 @@ File: files/results/mask.png Graphic file (type png)
 <use files/results/mask.png>
 Package pdftex.def Info: files/results/mask.png  used on input line 1145.
 (pdftex.def)             Requested size: 227.61588pt x 85.3565pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.0pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[41 <./files/results/dino_marking.png (PNG copy)> <./files/results/exp.png> <./
+files/results/otsu_projection.png (PNG copy)>]
 Package epstopdf Info: Source file: <files/results/otsu_roc.eps>
 (epstopdf)                    date: 2020-03-11 15:28:55
 (epstopdf)                    size: 17162 bytes
@@ -2019,7 +2028,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/otsu_roc-eps-converted-
 to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
 wed
-<files/results/otsu_roc-eps-converted-to.pdf, id=321, 433.62pt x 289.08pt>
+<files/results/otsu_roc-eps-converted-to.pdf, id=324, 433.62pt x 289.08pt>
 File: files/results/otsu_roc-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/otsu_roc-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/otsu_roc-eps-converted-to.pdf  used on i
@@ -2046,7 +2055,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/isodata_roc-eps-convert
 ed-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> a
 llowed
-<files/results/isodata_roc-eps-converted-to.pdf, id=322, 433.62pt x 289.08pt>
+<files/results/isodata_roc-eps-converted-to.pdf, id=325, 433.62pt x 289.08pt>
 File: files/results/isodata_roc-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/isodata_roc-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/isodata_roc-eps-converted-to.pdf  used o
@@ -2073,7 +2082,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/mean_roc-eps-converted-
 to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allo
 wed
-<files/results/mean_roc-eps-converted-to.pdf, id=323, 433.62pt x 289.08pt>
+<files/results/mean_roc-eps-converted-to.pdf, id=326, 433.62pt x 289.08pt>
 File: files/results/mean_roc-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/mean_roc-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/mean_roc-eps-converted-to.pdf  used on i
@@ -2100,7 +2109,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/li_roc-eps-converted-to
 .pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
 d
-<files/results/li_roc-eps-converted-to.pdf, id=324, 433.62pt x 289.08pt>
+<files/results/li_roc-eps-converted-to.pdf, id=327, 433.62pt x 289.08pt>
 File: files/results/li_roc-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/li_roc-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/li_roc-eps-converted-to.pdf  used on inp
@@ -2127,7 +2136,7 @@ Package epstopdf Info: Output file is already uptodate.
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/yen_roc-eps-converted-t
 o.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allow
 ed
-<files/results/yen_roc-eps-converted-to.pdf, id=325, 433.62pt x 289.08pt>
+<files/results/yen_roc-eps-converted-to.pdf, id=328, 433.62pt x 289.08pt>
 File: files/results/yen_roc-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/yen_roc-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/yen_roc-eps-converted-to.pdf  used on in
@@ -2149,20 +2158,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[41 <./files/results/dino_marking.png (PNG copy)> <./files/results/exp.png> <./
-files/results/otsu_projection.png (PNG copy)> <./files/results/mask.png (PNG co
-py)>]
-<files/results/dino_csfd.jpg, id=329, 436.63126pt x 419.5675pt>
+[42 <./files/results/mask.png (PNG copy)>]
+<files/results/dino_csfd.jpg, id=333, 436.63126pt x 419.5675pt>
 File: files/results/dino_csfd.jpg Graphic file (type jpg)
 <use files/results/dino_csfd.jpg>
 Package pdftex.def Info: files/results/dino_csfd.jpg  used on input line 1212.
 (pdftex.def)             Requested size: 156.48756pt x 199.16858pt.
 Package epstopdf Info: Source file: <files/results/csfd.eps>
-(epstopdf)                    date: 2020-03-10 20:45:42
-(epstopdf)                    size: 26201 bytes
+(epstopdf)                    date: 2020-03-28 14:09:48
+(epstopdf)                    size: 29684 bytes
 (epstopdf)             Output file: <files/results/csfd-eps-converted-to.pdf>
-(epstopdf)                    date: 2020-03-10 20:50:02
-(epstopdf)                    size: 24044 bytes
+(epstopdf)                    date: 2020-03-28 14:10:31
+(epstopdf)                    size: 31060 bytes
 (epstopdf)             Command: <repstopdf --outfile=files/results/csfd-eps-con
 verted-to.pdf files/results/csfd.eps>
 (epstopdf)             \includegraphics on input line 1215.
@@ -2171,7 +2178,7 @@ Package epstopdf Info: Output file is already uptodate.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./files/results/csfd-eps-converted-to.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<files/results/csfd-eps-converted-to.pdf, id=330, 433.62pt x 289.08pt>
+<files/results/csfd-eps-converted-to.pdf, id=334, 433.62pt x 289.08pt>
 File: files/results/csfd-eps-converted-to.pdf Graphic file (type pdf)
 <use files/results/csfd-eps-converted-to.pdf>
 Package pdftex.def Info: files/results/csfd-eps-converted-to.pdf  used on input
@@ -2183,7 +2190,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42 <./files/results/otsu_roc-eps-converted-to.pdf> <./files/results/isodata_ro
+[43 <./files/results/otsu_roc-eps-converted-to.pdf> <./files/results/isodata_ro
 c-eps-converted-to.pdf> <./files/results/mean_roc-eps-converted-to.pdf> <./file
 s/results/li_roc-eps-converted-to.pdf> <./files/results/yen_roc-eps-converted-t
 o.pdf>]
@@ -2193,15 +2200,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43 <./files/results/dino_csfd.jpg> <./files/results/csfd-eps-converted-to.pdf>
+[44 <./files/results/dino_csfd.jpg> <./files/results/csfd-eps-converted-to.pdf>
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.0pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[44]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
@@ -2222,21 +2222,28 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[47] Excluding 'comment' comment.
+[47]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[48] (./01_Latex_Template.bbl
+[48] Excluding 'comment' comment.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49
+[49] (./01_Latex_Template.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.0pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50
 
 ]
 
@@ -2245,21 +2252,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50]
+[51]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51])
+[52])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.0pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52] (./01_Latex_Template.aux) ) 
+[53] (./01_Latex_Template.aux) ) 
 Here is how much of TeX's memory you used:
  20056 strings out of 492982
  378934 string characters out of 6134897
@@ -2285,10 +2292,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share
 /texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on 01_Latex_Template.pdf (53 pages, 3121266 bytes).
+Output written on 01_Latex_Template.pdf (54 pages, 3129593 bytes).
 PDF statistics:
- 580 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
+ 583 PDF objects out of 1000 (max. 8388607)
+ 218 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  216 words of extra memory for PDF output out of 10000 (max. 10000000)
 
