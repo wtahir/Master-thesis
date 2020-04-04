@@ -216,6 +216,12 @@ Polegubic, D. (2020).
   17 area.
 \newblock {\em Master thesis at the Technical University of Berlin}.
 
+\bibitem[Redmon et~al., 2016]{redmon2016you}
+Redmon, J., Divvala, S., Girshick, R., and Farhadi, A. (2016).
+\newblock You only look once: Unified, real-time object detection.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 779--788.
+
 \bibitem[Reiss, 1993]{reiss1993recognizing}
 Reiss, T.~H. (1993).
 \newblock {\em Recognizing planar objects using invariant image features},

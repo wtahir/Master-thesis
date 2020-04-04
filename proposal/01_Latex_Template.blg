@@ -15,15 +15,17 @@ Repeated entry---line 544 of file mybib.bib
  : @article{martins2009crater
  :                           ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 700 of file mybib.bib
+Warning--I'm ignoring redmon2016you's extra "year" field
+--line 562 of file mybib.bib
+Repeated entry---line 709 of file mybib.bib
  : @article{ding2011subkilometer
  :                              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 719 of file mybib.bib
+Repeated entry---line 728 of file mybib.bib
  : @inproceedings{ronneberger2015u
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 772 of file mybib.bib
+Repeated entry---line 781 of file mybib.bib
  : @article{honda2000crater
  :                         ,
 I'm skipping whatever remains of this entry
@@ -32,45 +34,45 @@ Warning--empty booktitle in dalal2005histograms
 Warning--empty journal in finkelsteinautomatic
 Warning--empty journal in girshick_rich_2013
 Warning--empty journal in sawabe_2006
-You've used 59 entries,
+You've used 60 entries,
             1935 wiz_defined-function locations,
-            811 strings with 14574 characters,
-and the built_in function-call counts, 25581 in all, are:
-= -- 2522
-> -- 1110
-< -- 42
-+ -- 390
-- -- 378
-* -- 2159
-:= -- 4347
-add.period$ -- 178
-call.type$ -- 59
-change.case$ -- 477
-chr.to.int$ -- 59
-cite$ -- 64
-duplicate$ -- 993
-empty$ -- 1739
-format.name$ -- 455
-if$ -- 5062
+            816 strings with 14798 characters,
+and the built_in function-call counts, 26159 in all, are:
+= -- 2581
+> -- 1133
+< -- 43
++ -- 398
+- -- 386
+* -- 2202
+:= -- 4434
+add.period$ -- 181
+call.type$ -- 60
+change.case$ -- 486
+chr.to.int$ -- 60
+cite$ -- 65
+duplicate$ -- 1020
+empty$ -- 1781
+format.name$ -- 464
+if$ -- 5187
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 58
-newline$ -- 293
-num.names$ -- 177
-pop$ -- 459
+missing$ -- 59
+newline$ -- 298
+num.names$ -- 180
+pop$ -- 472
 preamble$ -- 1
-purify$ -- 480
+purify$ -- 489
 quote$ -- 0
-skip$ -- 773
+skip$ -- 794
 stack$ -- 0
-substring$ -- 1772
-swap$ -- 189
-text.length$ -- 21
+substring$ -- 1816
+swap$ -- 199
+text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 350
+type$ -- 356
 warning$ -- 5
-while$ -- 212
+while$ -- 217
 width$ -- 0
-write$ -- 756
+write$ -- 769
 (There were 6 error messages)

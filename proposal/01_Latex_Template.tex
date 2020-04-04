@@ -114,13 +114,13 @@
 	    \textbf{Matriculation No.: 364181}\\
 	    
 	   	\vspace{1.6 cm}
-	   	\textbf{Examiner}\\
+	   	\textbf{Examiners}\\
 	   		    	    \vspace{0.2 cm}
 	   	\textbf{Prof. Dr. Martin Kada}\\
 	   		    	    \vspace{0.2 cm}
 	   	\textbf{Dr. Philipp Gl\"{a}ser}\\
 	   		    	    \vspace{0.2 cm}
-	   	\textbf{M.Sc. Amgad Agoub}\\
+	   	\textbf{Valentina Schmidt}\\
    	    
 	\end{center}
 %	\vspace{0.25\textheight}
@@ -146,11 +146,38 @@
 %this command is used in order to have every section in a different page, but avoid to use it!
 \newpage
 
+	\begin{verbatim}
+\end{verbatim}
+
+\vspace{5 cm}
+First of all I would like to thank Prof. Dr. Martin Kada at the Institute of Geodesy and Geoinformation science for giving me the opportunity to carry out state of the art research in this field.
+
+Special thanks to Dr. Philipp Gl\"{a}ser and M.Sc. Amgad Agoub for their guidance. 
+
+Furthermore, I would also like to thank the support of my family during the this course of study and research. 
+
+\newpage
+
+	\begin{verbatim}
+\end{verbatim}
+
+\vspace{5cm}
+Hereby I declare that I wrote this thesis myself with the help of no more than the mentioned literature and auxiliary means.
+
+\vspace{2 cm}
+
+Berlin, 30.03.2020
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.2cm,height=2cm]{files/sig.png}
+\end{figure} 
+
+\newpage
+
 \begin{abstract}
 	Einschlagkrater sind eines der wichtigsten Merkmale eines Planeten, das Informationen über die Geologie einer Planetenoberfläche liefert. Die Zählung von Kratern bietet auch eine wirtschaftliche Möglichkeit, das Alter einer Planetenoberfläche abzuschätzen. In der Vergangenheit wurden Krater mit Durchmessern von wenigen Metern bis zu Kilometern mit vielen Techniken, die hauptsächlich auf Regeln basieren, entdeckt. Diese Methoden erreichten keine nennenswerte Leistung, weshalb die Kratererkennung und -zählung weitgehend ein manueller Prozess blieb. In den letzten Jahren haben deep learning methoden.  die früheren Techniken bei der Objektdetektion übertroffen. Der Schwerpunkt lag jedoch weiterhin weitgehend auf digitalen Höhenkarten (DEMs) der Planetenoberfläche, um Schatten- und Hintergrund-Terrains zu vermeiden. Mit solchen Karten sind kleine metergroße Krater meist unentdeckt. Darüber hinaus ist ein zusätzlicher Schritt der Vorverarbeitung erforderlich, um optische Bilder in DEMs zu konvertieren. In dieser Arbeit wird eine Deep Learning Architektur für die Kraterdetektion vorgeschlagen, die in der Lage ist, metergroße Krater zu erkennen. Das Modell basiert auf Supervised Learning, d.h. es wird ein markierter Datensatz benötigt, um den Algorithmus zu trainieren. Ein relativ kleiner Datensatz, der aus einigen hundert Bildern besteht, wurde für das Netzwerktraining ohne den Einsatz von Transfer-Learning verwendet. Das trainierte Modell wird sowohl auf einen Testsatz aus dem Trainingssplit,als auch auf einen anderen manuell annotierten Datensatz angewendet. Dieser Datensatz gehört zum Landeplatz von Apollo 17 und hat einen anderen Sonnenbeleuchtungswinkel, auf dem der Algorithmus nicht trainiert wird. Die Vorhersagebilder liegen in Form von Wahrscheinlichkeitskarten vor. Zur Extraktion der Krater werden mehrere Schwellenwertverfahren angewendet und ihre Leistung miteinander verglichen. Die besten Ergebnisse wurden mit der Methode von Otsu mit einem F1-Score von 73,8\% auf dem Trainingssplit und 64,6\% auf dem Bild des Apollo 17-Landeplatzes erzielt. Das Alter wird ebenfalls auf dem Apollo-17-Landestellendatensatz eingezeichnet und mit den manuell gezählten Kratern verglichen, welches die gleiche Altersschätzung ergibt.
 	
 \end{abstract}
-
 \newpage
 
 \begin{abstract}
@@ -232,6 +259,8 @@ R-CNN finds a Region of Interest (RoI) from an image, creating a warped image re
 Fast R-CNN used selective search as a proposal to extract RoI which also had a room for optimization. That lead to further development of Fast R-CNN. The next version of this network is called Faster R-CNN. It uses Regional Proposal Network (RPN) which takes feature maps of an image as an input and generates a set of object proposals \cite{ren2015faster}. Then it gives each one of them the objectness score as output. This process takes place simultaneously. An alternating training procedure was introduced so that RPN and Fast R-CNN can be trained to share convolutional features. Faster R-CNN achieved 70.4\% mAP on PASCAL VOC 2012.
 
 The possibility of locating different objects with bounding boxes lead to a question that if this could be extended to locate exact pixels of each object. This problem is known as instance segmentation and was addressed by the framework introduced by \cite{he2017mask}. The method is called Mask R-CNN. It extends Faster R-CNN by adding a branch of predicting an object mask in parallel along with existing branch for bounding box recognition \cite{he2017mask}. This branch takes input as CNN feature map and outputs matrix with ones and zeros. One, if a pixel belongs to the object and zero otherwise. This output is known as binary mask. Mask R-CNN adds only a small overhead to Faster R-CNN running at five frames per second. It does not loose detection accuracy and has been widely used in computer vision for instance segmentation tasks.
+
+Another architecture which mainly focused on speed rather than accuracy was presented by \cite{redmon2016you}. It is called YOLO (you look only once) and is capable to process images in real time at 45 frames per second. However, as compare to other state of the art it makes more errors. According to the author it is also less likely to predict false positives on background. Furthermore, YOLO showed better performance than R-CNN. There are two more versions released after first YOLO which mainly focus on accuracy.
 
 \subsection{Traditional Crater Detection Methods}
 Experimentation with pattern recognition algorithms showed that it was possible to automate crater detection task. These algorithms originally developed for particle physics, medical imaging or optical character recognition were applied on planetary science problems such as crater detection. Types of identified features were ellipses, circles, ridges and lines etc. One of these methods is Hough Transformation (HT). It was developed originally for high energy physics by Hough in 1959. Later, Generalized Hough Transformation (GHT) methods were developed and applied for crater detection. One of the application of GHT based method was made by \cite{honda2000crater} for selected lunar images taken by Clementine but this method was not validated for scientific use.
@@ -568,16 +597,7 @@ The above mentioned methods are applied and discussed in the 'Experiments' secti
 %In this type of thresholding, algorithm computes the threshold for a pixel on the basis of a small region around it. This results into various thresholds for different regions of the same image. This gives better results for images which are illumination variant. Outcome of this method can be seen in Fig. \ref{Adaptive mean thresholding}.
 
 %\subsubsection{Mean Thresholding}
-%This threshold is simply mean of the gray scale values of an image. All the values higher than this mean (which is a float number) are considered to be foreground and rest is background. Output of this method can be seen in Fig. \ref{mean_th}.
-
-%\subsubsection{Yen Thresholding}
-%This threshold method takes number of bins used to calculate histogram and returns a threshold based on maximum correlation criterion. It was proposed by \cite{yen1995new}. Result can be seen in Fig. \ref{Yen thresholding}.
-
-%\subsubsection{Li Thresholding}
-%This method is based on minimum cross entropy. The idea is to select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Thresholding result is shown in Fig. \ref{Li thresholding}.
-
-%\subsubsection{Isodata Thresholding}
-%Histogram based threshold alo known as inter-means or Ridler-Calvard method. Threshold is computed by separating the image into two groups of pixels. The resultant threshold lies in the midway between mean intensities of these two groups. That is average of the two. It was proposed by \cite{ridler1978picture}. Fig. \ref{isodata thresholding} shows the outcome of this method.
+%This threshold is simply mean of the gray scale values of an image. All the values higher 
 
 \subsection{Evaluation Method}
 Precision, recall and the F1-score are chosen to evaluate performance of the algorithm. These are well known evaluation metrics in object detection problem because of taking into consideration not only the true and false positives but also the false negatives. Precision is defined as the percentage of results which are relevant and mathematically written as:
@@ -971,17 +991,17 @@ In adaptive mean thresholding, algorithm computes the threshold for a pixel on t
 
 Li's method is based on minimum cross entropy. It select a threshold that minimizes cross entropy between thresholded and original image. It was presented by \cite{li1993minimum}. Application of this method on Fig. \ref{thresholding} (b) can be seen in Fig. \ref{thresholding} (j).
 
-The evaluation in terms of F1-scores of the u-net model on the LRO image of Apollo 17 landing site is given in Table. \ref{exp}. The dataset consists of a single image of the size $3130 \times 2427$ pixels which is annotated by \cite{dino2020}. It is cropped into several $256 \times 256$ tiles. Each pixel represents the resolution of \SI{0.51}{m}. Then images are subjected to CLAHE. Prediction is performed on all the images and resulting tiles are stitched together in an order similar to the original image. The binarization methods presented in Table. \ref{exp} are applied to convert the probability maps into the binarized images. Then region proposal algorithm is applied to count the number of craters, their $x$, $y$ coordinates and respective diameters. Many of the outliers are of the diameter of 1 pixel therefore, all the detected craters of 1 pixel ($\SI{0.51}{m}$) are filtered out. Then precision, recall and F1-score is calculated by using Eqs. \ref{precision}, \ref{recall} and \ref{f1} respectively. A crater is considered as a polygon. These polygons are implemented by using shapely, a library of python. Then IoU is computed based on polygons. If the IoU of detected and predicted polygon (crater) is greater than 40\% then it is taken as a true positive. This percentage is taken after the experiments of crater detection presented by \cite{emami2015automatic} and also by visual inspection of craters. This IoU is true for all the scores shown in Tables \ref{mine}, \ref{dino} and \ref{without_clahe}.
+The evaluation in terms of F1-score of the u-net model on the LRO image of Apollo 17 landing site is given in Table. \ref{exp}. The dataset consists of a single image of the size $3130 \times 2427$ pixels which is annotated by \cite{dino2020}. It is cropped into several $256 \times 256$ tiles. Each pixel represents the resolution of \SI{0.51}{m}. Then images are subjected to CLAHE. Prediction is performed on all the images and resulting tiles are stitched together in an order similar to the original image. The binarization methods presented in Table. \ref{exp} are applied to convert the probability maps into the binarized images. Then region proposal algorithm is applied to count the number of craters, their $x$, $y$ coordinates and respective diameters. Many of the outliers are of the diameter of 1 pixel therefore, all the detected craters of 1 pixel ($\SI{0.51}{m}$) are filtered out. Then precision, recall and F1-score is calculated by using Eqs. \ref{precision}, \ref{recall} and \ref{f1} respectively. A crater is considered as a polygon. These polygons are implemented by using shapely, a library of python. Then IoU is computed based on polygons. If the IoU of detected and predicted polygon (crater) is greater than 40\% then it is taken as a true positive. This percentage is taken after the experiments of crater detection presented by \cite{emami2015automatic} and also by visual inspection of craters. This IoU is true for all the scores shown in Tables \ref{mine}, \ref{dino} and \ref{without_clahe}.
 
 The precision, recall and F1-score on 20 test images from the training split are shown in Table. \ref{mine}. The testset is not seen by the u-net and is subjected to CLAHE before performing prediction. F1 computation is performed on each image separately then score of all the images is averaged. Given filters are chosen on the basis of their performance as indicated in the Table. \ref{exp}. Low performing methods according to Table. \ref{exp} are neglected. 
 
 Evaluation metrics shown in Table. \ref{dino} are computed on the LRO image of Apollo 17 landing site. The images are subjected to CLAHE before performing predictions. The annotated data for this testset is taken from \cite{dino2020} who annotated all the craters manually. The evaluation metrics presented in Table. \ref{without_clahe} are calculated without CLAHE. The testset used is the same as used for calculating scores in Table. \ref{dino}. The input images are however not subjected to CLAHE before predictions. The input data used in this table is the same as that of in Table. \ref{dino}.
 
-Relationship in the form of graphical representation between precision and recall of different binarization methods is shown in Fig. \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown because of their poor performance with respect to F1-scores which are calculated in Table. \ref{exp}. Precision and recall are computed using Eqs. \ref{precision} and \ref{recall} respectively.
+Relationship in the form of graphical representation between precision and recall of different binarization methods is shown in Fig. \ref{thresh_methods}. Adaptive Mean, Adaptive Gausssian, Sauvola and Niblack are not shown because of their poor performance with respect to F1-score which are calculated in Table. \ref{exp}. Precision and recall are computed using Eqs. \ref{precision} and \ref{recall} respectively.
 
 \begin{table}[H]
 	\centering
-	\caption{F1-scores on applied binarization methods on lunar crater probability map (Apollo 17 landing site). First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.}
+	\caption{F1-score on applied binarization methods on lunar crater probability map (Apollo 17 landing site). First row shows the percent decrease (indicated with a negative sign) and percent increase of binarization threshold.}
 	\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|}
 		\cline{2-12}
 		& -50 \% & -40 \% & -30 \% & -20 \% & -10 \% & 0\%   & 10\%  & 20\%  & 30\%  & 40\%  & 50\%  \\ \hline
@@ -1000,7 +1020,7 @@ Relationship in the form of graphical representation between precision and recal
 
 \begin{table}[H]
 	\centering
-	\caption{Patch wise mean F1-scores on testset distribution from training split.}
+	\caption{Patch wise mean F1-score on testset distribution from training split.}
 	\begin{tabular}{c|c|c|c|}
 		\cline{2-4}
 		\multicolumn{1}{l|}{}         & Precision & Recall & F1-score \\ \hline
@@ -1014,7 +1034,7 @@ Relationship in the form of graphical representation between precision and recal
 
 \begin{table}[H]
 	\centering
-	\caption{F1-scores on Apollo 17 landing site LRO image, annotated by \cite{dino2020}. The results are obtained after using CLAHE on input images.}
+	\caption{F1-score on Apollo 17 landing site LRO image, annotated by \cite{dino2020}. The results are obtained after using CLAHE on input images.}
 	\begin{tabular}{c|c|c|c|}
 		\cline{2-4}
 		\multicolumn{1}{l|}{}         & Precision & Recall & F1-score \\ \hline
@@ -1028,7 +1048,7 @@ Relationship in the form of graphical representation between precision and recal
 
 \begin{table}[H]
 	\centering
-	\caption{F1-scores on Apollo 17 landing site LRO image, annotated by \cite{dino2020}. The results are obtained without application of CLAHE to input images.}
+	\caption{F1-score on Apollo 17 landing site LRO image, annotated by \cite{dino2020}. The results are obtained without application of CLAHE to input images.}
 	\begin{tabular}{l|l|l|l|}
 		\cline{2-4}
 		\multicolumn{1}{c|}{}         & Precision & Recall & F1-score \\ \hline
@@ -1170,7 +1190,7 @@ The detected craters by \cite{dino2020} and the comparison with u-net are plotte
 		\caption{}
 	\end{subfigure}
 
-	\caption{Relationship between precision and recall on different binarization methods. These values lead to the F1-scores represented in Table. \ref{exp}.}
+	\caption{Relationship between precision and recall on different binarization methods. These values lead to the F1-score represented in Table. \ref{exp}.}
 	\label{thresh_methods}
 \end{figure}
 
@@ -1223,9 +1243,9 @@ The detected craters by \cite{dino2020} and the comparison with u-net are plotte
 \section{Discussion}
 The method of semantic segmentation based upon u-net is applied to generate probability distribution of craters on the lunar optical images taken by the LRO on two testsets which are different based upon solar angle and illumination. It is not possible to detect craters directly from the model output which are probability maps, therefore images are binarized using several binarization methods. The used binarization methods can be viewed in Fig. \ref{thresholding}. Fig. \ref{thresholding} (a) represents a tile of the lunar optical image of Apollo 17 landing site. This dataset is annotated by \cite{dino2020} and is used as a testset for the evaluation of u-net model. The probability map of this image as shown in Fig. \ref{thresholding} (b) is acquired after application of CLAHE. Bright blobs in the prediction image shows the likelihood of a crater. By observing Fig. \ref{thresholding} (a), it is obvious that partially faded out craters have less likelihood in the prediction map. In Otsu thresholding the value is calculated by taking the two peaks of an image then taking a middle value. That is, all the dark and white pixels are grouped in two histograms and the approximate middle value is taken as the thresholding value. That is why some of the craters with little likelihood or low brightness are omitted out with this threshold. Other methods except Isodata mainly result into over segmentation because of lower threshold values with reference to Otsu. In the case of Niblack and Sauvola's method the thresholding value is 17 and 27 respectively out of the total range which is 0 to 255 pixel values. Lowering thresholding creates over segmentation problem as many blobs end up combined together and a slight noise in the prediction map is also considered as a crater as seen in Fig. \ref{thresholding} (g) and (h). Background terrain features contribute to noise in the prediction map which falls in the pixel values close to threshold of Niblack and Sauvola's method. That is why these methods count background features as craters which results into low precision and therefore low F1-score. Mean, Yen and Li's method have threshold values in the range of 45 to 50 pixels with mean's method having value of 45. Because of that, mean has more blobs than the other two methods. As the name suggests, mean thresholding is simply the mean of an entire probability map. As there is more background class than foreground class, hence there are more dark pixels which result into low value of 45.
 
-The F1-scores shown in Table. \ref{exp} are computed on the entire image of Apollo 17 landing site which is stitched from smaller tiles of $256 \times 256$ pixels. It can be observed that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and isodata it decreases slowly by further increasing threshold. Almost all of the thresholding methods result into slightly over or under segmentation in the case of crater detection. As Otsu and isodata have a high threshold value which is 97 and 89 respectively. Thus by decreasing this value, it is likely that F1-score would increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting lower F1-score in comparison with Otsu and isodata. It has been also observed that taking a large image and cropping it into $256 \times 256$ tiles then performing predictions and stitching predicted images back to form the actual image, results into low F1-score in comparison to F1 measured on every single image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table. \ref{exp} are lower than that in Table. \ref{dino} on same dataset (both with CLAHE). This phenomena can be observed in Fig. \ref{bigcrater} where a large crater is divided into different tiles with one having a dark edge and other with the illumination part. However, the entire crater is not detected but the smaller ones inside of it by the u-net model which is most likely because of less illumination even after the application of CLAHE.
+The F1-score shown in Table. \ref{exp} are computed on the entire image of Apollo 17 landing site which is stitched from smaller tiles of $256 \times 256$ pixels. It can be observed that the F1-score increases by increasing threshold for methods like Yen, Li and mean but for Otsu and isodata it decreases slowly by further increasing threshold. Almost all of the thresholding methods result into slightly over or under segmentation in the case of crater detection. As Otsu and isodata have a high threshold value which is 97 and 89 respectively. Thus by decreasing this value, it is likely that F1-score would increase. Rest of the methods results into over segmentation that specially penalizes recall thus resulting lower F1-score in comparison with Otsu and isodata. It has been also observed that taking a large image and cropping it into $256 \times 256$ tiles then performing predictions and stitching predicted images back to form the actual image, results into low F1-score in comparison to F1 measured on every single image separately. This is due to the fact that many of the detected craters are split into half in two images and some are located in such a way that one image has crater shadow and other has illumination. This results into detection of crater on one image but not on the other, which means there is one true positive and one false negative so recall of the two images is 50\% instead of 100\%. That is why scores in Table. \ref{exp} are lower than that in Table. \ref{dino} on same dataset (both with CLAHE). This phenomena can be observed in Fig. \ref{bigcrater} where a large crater is divided into different tiles with one having a dark edge and other with the illumination part. However, the entire crater is not detected but the smaller ones inside of it by the u-net model which is most likely because of less illumination even after the application of CLAHE.
 
-F1-score in Table. \ref{mine} is the highest because of testset which is a training split. U-net is trained on the similar images with respect to solar angle and therefore it is expected that performance on training set is higher than on the Apollo 17 landing site testset. These scores are computed on each image separately and then an average value is taken of all the images. Both precision and recall are computed image wise as well. On the Apollo 17 landing site image the F1-scores shown in Table. \ref{dino} are lower as compared to Table. \ref{mine}. However, in both tables precision has not changed significantly but there is a notable decrement in recall score of methods and after analyzing images, it is concluded that this happened because of different solar angle and illumination on testset of Table. \ref{dino}. Another reason for lower scores is that none of the images with similar solar angles and illumination are used in training of the algorithm. A deep learning model does not perform well like training split testset, on the images which are not used in training of the model. Otsu once again outperforms other methods including isodata by a slight margin.
+F1-score in Table. \ref{mine} is the highest because of testset which is a training split. U-net is trained on the similar images with respect to solar angle and therefore it is expected that performance on training set is higher than on the Apollo 17 landing site testset. These scores are computed on each image separately and then an average value is taken of all the images. Both precision and recall are computed image wise as well. On the Apollo 17 landing site image the F1-score shown in Table. \ref{dino} are lower as compared to Table. \ref{mine}. However, in both tables precision has not changed significantly but there is a notable decrement in recall score of methods and after analyzing images, it is concluded that this happened because of different solar angle and illumination on testset of Table. \ref{dino}. Another reason for lower scores is that none of the images with similar solar angles and illumination are used in training of the algorithm. A deep learning model does not perform well like training split testset, on the images which are not used in training of the model. Otsu once again outperforms other methods including isodata by a slight margin.
 
 Evaluation metrics shown in Table. \ref{without_clahe} are lower than Table. \ref{mine} and \ref{dino} because of zero contrast enhancement. The input images used to compute scores are same for all these tables but without enhancing local contrast the difference between illumination and shade is little. This makes model to learn slow and with limited amount of training data, the performance is poor on images without CLAHE.
 
@@ -1248,7 +1268,7 @@ A deep learning model based on the u-net with a small dataset has been proven ef
 \item Increasing the amount of training data. This is likely to increase the performance of the u-net model for semantic segmentation task.
 \item Usage of CLAHE in data augmentation will remove this step from the post-processing which will shorten the post-processing step. Moreover, it is possible that performance of model might also increase due to variation in data.
 \item Usage of optical images for training with several different solar angles. Trained model with such several variations in the shadow length and sun illumination will increase the prediction ability of model on any satellite lunar optical images.
-\item The precision, recall and F1-scores can be improved by changing the model structure to be trained on larger images. Hence, a large image can be predicted at once rather than prediction on smaller image tiles and stitching them together.
+\item The precision, recall and F1-score can be improved by changing the model structure to be trained on larger images. Hence, a large image can be predicted at once rather than prediction on smaller image tiles and stitching them together.
 \item For instance segmentation a larger dataset (i.e. $>$ 300 images) can be tested on Mask-RCNN and most likely with increase in data the performance of Mask-RCNN will also improve. With a small dataset few crater instances were already detected as shown in Fig. \ref{mask_rcnn}. Moreover, it has already shown potential by showing  on DEMs as discussed in the 'Related Work' section.
 \end{enumerate}
 
@@ -1256,7 +1276,7 @@ A deep learning model based on the u-net with a small dataset has been proven ef
 \section{Conclusion}
 Crater automation can be challenging because of variability in appearance of craters and surrounding terrain. Traditional crater detection methods composed of CDAs, GHT and CSTM along with machine learning methods such as SVM have been in practice largely till recent years. Deep learning methods have got an attention of planetary science community following the success in object detection competitions. These techniques have outperformed other traditional crater detection methods. Largely the experimentation regarding these techniques is carried out on the DEMs as crater features are not as complex as in optical images which have a shadow on one side and sun illumination on the other.
 
-For a deep learning algorithm it is necessary to have annotated dataset for training. In case of lunar craters there is not open source availability of such dataset which could be used for training. Therefore, a relatively small dataset is annotated and used for training of a u-net based model. This architecture was selected because of its proven success with little dataset in medical science. Also Mask-RCNN was applied for instance segmentation with the same dataset. In post processing HT was tested along with several binarization methods in terms of precision, recall and F1-scores.
+For a deep learning algorithm it is necessary to have annotated dataset for training. In case of lunar craters there is not open source availability of such dataset which could be used for training. Therefore, a relatively small dataset is annotated and used for training of a u-net based model. This architecture was selected because of its proven success with little dataset in medical science. Also Mask-RCNN was applied for instance segmentation with the same dataset. In post processing HT was tested along with several binarization methods in terms of precision, recall and F1-score.
 
 U-net model was trained on a high resolution optical image tiles taken by LRO. For evaluation it was applied on training split testset and another dataset annotated manually by \cite{dino2020} with a different solar and sun illumination angle. This image belong to Apollo 17 landing site. On the prediction images different binarization methods were applied to extract craters. HT had the worst performance on prediction images. The evaluation on binarized images was performed on images tiles which are stitched together; patch wise evaluation on images and averaging the results; applying CLAHE and without application of CLAHE. It is observed that by applying CLAHE the F1-score increases significantly. All the methods except Otsu and isodata had poor performance which was due to over segmentation. Mask-RCNN was also applied the performance was poor which is because less amount of dataset and it turns out that transfer learning does not help if the data is too different. In result, experimentation with u-net and combination of Otsu thresholding gave the best F1-score of 73\% on training split and 64\% on Apollo 17 landing site image. The age estimation plot also shows that by using this deep learning approach the age estimation is similar to the age predicted on manually annotated dataset. The comparison of both data points using Otsu's filter fall very close to the data points of manual annotations. However, there is a slight difference in the diameters largely because of the overlapping craters.
 

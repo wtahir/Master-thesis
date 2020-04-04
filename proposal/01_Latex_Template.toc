@@ -1,39 +1,39 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Introduction}{4}
-\contentsline {section}{\numberline {2}Related Work}{8}
-\contentsline {subsection}{\numberline {2.1}Object Detection}{8}
-\contentsline {subsection}{\numberline {2.2}Traditional Crater Detection Methods}{10}
-\contentsline {subsection}{\numberline {2.3}Crater Detection via Deep Learning}{13}
-\contentsline {subsection}{\numberline {2.4}Planetary Surface Age Dating}{15}
-\contentsline {subsubsection}{\numberline {2.4.1}Hartmann Production Function (HPF)}{15}
-\contentsline {subsubsection}{\numberline {2.4.2}Neukum Production Function (NPF)}{16}
-\contentsline {section}{\numberline {3}Methods}{19}
-\contentsline {subsection}{\numberline {3.1}Semantic Segmentation}{19}
-\contentsline {subsection}{\numberline {3.2}Hough Circle Transformation}{19}
-\contentsline {subsection}{\numberline {3.3}Instance Segmentation}{19}
-\contentsline {subsection}{\numberline {3.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{20}
-\contentsline {subsection}{\numberline {3.5}Binarization Methods}{20}
-\contentsline {subsection}{\numberline {3.6}Evaluation Method}{21}
-\contentsline {section}{\numberline {4}Model Architecture}{23}
-\contentsline {subsection}{\numberline {4.1}Convolutional Layer}{23}
-\contentsline {subsection}{\numberline {4.2}Pooling Layer}{24}
-\contentsline {subsection}{\numberline {4.3}Activation Functions}{25}
-\contentsline {subsubsection}{\numberline {4.3.1}Sigmoid Activation}{25}
-\contentsline {subsubsection}{\numberline {4.3.2}ReLU Activation}{26}
-\contentsline {subsection}{\numberline {4.4}Backpropagation}{27}
-\contentsline {subsection}{\numberline {4.5}Loss Function}{28}
-\contentsline {subsection}{\numberline {4.6}Binary Cross-Entropy}{28}
-\contentsline {section}{\numberline {5}Experiments}{30}
-\contentsline {subsection}{\numberline {5.1}Dataset}{30}
-\contentsline {subsection}{\numberline {5.2}Data Preparation}{31}
-\contentsline {subsubsection}{\numberline {5.2.1}Data Augmentation}{32}
-\contentsline {subsection}{\numberline {5.3}Image Normalization}{32}
-\contentsline {subsection}{\numberline {5.4}Training}{33}
-\contentsline {subsection}{\numberline {5.5}Crater Detection Pipeline}{33}
-\contentsline {subsection}{\numberline {5.6}Prediction}{34}
-\contentsline {subsection}{\numberline {5.7}Post-processing}{34}
-\contentsline {subsection}{\numberline {5.8}Results}{34}
-\contentsline {section}{\numberline {6}Discussion}{45}
-\contentsline {section}{\numberline {7}Limitations and Future Work}{48}
-\contentsline {section}{\numberline {8}Conclusion}{49}
-\contentsline {section}{References}{50}
+\contentsline {section}{\numberline {1}Introduction}{6}
+\contentsline {section}{\numberline {2}Related Work}{10}
+\contentsline {subsection}{\numberline {2.1}Object Detection}{10}
+\contentsline {subsection}{\numberline {2.2}Traditional Crater Detection Methods}{12}
+\contentsline {subsection}{\numberline {2.3}Crater Detection via Deep Learning}{15}
+\contentsline {subsection}{\numberline {2.4}Planetary Surface Age Dating}{17}
+\contentsline {subsubsection}{\numberline {2.4.1}Hartmann Production Function (HPF)}{17}
+\contentsline {subsubsection}{\numberline {2.4.2}Neukum Production Function (NPF)}{18}
+\contentsline {section}{\numberline {3}Methods}{21}
+\contentsline {subsection}{\numberline {3.1}Semantic Segmentation}{21}
+\contentsline {subsection}{\numberline {3.2}Hough Circle Transformation}{21}
+\contentsline {subsection}{\numberline {3.3}Instance Segmentation}{21}
+\contentsline {subsection}{\numberline {3.4}Contrast Limited Adaptive Histogram Equalization (CLAHE)}{22}
+\contentsline {subsection}{\numberline {3.5}Binarization Methods}{22}
+\contentsline {subsection}{\numberline {3.6}Evaluation Method}{23}
+\contentsline {section}{\numberline {4}Model Architecture}{25}
+\contentsline {subsection}{\numberline {4.1}Convolutional Layer}{25}
+\contentsline {subsection}{\numberline {4.2}Pooling Layer}{26}
+\contentsline {subsection}{\numberline {4.3}Activation Functions}{27}
+\contentsline {subsubsection}{\numberline {4.3.1}Sigmoid Activation}{27}
+\contentsline {subsubsection}{\numberline {4.3.2}ReLU Activation}{28}
+\contentsline {subsection}{\numberline {4.4}Backpropagation}{29}
+\contentsline {subsection}{\numberline {4.5}Loss Function}{30}
+\contentsline {subsection}{\numberline {4.6}Binary Cross-Entropy}{30}
+\contentsline {section}{\numberline {5}Experiments}{32}
+\contentsline {subsection}{\numberline {5.1}Dataset}{32}
+\contentsline {subsection}{\numberline {5.2}Data Preparation}{33}
+\contentsline {subsubsection}{\numberline {5.2.1}Data Augmentation}{34}
+\contentsline {subsection}{\numberline {5.3}Image Normalization}{34}
+\contentsline {subsection}{\numberline {5.4}Training}{35}
+\contentsline {subsection}{\numberline {5.5}Crater Detection Pipeline}{35}
+\contentsline {subsection}{\numberline {5.6}Prediction}{36}
+\contentsline {subsection}{\numberline {5.7}Post-processing}{36}
+\contentsline {subsection}{\numberline {5.8}Results}{36}
+\contentsline {section}{\numberline {6}Discussion}{47}
+\contentsline {section}{\numberline {7}Limitations and Future Work}{50}
+\contentsline {section}{\numberline {8}Conclusion}{51}
+\contentsline {section}{References}{52}
